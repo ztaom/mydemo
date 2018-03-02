@@ -1,0 +1,69 @@
+<style lang="less">
+.drawlist{
+  .item{
+    width: 372rpx; overflow:hidden; height:326rpx; margin-right:6rpx; float:left;
+    .picwrap{
+      height:207rpx; overflow:hidden; margin-bottom:10rpx; position:relative;
+      .playtime{font-size:20rpx; color:#F2F2F2; position:absolute; right:10rpx; bottom:6rpx; z-index:2}
+    }
+    .pic{display:block; width: 100%; height:100%}
+    .vtitle{color:#000; font-size:28rpx; padding-left:18rpx;overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+    .vdec{color:#999; font-size:24rpx;overflow: hidden; text-overflow:ellipsis; white-space: nowrap; padding-left:18rpx;}
+  }
+}
+.vdlist {
+  .item{
+    width: 246rpx; height:490rpx;
+    .picwrap{ height:370rpx; }
+  }
+}
+.gradientbg{background: linear-gradient(-180deg, rgba(0,0,0,0) 5%, rgba(0,0,0,0.7) 99%); height:90rpx; width:100%; position:absolute; bottom:0; z-index:1}
+</style>
+<template>
+  <view class="title"></view>
+  <repeat for="{{items}}">
+    <!-- {{items.img}} -->
+    <!-- {{items.components[0].itemResult.item}} -->
+    <view class="drawlist">
+      <view class="item">
+        <view class="picwrap">
+          <image src="{{items.img}}" class="pic"></image>
+          <text class="playtime" wx:if="{{showTime}}">{{items.summary}}</text>
+          <text class="playtime" wx:else>{{items.summary}}</text>
+          <view class="gradientbg"></view>
+        </view>
+        <view class="vtitle">{{items.title}}</view>
+        <view class="vdec" wx:if="{{showDec}}">{{items.subtitle}}</view>
+        <view class="vdec" wx:else>{{items.playNum}}·{{items.commentNum}}</view>
+      </view>
+    </view>
+  </repeat>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class newDrawList extends wepy.component {
+    props = {
+    }
+    data = {
+    }
+
+    components = {
+    }
+
+    methods = {
+      // jumpToPlay(type, value, videoId, title, e) {
+      //   let vid = value
+      //   if (type === 'JUMP_TO_PLAY_LIST') {
+      //     vid = videoId
+      //   }
+      //   wepy.navigateTo({
+      //     url: `../../play/play?videoId=${vid}&title=${title}`
+      //   })
+      // }
+    }
+
+    onLoad () {
+    }
+  }
+</script>

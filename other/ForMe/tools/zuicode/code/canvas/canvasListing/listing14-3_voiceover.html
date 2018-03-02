@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title>Slides with Voice-Over</title>
+	<!-- Fill the iOS screen /-->
+	<meta name="viewport" content="width=600" />
+	
+<style>
+
+canvas {
+	position:absolute; top:10; left:10;
+}
+
+audio {
+	position: absolute;
+	top: 380;
+	left:160;
+}
+
+</style>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var audio;
+var image;
+var maxSlides = 4;
+var slide = [];
+var voice = [];
+var index = 0;
+var base = "assets/";
+
+function init() {
+	audio = document.getElementById("audio");
+	image = document.getElementById("image");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	for (i=0;i<maxSlides;i++) {
+		// get filenames into JavaScript
+		slide[i] = base + "slides" + i + ".jpg" ;
+		voice[i] = base + "slide" + i + ".mp4";
+		// preload images
+		image.src=slide[i];
+	}
+	// draw initial slide
+	image.src = slide[0];
+	ctx.drawImage(image, 0,0, can.width, can.height);
+	audio.addEventListener("playing", start, false);
+	audio.addEventListener("ended", next, false);
+}
+
+function start() {
+	// respond to playing event only if index = 0
+	if (index==0) {
+		// set index to 1 and show next slide
+		index = 1;
+		image.src = slide[1];
+		ctx.drawImage(image, 0,0, can.width, can.height);
+	}
+}
+
+function next() {
+	// if audio for this slide ended, advance index
+	index++;
+	if (index<maxSlides) {
+		// increment slide image src
+		image.src = slide[index];
+		// increment audio src
+		audio.src = voice[index];
+		// play new audio src
+		audio.play();
+		// show new slide
+		ctx.drawImage(image, 0,0, can.width, can.height);
+	}
+	// if last slide shown, reset index and audio src to start over
+	if (index==4) {
+		index = 0;
+		audio.src = voice[1];
+	}
+}
+</script>
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="384" width="512">
+</canvas>
+
+<img id="image" src="assets/slides0.jpg" style="display:none">
+
+<audio id="audio" src="assets/slide1.mp4" controls >
+</audio>
+</body>
+</html>

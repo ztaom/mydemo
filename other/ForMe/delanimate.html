@@ -1,0 +1,160 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+
+<style>
+* {
+  font-family: Helvetica;
+  -webkit-transition: background .3s linear, opacity .3s linear, -webkit-transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345);
+  -moz-transition: background .3s linear, opacity .3s linear, -moz-transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345);
+  -o-transition: background .3s linear, opacity .3s linear, -o-transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345);
+  transition: background .3s linear, opacity .3s linear,-webkit-transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345),-moz-transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345),-o-transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345),transform .4s cubic-bezier(0.390, 0.385, 0.320, 1.345);
+  outline: 0;
+}
+ul.lists {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  padding: 0;
+  width: 600px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+ul.lists li {
+  width: 100%;
+  padding: 0 25px;
+  position: relative;
+  list-style: none;
+  font-size: 0;
+  height: 85px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+ul.lists li:last-child {
+  border-bottom: none;
+}
+ul.lists li:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+h3 {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24px;
+  font-family: Helvetica;
+  margin-left: 24px;
+}
+.icon {
+  vertical-align: middle;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-size: 24px;
+  display: inline-block;
+  cursor: pointer;
+}
+.icon.delete {
+  color: #e35755;
+}
+.right {
+  position: absolute;
+  right: 70px;
+  top: calc(50% - 12px);
+}
+.remove-confirmation {
+  position: absolute;
+  display: inline-block;
+  height: 55px;
+  background: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: -2;
+  width: 200px;
+  left: -260px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 15px 15px 15px 45px;
+}
+.remove-confirmation span {
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 10px;
+}
+.remove-confirmation button {
+  cursor: pointer;
+  font-size: 14px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding: 6px 20px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+.remove-confirmation button:first-of-type {
+  margin-right: 10px;
+}
+.remove {
+  -webkit-transform: translate3d(230px, 0px, 0px);
+  -moz-transform: translate3d(230px, 0px, 0px);
+  -o-transform: translate3d(230px, 0px, 0px);
+  -ms-transform: translate3d(230px, 0px, 0px);
+  transform: translate3d(230px, 0px, 0px);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.6);
+}
+.remove .delete {
+  opacity: 0;
+}
+.remove h3 {
+  -webkit-transform: translate3d(-50px, 0px, 0px);
+  -moz-transform: translate3d(-50px, 0px, 0px);
+  -o-transform: translate3d(-50px, 0px, 0px);
+  -ms-transform: translate3d(-50px, 0px, 0px);
+  transform: translate3d(-50px, 0px, 0px);
+}
+.remove .icon.right {
+  -webkit-transform: translate3d(-230px, 0px, 0px);
+  -moz-transform: translate3d(-230px, 0px, 0px);
+  -o-transform: translate3d(-230px, 0px, 0px);
+  -ms-transform: translate3d(-230px, 0px, 0px);
+  transform: translate3d(-230px, 0px, 0px);
+  opacity: 1;
+}
+</style></head><body>
+
+<ul class="lists">
+  <li><a class="delete icon">删</a>
+    <div class="remove-confirmation"><span>Delete this list item?</span>
+      <button class="cancel">Cancel</button>
+      <button>Delete</button>
+    </div>
+    <h3>Cool list item</h3>
+    <div class="icon right">进</div>
+  </li>
+  <li><a class="delete icon">删</a>
+    <div class="remove-confirmation"><span>Delete this list item?</span>
+      <button class="cancel">Cancel</button>
+      <button>Delete</button>
+    </div>
+    <h3>Cool list item</h3>
+    <div class="icon right">进</div>
+  </li>
+  <li><a class="delete icon">删</a>
+    <div class="remove-confirmation"><span>Delete this list item?</span>
+      <button class="cancel">Cancel</button>
+      <button>Delete</button>
+    </div>
+    <h3>Cool list item</h3>
+    <div class="icon right">进</div>
+  </li>
+</ul>
+<script src="jquery.min.1.11.0.js"></script>
+<script>$('.delete, .cancel').click(function(){
+  $(this).closest('li').siblings().removeClass('remove');
+  $(this).closest('li').toggleClass('remove');
+});//@ sourceURL=pen.js
+</script>
+</body></html>

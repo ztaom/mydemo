@@ -1,0 +1,10 @@
+{
+    "presets": [["latest", {}]],
+    "plugins": [
+    	"transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-object-assign",
+        "transform-object-rest-spread",
+        "transform-runtime"
+    ]
+}

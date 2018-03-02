@@ -1,0 +1,32 @@
+ <div class="entry-title">
+  <h1>ZUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title">
+    <h3>toggle</h3>
+  </div>
+  <ol class="order-list">
+    <li><span class="arrowLeft-left"><a href="#arrowLeft-left" class="arrow toggle">arrowLeft-left</a></span></li>
+    <div class="hidden" id="arrowLeft-left">arrowLeft-left</div>
+    <li><span class="arrowLeft-right"><a href="#arrowLeft-right" class="arrow toggle">arrowLeft-right</a></span></li>
+    <div class="hidden" id="arrowLeft-right">arrowLeft-right</div>
+    <li><span class="arrowBottom-left"><a href="#arrowBottom-left" class="arrow toggle">arrowBottom-left</a></span></li>
+    <div class="hidden" id="arrowBottom-left">arrowBottom-left</div>
+    <li><span class="arrowBottom-right"><a href="#arrowBottom-right" class="arrow toggle">arrowBottom-right</a></span></li>
+    <div class="hidden" id="arrowBottom-right">arrowBottom-right</div>
+  </ol>
+  <script>
+    $(".toggle").click(function() {
+		var me = $(this), href=$(this).attr("href");
+		$(href).toggle();
+		$(this).toggleClass("open");
+		return false;
+	});
+  </script>
+  <pre class="brush:c-sharp;">
+  </pre>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script>

@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API — aft.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="API — aft.js">
+        <meta property="og:description" content="AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等">
+        <meta property="og:image" content="../images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="API — aft.js">
+        <meta name="twitter:description" content="AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等">
+        <meta name="twitter:image" content="../images/logo.png">
+
+        <link rel="icon" href="../images/logo.png" type="image/x-icon">
+        
+        <!-- main page styles -->
+        <link rel="stylesheet" href="../css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="../js/vue.js"></script>
+        <script>
+            window.PAGE_TYPE = "api";
+            window.NPM_NAME = "@ali/aft.js";
+            window.NPM_VERSION = "0.3.10";
+        </script>
+    </head>
+    <body class="docs">
+        <div id="main" class="fix-sidebar">
+            <div class="sidebar">
+    <div class="list">
+        <ul class="menu-root">
+            
+        </ul>
+    </div>
+</div>
+
+<div class="content api with-sidebar ">
+    
+      <h1>API</h1>
+    
+    <h2 id="Runtime-Modules"><a href="#Runtime-Modules" class="headerlink" title="Runtime Modules"></a>Runtime Modules</h2><p>提供了运行时的功能。</p>
+<h3 id="runtime-Animation"><a href="#runtime-Animation" class="headerlink" title="runtime:Animation"></a>runtime:Animation</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="https://www.npmjs.com/package/event-emitter" target="_blank" rel="external">Event Emitter</a></li>
+<li><strong>Constructor:</strong> <ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>&lt;string, any&gt;} map</code> </li>
+<li><code>{</code><a href="#runtime-Effect">Effect</a><code>} effect</code></li>
+<li><code>{number} [iteration=1]</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#代理动画对象">代理动画对象</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Animation-started"><a href="#Animation-started" class="headerlink" title="Animation#started"></a>Animation#started</h4><p>动画是否为开始状态。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Animation-finished"><a href="#Animation-finished" class="headerlink" title="Animation#finished"></a>Animation#finished</h4><p>动画是否为结束状态。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Animation-repeated"><a href="#Animation-repeated" class="headerlink" title="Animation#repeated"></a>Animation#repeated</h4><p>动画已经循环的次数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Animation-current"><a href="#Animation-current" class="headerlink" title="Animation#current"></a>Animation#current</h4><p>当前动画作用的数据对象。</p>
+<ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>&lt;string, any&gt;</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Animation-duration"><a href="#Animation-duration" class="headerlink" title="Animation#duration"></a>Animation#duration</h4><p>动画单次运行时长。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Animation-iteration"><a href="#Animation-iteration" class="headerlink" title="Animation#iteration"></a>Animation#iteration</h4><p>动画需要循环的次数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Animation-start"><a href="#Animation-start" class="headerlink" title="Animation#start()"></a>Animation#start()</h4><p>把动画状态设置为“开始”。</p>
+<ul>
+<li><strong>Returns:</strong> <code>Animation实例本身</code></li>
+</ul>
+<h4 id="Animation-finish"><a href="#Animation-finish" class="headerlink" title="Animation#finish()"></a>Animation#finish()</h4><p>把动画状态设置为“结束”。</p>
+<ul>
+<li><strong>Returns:</strong> <code>Animation实例本身</code></li>
+</ul>
+<h4 id="Animation-reset"><a href="#Animation-reset" class="headerlink" title="Animation#reset()"></a>Animation#reset()</h4><p>重置动画为初始状态。</p>
+<ul>
+<li><strong>Returns:</strong> <code>Animation实例本身</code></li>
+</ul>
+<h4 id="Animation-restart"><a href="#Animation-restart" class="headerlink" title="Animation#restart()"></a>Animation#restart()</h4><p>重置动画，把状态设置为“开始”。</p>
+<ul>
+<li><strong>Returns:</strong> <code>Animation实例本身</code></li>
+</ul>
+<h4 id="Animation-requestFrame-clock"><a href="#Animation-requestFrame-clock" class="headerlink" title="Animation#requestFrame(clock)"></a>Animation#requestFrame(clock)</h4><p>传入一个时钟实例，并根据这个时钟的状态运行一帧动画。</p>
+<ul>
+<li><strong>Events:</strong> <code>beforeplay</code>, <code>play</code>, <code>afterplay</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#runtime-Clock">Clock</a><code>} clock 时钟的实例</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>Animation实例本身</code></li>
+</ul>
+<h4 id="Animation-start-1"><a href="#Animation-start-1" class="headerlink" title="Animation@start"></a>Animation@start</h4><p>动画启动时触发。</p>
+<h4 id="Animation-finish-1"><a href="#Animation-finish-1" class="headerlink" title="Animation@finish"></a>Animation@finish</h4><p>动画结束时触发。</p>
+<h4 id="Animation-restart-1"><a href="#Animation-restart-1" class="headerlink" title="Animation@restart"></a>Animation@restart</h4><p>动画重启时触发。</p>
+<h4 id="Animation-beforeplay"><a href="#Animation-beforeplay" class="headerlink" title="Animation@beforeplay"></a>Animation@beforeplay</h4><p>每一帧运行前触发。</p>
+<h4 id="Animation-play"><a href="#Animation-play" class="headerlink" title="Animation@play"></a>Animation@play</h4><p>每一帧运行时一开始触发。</p>
+<h4 id="Animation-afterplay"><a href="#Animation-afterplay" class="headerlink" title="Animation@afterplay"></a>Animation@afterplay</h4><p>每一帧运行后触发。</p>
+<h3 id="runtime-Clock"><a href="#runtime-Clock" class="headerlink" title="runtime:Clock"></a>runtime:Clock</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> clock = <span class="keyword">new</span> Clock();</div><div class="line"><span class="keyword">const</span> tick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    requestAnimationFrame(tick);</div><div class="line">    <span class="keyword">const</span> &#123;elapsed, delta&#125; = clock.time;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`elapsed: <span class="subst">$&#123;elapsed&#125;</span>, delta: <span class="subst">$&#123;delta&#125;</span>`</span>);</div><div class="line">&#125;</div><div class="line">tick();</div></pre></td></tr></table></figure>
+<h4 id="Clock-time"><a href="#Clock-time" class="headerlink" title="Clock#time"></a>Clock#time</h4><p>访问时钟，并获取逝去毫秒数和间隔毫秒数。</p>
+<ul>
+<li><strong>Type:</strong> <code>{elapsed: number, delta: number}</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Clock-elapsed"><a href="#Clock-elapsed" class="headerlink" title="Clock#elapsed"></a>Clock#elapsed</h4><p>时钟创建后，最后一次访问时钟后的逝去毫秒数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Clock-delta"><a href="#Clock-delta" class="headerlink" title="Clock#delta"></a>Clock#delta</h4><p>时钟创建后，前后两次访问时钟的间隔毫秒数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Clock-paused"><a href="#Clock-paused" class="headerlink" title="Clock#paused"></a>Clock#paused</h4><p>获取或设置时钟的暂停状态</p>
+<ul>
+<li><strong>Type:</strong> boolean</li>
+</ul>
+<h3 id="runtime-Effect"><a href="#runtime-Effect" class="headerlink" title="runtime:Effect"></a>runtime:Effect</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> effect = <span class="keyword">new</span> Effect();</div><div class="line">effect.add(&#123;</div><div class="line">    <span class="attr">map</span>: <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">        [<span class="string">'a'</span>, <span class="number">1</span>]</div><div class="line">    ]),</div><div class="line">    <span class="attr">easing</span>: <span class="function"><span class="params">i</span> =&gt;</span> i * i,</div><div class="line">    <span class="attr">delay</span>: <span class="number">100</span>,</div><div class="line">    <span class="attr">duration</span>: <span class="number">400</span>,</div><div class="line">    <span class="attr">iteration</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">diration</span>: <span class="string">'normal'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="Effect-add-options"><a href="#Effect-add-options" class="headerlink" title="Effect#add(options)"></a>Effect#add(options)</h4><p>增加一个动效定义。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{object} options</code><ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>&lt;string, any&gt;} map 作用的对象</code></li>
+<li><code>{(current: Map): void} [update] 每一时刻的回调函数</code></li>
+<li><code>{(i: number): number} [easing] 缓动函数，获取一个0~1之间的值，并返回另一个0~1之间的值</code></li>
+<li><code>{number} [delay=0]</code></li>
+<li><code>{number} [duration=0]</code></li>
+<li><code>{string} [fillMode=&quot;forward&quot;]</code></li>
+<li><code>{number} [iteration=0] 可取值正整数和Infinity</code></li>
+<li><code>{string} [direction=&quot;normal&quot;] 可取值normal和alternate</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>Effect实例本身</code></li>
+</ul>
+<h4 id="Effect-clear"><a href="#Effect-clear" class="headerlink" title="Effect#clear()"></a>Effect#clear()</h4><p>清空所有动效描述。</p>
+<ul>
+<li><strong>Returns:</strong> <code>Effect实例本身</code></li>
+</ul>
+<h4 id="Effect-clone"><a href="#Effect-clone" class="headerlink" title="Effect#clone()"></a>Effect#clone()</h4><p>复制并返回一个全新的动效实例。</p>
+<ul>
+<li><strong>Retruns:</strong> <code>Effect实例</code></li>
+</ul>
+<h4 id="Effect-end"><a href="#Effect-end" class="headerlink" title="Effect#end()"></a>Effect#end()</h4><p>结束动效的定义。</p>
+<ul>
+<li><strong>Returns:</strong> <code>Effect实例本身</code></li>
+</ul>
+<h4 id="Effect-use-…mixins"><a href="#Effect-use-…mixins" class="headerlink" title="Effect.use(…mixins)"></a>Effect.use(…mixins)</h4><p>使用一个或多个动效扩展。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{...(object | (any): object)} mixins</code></li>
+</ul>
+</li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Effect.use(&#123;</div><div class="line">    to(map, duration, easing) &#123;</div><div class="line">        <span class="keyword">this</span>.add(&#123;</div><div class="line">            map,</div><div class="line">            duration,</div><div class="line">            easing</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> effect = <span class="keyword">new</span> Effect();</div><div class="line">effect.to(</div><div class="line">    <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">        [<span class="string">'a'</span>, <span class="number">1</span>]</div><div class="line">    ]), </div><div class="line">    <span class="number">1000</span>,</div><div class="line">    i =&gt; i * i</div><div class="line">);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#扩展动效">扩展动效</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="runtime-Ticker"><a href="#runtime-Ticker" class="headerlink" title="runtime:Ticker"></a>runtime:Ticker</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> ticker = <span class="keyword">new</span> Ticker();</div><div class="line"><span class="keyword">const</span> tickId = ticker.add((&#123;</div><div class="line">    delta,</div><div class="line">    elasped</div><div class="line">&#125;) =&gt; <span class="built_in">console</span>.log(delta, elasped));</div><div class="line">ticker.run();</div></pre></td></tr></table></figure>
+<h4 id="Ticker-pasued"><a href="#Ticker-pasued" class="headerlink" title="Ticker#pasued"></a>Ticker#pasued</h4><p>获取是否为暂停状态。</p>
+<ul>
+<li><strong>Type:</strong> boolean</li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Ticker-skipFrames"><a href="#Ticker-skipFrames" class="headerlink" title="Ticker#skipFrames"></a>Ticker#skipFrames</h4><p>获取或设置跳帧数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Ticker-add-updater"><a href="#Ticker-add-updater" class="headerlink" title="Ticker#add(updater)"></a>Ticker#add(updater)</h4><p>添加一个的更新函数，用于接受每次触发时的更新。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{({delta: number, elapsed: number}): void} updater</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>用于标记该更新函数的id</code></li>
+</ul>
+<h4 id="Ticker-freeze-any"><a href="#Ticker-freeze-any" class="headerlink" title="Ticker#freeze(any)"></a>Ticker#freeze(any)</h4><p>冻结一个已添加的更新函数，使其在之后的每次触发中不被更新。传入的参数可以是这个更新函数的引用，也可以是更新函数的ID。</p>
+<ul>
+<li><strong>Arguments</strong><ul>
+<li><code>{function | number} any</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Ticker-unfreeze-any"><a href="#Ticker-unfreeze-any" class="headerlink" title="Ticker#unfreeze(any)"></a>Ticker#unfreeze(any)</h4><p>解冻一个已添加的更新函数，使其在之后的每次触发中接受更新。传入的参数可以是这个更新函数的引用，也可以是更新函数的ID。</p>
+<ul>
+<li><p><strong>Arguments</strong></p>
+<ul>
+<li><code>{function | number} any</code></li>
+</ul>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="../guide/basic.html#全局计时器">全局计时器</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Ticker-remove-any"><a href="#Ticker-remove-any" class="headerlink" title="Ticker#remove(any)"></a>Ticker#remove(any)</h4><p>移除一个已添加的更新函数。传入的参数可以是这个更新函数的引用，也可以是更新函数的ID。</p>
+<ul>
+<li><strong>Arguments</strong><ul>
+<li><code>{function | number} any</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Ticker-run"><a href="#Ticker-run" class="headerlink" title="Ticker#run"></a>Ticker#run</h4><p>启动或重启运行。运行时，每16毫秒（理论值）会触发一次更新操作。</p>
+<h4 id="Ticker-pause"><a href="#Ticker-pause" class="headerlink" title="Ticker#pause"></a>Ticker#pause</h4><p>暂停运行。</p>
+<h4 id="Ticker-resume"><a href="#Ticker-resume" class="headerlink" title="Ticker#resume"></a>Ticker#resume</h4><p>恢复运行（暂停后有效）。</p>
+<h4 id="Ticker-stop"><a href="#Ticker-stop" class="headerlink" title="Ticker#stop"></a>Ticker#stop</h4><p>停止运行，并将所有更新函数的清零。</p>
+<h3 id="runtime-Timeline"><a href="#runtime-Timeline" class="headerlink" title="runtime:Timeline"></a>runtime:Timeline</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="https://www.npmjs.com/package/event-emitter" target="_blank" rel="external">Event Emitter</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{</code><a href="#runtime-Ticker">Ticker</a><code>} [ticker] 如省略将会自动新建</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Timeline-currentTime"><a href="#Timeline-currentTime" class="headerlink" title="Timeline#currentTime"></a>Timeline#currentTime</h4><p>当前逝去的时间。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Timeline-loop"><a href="#Timeline-loop" class="headerlink" title="Timeline#loop"></a>Timeline#loop</h4><p>获取或设置是否循环播放。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="Timeline-paused"><a href="#Timeline-paused" class="headerlink" title="Timeline#paused"></a>Timeline#paused</h4><p>获取是否为暂停状态。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Timeline-ended"><a href="#Timeline-ended" class="headerlink" title="Timeline#ended"></a>Timeline#ended</h4><p>获取是否为结束状态。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Timeline-skipFrames"><a href="#Timeline-skipFrames" class="headerlink" title="Timeline#skipFrames"></a>Timeline#skipFrames</h4><p>获取或设置跳帧数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Timeline-add-animation-option"><a href="#Timeline-add-animation-option" class="headerlink" title="Timeline#add(animation, option)"></a>Timeline#add(animation, option)</h4><p>添加一个动画片段，可选设置动画的开始和结束标记。</p>
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{</code><a href="#runtime-Animation">Animation</a><code>}</code> animation</li>
+<li><code>{object} option</code><ul>
+<li><code>{number | (option: object): boolean|number} [playAt=0] 开始标记，可以是时间或布尔值，如缺省表示立即开始。</code> </li>
+<li><code>{number | (option: object): boolean|number} [stopAt] 结束标记，可以是时间或布尔值，如缺省表示让动画自身决定。</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="../guide/basic.html#管理动画">管理动画</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Timeline-get-animation"><a href="#Timeline-get-animation" class="headerlink" title="Timeline#get(animation)"></a>Timeline#get(animation)</h4><p>获取动画片段的设置。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#runtime-Animation">Animation</a><code>}</code> animation</li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>{playAt, stopAt, startAt, finishAt}</code></li>
+</ul>
+<h4 id="Timeline-remove-animation"><a href="#Timeline-remove-animation" class="headerlink" title="Timeline#remove(animation)"></a>Timeline#remove(animation)</h4><p>移除一个动画片段。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#runtime-Animation">Animation</a><code>}</code> animation</li>
+</ul>
+</li>
+</ul>
+<h4 id="Timeline-clear"><a href="#Timeline-clear" class="headerlink" title="Timeline#clear()"></a>Timeline#clear()</h4><p>清除所有动画片段。</p>
+<h4 id="Timeline-play"><a href="#Timeline-play" class="headerlink" title="Timeline#play()"></a>Timeline#play()</h4><p>开始播放或恢复播放（暂停时有效）。</p>
+<h4 id="Timeline-pause"><a href="#Timeline-pause" class="headerlink" title="Timeline#pause()"></a>Timeline#pause()</h4><p>暂停播放。</p>
+<h4 id="Timeline-stop"><a href="#Timeline-stop" class="headerlink" title="Timeline#stop()"></a>Timeline#stop()</h4><p>停止播放，并重置动画。</p>
+<h4 id="Timeline-replay"><a href="#Timeline-replay" class="headerlink" title="Timeline#replay()"></a>Timeline#replay()</h4><p>立即重置动画，并从头开始播放。</p>
+<h4 id="Timeline-play-1"><a href="#Timeline-play-1" class="headerlink" title="Timeline@play"></a>Timeline@play</h4><p>每一帧在所有动画播放前触发。</p>
+<h4 id="Timeline-afterplay"><a href="#Timeline-afterplay" class="headerlink" title="Timeline@afterplay"></a>Timeline@afterplay</h4><p>每一帧在所有动画播放后触发。</p>
+<h4 id="Timeline-loop-1"><a href="#Timeline-loop-1" class="headerlink" title="Timeline@loop"></a>Timeline@loop</h4><p>当循环播放时触发。</p>
+<h4 id="Timeline-end"><a href="#Timeline-end" class="headerlink" title="Timeline@end"></a>Timeline@end</h4><p>当播放结束时触发。</p>
+<h2 id="Render-Modules"><a href="#Render-Modules" class="headerlink" title="Render Modules"></a>Render Modules</h2><p>提供了渲染虚拟元素并适配CSS和Canvas引擎的功能。</p>
+<h3 id="elements-Element"><a href="#elements-Element" class="headerlink" title="elements:Element"></a>elements:Element</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{string} className</code></li>
+<li><code>{number} [width=0]</code></li>
+<li><code>{number} [height=0]</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/basic.html#虚拟元素动画">虚拟元素动画</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Element-className"><a href="#Element-className" class="headerlink" title="Element#className"></a>Element#className</h4><p>元素的类名。</p>
+<ul>
+<li><strong>Type:</strong> <code>string</code></li>
+</ul>
+<h4 id="Element-width"><a href="#Element-width" class="headerlink" title="Element#width"></a>Element#width</h4><p>元素的宽度。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Element-height"><a href="#Element-height" class="headerlink" title="Element#height"></a>Element#height</h4><p>元素的高度。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Element-recycle"><a href="#Element-recycle" class="headerlink" title="Element#recycle"></a>Element#recycle</h4><p>获取或设置是否回收利用元素。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="Element-poistion"><a href="#Element-poistion" class="headerlink" title="Element#poistion"></a>Element#poistion</h4><p>元素的位置向量。</p>
+<ul>
+<li><strong>Type:</strong> <a href="#libs-vec3-Vec3">Vec3</a></li>
+</ul>
+<h4 id="Element-style"><a href="#Element-style" class="headerlink" title="Element#style"></a>Element#style</h4><p>元素的样式集合。</p>
+<ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a></li>
+</ul>
+<h4 id="Element-transform"><a href="#Element-transform" class="headerlink" title="Element#transform"></a>Element#transform</h4><p>元素的矩阵变换集合。</p>
+<ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a></li>
+</ul>
+<h4 id="Element-life"><a href="#Element-life" class="headerlink" title="Element#life"></a>Element#life</h4><p>获取或设置元素的生命周期。分别为<code>created/attached/dettached</code>。</p>
+<ul>
+<li><strong>Type:</strong> <code>string</code></li>
+</ul>
+<h4 id="Element-catched"><a href="#Element-catched" class="headerlink" title="Element#catched"></a>Element#catched</h4><p>获取或设置是否缓存元素。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="Element-getBoundingRect"><a href="#Element-getBoundingRect" class="headerlink" title="Element#getBoundingRect"></a>Element#getBoundingRect</h4><p>获得元素的包围矩阵。</p>
+<ul>
+<li><strong>Returns:</strong> <code>{width, height, left, top, right, bottom}</code></li>
+</ul>
+<h3 id="elements-Rectangle"><a href="#elements-Rectangle" class="headerlink" title="elements:Rectangle"></a>elements:Rectangle</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} width</code></li>
+<li><code>{number} height</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="elements-Circle"><a href="#elements-Circle" class="headerlink" title="elements:Circle"></a>elements:Circle</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} radius</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Circle-radius"><a href="#Circle-radius" class="headerlink" title="Circle#radius"></a>Circle#radius</h4><p>圆的半径。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h3 id="elements-Ellipse"><a href="#elements-Ellipse" class="headerlink" title="elements:Ellipse"></a>elements:Ellipse</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} hRadius 水平方向半径</code></li>
+<li><code>{number} vRadius 垂直方向半径</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Ellipse-hRadius"><a href="#Ellipse-hRadius" class="headerlink" title="Ellipse#hRadius"></a>Ellipse#hRadius</h4><p>水平方向半径。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Ellipse-vRadius"><a href="#Ellipse-vRadius" class="headerlink" title="Ellipse#vRadius"></a>Ellipse#vRadius</h4><p>垂直方向半径。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h3 id="elements-Triangle"><a href="#elements-Triangle" class="headerlink" title="elements:Triangle"></a>elements:Triangle</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} width 底边宽</code></li>
+<li><code>{number} height 高</code></li>
+<li><code>{number} theta 左下角的夹角度数</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Triangle-theta"><a href="#Triangle-theta" class="headerlink" title="Triangle#theta"></a>Triangle#theta</h4><p>左下角的夹角度数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h3 id="elements-Group"><a href="#elements-Group" class="headerlink" title="elements:Group"></a>elements:Group</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} [width=0]</code></li>
+<li><code>{number} [height=0]</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Group-children"><a href="#Group-children" class="headerlink" title="Group#children"></a>Group#children</h4><p>子元素集合。</p>
+<ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">Set</a></li>
+</ul>
+<h4 id="Group-add-…elements"><a href="#Group-add-…elements" class="headerlink" title="Group#add(…elements)"></a>Group#add(…elements)</h4><p>添加子元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{...Element} elements</code></li>
+</ul>
+</li>
+<li><strong>Throws:</strong> if not an instanceof Element</li>
+</ul>
+<h4 id="Group-remove-…elements"><a href="#Group-remove-…elements" class="headerlink" title="Group#remove(…elements)"></a>Group#remove(…elements)</h4><p>移除子元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{...Element} elements</code></li>
+</ul>
+</li>
+<li><strong>Throws:</strong> if not an instanceof Element</li>
+</ul>
+<h3 id="elements-Image"><a href="#elements-Image" class="headerlink" title="elements:Image"></a>elements:Image</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} width</code></li>
+<li><code>{number} height</code></li>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement" target="_blank" rel="external">HTMLImageElement</a> <code>|</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement" target="_blank" rel="external">HTMLCanvasElement</a> <code>} texture</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Image-texture"><a href="#Image-texture" class="headerlink" title="Image#texture"></a>Image#texture</h4><p>纹理贴图。</p>
+<ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement" target="_blank" rel="external">HTMLImageElement</a> <code>|</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement" target="_blank" rel="external">HTMLCanvasElement</a></li>
+</ul>
+<h4 id="Image-size"><a href="#Image-size" class="headerlink" title="Image#size"></a>Image#size</h4><p>伸缩方式，包括<code>cover</code>/<code>contain</code>/<code>n(px/%) m(px/%)</code>。</p>
+<ul>
+<li><strong>Type:</strong> <code>string</code></li>
+</ul>
+<h4 id="Image-repeatX"><a href="#Image-repeatX" class="headerlink" title="Image#repeatX"></a>Image#repeatX</h4><p>X轴平铺次数，暂支持<code>1</code>和<code>Infinity</code>。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Image-repeatY"><a href="#Image-repeatY" class="headerlink" title="Image#repeatY"></a>Image#repeatY</h4><p>Y轴平铺次数，暂支持<code>1</code>和<code>Infinity</code>。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Image-repeat"><a href="#Image-repeat" class="headerlink" title="Image#repeat"></a>Image#repeat</h4><p>X和Y轴平铺次数，暂支持<code>1</code>和<code>Infinity</code>。</p>
+<ul>
+<li><strong>Type:</strong> <code>number[]</code></li>
+</ul>
+<h4 id="Image-offsetX"><a href="#Image-offsetX" class="headerlink" title="Image#offsetX"></a>Image#offsetX</h4><p>X轴偏移量，支持像素值或百分比。</p>
+<ul>
+<li><strong>Type:</strong> <code>number | string</code></li>
+</ul>
+<h4 id="Image-offsetY"><a href="#Image-offsetY" class="headerlink" title="Image#offsetY"></a>Image#offsetY</h4><p>Y轴偏移量，支持像素值或百分比。</p>
+<ul>
+<li><strong>Type:</strong> <code>number | string</code></li>
+</ul>
+<h4 id="Image-offset"><a href="#Image-offset" class="headerlink" title="Image#offset"></a>Image#offset</h4><p>X轴和Y轴偏移量，支持像素值或百分比。</p>
+<ul>
+<li><strong>Type:</strong> <code>number[] | string[]</code></li>
+</ul>
+<h3 id="elements-Font"><a href="#elements-Font" class="headerlink" title="elements:Font"></a>elements:Font</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{number} width</code></li>
+<li><code>{number} height</code></li>
+<li><code>{string} textContent</code></li>
+<li><code>{string} textAlign</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Font-textContent"><a href="#Font-textContent" class="headerlink" title="Font#textContent"></a>Font#textContent</h4><p>文本内容。</p>
+<ul>
+<li><strong>Type:</strong> <code>string</code></li>
+</ul>
+<h4 id="Font-textAlign"><a href="#Font-textAlign" class="headerlink" title="Font#textAlign"></a>Font#textAlign</h4><p>文本对齐方式，水平对齐方式包括<code>left</code>/<code>center</code>/<code>right</code>，垂直对齐方式包括<code>top</code>/<code>center</code>/<code>bottom</code>，两者用空格隔开。例如：<code>left top</code>。</p>
+<ul>
+<li><strong>Type:</strong> <code>string</code></li>
+</ul>
+<h3 id="core-Scene"><a href="#core-Scene" class="headerlink" title="core:Scene"></a>core:Scene</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#场景的作用">动画里的场景</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Scene-add-…elements"><a href="#Scene-add-…elements" class="headerlink" title="Scene#add(…elements)"></a>Scene#add(…elements)</h4><p>往场景里增加一个或多个元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{...</code><a href="#elements-Element">Element</a><code>}</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Scene-remove-…elements"><a href="#Scene-remove-…elements" class="headerlink" title="Scene#remove(…elements)"></a>Scene#remove(…elements)</h4><p>从场景里移除一个或多个元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{...</code><a href="#elements-Element">Element</a><code>}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="engines-Engine"><a href="#engines-Engine" class="headerlink" title="engines:Engine"></a>engines:Engine</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{string} className</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#扩展引擎">扩展引擎</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-className"><a href="#Engine-className" class="headerlink" title="Engine#className"></a>Engine#className</h4><p>引擎的类名。</p>
+<ul>
+<li><strong>Type:</strong> <code>string</code></li>
+</ul>
+<h4 id="Engine-flushed"><a href="#Engine-flushed" class="headerlink" title="Engine#flushed"></a>Engine#flushed</h4><p>是否已刷新画布缓冲区。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Engine-canvasWidth"><a href="#Engine-canvasWidth" class="headerlink" title="Engine#canvasWidth"></a>Engine#canvasWidth</h4><p>获取画布的绘图宽度。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Engine-canvasHeight"><a href="#Engine-canvasHeight" class="headerlink" title="Engine#canvasHeight"></a>Engine#canvasHeight</h4><p>获取画布的绘图高度。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Engine-scaleWidth"><a href="#Engine-scaleWidth" class="headerlink" title="Engine#scaleWidth"></a>Engine#scaleWidth</h4><p>获取画布的绘图宽度同样式（CSS）宽度的比例。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Engine-scaleHeight"><a href="#Engine-scaleHeight" class="headerlink" title="Engine#scaleHeight"></a>Engine#scaleHeight</h4><p>获取画布的绘图高度同样式（CSS）高度的比例。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Engine-setCanvasElement-canvasElement"><a href="#Engine-setCanvasElement-canvasElement" class="headerlink" title="Engine#setCanvasElement(canvasElement)"></a>Engine#setCanvasElement(canvasElement)</h4><p>设置画布元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="external">HTMLElement</a><code>} canvasElement</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-setCanvasSize-width-height"><a href="#Engine-setCanvasSize-width-height" class="headerlink" title="Engine#setCanvasSize(width, height)"></a>Engine#setCanvasSize(width, height)</h4><p>设置画布的绘图尺寸。</p>
+<ul>
+<li><strong>Arguments</strong><ul>
+<li><code>{number} width</code></li>
+<li><code>{number} height</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-setStyleSize-width-height"><a href="#Engine-setStyleSize-width-height" class="headerlink" title="Engine#setStyleSize(width, height)"></a>Engine#setStyleSize(width, height)</h4><p>设置画布的样式（CSS）尺寸。</p>
+<ul>
+<li><strong>Arguments</strong><ul>
+<li><code>{number} width</code></li>
+<li><code>{number} height</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-resize"><a href="#Engine-resize" class="headerlink" title="Engine#resize()"></a>Engine#resize()</h4><p>重新计算画布尺寸。</p>
+<h4 id="Engine-clear"><a href="#Engine-clear" class="headerlink" title="Engine#clear()"></a>Engine#clear()</h4><p>清空画布。</p>
+<h4 id="Engine-setClearColor-color"><a href="#Engine-setClearColor-color" class="headerlink" title="Engine#setClearColor(color)"></a>Engine#setClearColor(color)</h4><p>设置画布颜色。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} color 颜色表达支持16进制。包括#rgb/#rgba/#rrggbb/#rrggbbaa</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-draw-element"><a href="#Engine-draw-element" class="headerlink" title="Engine#draw(element)"></a>Engine#draw(element)</h4><p>在画布上绘制元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#elements-Element">Element</a><code>} element</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-drawBuffer-elements"><a href="#Engine-drawBuffer-elements" class="headerlink" title="Engine#drawBuffer(elements)"></a>Engine#drawBuffer(elements)</h4><p>在画布缓冲区中绘制元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#elements-Element">Element</a><code>[]} elements</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Engine-flush"><a href="#Engine-flush" class="headerlink" title="Engine#flush()"></a>Engine#flush()</h4><p>刷新画布缓冲区。</p>
+<h3 id="engines-CSS2D"><a href="#engines-CSS2D" class="headerlink" title="engines:CSS2D"></a>engines:CSS2D</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#engines-Engine">Engine</a></li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#用CSS引擎渲染">用CSS引擎渲染虚拟元素</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="engines-Canvas2D"><a href="#engines-Canvas2D" class="headerlink" title="engines:Canvas2D"></a>engines:Canvas2D</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#engines-Engine">Engine</a></li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#用Canvas引擎渲染">用Canvas引擎虚拟渲染元素</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Frameworks"><a href="#Frameworks" class="headerlink" title="Frameworks"></a>Frameworks</h2><p>提供了各种入口函数。</p>
+<h3 id="lite-animate"><a href="#lite-animate" class="headerlink" title="lite:animate"></a>lite:animate</h3><p>快速生成动画。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{object|</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>|</code><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="external">HTMLElement</a><code>}</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a>实例</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/basic.html#快速上手">快速上手</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="lite-Tween"><a href="#lite-Tween" class="headerlink" title="lite~Tween"></a>lite~Tween</h3><p>访问<a href="#lite-animate">animate</a>方法所返回的内部类。用于生成一段或多端动画片段。</p>
+<ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="https://www.npmjs.com/package/event-emitter" target="_blank" rel="external">Event Emitter</a></li>
+<li><strong>Constructor:</strong><ul>
+<li><code>{object|</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>|</code><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="external">HTMLElement</a><code>} initial</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Tween-to-target"><a href="#Tween-to-target" class="headerlink" title="Tween#to(target)"></a>Tween#to(target)</h4><p>动画目标值。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{object} target</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h4 id="Tween-update-update"><a href="#Tween-update-update" class="headerlink" title="Tween#update(update)"></a>Tween#update(update)</h4><p>设置当前动画片段的回调函数。在每帧更新时触发。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{(current:</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>, start:</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>, end:</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>, percent: number): void} update</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tween.update(<span class="function">(<span class="params">current</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log([...current]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="Tween-easing-easing"><a href="#Tween-easing-easing" class="headerlink" title="Tween#easing(easing)"></a>Tween#easing(easing)</h4><p>设置当前动画片段的缓动函数。支持字符串常量，表达式和函数。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string | (i: number): number} easing</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tween.easing(<span class="string">'ease-in'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tween.easing(<span class="string">'cubic-bezer(0, 0, 1, 1)'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tween.easing(<span class="function"><span class="params">i</span> =&gt;</span> i * i);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>See aslo:</strong><ul>
+<li><a href="">缓动函数</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Tween-duration-time"><a href="#Tween-duration-time" class="headerlink" title="Tween#duration(time)"></a>Tween#duration(time)</h4><p>设置当前动画片段的播放时间。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} time</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h4 id="Tween-delay-time"><a href="#Tween-delay-time" class="headerlink" title="Tween#delay(time)"></a>Tween#delay(time)</h4><p>设置当前动画片段的延迟时间。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} time</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h4 id="Tween-iteration-count"><a href="#Tween-iteration-count" class="headerlink" title="Tween#iteration(count)"></a>Tween#iteration(count)</h4><p>设置当前动画片段的重复次数，</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} count 1~Infinity</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h4 id="Tween-direction-dir"><a href="#Tween-direction-dir" class="headerlink" title="Tween#direction(dir)"></a>Tween#direction(dir)</h4><p>设置当前动画片段的正常循环播放或交替循环播放。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} dir normal/alternate</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h4 id="Tween-next-initial"><a href="#Tween-next-initial" class="headerlink" title="Tween#next(initial)"></a>Tween#next(initial)</h4><p>结束当前动画片段的定义，开启下一个动画片段的定义。</p>
+<ul>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">tween</div><div class="line">    .to(&#123;</div><div class="line">        <span class="attr">a</span>: <span class="number">10</span></div><div class="line">    &#125;)</div><div class="line">    .duration(<span class="number">400</span>)</div><div class="line">    .next()</div><div class="line">    .to(&#123;</div><div class="line">        <span class="attr">a</span>: <span class="number">20</span></div><div class="line">    &#125;)</div><div class="line">    .duration(<span class="number">400</span>);</div></pre></td></tr></table></figure>
+<h4 id="Tween-play-iteration"><a href="#Tween-play-iteration" class="headerlink" title="Tween#play(iteration)"></a>Tween#play(iteration)</h4><p>播放所有定义的动画片段，并设置总循环次数。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} iteration 1~Infinity</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h4 id="Tween-stop"><a href="#Tween-stop" class="headerlink" title="Tween#stop()"></a>Tween#stop()</h4><p>停止播放。</p>
+<ul>
+<li><strong>Returns:</strong> <a href="#lite-Tween">Tween</a></li>
+</ul>
+<h3 id="lite-globalTicker"><a href="#lite-globalTicker" class="headerlink" title="lite:globalTicker"></a>lite:globalTicker</h3><p>全局的一个<a href="#runtime-Ticker">Ticker</a>实例。用<a href="#runtime-createTimeline">createTimeline</a>方法创建的Timeline实例都包含这个<a href="runtime-Ticker">Ticker</a>实例。</p>
+<ul>
+<li><strong>Type:</strong> <a href="#runtime-Ticker">Ticker</a></li>
+</ul>
+<h3 id="lite-extendProxy"><a href="#lite-extendProxy" class="headerlink" title="lite:extendProxy"></a>lite:extendProxy</h3><p>扩展一个动画对象代理。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{(any):</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>} proxy</code></li>
+<li><code>{(any): boolean} detect</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#代理动画对象">代理动画对象</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="lite-extendEasing"><a href="#lite-extendEasing" class="headerlink" title="lite:extendEasing"></a>lite:extendEasing</h3><p>扩展一组缓动表达式。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>} easingMap</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#扩展缓动函数">扩展缓动函数</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="lite-extendEffect"><a href="#lite-extendEffect" class="headerlink" title="lite:extendEffect"></a>lite:extendEffect</h3><p>扩展一组动效定义。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{...object} effects</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#扩展动效">扩展动效</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="lite-createEffect"><a href="#lite-createEffect" class="headerlink" title="lite:createEffect"></a>lite:createEffect</h3><p>创建一个<a href="#runtime-Effect">Effect</a>实例。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Resturns:</strong> <a href="#runtime-Effect">Effect</a></li>
+</ul>
+<h3 id="lite-createAnimation"><a href="#lite-createAnimation" class="headerlink" title="lite:createAnimation"></a>lite:createAnimation</h3><p>创建一个<a href="#runtime-Animation">Animation</a>实例。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>&lt;string, any&gt;} initial</code> </li>
+<li><code>{</code><a href="#runtime-Effect">Effect</a><code>| (effect: Effect, initial: Map): Effect} effect</code></li>
+<li><code>{number} [iteration=1]</code></li>
+</ul>
+</li>
+<li><strong>Resturns:</strong> <a href="#runtime-Animation">Animation</a></li>
+</ul>
+<h3 id="lite-createAnimations"><a href="#lite-createAnimations" class="headerlink" title="lite:createAnimations"></a>lite:createAnimations</h3><p>创建多个<a href="#runtime-Animation">Animation</a>实例。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a><code>&lt;string, any&gt;} initial</code> </li>
+<li><code>{...(</code><a href="#runtime-Effect">Effect</a><code>| (effect: Effect, initial: Map): Effect)} ...effects</code></li>
+</ul>
+</li>
+<li><strong>Resturns:</strong> <code>Array&lt;</code><a href="#runtime-Animation">Animation</a><code>&gt;</code></li>
+</ul>
+<h3 id="lite-createTimeline"><a href="#lite-createTimeline" class="headerlink" title="lite:createTimeline"></a>lite:createTimeline</h3><p>创建一个<a href="#runtime-Timeline">Timeline</a>实例。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Resturns:</strong> <a href="#runtime-Timeline">Timeline</a></li>
+</ul>
+<h3 id="lite-runtime"><a href="#lite-runtime" class="headerlink" title="lite:runtime"></a>lite:runtime</h3><p>运行时模块集合。</p>
+<ul>
+<li><strong>Type:</strong> <code>object</code></li>
+<li><strong>Properties:</strong><ul>
+<li><a href="#runtime-Animation">Animation</a></li>
+<li><a href="#runtime-Clock">Clock</a></li>
+<li><a href="#runtime-Effect">Effect</a></li>
+<li><a href="#runtime-Ticker">Ticker</a></li>
+<li><a href="#runtime-Timeline">Timeline</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="render-render"><a href="#render-render" class="headerlink" title="render*render"></a>render*render</h3><p>渲染模块集合。</p>
+<ul>
+<li><strong>Type:</strong> <code>object</code></li>
+<li><strong>Properties:</strong><ul>
+<li><a href="#elements-Element">Element</a></li>
+<li><a href="#elements-Rectangle">Rectangle</a></li>
+<li><a href="#elements-Circle">Circle</a></li>
+<li><a href="#elements-Ellipse">Ellipse</a></li>
+<li><a href="#elements-Triangle">Triangle</a></li>
+<li><a href="#elements-Group">Group</a></li>
+<li><a href="#elements-Image">Image</a></li>
+<li><a href="#elements-Font">Font</a></li>
+<li><a href="#core-Scene">Scene</a></li>
+<li><a href="#engines-Engine">Engine</a></li>
+<li><a href="#engines-CSS2D">CSS2D</a></li>
+<li><a href="#engines-Canvas2D">Canvas2D</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="legacy-Legacy"><a href="#legacy-Legacy" class="headerlink" title="legacy:Legacy"></a>legacy:Legacy</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="https://www.npmjs.com/package/event-emitter" target="_blank" rel="external">Event Emitter</a></li>
+<li><strong>Constructor:</strong> <ul>
+<li><code>{</code><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="external">HTMLElement</a><code>} canvasElement</code></li>
+<li><code>{string} engine</code></li>
+</ul>
+</li>
+<li><strong>Constrcutor:</strong><ul>
+<li><code>{Engine} engine</code></li>
+</ul>
+</li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> canvasElement = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">const</span> aft = <span class="keyword">new</span> Legacy(canvasElement, <span class="string">'css'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> canvasElement = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">const</span> aft = <span class="keyword">new</span> Legacy(canvasElement, <span class="string">'canvas'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> engine = <span class="keyword">new</span> CSS2D();</div><div class="line"><span class="keyword">const</span> aft = <span class="keyword">new</span> Legacy(engine);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/introduction.html#兼容旧版本">兼容1.x</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Legacy-engine"><a href="#Legacy-engine" class="headerlink" title="Legacy#engine"></a>Legacy#engine</h4><p><a href="#engines-Engine">Engine</a>的实例。</p>
+<ul>
+<li><strong>Type:</strong> <a href="#engines-Engine">Engine</a></li>
+</ul>
+<h4 id="Legacy-isPlaying"><a href="#Legacy-isPlaying" class="headerlink" title="Legacy#isPlaying"></a>Legacy#isPlaying</h4><p>是否正在播放。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code> </li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Legacy-isPaused"><a href="#Legacy-isPaused" class="headerlink" title="Legacy#isPaused"></a>Legacy#isPaused</h4><p>是否暂停。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Legacy-isFinished"><a href="#Legacy-isFinished" class="headerlink" title="Legacy#isFinished"></a>Legacy#isFinished</h4><p>是否结束。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Legacy-skipFrames"><a href="#Legacy-skipFrames" class="headerlink" title="Legacy#skipFrames"></a>Legacy#skipFrames</h4><p>获取或设置跳帧数。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code> </li>
+</ul>
+<h4 id="Legacy-viewportWidth"><a href="#Legacy-viewportWidth" class="headerlink" title="Legacy#viewportWidth"></a>Legacy#viewportWidth</h4><p>获取画布的绘图宽度。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Legacy-viewportHeight"><a href="#Legacy-viewportHeight" class="headerlink" title="Legacy#viewportHeight"></a>Legacy#viewportHeight</h4><p>获取画布的绘图高度。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Legacy-scaling"><a href="#Legacy-scaling" class="headerlink" title="Legacy#scaling"></a>Legacy#scaling</h4><p>获取画布的绘图宽度同样式（CSS）宽度的比例。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+<li><strong>Readonly</strong></li>
+</ul>
+<h4 id="Legacy-resize"><a href="#Legacy-resize" class="headerlink" title="Legacy#resize()"></a>Legacy#resize()</h4><p>重新计算画布尺寸。</p>
+<h4 id="Legacy-setSize-width-height"><a href="#Legacy-setSize-width-height" class="headerlink" title="Legacy#setSize(width, height)"></a>Legacy#setSize(width, height)</h4><p>设置画布的绘图尺寸，并重新计算。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} width</code></li>
+<li><code>{number} [height]</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Legacy-setClearColor-rgba"><a href="#Legacy-setClearColor-rgba" class="headerlink" title="Legacy#setClearColor(rgba)"></a>Legacy#setClearColor(rgba)</h4><p>设置画布颜色。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} color 颜色表达支持16进制。包括#rgb/#rgba/#rrggbb/#rrggbbaa</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Legacy-createScene"><a href="#Legacy-createScene" class="headerlink" title="Legacy#createScene()"></a>Legacy#createScene()</h4><p>创建场景。</p>
+<ul>
+<li><strong>Returns:</strong> <a href="#core-Scene">Scene</a></li>
+</ul>
+<h4 id="Legacy-createElement-elementType-…initialArgs"><a href="#Legacy-createElement-elementType-…initialArgs" class="headerlink" title="Legacy#createElement(elementType, …initialArgs)"></a>Legacy#createElement(elementType, …initialArgs)</h4><p>创建元素。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} elementType rectangle/circle/ellipse/triangle/group/image/font</code></li>
+<li><code>{...any} initialArgs</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <a href="#elements-Element">Element</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rect = aft.createElement(<span class="string">'rectangle'</span>, <span class="number">100</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
+<h4 id="Legacy-createEffect"><a href="#Legacy-createEffect" class="headerlink" title="Legacy#createEffect()"></a>Legacy#createEffect()</h4><p>创建动效。</p>
+<ul>
+<li><strong>Returns:</strong> <a href="#runtime-Effect">Effect</a></li>
+</ul>
+<h4 id="Legacy-createAnimation-element-effect-iteration"><a href="#Legacy-createAnimation-element-effect-iteration" class="headerlink" title="Legacy#createAnimation(element, effect, iteration)"></a>Legacy#createAnimation(element, effect, iteration)</h4><p>创建动画。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#runtime-Element">Element</a><code>} initial</code> </li>
+<li><code>{</code><a href="#runtime-Effect">Effect</a><code>| (effect: Effect, initial: Map): Effect} effect</code></li>
+<li><code>{number} [iteration=1]</code></li>
+</ul>
+</li>
+<li><strong>Resturns:</strong> <a href="#runtime-Animation">Animation</a></li>
+</ul>
+<h4 id="Legacy-createAnimations-element-…effects"><a href="#Legacy-createAnimations-element-…effects" class="headerlink" title="Legacy#createAnimations(element, …effects)"></a>Legacy#createAnimations(element, …effects)</h4><p>创建动画。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#runtime-Element">Element</a><code>} initial</code> </li>
+<li><code>{...(</code><a href="#runtime-Effect">Effect</a><code>| (effect: Effect, initial: Map): Effect)} effects</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>Array&lt;</code><a href="#runtime-Animation">Animation</a><code>&gt;</code></li>
+</ul>
+<h4 id="Legacy-createTimeline"><a href="#Legacy-createTimeline" class="headerlink" title="Legacy#createTimeline()"></a>Legacy#createTimeline()</h4><p>创建时间轴。</p>
+<ul>
+<li><strong>Returns:</strong> <a href="#runtime-Timeline">Timeline</a></li>
+</ul>
+<h4 id="Legacy-play-scene-any"><a href="#Legacy-play-scene-any" class="headerlink" title="Legacy#play(scene, any)"></a>Legacy#play(scene, any)</h4><p>播放场景中的动画。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#core-Scene">Scene</a><code>} scene</code></li>
+<li><code>{Array&lt;</code><a href="#runtime-Animation">Animation</a><code>|</code><a href="#runtime-Timeline">Timeline</a><code>&gt;} sth</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Legacy-pause"><a href="#Legacy-pause" class="headerlink" title="Legacy#pause()"></a>Legacy#pause()</h4><p>暂停播放。</p>
+<h4 id="Legacy-resume"><a href="#Legacy-resume" class="headerlink" title="Legacy#resume()"></a>Legacy#resume()</h4><p>恢复播放。</p>
+<h4 id="Legacy-cancel"><a href="#Legacy-cancel" class="headerlink" title="Legacy#cancel()"></a>Legacy#cancel()</h4><p>取消播放。</p>
+<h4 id="Legacy-generateCustomCoords-coordsPosition"><a href="#Legacy-generateCustomCoords-coordsPosition" class="headerlink" title="Legacy#generateCustomCoords(coordsPosition)"></a>Legacy#generateCustomCoords(coordsPosition)</h4><p>创建自定义坐标系统。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} coordsPosition</code></li>
+</ul>
+</li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#坐标系统">画布的坐标系统</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h2><p>提供了各种工具函数。</p>
+<h3 id="libs-color-color"><a href="#libs-color-color" class="headerlink" title="libs/color*color"></a>libs/color*color</h3><p>颜色函数集合。</p>
+<h4 id="color-isHex-hexColor"><a href="#color-isHex-hexColor" class="headerlink" title="color.isHex(hexColor)"></a>color.isHex(hexColor)</h4><p>判断是否为16进制表示的颜色值。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} hexColor</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="color-isRgba-rgbaColor"><a href="#color-isRgba-rgbaColor" class="headerlink" title="color.isRgba(rgbaColor)"></a>color.isRgba(rgbaColor)</h4><p>判断是否为rgba表示的颜色值。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} rgbaColor</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="color-isHsla-hslaColor"><a href="#color-isHsla-hslaColor" class="headerlink" title="color.isHsla(hslaColor)"></a>color.isHsla(hslaColor)</h4><p>判断是否为HSLA表示的颜色值。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} hslaColor</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="color-rgba-rgbaColor-type"><a href="#color-rgba-rgbaColor-type" class="headerlink" title="color.rgba(rgbaColor, type)"></a>color.rgba(rgbaColor, type)</h4><p>把rgba表示的颜色值转换成一个<code>[r, g, b, a]</code>的数组。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} rgbaColor</code></li>
+<li><code>{string} [type=css] 默认在css模式下，rgb的取值范围是0~255，如设置为webgl模式下，则rgba的取值范围是0~1。</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number[]</code></li>
+</ul>
+<h4 id="color-hex-hexColor-type"><a href="#color-hex-hexColor-type" class="headerlink" title="color.hex(hexColor, type)"></a>color.hex(hexColor, type)</h4><p>把16进制表示的颜色值转换成一个<code>[r, g, b, a]</code>的数组。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} hexColor</code></li>
+<li><code>{string} [type=css] 默认在css模式下，rgb的取值范围是0~255，如设置为webgl模式下，则rgba的取值范围是0~1。</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number[]</code></li>
+</ul>
+<h4 id="color-hsla-hslaColor-type"><a href="#color-hsla-hslaColor-type" class="headerlink" title="color.hsla(hslaColor, type)"></a>color.hsla(hslaColor, type)</h4><p>把HSLA表示的颜色值转换成一个<code>[r, g, b, a]</code>的数组。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} hexColor</code></li>
+<li><code>{string} [type=css] 默认在css模式下，rgb的取值范围是0~255，如设置为webgl模式下，则rgba的取值范围是0~1。</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number[]</code></li>
+</ul>
+<h4 id="color-rgba2hsla-rgbaColor"><a href="#color-rgba2hsla-rgbaColor" class="headerlink" title="color.rgba2hsla(rgbaColor)"></a>color.rgba2hsla(rgbaColor)</h4><p>把rgba表示的颜色值转换成一个<code>[h, s, l, a]</code>的数组。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} rgbaColor</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number[]</code></li>
+</ul>
+<h4 id="color-hex2hsla-rgbaColor"><a href="#color-hex2hsla-rgbaColor" class="headerlink" title="color.hex2hsla(rgbaColor)"></a>color.hex2hsla(rgbaColor)</h4><p>把16进制表示的颜色值转换成一个<code>[h, s, l, a]</code>的数组。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{string} rgbaColor</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number[]</code></li>
+</ul>
+<h3 id="libs-copy-copy"><a href="#libs-copy-copy" class="headerlink" title="libs/copy*copy"></a>libs/copy*copy</h3><p>浅拷贝或深拷贝一个对象。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{object} source</code></li>
+<li><code>{boolean} deeply</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="libs-css-CSSMap"><a href="#libs-css-CSSMap" class="headerlink" title="libs/css~CSSMap"></a>libs/css~CSSMap</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a></li>
+</ul>
+<h4 id="CSSMap-normalize"><a href="#CSSMap-normalize" class="headerlink" title="CSSMap.normalize()"></a>CSSMap.normalize()</h4><p>返回规范化后的所有CSS键值对。</p>
+<ul>
+<li><strong>Returns:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="external">Map</a></li>
+</ul>
+<h3 id="libs-css-StyleMap"><a href="#libs-css-StyleMap" class="headerlink" title="libs/css~StyleMap"></a>libs/css~StyleMap</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#libs-css-CSSMap">CSSMap</a></li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#元素的样式">元素的样式</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="libs-css-TransformMap"><a href="#libs-css-TransformMap" class="headerlink" title="libs/css~TransformMap"></a>libs/css~TransformMap</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Extends:</strong> <a href="#libs-css-CSSMap">CSSMap</a></li>
+<li><strong>See also:</strong><ul>
+<li><a href="../guide/advanced.html#元素的变换矩阵">元素的变换矩阵</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="TransformMap-toMatrix-filter"><a href="#TransformMap-toMatrix-filter" class="headerlink" title="TransformMap#toMatrix(filter)"></a>TransformMap#toMatrix(filter)</h4><p>返回一个矩阵数组，在计算时可以提供一个过滤函数。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{([key: string, value: number]): Array} filter</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="libs-cubicbezier-CubicBezier"><a href="#libs-cubicbezier-CubicBezier" class="headerlink" title="libs/cubicbezier=CubicBezier"></a>libs/cubicbezier=CubicBezier</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cb = <span class="keyword">new</span> CubicBezier(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">cb.y(<span class="number">0.5</span>); <span class="comment">// =&gt; 0.5</span></div></pre></td></tr></table></figure>
+<h4 id="CubicBezier-y-x"><a href="#CubicBezier-y-x" class="headerlink" title="CubicBezier#y(x)"></a>CubicBezier#y(x)</h4><p>一个贝塞尔函数，通过<code>x</code>得出<code>y</code>。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} x</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number</code></li>
+</ul>
+<h3 id="libs-interpolation-interpolation"><a href="#libs-interpolation-interpolation" class="headerlink" title="libs/interpolation*interpolation"></a>libs/interpolation*interpolation</h3><p>插值函数集合。</p>
+<h4 id="interpolation-simple-sVal-eVal-percent"><a href="#interpolation-simple-sVal-eVal-percent" class="headerlink" title="interpolation.simple(sVal, eVal, percent)"></a>interpolation.simple(sVal, eVal, percent)</h4><p>对简单类型做插值运算。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number|string} sVal</code></li>
+<li><code>{number|string} eVal</code></li>
+<li><code>{number} percent 0~1</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number | string</code></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">simple(<span class="string">'#000'</span>, <span class="string">'#fff'</span>, <span class="number">0.5</span>); <span class="comment">// =&gt; rgba(127,127,127,1)</span></div><div class="line">simple(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0.5</span>); <span class="comment">// =&gt; 0.5</span></div><div class="line">simple(<span class="string">'0px'</span>, <span class="string">'1px'</span>, <span class="number">0.5</span>); <span class="comment">// =&gt; 0.5px</span></div><div class="line">simple(<span class="string">'0%'</span>, <span class="string">'100%'</span>, <span class="number">0.5</span>); <span class="comment">// =&gt; '50%'</span></div></pre></td></tr></table></figure>
+<h4 id="interpolation-complex-sVal-eVal-percent-deeply"><a href="#interpolation-complex-sVal-eVal-percent-deeply" class="headerlink" title="interpolation.complex(sVal, eVal, percent, deeply)"></a>interpolation.complex(sVal, eVal, percent, deeply)</h4><p>对复杂类型做插值运算。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number|string|Array|Set|Map} sVal</code></li>
+<li><code>{number|Array|Set|Map} eVal</code></li>
+<li><code>{number} percent 0~1</code></li>
+<li><code>{boolean} [deeply]</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number|string|Array|Set|Map</code></li>
+<li><strong>Example:</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">complex([<span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">3</span>], <span class="number">0.5</span>); <span class="comment">// =&gt; [1.5, 2.5]</span></div><div class="line">complex(<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>]), <span class="keyword">new</span> <span class="built_in">Set</span>[<span class="number">2</span>, <span class="number">3</span>], <span class="number">0.5</span>); <span class="comment">// =&gt; new Set([1.5, 2.5])</span></div><div class="line">complex(<span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">    [<span class="string">'a'</span>, <span class="number">1</span>]</div><div class="line">    [<span class="string">'b'</span>, <span class="number">2</span>]</div><div class="line">]), <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">    [<span class="string">'a'</span>, <span class="number">2</span>]</div><div class="line">    [<span class="string">'b'</span>, <span class="number">3</span>]</div><div class="line">]), <span class="number">0.5</span>); <span class="comment">// =&gt; new Map([['a', 1.5],['b', 2.5]])</span></div><div class="line">complex(</div><div class="line">    [<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>]), <span class="keyword">new</span> <span class="built_in">Map</span>([<span class="string">'b'</span>, <span class="number">2</span>])],</div><div class="line">    [<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">2</span>]), <span class="keyword">new</span> <span class="built_in">Map</span>([<span class="string">'b'</span>, <span class="number">3</span>])],</div><div class="line">    <span class="number">0.5</span>,</div><div class="line">    <span class="literal">true</span></div><div class="line">); <span class="comment">// =&gt; [new Set([1.5]), new Map(['b', 2.5])]</span></div></pre></td></tr></table></figure>
+<h3 id="libs-math-math"><a href="#libs-math-math" class="headerlink" title="libs/math*math"></a>libs/math*math</h3><p>数学函数集合。</p>
+<ul>
+<li><strong>Type:</strong> <code>object</code></li>
+</ul>
+<h4 id="math-accuracy-value"><a href="#math-accuracy-value" class="headerlink" title="math.accuracy(value)"></a>math.accuracy(value)</h4><p>对数字或字符串取6位小数的进度。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} value</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number</code></li>
+</ul>
+<h4 id="math-deg2rad-degree"><a href="#math-deg2rad-degree" class="headerlink" title="math.deg2rad(degree)"></a>math.deg2rad(degree)</h4><p>把角度值转化为弧度值。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} degree</code></li>
+</ul>
+</li>
+<li><strong>Returns:</strong> <code>number</code></li>
+</ul>
+<h3 id="libs-mix-mix"><a href="#libs-mix-mix" class="headerlink" title="libs/mix=mix"></a>libs/mix=mix</h3><p>把源对象的所有属性混合到目标对象中。</p>
+<ul>
+<li><strong>Type:</strong> <code>function</code></li>
+<li><strong>Arguments:</strong><ul>
+<li><code>{object} target</code></li>
+<li><code>{object} source</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="libs-vec3-Vec3"><a href="#libs-vec3-Vec3" class="headerlink" title="libs/vec3=Vec3"></a>libs/vec3=Vec3</h3><ul>
+<li><strong>Type:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">Class</a></li>
+<li><strong>Constrcutor:</strong><ul>
+<li><code>{number} [x]</code></li>
+<li><code>{number} [y]</code></li>
+<li><code>{number} [z]</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Vec3-modified"><a href="#Vec3-modified" class="headerlink" title="Vec3#modified"></a>Vec3#modified</h4><p>是否被修改。</p>
+<ul>
+<li><strong>Type:</strong> <code>boolean</code></li>
+</ul>
+<h4 id="Vec3-x"><a href="#Vec3-x" class="headerlink" title="Vec3#x"></a>Vec3#x</h4><p>获取或设置X向量。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Vec3-y"><a href="#Vec3-y" class="headerlink" title="Vec3#y"></a>Vec3#y</h4><p>获取或设置Y向量。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Vec3-z"><a href="#Vec3-z" class="headerlink" title="Vec3#z"></a>Vec3#z</h4><p>获取或设置Z向量。</p>
+<ul>
+<li><strong>Type:</strong> <code>number</code></li>
+</ul>
+<h4 id="Vec3-add-vec3"><a href="#Vec3-add-vec3" class="headerlink" title="Vec3#add(vec3)"></a>Vec3#add(vec3)</h4><p>向量相加。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{</code><a href="#libs-vec3-Vec3">Vec3</a><code>|Float32Array} vec3</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Vec3-set-x-y-z"><a href="#Vec3-set-x-y-z" class="headerlink" title="Vec3#set(x, y, z)"></a>Vec3#set(x, y, z)</h4><p>设置向量。</p>
+<ul>
+<li><strong>Arguments:</strong><ul>
+<li><code>{number} [x]</code></li>
+<li><code>{number} [y]</code></li>
+<li><code>{number} [z]</code></li>
+</ul>
+</li>
+</ul>
+
+    
+    <div class="footer">
+      <a href="http://gitlab.alibaba-inc.com/fdilab/aft.js/blob/master/docs/src/api/index.md" target="_blank">
+        Edit this page on Gitlab!
+      </a>
+    </div>
+</div>
+
+        </div>
+        <script src="../js/smooth-scroll.min.js"></script>
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="../js/css.escape.js"></script>
+        <script src="../js/common.js"></script>
+    </body>
+</html>

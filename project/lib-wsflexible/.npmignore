@@ -1,0 +1,16 @@
+.DS_Store
+/browser
+/docs
+/examples
+/node_modules
+/src
+/test
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.npmignore
+/build.js
+/rollup.config*
+.gitkeep

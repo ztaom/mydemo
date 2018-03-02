@@ -1,0 +1,199 @@
+/**
+ * Created by youku on 2015/10/22.
+ */
+(function(){
+    setTimeout(function(){
+        window.scrollTo(0, 1);
+    },10);
+    document.querySelector(".download").addEventListener("touchmove", function (e) {
+        e.preventDefault();
+    },false);
+    var reportPoint = function(link){
+        if(link!==""&&link!==null)
+        new Image().src=link;
+    };
+    var getCategory = function(){
+        var url = location.href;
+        var url_param = {};
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(url.indexOf("?") + 1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                url_param[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return url_param["category"];
+    };
+    var iphone_url,pad_url,and_url,count_hz,iphone_hz,pad_hz,and_hz;
+    var getUrlHz = function(){
+        //category 默认是百度(baidu_1)， 百度， 搜狗， 360
+        var category = getCategory();
+        switch (category){
+            //百度 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+            case "shoutao_shuang11":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-shuangshiyihuodong.apk";
+                break;
+            case "lankun2":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun2.apk";
+                break;
+            case "lankun3":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun3.apk";
+                break;
+            case "lankun4":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun4.apk";
+                break;
+            case "lankun5":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun5.apk";
+                break;
+            case "lankun6":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun6.apk";
+                break;
+            case "lankun7":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun7.apk";
+                break;
+            case "lankun9":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun9.apk";
+                break;
+            case "lankun10":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun10.apk";
+                break;
+            case "youkupinzhuan2":
+                and_url="http://down2.uc.cn/youku/down.php?pub=4be443503798fe68";
+                break;
+            case "youkupinzhuan3":
+                and_url="http://down2.uc.cn/youku/down.php?pub=c8c4a32f0c6c35bd";
+                break;
+            //未分类
+            case "jinritoutiaoziyingguanggao":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-jinritoutiaoziyingguanggao.apk";
+                break;
+            case "wangtongshe":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-wangtongshe.apk";
+                break;
+            case "taipingyangqiche":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-taipingyangqiche.apk";
+                break;
+
+
+            //搜狗 ================
+            case "sougou_1":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM21.apk";
+                break;
+            case "sougou_2":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM22.apk";
+                break;
+            case "sougou_3":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM23.apk";
+                break;
+            case "sougou_4":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM24.apk";
+                break;
+            case "sougou_5":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM25.apk";
+                break;
+            case "sougou_6":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM26.apk";
+                break;
+            case "sougou_7":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM27.apk";
+                break;
+            case "sougou_8":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM28.apk";
+                break;
+            case "sougou_9":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM29.apk";
+                break;
+            case "sougou_10":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM30.apk";
+                break;
+            case "sougoupinzhuan":
+                and_url="http://down2.uc.cn/youku/down.php?pub=54b2edc0cd42af5b";
+                break;
+            case "sougoupinzhuan2":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_6.0_zhanlue-sougoupinzhuan.apk ";
+                break;
+                
+            //360 ===
+            case "360_1":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM2.apk";
+                break;
+            case "360_2":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM3.apk";
+                break;
+            case "360_3":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM4.apk";
+                break;
+            case "360_4":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM5.apk";
+                break;
+            case "360pinzhuan1":
+                and_url="http://dl.m.cc.youku.com/android/phone/youku-android-6.1.1-360pinzhuan.apk";
+                break;
+            
+            //支付宝
+            case "guaguaka":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_zhanlue-guaguaka.apk";
+                break;
+            case "zhifubao":
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_zhanlue-guaguaka.apk";
+                break;
+            
+
+            //百度品专及其他
+             default :
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.5_zhanlue-lankun2.apk";
+        }
+    };
+    /*http://static.youku.com/h5/html/extension/extension.html
+    * http://static.youku.com/h5/html/extension/extension.html?category  百度品专
+    * http://static.youku.com/h5/html/extension/extension.html?category=shenma 神马品专
+    * http://static.youku.com/h5/html/extension/extension.html?category=shenmaSEM 神马sem
+    * http://static.youku.com/h5/html/extension/extension.html?category=baiduSEM 百度sem
+    * http://static.youku.com/h5/html/extension/extension.html?category=sogoSEM
+    * http://static.youku.com/h5/html/extension/extension.html?category=baidu_downloadcard
+    * */
+
+    var downLink = function(){
+        getUrlHz();
+        //reportPoint(count_hz);
+        var ua = navigator.userAgent.toLowerCase(),
+            url="",hz="";
+        if (/iphone|ipod/.test(ua)) {
+            $(".download").html('<img src="img/iosdown.png"/>');
+            $('.topic .download').html('<img src="img/download.png"/>');
+            url = "https://itunes.apple.com/app/apple-store/id336141475";
+        } else if(/ipad/.test(ua)){
+            $(".download").html('<img src="img/iosdown.png"/>');
+            $('.topic .download').html('<img src="img/download.png"/>');
+            url = "https://itunes.apple.com/cn/app/you-ku-hd/id394075284";
+        } else{
+            $(".download").html('<img src="img/anddown.png"/>');
+            $('.topic .download').html('<img src="img/download.png"/>');
+            url = and_url;
+        }
+        $(".download,.contlist").on("tap",function(){
+            //reportPoint(hz);
+            if(url!==""&&url!==null)
+            location.href=url;
+        });
+
+    };
+    downLink();
+
+    //背景图设置
+    var date = new Date(),year=date.getFullYear(),mouth = (date.getMonth()+1), day = date.getDate(),hour = date.getHours()
+    var updateTime = year+''+mouth+''+day+''+hour;
+
+    var bgOne = 'url('+'http://r4.ykimg.com/051000005824101F67BC3D3D4C064D4A'+'?'+updateTime+')';
+    var bgTwo = 'url('+'http://r1.ykimg.com/051000005824102C67BC3D3D620135B5'+'?'+updateTime+')';
+    var bgThr = 'url('+'http://r3.ykimg.com/051000005824100E67BC3D3D2E01058D'+'?'+updateTime+')';
+    var bgFour = 'url('+'http://r3.ykimg.com/051000005824103667BC3D3D8A04A9AE'+'?'+updateTime+')';
+    var bgBanner = 'http://r2.ykimg.com/051000005824106167BC3D4544040012'+'?'+updateTime;
+    $('.p1').css('backgroundImage',bgOne)
+    $('.p2').css('backgroundImage',bgTwo)
+    $('.p3').css('backgroundImage',bgThr)
+    $('.p4').css('backgroundImage',bgFour)
+    $('.topic .tpbg').attr('src',bgBanner)
+})();

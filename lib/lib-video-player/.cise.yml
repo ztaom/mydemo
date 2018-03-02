@@ -1,0 +1,13 @@
+stage:
+  node-4:
+    prepare:
+      exec:
+      - nvm i 4 && npm i -g tnpm --registry=http://registry.npm.alibaba-inc.com && tnpm i
+    unit_test:
+      exec:
+      - "nvm use 4 && CI_BUILD_REF=$source_version CI_BUILD_REF_NAME=$scm_branch CI_BUILD_REPO=$scm_url \
+        CI_BUILD_URL=http://cise.alibaba-inc.com/task/$task_id/build/$build_idx \
+        tnpm run ci"
+
+pipeline:
+- node-4

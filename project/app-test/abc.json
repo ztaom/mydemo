@@ -1,0 +1,10 @@
+{
+    "assets":{
+        "type":"command",
+        "command":{
+            "cmd":[
+                "tnpm ii && bash ./build.sh && mv ./build $BUILD_DEST"
+            ]
+        }
+    }
+}

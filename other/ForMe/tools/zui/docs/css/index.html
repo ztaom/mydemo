@@ -1,0 +1,121 @@
+<div class="entry-title">
+  <h1>ZUI规范指南&mdash;&mdash;css规范</h1>
+</div>
+    <div class="entry">
+      <div class="content-title"><h3>CSS开发规范(CSS Code Guideline)</h3></div>
+      <p class="bg-purple p-5 mb-5">一、CSS浏览器支持标准</p>
+      <ol class="order-list ml-10 mb-10">
+        <li>标准－交互和视觉完全符全设计的要求</li>
+        <li>普通－视觉上允许有所差异，不破坏页面整体效果</li>
+        <li>简洁－可忽视视觉上的问题，但不防碍使用</li>
+      </ol>
+      <p class="bg-purple p-5 mb-5">二、尽可能的通过继承和层叠重用已有样式</p>
+      <p class="bg-purple p-5 mb-5">三、根据新建样式的适用范围分为四级：全站级、产品级、页面级、插件级</p>
+      <ol class="order-list ml-10 mb-10">
+        <li>目前全站级的CSS文件有reset-layout.css（布局）和siteStyle.css</li>
+        <li>产品级CSS是指作用于某一垂直产品，文件放在css/biz下</li>
+        <li>页面级指仅在一个或少量几个页面中用到。如果仅在一个页面中用到的采用内联方式嵌入于页面head里，多于两个页面的放到外联的CSS文件中，该文件放在css/biz下</li>
+        <li>插件级是指页面中用到的特殊交互效果的css，该文件放在css/widget下</li>
+        <li class="fw-b">内联和外联的CSS都必须放在页面的head里，顺序是：全站级、产品级、页面级、插件级</li>
+        <li class="fw-b">改动全站级CSS，需经过全面测试</li>
+      </ol>
+      <p class="bg-purple p-5 mb-5">四、CSS规则的书写格式要求</p>
+      <ol class="order-list ml-10 mb-10">
+        <li>属性需要写在一行，如：</li>
+        <pre class="brush:c-sharp;">
+        .selector { property:value;property:value; }
+        </pre>
+        <li>多个selector并列写，&ldquo;逗号&rdquo;后加一个空格：</li>
+        <pre class="brush:c-sharp;">
+        .selector1, .selector2, .selector3 { property:value;property:value; }
+        </pre>
+        <li>兼容多个浏览器时，将标准属性写在后面，如：</li>
+        <pre class="brush:c-sharp;">
+        -webkit-border-radius:4px;-moz-border-radius:4px;border-radius: 4px;
+        </pre>
+      </ol>
+      <p class="bg-purple p-5 mb-5">五、ID和Class命名。命名不要用缩写，单词间用"-"做为连接符</p>
+      <ol class="order-list ml-10 mb-10">
+        <li>ID是用来标识具体模块，命名必须具体且唯一，由前缀和名字组成。不要滥用ID</li>
+        <li>Class是用来标识某一类型的元素，命名简洁表意清楚</li>
+        <li>推荐使用的class名：
+          <p class="bg-SkyBlue p-5 lh-150">
+            表示状态: .selected, .open, .collapsible, .active, .on, .current<br />
+            表示位置: .first, .last, .main, .side<br />
+            表示结构: .hd, .bd, .ft, .col, .section<br />
+            通用元素: .tb, .frm, .nav, .list, .item, .tag, .pic, .info
+          </p>
+        </li>
+      </ol>
+      <p class="bg-purple p-5 mb-5">六、尽量避免使用CSS Hack</p>
+      <ol class="order-list ml-10 mb-10">
+          <li>区别属性：
+              <p class="bg-SkyBlue p-5 lh-150">
+                <strong>IE6:</strong> _property:value<br />
+                <strong>IE6/7:</strong> *property:value<br />
+                <strong>IE6/7/8/9:</strong> property:value\9<br />
+                <strong>非IE6:</strong> property//:value
+              </p>
+          </li>
+          <li>区别规则：
+              <p class="bg-SkyBlue p-5 lh-150">
+                <strong>IE6:</strong> * html selector { ... }<br />
+                <strong>IE7:</strong> *:first-child+html selector { ... }<br />
+                <strong>非IE6:</strong> html>body selector { ... }<br />
+                <strong>firefox only:</strong> @-moz-document url-prefix() { ... }<br />
+                <strong>saf3+/chrome1+:</strong> @media all and (-webkit-min-device-pixel-ratio:0) { ... }<br />
+                <strong>opera only:</strong> @media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { ... }<br />
+                <strong>iPhone/mobile webkit:</strong> @media screen and (max-device-width: 480px) { ... }
+              </p>
+          </li>
+      </ol>
+      <p class="bg-purple p-5 mb-5">七、CSS和图片不能使用的命名</p>
+	  <ol class="order-list ml-10 mb-10">
+	  	<li>css样式和图片表示长乘宽不能用75x56，统一命名为75-56；百分比不能1/5，统一成1size5</li>
+		<li>图片的命名中不能包含ads的名称</li>
+	  </ol>
+      <div class="content-title"><h3>css注释</h3></div>
+      <ol class="order-list">
+        <li>头部拟写规范:</li>
+        <pre class="brush:c-sharp;">        
+            /**
+             * 名称：
+             * 内容描述：
+             * 
+             * [TOC]
+             */
+        </pre>
+        <li>注释：</li>
+        <pre class="brush:c-sharp;">
+          /***********************************************************************************************************
+           * 整段注释
+           ***********************************************************************************************************/
+
+           /* 行间注释 */
+        </pre>
+      </ol>  
+      <div class="content-title"><h3>外部资源</h3></div>
+      <ol class="order-list pl-10">
+        <li><a href="http://www.queness.com/post/3220/9-web-css-tools-you-must-know" target="_blank">CSS工具</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssdesignpatterns.com/">css设计模式</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.webmonkey.com">web monkey</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/">css play</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menu/inline-links2.html">inline links效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menu/shadow2.html">shadow效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menu/tablescroll.html">table scroll效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menu/barchart.html">bar chart效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menu/one_page.html">mega menu效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menu/bground_hover.html">鼠标hover设置div背景色效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menus/triple-block-hover.html">图片hover效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menus/fisheye2.html">fisheye效果</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menus/snazzymenu2.html">上下文菜单参照</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menus/droplist-image.html">会员主菜单参照</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menus/bags-dropdown.html">书店功能参照</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.cssplay.co.uk/menus/expand.html">hover放大</a></li>
+        <li><a target="_blank" class="icon-external" href="http://www.vl.no/">oocss case</a></li>
+      </ol>
+    </div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

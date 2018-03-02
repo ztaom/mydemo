@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Hello world</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	drawText();
+}
+
+function drawText() {
+	ctx.fillStyle = "blue";
+	ctx.font = "24 pt Helvetica";
+	ctx.textAlign = "center";
+	ctx.textBaseline = "middle";
+	ctx.fillText("Hello, world.", can.width / 2 , can.height / 2);
+}
+
+</script>	
+</head>
+
+<body onload="init()" style="background-color:black">
+
+<canvas id="can" height="200" width="400" style="background-color:white">
+</canvas>
+
+</body>
+</html>

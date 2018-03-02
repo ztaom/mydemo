@@ -1,0 +1,5 @@
+.simplemodal-overlay {cursor:wait; background:#000;}
+.simplemodal-container {width:600px; border:4px solid #444; padding:12px; background:#fff;}
+.simplemodal-container a.modalCloseImg {background:url(img/simplemodel/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:1000; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+* html .simplemodal-container a.modalCloseImg {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="http://www.ztaom.com/zui/css/img/simplemodel/x.png"); background:none;}
+.simplemodal-container #basic-modal-content {padding:8px;}

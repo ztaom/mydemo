@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>优酷App下载</title>
+    <link rel="stylesheet" type="text/css" href="css/extension.css">
+    <script src="js/zepto.min.js"></script>
+    
+</head>
+<body>
+<div class="w">
+    <section class="topic">
+        <img src="img/blank.png" class="tpbg">
+        <div class="download"></div>
+    </section>
+    <section class="contlist">
+
+    </section>
+    <footer class="yk-footer">
+    <link rel="stylesheet" type="text/css" href="http://static.youku.com/v1.0.180/index/css/mfooter.css">
+        <div class="copyright">
+            Copyright&copy;2016 优酷 youku.com 版权所有<br />
+            <a target="_blank" href="http://c.youku.com/piracy">反盗版盗链声明</a>
+            <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证060288号</a>
+            <a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202006082400023" target="_blank">
+                <i class="ico-icp" title="经营性网站备案"></i>
+            </a>
+        </div>
+    </footer>
+
+</div>
+<script src="js/extension.js"></script>
+<script type="text/javascript">
+$(function(){
+    $.ajax({
+        type:'get',
+        async:false,
+        url:'http://api.m.youku.com/api/cms/commonBox',
+        dataType:'jsonp',
+        cache:true,
+        jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+        jsonpCallback:"excontent",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                            
+        success:function(data){
+            var datas=data.data.data.contents.results
+            var arr = [];
+            for(var i in datas){
+                var item = datas[i];
+                var str = '<div class="item"><div class="pic"><img src=" '+item.image+' " width="125" height="70"><span>'+'10:35'+'</span></div><div class="text"><h3>'+item.title+'</h3><span class="playnum">'+'75.3'+'万</span><div class="l_download">下载应用观看</div></div></div>';
+                arr.push(str)
+            }
+            $('.contlist').html(arr.join(""))
+         },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(XMLHttpRequest.responseText);
+            alert(textStatus);
+            alert(errorThrown);
+            console.log(textStatus);
+        }
+     });
+})
+</script>
+</body>
+</html>

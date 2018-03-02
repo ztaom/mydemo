@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "compass";
+@import "compass/reset";
+
+// --------------------------------------------------------------------------------
+// font
+// --------------------------------------------------------------------------------
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+.font {
+    font-family: 'Josefin Sans',Arial,sans-serif;
+    font-weight: 400;
+}
+.font_b {
+    font-family: 'Josefin Sans',Arial,sans-serif;
+    font-weight: 700;
+}
+
+// --------------------------------------------------------------------------------
+// header
+// --------------------------------------------------------------------------------
+header {
+	a {
+		color: #FFF;
+		text-decoration: none;
+		&:hover{
+			color: #FFF;
+			opacity: 0.7;
+		}
+	}
+	h1 {
+		position: fixed;;
+		top: 20px;
+		left: 20px;
+		z-index: 9999;
+		font-size: 20px;
+	}
+	p {
+		position: fixed;;
+		top: 20px;
+		right: 20px;
+		z-index: 9999;
+		font-size: 16px;
+	}
+}

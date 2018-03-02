@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Patterns</title>
+<script type="text/javascript">
+
+function init() {
+	var can = document.getElementById("can");
+	var ctx = can.getContext("2d");
+	var dot = document.getElementById("pat");
+	var block = document.getElementById("pat2");
+	var cork = document.getElementById("pat3");
+	var pat = ctx.createPattern(dot,"repeat");
+	var pat2 = ctx.createPattern(block,"repeat");
+	var pat3 = ctx.createPattern(cork,"repeat");
+
+	// make line thicker so pattern shows
+	ctx.lineWidth=3;
+	
+	// stroke line and fill rect with dot pattern
+	ctx.beginPath();
+	ctx.moveTo(10,10);
+	ctx.lineTo(110,10);
+	ctx.strokeStyle=pat;
+	ctx.stroke();
+	ctx.fillStyle=pat;
+	ctx.fillRect(10,20, 100,150);
+	
+	// stroke line and fill rect with block pattern
+	ctx.beginPath();
+	ctx.moveTo(150,10);
+	ctx.lineTo(250,10);
+	ctx.strokeStyle=pat2;
+	ctx.stroke();
+	ctx.fillStyle=pat2;
+	ctx.fillRect(150,20, 100,150);
+	
+	// stroke line and fill rect with cork pattern
+	ctx.beginPath();
+	ctx.moveTo(300,10);
+	ctx.lineTo(400,10);
+	ctx.strokeStyle=pat3;
+	ctx.stroke();
+	ctx.fillStyle=pat3;
+	ctx.fillRect(300,20, 100,150);
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<table width="450" valign="bottom">
+<tr>
+	<td width="150"> Dot: <img id= "pat" src="assets/dot.png"></td>
+	<td width="150"> Block: <img id="pat2" src="assets/block.png"></td>
+	<td>Cork: <img id="pat3" src="assets/cork.png"></td>
+</tr>
+</table>
+<canvas id="can" height="200" width="400">
+</canvas>
+
+</body>
+</html>

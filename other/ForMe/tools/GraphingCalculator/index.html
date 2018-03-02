@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <!--chrome=1 enables chrome frame; IE=9 keeps IE from rendering in fallback mode.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=9, chrome=1" />
+
+    <meta name="Description" content="I would have loved this calculator. I love too" />
+
+    <meta property="og:site_name" content="Desmos Graphing Calculator" />
+
+    <link rel="stylesheet" href="grapher-cbe445d993be2cd9d91c2abf469bc2024b43b3ea.min.css" />
+    <link rel="stylesheet" href="desmos_user-7414dc5061cc999f0136e29b7f44305639adc5c8.min.css" />
+
+    <title>Graphing Calculator</title>
+</head>
+<body
+  data-worker-path="worker-39a2eb5e78f4bd3d4cde584bb459d7f287e8f7b0.min.js"
+  data-load-data="{&#34;driveAppId&#34;: &#34;216942115270&#34;, &#34;graph&#34;: null, &#34;user&#34;: null, &#34;dev&#34;: false, &#34;noworkers&#34;: false}"
+>
+
+<!-- LOGIN MODALS -->
+<div id='modal_background'></div>
+<div id="modal">
+    <img class="close-modal" src="modal_close.png"/>
+</div> <!-- end div#login_modal -->
+
+<div id='menu_hider'></div>
+
+<!-- this is where the tools go. leaving div in because I like it aesthetically during load-up -->
+<div id="subheader"></div>
+
+<div style='position:absolute; top:50%; left:50%' id='loading_div'>
+
+
+  <img src='data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==' width='16px' height='16px'> loading...
+  
+
+</div>
+
+
+
+<!-- GRAPHER -->
+<div id="grapher">
+</div>
+
+<!-- KEYPAD -->
+
+<div id='keypad'>
+</div>
+
+<script type="text/javascript">
+
+  // don't update window.location.href if on "file://"
+  if (window.location.protocol === "file:")
+    window.history.pushState = null;
+
+  WebFontConfig = {
+      custom: {
+          families: ['Symbola'],
+          urls: ["mathquill_delay-e8eb47c19acf5b363e27bfb1beef159c4113e6b0.min.css"]
+      }
+  };
+</script>
+
+<script src="vendor-9a753d28389b984a079e77f0b5d96e4967a4c1cc.min.js"></script>
+
+<!--[if lt IE 10 ]>
+<script src="ie9-841b64d9a3d0ca69d26e7320c5baa9cadfc9b3cf.min.js"></script>
+<![endif]-->
+
+<script src="math-39a2eb5e78f4bd3d4cde584bb459d7f287e8f7b0.min.js"></script>
+<script src="main-46a852dc48e666a7c8f1a1d0d4768029e42c7ee7.min.js"></script>
+
+    <script src="templates-b61b701a6d30dd39db5517db266c44848215537a.min.js"></script>
+
+    <script src="desmos_user-eda4fded9036e63ea367032f7ef1c22fff990684.min.js"></script>
+
+  <script>
+    Desmos.openPage = function(url, windowName, dimensions) {
+      return window.open(url, windowName, dimensions);
+    }
+  </script>
+<div id="floatAds" style="position:fixed; top:30%; left:30%; z-index:9999; width:336px;height:280px;box-shadow: 0 0 10px rgba(0,0,0,0.8);">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-0293958384530494";
+/* 浮动广告 */
+google_ad_slot = "1731376902";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<a href="javascript:void()" onClick="document.getElementById('floatAds').style.display = 'none'" style="position:absolute; top:2px;right:10px;color:red">关闭</a>
+</div>
+</body>
+</html>
+

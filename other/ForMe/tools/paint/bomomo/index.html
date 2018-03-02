@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ztaom bomomo</title>
+<link rel="stylesheet" href="default3.css" type="text/css" media="screen,projection,print">
+<!--[if !IE]><![IGNORE[--><!--[IGNORE[]]-->
+        <script type="text/javascript" src="default-c.js"></script>
+    <!--<![endif]-->
+<!--[if IE]>
+        <script type="text/javascript" src="default-flash.js"></script>
+    <![endif]-->
+<meta name="description" content="The homepage of bomomo">
+</head>
+<body>
+<div class="app"> 
+  <!-- google_ad_section_start(weight=ignore) --> 
+  
+  <!--[if !IE]><![IGNORE[--><!--[IGNORE[]]-->
+    <canvas height="520" width="760" class="canvas" id="canvasBackground"></canvas>
+    <!--<![endif]--> 
+  
+  <!--[if IE]>
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+        width="760" height="520" id="bomomo" class="canvas" align="middle">
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="allowFullScreen" value="false" />
+    <param name="movie" value="bomomo.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="bomomo.swf" quality="high" bgcolor="#ffffff" width="760" height="520" name="bomomo" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+    </object>
+    <![endif]--> 
+  
+  <!--[if !IE]><![IGNORE[--><!--[IGNORE[]]-->
+    <canvas height="520" width="760" class="canvas" id="canvasForeground" onmousedown="handleMouseDown(event)" onmouseup="handleMouseUp(event)" onmouseover="handleMouseIn(event)" onmouseout="handleMouseOut(event)" onmousemove="handleMouseMoved(event)"></canvas>
+    <!--<![endif]-->
+  
+  <div id="tools"> <span class="button" id="button1" onclick="buttonClicked(1)" onmouseover="buttonOver(1)" onmouseout="buttonOut(1)"><img src="1.png" alt=""></span><span class="button" id="button2" onclick="buttonClicked(2)" onmouseover="buttonOver(2)" onmouseout="buttonOut(2)"><img src="2.png" alt=""></span><span class="button" id="button3" onclick="buttonClicked(3)" onmouseover="buttonOver(3)" onmouseout="buttonOut(3)"><img src="3.png" alt=""></span><span class="button" id="button4" onclick="buttonClicked(4)" onmouseover="buttonOver(4)" onmouseout="buttonOut(4)"><img src="4.png" alt=""></span><span class="button" id="button5" onclick="buttonClicked(5)" onmouseover="buttonOver(5)" onmouseout="buttonOut(5)"><img src="5.png" alt=""></span><span class="button" id="button6" onclick="buttonClicked(6)" onmouseover="buttonOver(6)" onmouseout="buttonOut(6)"><img src="6.png" alt=""></span><span class="button" id="button7" onclick="buttonClicked(7)" onmouseover="buttonOver(7)" onmouseout="buttonOut(7)"><img src="7.png" alt=""></span><span class="button" id="button8" onclick="buttonClicked(8)" onmouseover="buttonOver(8)" onmouseout="buttonOut(8)"><img src="8.png" alt=""></span><span class="button" id="button9" onclick="buttonClicked(9)" onmouseover="buttonOver(9)" onmouseout="buttonOut(9)"><img src="9.png" alt=""></span><span class="button" id="button10" onclick="buttonClicked(10)" onmouseover="buttonOver(10)" onmouseout="buttonOut(10)"><img src="10.png" alt=""></span><span class="button" id="button11" onclick="buttonClicked(11)" onmouseover="buttonOver(11)" onmouseout="buttonOut(11)"><img src="11.png" alt=""></span><span class="button" id="button12" onclick="buttonClicked(12)" onmouseover="buttonOver(12)" onmouseout="buttonOut(12)"><img src="12.png" alt=""></span><span class="button" id="button13" onclick="buttonClicked(13)" onmouseover="buttonOver(13)" onmouseout="buttonOut(13)"><img src="13.png" alt=""></span><span class="button" id="button14" onclick="buttonClicked(14)" onmouseover="buttonOver(14)" onmouseout="buttonOut(14)"><img src="14.png" alt=""></span><span class="button" id="button15" onclick="buttonClicked(15)" onmouseover="buttonOver(15)" onmouseout="buttonOut(15)"><img src="15.png" alt=""></span><span class="button" id="button16" onclick="buttonClicked(16)" onmouseover="buttonOver(16)" onmouseout="buttonOut(16)"><img src="16.png" alt=""></span><span class="button" id="button17" onclick="buttonClicked(17)" onmouseover="buttonOver(17)" onmouseout="buttonOut(17)"><img src="17.png" alt=""></span><span class="button" id="button18" onclick="buttonClicked(18)" onmouseover="buttonOver(18)" onmouseout="buttonOut(18)"><img src="18.png" alt=""></span><span class="button" id="button19" onclick="buttonClicked(19)" onmouseover="buttonOver(19)" onmouseout="buttonOut(19)"><img src="19.png" alt=""></span><span class="button" id="button20" onclick="buttonClicked(20)" onmouseover="buttonOver(20)" onmouseout="buttonOut(20)"><img src="20.png" alt=""></span>
+    <div id="toolsSeparator">&nbsp;</div>
+    <!--<a href="javascript:saveCanvas()" class="toolbarButton" id="toolbarButtonSave" title=""><img src="save.png" alt=""></a>-->
+    <a href="javascript:saveCanvasHi()" onmouseover="overMenu()" onmouseout="closeMenuDelay()" class="toolbarButton" id="toolbarButtonSave" title="将后缀修改成*.png"><img src="save.png" alt=""></a>
+    <a href="javascript:newCanvas()" class="toolbarButton" id="toolbarButtonNew" title="新建"><img src="new.png" alt="New"></a><!--<img src="new.png" alt="New">-->
+    <!--<a href="javascript:saveCanvasHi()" onmouseover="overMenu()" onmouseout="closeMenuDelay()" class="saveMenu"><img src="save.png" alt=""></span></a>-->
+    <!--[if !IE]><![IGNORE[--><!--[IGNORE[]]-->
+        <!--<a href="javascript:showMenu()" onmouseover="showMenuHover()" onmouseout="closeMenuDelay()" class="toolbarButton" id="toolbarButtonMenu"><img src="menu.png" alt="&gt;"></a>-->
+
+        <!--<div id="menu" onmouseover="overMenu()" onmouseout="closeMenuDelay()"><a href="javascript:saveCanvas()" onmouseover="overMenu()" onmouseout="closeMenuDelay()" class="saveMenu">save normal</a><a href="javascript:saveCanvasHi()" onmouseover="overMenu()" onmouseout="closeMenuDelay()" class="saveMenu">save high quality<span class="footnote">&nbsp; (rename to *.png)</span></a><a href="javascript:showAbout()" onmouseover="overMenu()" onmouseout="closeMenuDelay()">about...</a></div>-->
+        <!--<![endif]--> 
+  </div>
+</div>
+
+<!-- <div id="debug">&nbsp;</div> <div id="debug2">&nbsp;</div> -->
+
+<form action="save.php5" method="post" id="mainForm">
+  <div>
+    <input name="canvasData" id="canvasData" value="" type="hidden">
+  </div>
+</form>
+</body>
+</html>

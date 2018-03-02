@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HoverEx all animations </title>
+<link rel="stylesheet" href="hoverex-all.css" />
+<style type="text/css">
+html,body
+{
+  margin:0;
+  padding:0;
+  font-size:13px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height:100%;
+  overflow:hidden;
+}
+#test {
+  background:#36C;
+  width:150px;
+  height:60px;
+  text-align:center;
+  line-height:60px;
+  color:#fff;
+  display:block;
+  position:fixed;
+  top:50%;
+  left:50%;
+  margin:-30px 0 0 -75px;
+}
+#testbtns
+{
+  background:#fafafa;
+  border-bottom:#efefef 1px solid;
+  
+}
+#testbtns div
+{
+  display:inline-block;
+  padding:7px 5px;
+  margin:4px;
+  width:100px;
+  text-align:center;
+  color:#fff;
+  background:#F60;
+  font-weight:bold;
+  text-shadow:1px 1px 1px rgba(0,0,0,.1); 
+  border-radius:3px;
+  cursor:pointer;
+}
+.a_normal
+{
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: .8s;
+  -moz-animation-duration: .8s;
+  -ms-animation-duration: .8s;
+  -o-animation-duration: .8s;
+  animation-duration: .8s;
+}
+.back
+{
+  position:fixed;
+  bottom:0;
+  left:0;
+  text-decoration:none;
+  color:#c00;
+  padding:3px;
+}
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('#testbtns div').click(function(){
+      $('#test').attr('class','box a_normal').addClass($(this).text());
+      window.setTimeout(function(){
+        $('#test').attr('class','box a_normal');
+      },1000);
+    });
+  });
+</script>
+</head>
+<body>
+<div id="testbtns">
+  <div>fadeIn</div>
+  <div>fadeInLeft</div>
+  <div>fadeInRight</div>
+  <div>fadeInUp</div>
+  <div>fadeInDown</div>
+  <div>rotateIn</div>
+  <div>rotateInLeft</div>
+  <div>rotateInRight</div>
+  <div>rotateInUp</div>
+  <div>rotateInDown</div>
+  <div>bounce</div>
+  <div>bounceInLeft</div>
+  <div>bounceInRight</div>
+  <div>bounceInUp</div>
+  <div>bounceInDown</div>
+  <div>elasticInLeft</div>
+  <div>elasticInRight</div>
+  <div>elasticInUp</div>
+  <div>elasticInDown</div>
+  <div>zoomIn</div>
+  <div>zoomInLeft</div>
+  <div>zoomInRight</div>
+  <div>zoomInUp</div>
+  <div>zoomInDown</div>
+  <div>jellyInLeft</div>
+  <div>jellyInRight</div>
+  <div>jellyInDown</div>
+  <div>jellyInUp</div>
+  <div>flipInLeft</div>
+  <div>flipInRight</div>
+  <div>flipInUp</div>
+  <div>flipInDown</div>
+  <div>flipInV</div>
+  <div>flipInH</div>
+  <div>shake</div>
+  <div>pendulum</div>
+</div>  
+  <div id="test"> Test Block </div>
+</body>
+</html>

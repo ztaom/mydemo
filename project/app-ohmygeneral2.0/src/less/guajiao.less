@@ -1,0 +1,66 @@
+@pxtorem: 2*37.5rem;
+html,
+body,
+div, img {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+}
+html, body, .wrap{width: 100%; height: 100%; overflow:hidden;}
+body{
+    min-height: 100vh;
+}
+.close{width: 0.7267rem; height: 0.6867rem; background-repeat:no-repeat; background-position:center center; background-size: 0.5867rem auto; position: absolute; top:0.4rem; right: -0.0567rem; outline: 0; z-index: 10;}
+.wrap{display: none}
+.hide{display: none!important;}
+.show{display: block!important;}
+.guajiao{
+	position: absolute; right: 30/@pxtorem; width: 308/@pxtorem; height:112/@pxtorem; padding: 10/@pxtorem 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); outline: 0; bottom: 90/@pxtorem;
+	.txtpic{
+		height: 110/@pxtorem; position: relative; z-index: 1; display: flex;
+		.pic{height: 110/@pxtorem; background-size:auto 110/@pxtorem; background-repeat: no-repeat;}
+		.picleft{
+			width: 240/@pxtorem; 
+			.pic{animation: picleft 0.75s 3s forwards cubic-bezier(0.42,0,0.58,1); background-position: 0 0;}
+		}
+		.picright{
+			width: 66/@pxtorem;
+			margin-left:-1/@pxtorem;
+			.pic{animation: picright 0.5s 3.25s forwards cubic-bezier(0.42,0,0.58,1); background-position: right 0;}
+		}
+	}
+	.btn1,.btn2{position: absolute; top:8/@pxtorem;}
+	.btn1{z-index: 3; width: 100/@pxtorem; height: 100/@pxtorem; top:17.5/@pxtorem; right: 8/@pxtorem; animation: btna 0.75s 3.25s forwards ease-in;}
+	.btn2{z-index: 2; width: 112/@pxtorem; height: 112/@pxtorem; right: 10/@pxtorem; animation: btnb 0.75s 3.45s forwards ease-in; opacity: 0}
+	.rotatebg{width: 122/@pxtorem; height: 122/@pxtorem; position: absolute; top:5/@pxtorem; right: 0/@pxtorem; z-index: 0; transform: rotate(180deg); opacity: 0; animation: rotatebg 1s 4s forwards cubic-bezier(0.42,0,0.58,1);}
+}
+
+.header{
+	background:rgba(255,1,1,0.5); width: 100%; top:0; left: 0; right: 0; padding:20px 0;
+}
+
+@keyframes picleft{
+	0% {transform: translateX(0);}
+	100% {transform: translateX(240/@pxtorem);}
+}
+@keyframes picright{
+	0% {transform: translateX(0);}
+	100% {transform: translateX(-66/@pxtorem);}
+}
+@keyframes btna{
+	0% {transform: scale(1);opacity: 1}
+	60% {transform: scale(1.45); opacity: 1}
+	100% {transform: scale(1.45); opacity: 0}
+}
+@keyframes btnb{
+	0% {opacity: 0; transform: scale(1);}
+	50% {opacity: 0; transform: scale(1.2);}
+	100% {opacity: 1; transform: scale(1);}
+}
+
+@keyframes rotatebg {
+	0% {opacity: 0;}
+	30% {opacity: 0.2;transform: rotate(180deg);}
+	100% {opacity: 1; transform: rotate(0deg); }
+}

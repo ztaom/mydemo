@@ -1,0 +1,317 @@
+<html>
+<head>
+	<title>lander</title>
+    <meta name="viewport" content="width=900" />
+	
+<style>
+.myButton {
+    position: absolute;
+    top:420;
+    left:170;
+    border: 4 px outset red;
+    background-color: #C0C0C0 ;
+    width:75 px;
+    padding: 10 px;
+    text-align:center;
+    border-radius: 18 px;
+}
+ 
+.myButton.pressed {
+    border: 4 px inset red;
+    background-color: #808080 ;
+}
+
+.slider {
+	position: absolute;
+	top: 410;
+	left:500;
+	width: 152;
+	height = 52;
+}
+
+.bar {
+	position: relative;
+	top:30;
+	width: 152;
+	height: 2 px;
+	background-color: red ;
+}
+
+.knob {
+	position: relative;
+	left:0;
+	border: 2 px solid red;
+	background-color: #C0C0C0 ;
+	width:50 px;
+	height: 50 px;
+	border-radius: 25 px;
+    text-align:center;
+}
+
+</style>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+var back ;
+var sprite ;
+var flames ;
+var flag ;
+var x = 30;
+var y = 30;
+var offset;
+var lemH=88;
+var lemW=88;
+var gravity = .02;
+var yVector = 0;
+var xVector = 1.2;
+var thrust = .2;
+var fuel = 250;
+var delay = 100;
+var t ;
+var interval ;
+var scale ;
+var theta = 0 ;
+var bottom = 380;
+var sound;
+var mouseIsDown = 0;
+var thrustIsDown = 0;
+var thrustButton;
+var knobMid;
+var slider;
+var knob;
+var gameover = 0;
+
+function init() {
+	can = document.getElementById("can") ;
+	ctx = can.getContext('2d') ;
+	back = document.getElementById("back") ;
+	sprite = document.getElementById("sprite") ;
+	flames = document.getElementById("flames") ;
+	flag = document.getElementById("flag") ;
+	sound = document.getElementById("sound") ;
+	thrustButton = document.getElementById("thrustButton") ;
+	slider = document.getElementById("slider");
+	knob = document.getElementById("knob");
+	knobMid = knob.offsetWidth / 2;
+	setKnob(75);
+	document.body.addEventListener("mouseup", mouseUp, true);
+	x = 30;
+	y = 30;
+	yVector = 0;
+	xVector = 1.2;
+	theta=0;
+	fuel = 250;
+	drawAll();
+	interval = setInterval("addGravity()",delay);
+	update();
+}
+
+function restart() {
+	sound.src="assets/noise.mp4";
+	sound.load();
+	clearTimeout(t);
+	clearInterval(interval);
+	gameover = 0;
+	init();
+}
+
+function drawAll() {
+	drawBack();
+	drawStatus();
+	drawFuel();
+	drawSprite();
+}
+
+function drawBack() {
+	ctx.drawImage(back, 0, 0);
+	ctx.fillStyle="yellow";
+	ctx.font="36 pt Helvetica";
+	ctx.fillText("Loony Lander", 300, 50);
+}
+
+function drawStatus() {
+	var dispX = parseInt(xVector * 100) / 100;
+	var dispY = parseInt(yVector * 100) / 100;
+	var dispRot = parseInt(theta * 100) / 100;
+	var status = "Velocity X: " + dispX + "  Y: " + dispY + "  Rot: " + dispRot;
+	ctx.font="18 pt Helvetica";
+	ctx.fillText(status, 285, 100);	
+}
+
+function drawFuel() {
+	ctx.shadowColor="rgba(0,0,0,0)";
+	ctx.font="14 pt Helvetica";
+	ctx.globalAlpha = 0.5;
+	ctx.fillText("Fuel:", 52, 375);
+	ctx.fillRect(100, 360, fuel, 20);
+	ctx.globalAlpha = 1;
+}
+
+function drawSprite() {
+	ctx.save();
+	ctx.translate(x,y);
+	scale = 0.5 + (y / 600);
+	offset = -1 * lemW * scale / 2 
+	ctx.shadowColor = "black";
+	ctx.shadowOffsetX= 10;
+	ctx.shadowOffsetY= -5;
+	ctx.rotate(theta);
+	ctx.drawImage(sprite, offset, offset, lemW * scale, lemH * scale);
+	ctx.restore();
+}
+	
+function addGravity() {
+	yVector = yVector + gravity * scale ;
+}
+
+function gameOver() {
+	gameover = 1;
+	clearTimeout(t);
+	clearInterval(interval);
+	if (y == bottom && yVector < 1 && Math.abs(xVector) < 1 && Math.abs(theta) < .1) {
+		theta = 0;
+		drawAll();
+		ctx.drawImage(flag, x -50, y -120);
+		ctx.font="14 pt Helvetica";
+		ctx.fillStyle="green";
+		ctx.fillText("Nice landing!", x, 280);
+		sound.src="assets/chord.m4a";
+	} else {
+		theta = 1.75;
+		drawAll();
+		ctx.font="14 pt Helvetica";
+		ctx.fillStyle="red";
+		ctx.fillText("Oops. Hard landing.", x, 280);
+		sound.src="assets/ohno.m4a"
+	}
+	sound.play();
+}
+
+function update() {
+	x = x + xVector;
+	y = y + yVector;
+	if (y >= bottom) {
+		y = bottom;
+		gameOver();
+	} else { 
+		t = setTimeout("update()", delay);
+		drawAll();
+ 	}
+}
+
+
+	
+function burn() {
+	if (fuel > 0 && y < bottom) {
+		clearTimeout(t);
+		yVector = yVector - (thrust * scale * Math.cos(theta));
+		xVector = xVector + (thrust * scale * Math.sin(theta));
+		fuel = fuel - 5 ;
+		ctx.save();
+		ctx.globalAlpha = .75;
+		ctx.shadowColor="rgba(0,0,0,0)";
+		ctx.translate(x,y);
+		ctx.rotate(theta);
+		ctx.drawImage(flames, offset, offset, lemW * scale, lemH * scale);
+		ctx.restore();
+		t = setTimeout("update()", delay);
+		if (thrustIsDown) {
+			sound.play();
+			setTimeout("burn()", 200);
+		}
+	}
+}
+
+function mouseDown() {
+	mouseIsDown = 1;
+}
+
+function mouseUp() {
+	mouseIsDown = 0;
+}
+
+function thrustDown() {
+	sound.play();	
+	thrustIsDown = 1;
+    thrustButton.className="myButton pressed";
+	burn();
+}
+
+function thrustUp() {
+	thrustIsDown = 0;
+    thrustButton.className="myButton";
+}
+
+function mouseXY(e) {
+	if (mouseIsDown) {
+		if (!e) var e = event;
+		var mouseX = e.pageX - slider.offsetLeft;
+		if (mouseX >= 0 && mouseX <= slider.offsetWidth ) {
+			setKnob(mouseX);
+		}
+	}
+}
+
+function touchXY(e) {
+	if (!e) var e = event;
+	// slide, don't scroll
+	e.preventDefault(); 
+	var touchX = e.touches[0].pageX - slider.offsetLeft;
+	if (touchX >= 0 && touchX <= slider.offsetWidth) {
+		setKnob(touchX);
+	}
+}
+
+function setKnob(x) {
+	var knobX = x - knobMid;
+	knobX = Math.max(knobX, 0);
+	knobX = Math.min(knobX, slider.offsetWidth - knob.offsetWidth);
+	knob.style.left = knobX;
+	if (!gameover) {
+		theta = (x - 75) / 75;
+		drawSprite();
+	}
+}
+
+
+</script>
+	
+	
+</head>
+<body onload="init()">
+<img id="back" src="assets/lunarsurface.jpg" style="display:none">
+<img id="sprite" src="assets/lem.png" style="display:none">
+<img id="flames" src="assets/flames.png" style="display:none">
+<img id="flag" src="assets/flag.png" style="display:none">
+
+<audio id="sound" src="assets/noise.mp4">
+</audio>
+
+<canvas id="can" height="436" width="810">
+</canvas>
+
+<div id="thrustButton" class="myButton"
+        onmousedown="thrustDown()" onmouseup="thrustUp()"
+        ontouchstart="thrustDown()" ontouchend="thrustUp()">
+ Thrust
+</div>
+
+<div class="slider" id="slider"
+	onmousedown="mouseDown()" onmousemove="mouseXY()"
+	ontouchstart="touchXY()" ontouchmove="touchXY()">
+	<div class="bar">
+	</div>
+	<div id="knob" class="knob" >
+	<br>Spin
+	</div>
+</div>
+
+<br>
+<h2 style="text-align:center">
+To win, land with velocity X < 1, Y < 1, Rot < 0.1
+</h2>
+<input type="button" value="Restart" onclick="restart()" >
+</body>
+</html>

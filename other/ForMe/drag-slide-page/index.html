@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>拖动切换页面展示</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon !-->
+    <link rel="icon" type="image/png" href="">
+
+    <link rel="stylesheet" href="soSteezy.css" type="text/css" media="screen" />
+    <link type="text/css" media="screen" rel="stylesheet" href="awwwards.css" />
+
+    <script src="pace.js"></script>
+
+    <meta property="og:title" content="Kévin Lagier's Portfolio" />
+    <meta property="og:description" content="Kevin Lagier's Portfolio, graphic design, art direction" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://" />
+    <meta property="og:image" content="logo-kevin-lagier.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <script>
+        var host = "";
+          if(navigator.userAgent.match(/Android/i) ||navigator.userAgent.match(/webOS/i) ||navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)){
+            window.location = host+"mobile";
+          }
+    </script>
+
+</head>
+
+<body class="userSelect">
+    <div id="awwwards" class="left white">
+        <a href="" target="_blank">best websites of the world</a>
+    </div>
+   <div id="loader" data-new="false">
+        <div id='load'>
+            <p>Loading ...</p>
+        </div>
+
+        
+    </div>
+
+    <div id='borderTop' class="border close hideBorder"></div>
+    <div id='borderBottom' class="border close hideBorder"></div>
+    <div id='borderLeft' class="border close hideBorder"></div>
+    <div id='borderRight' class="border close hideBorder"></div>
+    
+    <div class="closeLayout"></div>
+    
+    <nav class="button-menu open">
+        <a href="#585858585" class="close-button">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="7px" viewBox="0 0 17 7.016" enable-background="new 0 0 17 7.016" xml:space="preserve">
+                <rect fill="#b59663" width="18" height="1"/>
+                <rect y="3" fill="#b59663" width="18" height="1"/>
+                <rect y="6" fill="#b59663" width="18" height="1"/>
+            </svg>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="13.435px" height="13.435px" viewBox="0 0 13.435 13.435" enable-background="new 0 0 13.435 13.435" xml:space="preserve">
+                <rect x="6.217" y="-2.282" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -2.7825 6.7175)" fill="#B59663" width="1" height="18"/>
+                <rect x="6.217" y="-2.282" transform="matrix(0.7071 0.7071 -0.7071 0.7071 6.7175 -2.7825)" fill="#B59663" width="1" height="18"/>
+            </svg>
+        </a>
+    </nav>
+
+    <menu>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li><!--
+                !--><li><a href="#100ansdetour">100 ans de Tour</a></li><!--
+                !--><li><a href="#the-whole">The Whole</a></li><!--
+                !--><li><a href="#social-coke">Social Coke</a></li><!--
+                !--><li><a href="#partech">Partech</a></li><!--
+                !--><li><a href="#thanks">Thanks</a></li>
+            </ul>
+        </nav>
+    </menu>
+
+<div class="wrapper-projects-container" >
+    <div id="wrapper-project-filter"></div>
+    <div class="projects-container dragCursor">
+        <div id='home' class="project active" data-project="about">
+            <header>
+                <div class="wave1">        
+                    <img src="wave-1.svg" alt=""> 
+                </div>
+                <div class="wave2">        
+                    <img src="wave-2.svg" alt=""> 
+                </div>
+                <div id="header-content">
+                    <h1>
+                        <span>Kévin Lagier</span>
+                        <img src="logo-kevin-lagier.svg" alt="logo Kévin Lagier"> 
+                    </h1>
+                    <p>
+                        I'm a 22 years old student at <br/>
+                        I'm looking for an Art Director internship<br/>
+                        From June to December 2014 and<br/>
+                        a postgraduate training
+                    </p>
+                    <div id="discover">
+                        <span></span>
+                        <div>
+                            Drag to discover projects
+                        </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul id="contact">
+                        <li>Say Hello</span></li>
+                        <li><span>My Resume</span></li>
+                    </ul>
+                    <ul id="social">
+                        <li>
+                            <a id='twitter' href="" target="_blank">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                                    <g><path fill="#B59662" d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                                </svg>
+                            </a>
+                        </li><!--
+                        !--><li>
+                            <a id="behance" href="" target="_blank">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="11px" viewBox="0 0 21.3 13.23" enable-background="new 0 0 21.3 13.23" xml:space="preserve">
+                                    <g><path fill="#B59662" d="M6.39,0c1.6,0,2.75,0.47,3.45,1.41c0.4,0.56,0.6,1.22,0.6,1.98c0,0.84-0.22,1.49-0.66,1.95c-0.1,0.16-0.23,0.3-0.39,0.42S9.04,5.99,8.82,6.09c0.32,0.14,0.61,0.305,0.87,0.495c0.26,0.19,0.47,0.425,0.63,0.705c0.36,0.581,0.54,1.23,0.54,1.95c0,0.72-0.2,1.42-0.6,2.1c-0.28,0.42-0.6,0.76-0.96,1.02c-0.2,0.16-0.425,0.295-0.675,0.405c-0.25,0.11-0.515,0.215-0.795,0.315c-0.281,0.041-0.575,0.075-0.885,0.105C6.635,13.215,6.3,13.23,5.94,13.23H0V0H6.39z M7.26,4.86c0.36-0.2,0.54-0.58,0.54-1.14c0-0.6-0.24-1.01-0.72-1.23C6.859,2.43,6.63,2.38,6.39,2.34C6.15,2.3,5.86,2.28,5.52,2.28H3.03v2.91h2.82c0.3,0,0.56-0.03,0.78-0.09C6.85,5.04,7.06,4.96,7.26,4.86z M8.07,9.03c0-0.68-0.29-1.15-0.87-1.41c-0.14-0.1-0.32-0.16-0.54-0.18c-0.22-0.02-0.47-0.03-0.75-0.03H3.03v3.51h2.82c0.6,0,1.05-0.08,1.35-0.24C7.78,10.42,8.07,9.87,8.07,9.03z M13.2,4.38c0.84-0.86,1.97-1.29,3.39-1.29c0.8,0,1.54,0.14,2.22,0.42c0.319,0.16,0.615,0.35,0.885,0.57c0.27,0.22,0.515,0.5,0.735,0.84c0.18,0.3,0.335,0.61,0.465,0.93c0.13,0.32,0.225,0.67,0.285,1.05c0.04,0.22,0.07,0.485,0.09,0.795c0.02,0.31,0.03,0.665,0.03,1.065h-6.93c0,0.48,0.09,0.885,0.27,1.215c0.18,0.33,0.42,0.585,0.72,0.765c0.34,0.26,0.79,0.39,1.35,0.39c0.52,0,0.979-0.15,1.38-0.45c0.22-0.14,0.39-0.35,0.51-0.63h2.52c-0.06,0.58-0.36,1.15-0.9,1.71c-0.4,0.46-0.905,0.8-1.515,1.02c-0.61,0.22-1.295,0.33-2.055,0.33c-1.26,0-2.38-0.37-3.36-1.11c-0.94-0.799-1.41-2.08-1.41-3.84C11.88,6.561,12.319,5.3,13.2,4.38z M19.17,0.54v1.35h-5.28V0.54H19.17z M18.06,5.61c-0.44-0.32-0.93-0.48-1.47-0.48c-0.66,0-1.16,0.18-1.5,0.54c-0.32,0.38-0.54,0.87-0.66,1.47h4.26C18.63,6.521,18.42,6.01,18.06,5.61z"/></g>
+                                </svg>
+                            </a>
+                        </li><!--
+                        !--><li>
+                            <a id="dribbble" href="" target="_blank">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 17.55 17.55" enable-background="new 0 0 17.55 17.55" xml:space="preserve">
+                                    <g><path fill="#B59663" d="M8.76,0c1.22,0,2.359,0.23,3.42,0.69c1.06,0.46,1.99,1.085,2.79,1.875c0.8,0.791,1.43,1.72,1.89,2.79c0.46,1.07,0.69,2.205,0.69,3.405c0,1.22-0.23,2.365-0.69,3.435c-0.46,1.07-1.09,2-1.89,2.79c-0.8,0.791-1.73,1.416-2.79,1.875c-1.061,0.46-2.2,0.69-3.42,0.69s-2.36-0.229-3.42-0.69c-1.061-0.459-1.985-1.084-2.775-1.875c-0.79-0.79-1.415-1.72-1.875-2.79C0.229,11.125,0,9.98,0,8.76c0-1.2,0.229-2.335,0.689-3.405c0.46-1.07,1.085-2,1.875-2.79C3.354,1.775,4.279,1.15,5.34,0.69C6.399,0.23,7.54,0,8.76,0z M9.51,9.03C9.409,8.87,9.324,8.695,9.255,8.505C9.185,8.315,9.12,8.14,9.06,7.98c-1.08,0.4-2.165,0.7-3.255,0.9c-1.09,0.2-2.195,0.3-3.314,0.3c-0.161,0-0.326-0.01-0.495-0.03C1.824,9.13,1.649,9.12,1.47,9.12c0.02,0.88,0.2,1.71,0.54,2.49c0.34,0.78,0.8,1.48,1.38,2.1c0.74-1.12,1.63-2.075,2.67-2.865S8.25,9.45,9.51,9.03z M8.43,6.63c-0.82-1.52-1.83-2.97-3.03-4.35C4.38,2.82,3.524,3.56,2.835,4.5c-0.69,0.94-1.136,2-1.335,3.18h0.99c0.999,0,1.994-0.085,2.984-0.255C6.465,7.255,7.449,6.99,8.43,6.63z M4.47,14.73c1.36,0.9,2.79,1.35,4.29,1.35c0.4,0,0.79-0.025,1.17-0.075c0.38-0.049,0.76-0.145,1.141-0.285c-0.081-0.92-0.211-1.825-0.391-2.715c-0.18-0.89-0.41-1.755-0.689-2.595c-1.141,0.4-2.176,0.965-3.105,1.695C5.955,12.835,5.149,13.71,4.47,14.73z M13.83,3.51c-0.681-0.64-1.455-1.14-2.325-1.5C10.635,1.65,9.72,1.47,8.76,1.47c-0.641,0-1.271,0.09-1.89,0.27c1.14,1.42,2.109,2.87,2.91,4.35C11.199,5.47,12.55,4.61,13.83,3.51z M10.92,8.64c0.399-0.08,0.8-0.145,1.2-0.195c0.399-0.049,0.79-0.075,1.17-0.075c0.46,0,0.92,0.035,1.38,0.105c0.46,0.07,0.93,0.165,1.41,0.285c0-0.74-0.115-1.455-0.346-2.145c-0.229-0.69-0.545-1.345-0.944-1.965c-1.38,1.16-2.841,2.09-4.38,2.79c0.1,0.2,0.185,0.4,0.255,0.6C10.734,8.24,10.819,8.44,10.92,8.64z M11.399,10.05c0.28,0.82,0.505,1.646,0.676,2.475c0.169,0.83,0.305,1.675,0.404,2.535c0.9-0.52,1.646-1.2,2.235-2.04s0.995-1.78,1.215-2.82c-0.46-0.1-0.905-0.18-1.335-0.24c-0.431-0.06-0.865-0.09-1.305-0.09C12.649,9.87,12.02,9.93,11.399,10.05z"/></g>
+                                </svg>                            
+                            </a>
+                        </li><!--
+                        !--><li>
+                            <a id="linkedin" href="" target="_blank">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="16px" viewBox="0 0 15.27 17.01" enable-background="new 0 0 15.27 17.01" xml:space="preserve">
+                                    <g><path fill="#B59662" d="M2.04,0c0.58,0,1.069,0.206,1.47,0.615c0.4,0.41,0.6,0.905,0.6,1.485s-0.2,1.07-0.6,1.47c-0.4,0.4-0.89,0.6-1.47,0.6c-0.581,0-1.065-0.2-1.455-0.6C0.195,3.17,0,2.68,0,2.1s0.195-1.075,0.585-1.485C0.975,0.206,1.459,0,2.04,0z M0.36,17.01V5.4h3.36v11.61H0.36z M8.7,5.4v0.54c0.64-0.319,1.36-0.46,2.16-0.42c0.8,0.041,1.52,0.22,2.16,0.54c0.68,0.38,1.225,0.93,1.635,1.65c0.41,0.72,0.615,1.46,0.615,2.22v7.08h-3.3V9.93c0-0.16-0.06-0.35-0.18-0.57c-0.12-0.22-0.25-0.35-0.39-0.39c-0.34-0.18-0.67-0.25-0.99-0.21S9.799,8.88,9.54,9C9.24,9.14,8.959,9.33,8.7,9.57v7.44H5.34V5.4H8.7z"/></g>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="copyright">
+                    <p>© 2014 Kévin Lagier. Made with Florentin Monteil</p>
+                </div>
+            </header>
+        </div>
+
+        <div id='tdfProject' class="project" data-project="100ansdetour">
+            <div id='tdfBgContent'>
+                <div id="tdfContent">
+                    <h1>
+                        <img class='pignonProjet' src='pignon.svg' alt=''>
+                        Tour de France
+                        <span>100 ans de Tour</span>
+                    </h1>
+                    <div id='fixie'>
+                        <div class="noSlide enter-elem">
+                            <img id='fixie-pedal' src="pedal.svg" alt="">
+                            <img id='fixie-wheel1' src="wheel.svg" alt="">
+                            <img id='fixie-wheel2' src="wheel.svg" alt="">
+                            <img id='fixie-body' src="fixie-body.svg" alt="">
+                        </div>                
+                    </div>
+                    <div id='tdfDrag'>
+                        <div id='tdfDragCursor' class="noSlide">
+                            <span>Drag it</span>
+                            <img src='arrow.svg' alt=''>
+                        </div>
+                        <div id='tdfDragEnd'></div>
+                    </div>
+                </div>
+            </div> 
+            <div id='date'>
+                <nav>
+                    <ul>
+                        <li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li><li class="flipOn"><div class="flip"><div class="card"><div class="face front"></div><div class="face back"></div></div></div></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div id='theWholeProject' class="project" data-project="the-whole">
+            <div id='space-anim'>
+                <div id='rocket'><img src="the-whole-rocket.svg" alt=""></div>            
+                <div id='astronaut'><img src="the-whole-astronaut.svg" alt=""></div>
+                <div id='meteor1'><img src="the-whole-meteor1.svg" alt=""></div>
+                <div id='meteor2'><img src="the-whole-meteor2.svg" alt=""></div>
+                <div id='meteor3'><img src="the-whole-meteor3.svg" alt=""></div>
+                <div id='meteor4'><img src="the-whole-meteor1.svg" alt=""></div>
+                <div id='meteor5'><img src="the-whole-meteor3.svg" alt=""></div>
+                <div id='meteor6'><img src="the-whole-meteor1.svg" alt=""></div>
+                <div id='meteor7'><img src="the-whole-meteor2.svg" alt=""></div>
+                <div id='meteor8'><img src="the-whole-meteor3.svg" alt=""></div>                
+                <div id='meteor9'><img src="the-whole-meteor1.svg" alt=""></div>
+                <div id='meteor10'><img src="the-whole-meteor3.svg" alt=""></div>
+                <div id='meteor11'><img src="the-whole-meteor2.svg" alt=""></div>
+            </div>
+            
+            <div id='theWholeSolarSystem'>
+               <div id='theWholePlanet'>
+                    <a href='#' class="enter-button">
+                        <img src="the-whole-planet.svg" alt="">
+                        <img src="click.svg" alt="">
+                    </a>
+                </div>   
+                <div id='theWholeRssPlanet'>
+                    <img src="the-whole-rssPlanet.svg" alt="">
+                </div>
+                <div id='theWholeFbPlanet'>
+                    <img src="the-whole-fbPlanet.svg" alt="">
+                    <div id='lueurFB'></div>
+                </div>
+
+                <div id='theWholeTwPlanet'>
+                    <img src="the-whole-twPlanet.svg" alt="">
+                </div>
+                <div id='theWholePinPlanet'>
+                    <img src="the-whole-pinPlanet.svg" alt="">
+                </div>
+                <div id='theWholeScPlanet'>
+                    <img src="the-whole-scPlanet.svg" alt="">
+                    <div id='lueurSc'></div>
+                </div>                
+                <div id='theWholeLfPlanet'>
+                    <img src="the-whole-lfPlanet.svg" alt="">
+                </div>
+                <div id='theWholeSolar'>
+                    <img src="the-whole-solar.svg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div id='socialCokeProject' class="project" data-project="social-coke">
+            <div id='socialCokeBgContent' >
+                <h1>
+                    <span>Social Coke</span>
+                    <img src='social-coke-logo.svg' alt='Social Coke Logo'>
+                </h1>
+                <p>
+                    Or how to turn social writing<br/>
+                    into advertising messages
+                </p>
+                <form method="get" id="socialCokeForm">
+                    <input type="text" name="pseudo" placeholder="Enter your nickname" maxlength="12"/>
+                    <input type="submit" value="GO" />
+                </form>
+            </div>
+
+            <div id="parallax">
+                <div class="layer" data-depth="3.00">
+                    <img src='monkey-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.80">
+                   <img src='patate-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="4.10">
+                   <img src='drink-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.50">
+                   <img src='hello-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="2.8">
+                   <img src='goutte-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.40">
+                   <img src='pointRose-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.70">
+                   <img src='pointVert-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="4.50">
+                   <img src='pointJaune-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.30">
+                   <img src='cool-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.90">
+                   <img src='love-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="4.10">
+                   <img src='king-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.70">
+                   <img src='piou-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.20">
+                   <img src='pointBlanc-bg.png' alt="">
+                </div>
+                <div class="layer" data-depth="3.50">
+                   <img src='wizz-bg.png' alt="">
+                </div>
+            </div>
+        </div>
+
+        <div id='partechProject' class="project" data-project="partech">
+            <div class="partechEnterLayout"></div>
+            <div>
+                <h1>
+                    Partech
+                </h1>
+                <p>
+                    Corporate website for Partech, a design office<br/>
+                    specializing in manufactured chairlifts, in industrial<br/>
+                    equipment and mountain.
+                </p>
+                <a href="#" class="enter-button">
+                    <span>View the case study</span>
+                    <span>View the case study</span>
+                </a>
+            </div>
+        </div>
+
+        <div id='footer' class="project" data-project="thanks">
+            <footer>
+                <div class="wave1">        
+                    <img src="wave-1.svg" alt=""> 
+                </div>
+                <div class="wave2">        
+                    <img src="wave-2.svg" alt=""> 
+                </div>
+                <div id='thanks-infos'>
+                    <a href="mailto:hello@lagier-kevin.com">
+                        <img id='footerLogo' src="logo-kevin-lagier.svg" alt="logo Kévin Lagier"> 
+                    </a>
+                    <p>
+                        I'm open to all your web,<br/>
+                        multimedia and print projects suggestions.<br/>
+                        Feel free to leave me a message.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+    <div class="case-study-container">
+
+        <section id='tdf' data-case-study="100ansdetour">
+    <nav class="pagination tdf">
+        <ul>
+            <li><a class='active' href="#tdf-introduction"></a></li>
+            <li><a href="#tdf-context"></a></li>
+            <li><a href="#tdf-data"></a></li>
+            <li><a href="#tdf-design"></a></li>
+            <li><a href="#tdf-thanks"></a></li>
+            <li><a href="#tdf-other"></a></li>
+        </ul>
+    </nav>
+    <article id='tdf-introduction'>
+        <div class="page-content">
+            <ul>
+                <li>
+                    <span>Date :</span>
+                    June 2013
+                </li><!--
+                !--><li>
+                    <span>Client :</span>
+                    Hétic
+                </li><!--
+                !--><li>
+                    <span>Role :</span>
+                    Design - Html - Css
+                </li>
+            </ul>
+            <h1>
+                <img id='pignon' src='pignon.svg' alt=''>
+                <span>100 ans de Tour</span>
+            </h1>
+            <p>
+                Data-visualization project about the 100 years of the Tour de France. A couple months before the 100th occasion, the Grande Boucle grabbed all my attention. With my project team, we realized this huge annual event might deal with a fascinating database to explore: 100 years of data to discover between ranking, circuits and legendary racing cyclists…
+            </p>
+            <img id='tdf-mbp' src='tdf-mbp.png' alt=''>
+        </div>
+    </article>
+    <article id='tdf-context'>
+        <div class="page-content">
+            <h2>
+                The Context
+            </h2>
+            <h3>
+                An outstanding event
+            </h3>
+            <p>
+                The Tour de France is without doubt the most prestigious worldwide bicycle racing. And so is the Tour de France 2013, taking place for its 100th occasion. It goes without saying it’s a special year for this event, which is one of the most broadcasted edition in the history of the Tour.
+            </p>
+            <ul>
+                <li>
+                    <span>A trend</span>
+                    The Tour is a regular sporting event that takes place every summer. As part of the national heritage of the French culture, on the one hand it plays on the constituent landmark of our identity, and on the other hand it remains continuously updated and globalized to promote cycling all over the world and to see a real resurgence of interest in this noble sport. 
+                </li><!--
+                !--><li>
+                    <img src='tour-de-france.svg' alt='Logo 100 ans de Tour, 100ème édition'>
+                </li><!--
+                !--><li>
+                    <span>100 years of data</span>
+                    It’s been a hundred years that the Hexagon lives to the rhythm of pedals of super trained athletes in order to win the Grande Boucle.<br/>
+                    A hundred years of racing, rankings and anecdotes, which means many possible analysis and statistics.
+                </li>
+            </ul>
+            <div id='maillot' class='animation-on-scroll' data-start-margin='50'>
+                <img src='maillot-jaune.svg' alt=''>
+                <img src='maillot-blanc.svg' alt=''>
+                <img src='maillot-vert.svg' alt=''>
+                <img src='maillot-pois.svg' alt=''>
+            </div>
+        </div>
+    </article>
+
+    <article id='tdf-data'>
+        <div class="page-content">
+            <h2>
+                The data
+            </h2>
+            <h3>
+                Choices and concessions
+            </h3>
+            <ul id='tdf-dataNumbers'>
+                <li>
+                    <span id="nb-etapes" class='animation-on-scroll' data-start-margin='100'>0</span>
+                    Stages
+                </li><!--
+                !--><li>
+                    <span id="nb-parcours" class='animation-on-scroll' data-start-margin='100'>0</span>
+                    km traveled
+                </li><!--
+                !--><li>
+                    <span id="nb-participants" class='animation-on-scroll' data-start-margin='100'>0</span> 
+                    Runners
+                </li>
+            </ul>
+            <p class="dataDescription">
+                Data recovery for the 100 years of the Tour de France has been a long process. We had to make choices and concessions. It was difficult to find the information we were looking for, especially for the first editions of the Tour.
+            </p>
+            <ul id='tdf-UI' class='animation-on-scroll' data-start-margin='50'>
+                <li>
+                    <img src='tdf-ui1.png' alt=''>
+                </li><!--
+                !--><li>
+                    <img src='tdf-ui2.png' alt=''>
+                </li><!--
+                !--><li>
+                    <img src='tdf-ui3.png' alt=''>
+                </li>
+            </ul>
+            <p>
+                Websites and users who providing the data of the Tour de France, have enabled us to create a data base fundamental to the realization of this project. A big thank to them.            </p><!--
+            !--><p>
+                We have created scripts that allowed us to retrieve the data to make a formatting process of this data to create JSON files and to build our database. 
+            </p><!--
+            !--><p>
+                We had to adapt the development of our interface based on the data collected. All our graphics has been produced with the D3 javascript library.
+            </p>
+        </div>
+    </article>
+
+    <article id='tdf-design'>
+        <div class="page-content">
+            <h2>
+                The Design
+            </h2>
+            <h3>
+                A graphic design based on the Tour de France’s colors 
+            </h3>
+            <p class='design-infos'>
+                A flat design, based on the Tour de France’s colors, in order to manipulate more easily vector elements and interactions. A full screen interface, where we navigate year after year into the different analyses of each edition of the Tour. 
+            </p>
+
+            <div class='design-screen animation-on-scroll' data-start-margin='50'>
+                <img src='home.jpg' alt=''>  
+                <img src='date.jpg' alt=''>  
+                <img src='comparative.jpg' alt=''>  
+            </div> 
+
+            <div class='design-context animation-on-scroll' data-start-margin='50'>
+                <div>
+                    <h4>Context</h4>
+                    <p>
+                        The "Context" part of the site aims to discover the different routes of the Tour, relive each stage, the crossed cities, the kilometers traveled in numbers and images!
+                    </p>
+                </div><!--
+                !--><img src='context.jpg' alt=''>
+            </div>
+            <div class='design-steps animation-on-scroll' data-start-margin='50'>
+                <img src='steps.jpg' alt=''><!--
+                !--><div>
+                    <h4>Stages</h4>
+                    <p>
+                        Each tour is represented here by category, but also according to the distance traveled. You can also find runners who animated the Tour de France and their victories.
+                    </p>
+                </div>
+            </div>
+            <div class='design-participation animation-on-scroll' data-start-margin='50'>
+                <div>
+                    <h4>Participation</h4>
+                    <p>
+                        Runners are presented here according to their country of origin, so we can measure internationalization of the Tour over the years and the growing success of the Grande Boucle.
+                    </p>
+                </div><!--
+                !--><img src='participation.jpg' alt=''>
+            </div>
+            <div class='design-rank animation-on-scroll' data-start-margin='50'>
+                <img src='rank.jpg' alt=''><!--
+                !--><div>
+                    <h4>Rating</h4>
+                    <p>
+                        Rediscover full rankings for the selected year, runners’ time and their nationality, as well as runners who have distinguished themselves for their general performance, at the sprint or at the mountain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article id='tdf-thanks'>
+        <div class="page-content">
+            <h2>
+                Thanks
+            </h2>
+            <p>
+                A very special thanks to all the sites and users who provide the data of the Tour de France. They allowed us to create the database to this project. Do not hesitate to contact us to pull up for any errors or just to say hello!
+            </p>
+            <p>A project made with ...</p>
+            <ul>
+                <li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer<br/>(D3, scraping data)
+                </li><!--
+                !--><li>
+                    <a href='' target='_blank'>                                
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Project manager,<br/>DeveloperChef de projet
+                </li><!--
+                !--><li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                </li><!--
+                !--><li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer<br/>(D3, backbone)
+                </li>
+            </ul>
+        </div>
+    </article>
+
+    <article id='tdf-other'>
+        <div class="page-content">
+            <h2>They talk about us</h2>
+            <div id='tdf-ask'>
+                <ul>
+                    <li>
+                        <b>Huffingtonpost</b>
+                        C'est une mine d'or pour tous les amoureux de statistiques et de classements. Le site 100ansdetour.fr a effectué un colossal travail de compilation de données [ ... ]
+                    </li><!--
+                    !--><li>
+                        <b>Codrops</b>
+                        A beautifully designed hommage to celebrate 100 years of the Tour de France. Some great effects and a brilliant way to present data made us pick this website for this week's inspiration.
+                    </li><!--
+                    !--><li>
+                        <b>Webdesignermag</b>
+                        The Tour de France is one of the most famous cycling tests in the world. This site celebrates 100 years of the race with an imaginative and interactive look at the facts and figures [ ... ]
+                    </li><!--
+                    !--><li>
+                        <b>Design Spartan</b>
+                        Je ne comprendrais jamais ce qui intéresse tant les gens dans le Tour de France, mais ce site web mérite de l’attention [ ... ]
+                    </li><!--
+                    !--><li>
+                        <b>Blog du webdesign</b>
+                        Le Tour de France fête ses 100 ans !<br/>Pour l'occasion découvrez un site qui fait la rétrospective des 100 dernières années du Tour [ ... ]
+                    </li><!--
+                    !--><li>
+                        <b>John's Graphisme</b>
+                        Whaouu, ça faisait un petit moment que je n’avais pas fait un article dans cette thématique, les sites qui envoient du poney [ ... ]
+                    </li>   
+                </ul> 
+            </div>
+            <div id='tdf-onTwitter'>
+                <div id='tdf-twitter'>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                        <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                    </svg>
+                </div>
+                <div id='tdf-tweetLeft' class='tdf-tweet'>
+                    
+                    </div>
+                </div>            
+                <div id='tdf-tweetRight' class='tdf-tweet'>
+                    
+                </div>
+            </div>
+            <ul id='tdf-award'>
+                <li>
+                    <a href="" target="_blank">
+                        <img src='fwa.svg' alt=''>
+                        <span>Site of the day</span>
+                        September 07 2013
+                    </a>
+                </li><!--
+                !--><li>
+                    <a href="" target="_blank">
+                        <img src='awwwards.svg' alt=''>
+                        <span>Site of the day</span>
+                        July 31 2013
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </article>
+
+    <footer>
+        <p>That’s all folks</p>
+        <p>Thank you for watching</p>
+    </footer>
+</section>
+        
+        <section id='theWhole' data-case-study="the-whole">
+    <nav class="pagination theWhole">
+        <ul>
+            <li><a class='active' href="#theWhole-introduction"></a></li>
+            <li><a href="#theWhole-concept"></a></li>
+            <li><a href="#theWhole-interface"></a></li>
+            <li><a href="#theWhole-element"></a></li>
+            <li><a href="#theWhole-madeWith"></a></li>
+        </ul>
+    </nav>
+    <div id='theWhole-bg'></div>
+    <article id='theWhole-introduction' class='animation-on-scroll' data-start-margin='0'>
+        <div class="page-content">
+            <ul>
+                <li>
+                    <span>Date :</span>
+                    March 2013
+                </li><!--
+                !--><li>
+                    <span>Client :</span>
+                    Hétic
+                </li><!--
+                !--><li>
+                    <span>Role :</span>
+                    Design
+                </li>
+            </ul>
+            <h1>
+                <img src='the-whole-logo.svg' alt="The Whole logo">
+                <span>The Whole</span>
+            </h1>
+            <p>
+                The Whole is a web interface that brings together your news feed from various sources and presents it on only one platform. The Whole is currently a project in design phase.
+            </p>
+            <img id='theWhole-mb' src='the-whole-mba.png' alt=''>
+        </div>
+    </article>
+    
+    <article id='theWhole-concept' class='animation-on-scroll' data-start-margin='150'>
+        <div class='page-content'>
+            <h2>The Concept</h2>
+            <h3>Connect and follow the world</h3>
+            <p>
+                The Whole concept is to propose a platform that unifies all your services on a single interface. Social networks, RSS, music or any other service would be available on the same application and propose the same functionality. 
+            </p><!--
+            !--><p>
+                The Whole is currently a prototype, which was achieved with only 6 services (Facebook, Twitter, Pinterest, Sound Cloud, Last Fm Rss Feed). However, itwas thought that any other service could be integrated.
+            </p>   
+            <img src='the-whole-concept.png' alt=''>
+        </div>
+    </article>
+
+    <article id='theWhole-interface'>
+        <div class='page-content'> 
+            <h2>The interface</h2>            
+                <p>
+                    The interface offers a horizontal navigation to present clearly a larger number of postings than it could have been done with a vertical navigation.
+                </p>
+            <div id='theWhole-interface-content'>
+                <img src='the-whole-interface.png' alt=''>
+                <ul class='animation-on-scroll' data-start-margin='50'>
+                    <li>
+                        <img src='the-whole-twInfos.png' alt=''>
+                        <h3>News feed</h3>
+                        <p>
+                            The source of each posting can be identified thanks to the design that is adjusting according to the kind of posting it deals with.
+                        </p>
+                    </li><!-- 
+                    !-->
+                    <li>
+                        <img src='the-whole-bookmark.png' alt=''>
+                        <h3>Bookmarks</h3>
+                        <p>
+                            Save your favorite postings by clicking on the bookmark that appears on rollover. 
+                        </p>
+                    </li><!--
+                    !--><li>
+                        <img src='the-whole-filtre.png' alt=''>
+                        <h3>Flow filter</h3>
+                        <p>
+                            Easily control your news feed<br/>
+                            thanks to the filter of the<br/>
+                            menu bar.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div id='theWhole-menu'>
+                <img src='the-whole-menu.png' alt=''>
+                <img class='animation-on-scroll' data-start-margin='100' src='the-whole-safari.png' alt=''>
+                <img class='animation-on-scroll' data-start-margin='100' src='arrow-palette.png' alt=''>
+                <img class='animation-on-scroll' data-start-margin='100' src='arrow-api.png' alt=''>
+                <img class='animation-on-scroll' data-start-margin='100' src='arrow-rss.png' alt=''>
+                <img class='animation-on-scroll' data-start-margin='100' src='arrow-bookmarks.png' alt=''>
+                <img class='animation-on-scroll' data-start-margin='100' src='arrow-profil.png' alt=''>
+            </div>            
+        </div>
+    </article>
+
+    <article id='theWhole-element' >
+        <div class='page-content'>
+            <div>
+                <h2><b>Clear</b>Elements</h2>            
+                <p>
+                    It was necessary to make a set of elements with a common visual theme that can work separately and together to create a rich and interactive atmosphere.<br/><br/> 
+                    Each element has been thought before production. I had then the pleasure to design and make small details on each of those elements.
+                </p>
+            </div><!--
+            !--><img id='element-img' src='element.png' alt=''>
+        </div>
+    </article>
+
+    <article id='theWhole-madeWith' class='animation-on-scroll' data-start-margin='0' >
+        <div class="page-content">
+            <div id='macbook-theWhole'>
+                <img src='the-whole-macbook-air.png' alt=''>
+                <img src='the-whole-macbook-air-screen.png' alt=''>
+            </div>
+            <h2>A project made with ...</h2>
+            <ul>
+                <li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Ux designer,<br/>Design
+                </li><!--
+                !--><li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Project manager,<br/>
+                    Design
+                </li><!--
+                !--><li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer<br/>(fat free, api)
+                </li><!--
+                !--><li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer,<br/>Conception
+                </li>
+            </ul>
+        </div>
+    </article>
+
+    <footer>
+        <p>That’s all folks</p>
+        <p>Thank you for watching</p>
+    </footer>
+</section>
+
+        <div id="transition-social-coke"></div>
+<section id='socialCoke' data-case-study="social-coke">
+    <div id="pseudoSocialCoke"
+        data-0="top:0px; margin-left:-342px; opacity:0; transform:rotate(0deg); "
+        data-10="top:130px; margin-left:-342px; opacity:1;"
+        data-300="top:420px; margin-left:50px; transform:rotate(360deg);"
+        data-735="top:855px; margin-left:-293px; transform:rotate(720deg);"
+        data-1635="top:1755px; margin-left:-360px; transform:rotate(1080deg);"
+        data-1860="top:1980px; margin-left:277px; transform:rotate(1440deg);"
+        data-2145="top:2265px; margin-left:-470px; transform:rotate(1820deg);"
+        data-2480="top:2600px; margin-left:-100px; transform:rotate(2160deg);"
+        data-3150="top:3270px; margin-left:-122px; transform:rotate(2530deg);"
+    >
+    </div>
+
+    <nav class="pagination socialCoke">
+        <ul>
+            <li><a class='active' href="#socialCoke-introduction"></a></li>
+            <li><a href="#socialCoke-context"></a></li>
+            <li><a href="#socialCoke-idea"></a></li>
+            <li><a href="#socialCoke-interest"></a></li>
+            <li><a href="#socialCoke-universe"></a></li>
+            <li><a href="#socialCoke-bottle"></a></li>
+            <li><a href="#socialCoke-madeWith"></a></li>
+        </ul>
+    </nav>
+    <div id='socialCokePath'></div>
+    <article id='socialCoke-introduction'>
+        <div class="page-content">
+            <ul>
+                <li>
+                    <span>Date :</span>
+                    December 2012
+                </li><!--
+                !--><li>
+                    <span>Client :</span>
+                    Hétic
+                </li><!--
+                !--><li>
+                    <span>Role :</span>
+                    Design - Html - Css
+                </li>
+            </ul>
+            <h1>
+                Social Coke
+                <img src='social-coke-logo.svg' alt='Social Coke Logo'>
+            </h1>
+            <p>
+                Social Coke is a (fake) worldwide digital campaign for Coca-Cola based on an innovative concept of collaborative website using Twitter. The site immerses its users in a rich, captivating and entertaining experience in which they can discover different modules of games or dynamic contents.
+            </p>
+        </div>
+        <div id='goutte1'></div>
+        <div id='goutte2'></div>
+        <div id='goutte3'></div>
+        <div id='goutte4'></div>
+        <div id='goutte5'></div>
+    </article>
+
+    <article id='socialCoke-context'>
+        <img id='cloud1' src='cloud-2.svg' alt=''>
+        <img id='cloud2' src='cloud.svg' alt=''>
+        <img id='cloud3' src='cloud-3.svg' alt=''>
+        <img id='cloud4' src='cloud-4.svg' alt=''>
+        <div class="page-content">
+            <h2>The Context</h2>
+            <h3>Coca Cola, an active and creative brand</h3>
+            <p>
+                Year by years, Coca-Cola has shaped its image and reputation thanks to large-scale advertising campaigns, notable for their originality and quality achievements.<br/> 
+                The brand has also often worked in collaboration with artists and renowned designers to achieve visual concepts still etched in our minds.
+            </p><!--
+            !--><p>
+                Today, Coca-Cola aims to carry on this tradition of innovative and creative campaigns, staying aware of the new online challenges of 2014.<br/>
+                The brand targets a pretty young audience, sensitive to digital innovations, to strengthen its notoriety and its image as a state-of-the-art brand.
+            </p>
+            <img id='coca-cola-logo' src='coca-cola.svg' alt='Coca Cola logo'>   
+             <p>
+                <em>An active and creative brand in terms of communication campaign :</em>
+                <b>•</b><!-- !--><span>Recurring themes in Coca-Cola's communication: wonderment, dream, magic...</span><br/>
+                <b>•</b><!-- !--><span>A strong link between the brand and art (campaigns, packaging, logo)</span><br/>
+                <b>•</b><!-- !--><span>A brand that caters to a rather young target therefore sensitive to digital and innovation in general</span><br/>
+            </p><!--
+            !--><p>
+                <em>Image :</em>
+                To maintain and to strengthen the image of a young and innovative brand, close to artistic circles and active in the field of digital.
+                <em>Notoriety :</em>
+                To maintain the brand awareness on social networks and more precisely on Twitter.
+           </p>     
+        </div>
+    </article>
+
+    <article id='socialCoke-idea'>
+        <div class="page-content">
+            <h2>The Idea</h2>
+            <h3>Digital campaign for Coca Cola</h3>    
+            <p>
+                The website offers users to discover a vast universe highly illustrated. At the heart of this universe, a bottle is getting drawn gradually thanks to the names of users who tweet with the hashtag #socialcoke. The first goal of this page is to encourage people to talk about the brand on Twitter. They also have the opportunity to do it directly from the homepage.
+            </p>
+        </div>
+    </article>
+
+    <article id='socialCoke-interest'>
+        <div class="page-content">
+            <h2>What interest to the user?</h2>
+            <p>
+                When the user visits the website, he delves into a graphic universe that captures his curiosity and wonder. Thus, it relies on one of the best Coca-Cola's key of communication: the prominent place of amazement. 
+            </p><!--
+            !--><p>
+                More specifically, the interaction between the users and the site is primarily based on the tweet. For each tweet posted with #socialcoke, the nickname of the user completes the design of the bottle. It appears directly into the bottle and we discover a little more of its shape.
+            </p><!--
+            !--><p>
+                Furthermore, tweets have a second function in our campaign. They allow us to build the universe of the website. Users take part in the construction of the "out of phase" universe that is gradually emerging.
+            </p>
+        </div>
+    </article>
+            
+    <article id='socialCoke-universe'>
+        <div class="page-content">
+            <h2>The Universe</h2>
+            <h3>Offers the user a rich, exciting and entertaining experience</h3>    
+            <p>
+                This universe presents the Coca-Cola brand in terms of art. It is composed as an infographic presenting in a playful way historical graphs of the brand, the evolution of its branding, or even the shape of its bottles over the years.             
+            </p><!--
+            !--><p>
+            The universe is deliberately very illustrated, with no framework to allow great freedom in the navigation.<br/>
+            Particular attention is given to details in the illustrations, animations and other visual reports that allow to stir the curiosity and enthusiasm of the visitor.  
+            </p>
+            <div id='bottle-oiseaux'>
+                <img src='oiseaux.svg' alt=''> 
+                <img src='tweet-pseudo.png' alt=''> 
+            </div>
+        </div>                  
+    </article>
+
+    <article id='socialCoke-bottle'>
+        <div class="page-content">
+            <h2>And when the bottle is full?</h2>
+            <p>
+                The campaign ends when the bottle is full. However, it does not stop here because it's now the occasion to thank the participants and to enjoy the reputation of the website as its height.            
+            </p><!--
+            !--><p>
+                Afterwards, the customized bottle will be really produced as a new "Socialbottle" collector edition. It will be offer to participants of the campaign and it will be possible to order the bottle on the site.             
+            </p><!--
+            !--><p>
+                The website will also be available in its entirety. Visitors will be able to enjoy the fully experience, in the manner of an infographic showing the strong links between Coca-Cola and the world of art.            
+            </p>
+        </div>
+    </article>
+
+    <article id='socialCoke-madeWith'>
+        <div class="page-content">
+            <h2>A project made with ...</h2>
+            <ul>
+                <li>
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer<br/>
+                    Illustrator
+                </li><!--
+                !--><li>
+                    
+                    <a href='' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer<br/>(Php/Javascript)
+                </li><!--
+                !--><li>
+                    <a href='http://mariongeorges.com/' target='_blank'>Marion Georges</a>
+                    <a href='https://twitter.com/MarionGeorges_' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Developer,<br/>Marketing Strategy 
+                </li><!--
+                !--><li>
+                    <a href='http://www.nicolasmatt.com/' target='_blank'>Nicolas Matt</a>
+                    <a href='https://twitter.com/nicomatt89' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Project Manager,<br/>Conception
+                </li><!--
+                !--><li>
+                    <a href='http://www.mahedineyahia.fr/' target='_blank'>Mahedine Yahia</a>
+                    <a href='https://twitter.com/mahedou' target='_blank'>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="14px" viewBox="0 0 17.61 14.34" enable-background="new 0 0 17.61 14.34" xml:space="preserve">
+                            <g><path d="M17.61,1.71c-0.48,0.701-1.08,1.331-1.8,1.89v0.42c0,1.2-0.225,2.415-0.675,3.645c-0.45,1.23-1.11,2.34-1.98,3.33c-0.87,0.99-1.94,1.795-3.21,2.415c-1.271,0.62-2.735,0.93-4.395,0.93c-1.02,0-1.995-0.145-2.925-0.435C1.695,13.616,0.82,13.21,0,12.69c0.14,0.02,0.28,0.03,0.42,0.03c0.14,0,0.29,0,0.45,0c1.72,0,3.21-0.51,4.47-1.53c-0.8-0.02-1.505-0.265-2.115-0.735C2.615,9.985,2.2,9.39,1.98,8.67c0.24,0.06,0.46,0.09,0.66,0.09c0.18,0,0.345-0.01,0.495-0.03C3.285,8.71,3.44,8.681,3.6,8.64C2.76,8.46,2.065,8.045,1.515,7.395C0.965,6.746,0.69,5.98,0.69,5.1V5.07c0.24,0.12,0.495,0.22,0.765,0.3C1.725,5.45,2.03,5.49,2.37,5.49C1.85,5.17,1.45,4.75,1.17,4.23c-0.28-0.52-0.42-1.1-0.42-1.74c0-0.64,0.16-1.25,0.48-1.83c0.9,1.12,1.99,2.015,3.27,2.685C5.78,4.016,7.17,4.38,8.67,4.44C8.61,4.2,8.58,3.94,8.58,3.66c0-0.5,0.095-0.975,0.285-1.425c0.19-0.45,0.45-0.84,0.78-1.17c0.33-0.33,0.71-0.59,1.14-0.78C11.215,0.095,11.68,0,12.18,0c0.54,0,1.03,0.105,1.47,0.315c0.44,0.21,0.83,0.485,1.17,0.825c0.399-0.06,0.799-0.169,1.2-0.33c0.4-0.16,0.77-0.33,1.11-0.51c-0.32,0.84-0.85,1.5-1.59,1.98c0.38-0.04,0.74-0.11,1.08-0.21C16.96,1.97,17.29,1.851,17.61,1.71z"/></g>
+                        </svg>
+                    </a>
+                    Graphic design, Typographer<br/>Illustrator
+                </li>
+            </ul>
+        </div>
+        <img id='poisson' src='poisson.png' alt=''>                  
+    </article>
+            
+    <footer>
+        <p>That’s all folks</p>
+        <p>Thank you for watching</p>
+    </footer>
+</section>
+
+        <section id='partech' data-case-study="partech">
+    <nav class="pagination partech">
+        <ul>
+            <li><a class='active' href="#partech-introduction"></a></li>
+            <li><a href="#partech-client"></a></li>
+            <li><a href="#partech-dragScreen"></a></li>
+            <li><a href="#partech-sketch"></a></li>
+            <li><a href="#partech-mobile"></a></li>
+            <li><a href="#partech-ui"></a></li>
+        </ul>
+    </nav>
+    <article id='partech-introduction'>
+        <div class='page-content'>
+            <ul>
+                <li>
+                    <span>Date :</span>
+                    January 2011
+                </li><!--
+                !--><li>
+                    <span>Client :</span>
+                    Partech S.A.R. L.
+                </li><!--
+                !--><li>
+                    <span>Role :</span>
+                    Design - Development
+                </li>
+            </ul>
+            <h1>
+                <img src='assets/img/partech/partech-logo.jpg' alt="Partech logo">
+                <span>Partech</span>
+            </h1>
+            <span class="sepPartech"></span>
+            <p>
+                Realization of graphic design and development of a static website for Partech, a design office. Responsive website, created in HTML 5 / CSS 3, Javascript and Flash.
+                <a href='http://partech-sarl.com' target='_blank'>Check the site</a>
+            </p>
+            <img id='partechCinemaDisplay' src='assets/img/partech/partech-cinema-display.png' alt="partech cinema display">
+        </div>
+    </article>
+
+    <article id='partech-client' >
+        <div class='page-content'>
+            <h2>The Client</h2>
+            <h3>Design office, engineering mechanics</h3>
+            <span class="sepPartech"></span>
+            <p>
+                <span>Founded in 1992 by Yves Lagier, Partech offers its engineering solutions and achievements in the world of industry and ski lifts.</span><br/> 
+                With an experience of many years spent in major manufacturers (Skirail VON ROLL CWA) Partech brings its experience in industrial equipment and mountains
+             </p><!--
+            !--><p>
+                Featuring a powerful tool in design, 3D software, finite-element calculations. Serious and motivated, its strengths are also experience and customer listening.
+                Moreover, Partech proves to be an economic and serious alternative in opposition with manufacturers that are penalized by heavy structures, a rigid policy and costly alternative solutions.
+            </p>   
+            <img class='animation-on-scroll' data-start-margin='50' src='assets/img/partech/single-rack.svg' alt="Single Rack">
+        </div>
+    </article>
+
+    <article id='partech-dragScreen' class='animation-on-scroll' data-start-margin='-300'>
+        <div class='page-content'>
+            <h2>Horizontal navigation</h2>
+            <p>An original navigation that allows the presentation of a large number of projects and the visitors to soak up the atmosphere.</p>
+            <div class="toDrag" >
+                <div class="dragCursorPartech">
+                </div>
+                <div class="dragScreenArrow">
+                    <span class="dragPoint"></span>
+                    <span class="dragArrow"></span>
+                </div>
+            </div>
+            <div class="partech-screen">
+                <img src='assets/img/partech/safari-window.png' alt="Safari Window">
+                <img id='partechScreenImg' src='assets/img/partech/drag-screen.png' alt="Screen partech">
+            </div>
+        </div>
+    </article>
+
+    <article id="partech-sketch" class="animation-on-scroll" data-start-margin='200'>
+        <div class="page-content">
+            <img src='assets/img/partech/spad-rail-1.svg' alt="Sketch Spad Rail 1">
+            <img src='assets/img/partech/spad-rail-2.svg' alt="Sketch Spad Rail 2">
+            <img src='assets/img/partech/spad-rail-3.svg' alt="Sketch Spad Rail 3">
+            <img src='assets/img/partech/spad-rail-4.svg' alt="Sketch Spad Rail 4">
+            <img src='assets/img/partech/spad-rail-5.svg' alt="Sketch Spad Rail 5">
+            <img src='assets/img/partech/spad-rail-6.svg' alt="Sketch Spad Rail 6">
+        </div>
+    </article>
+
+    <article id="partech-mobile" class='animation-on-scroll' data-start-margin='0'>
+        <div class="page-content">
+            <h2>Responsive Design</h2>
+            <p>Mobile web is becoming increasingly important, it was necessary to adapt to new forms available for consultation.</p>
+            <div class="mobileScreen">
+                <img id="partech-iphone" src='assets/img/partech/partech-iphone.png' alt="Iphone screen Partech">
+                <ul>
+                    <li><img src='assets/img/partech/partech-iphone-screen4.png' alt="Partech mobile 4"></li><!--
+                !--><li><img src='assets/img/partech/partech-iphone-screen2.png' alt="Partech mobile 2"></li><!--
+                !--><li><img src='assets/img/partech/partech-iphone-screen1.png' alt="Partech mobile 1"></li><!--
+                !--><li><img src='assets/img/partech/partech-iphone-screen3.png' alt="Partech mobile 3"></li><!--
+                !--><li><img src='assets/img/partech/partech-iphone-screen5.png' alt="Partech mobile 5"></li><!--
+                !-->
+                </ul>
+            </div>
+        </div>
+    </article>
+
+    <article id='partech-ui' class='animation-on-scroll' data-start-margin='50'>
+        <div class="sep"></div>
+        <div class="page-content">
+            <h2>UI Element</h2>
+            <p>Creation of graphic elements helping the website consultation for people with little computer skills.</p>
+            <ul>
+                <li><img src='assets/img/partech/ui1.png' alt='UI Element 1'></li><!--
+            !--><li><img src='assets/img/partech/ui2.png' alt='UI Element 2'></li><!--
+            !--><li><img src='assets/img/partech/ui3.png' alt='UI Element 3'></li><!--
+            !--><li><img src='assets/img/partech/ui4.png' alt='UI Element 4'></li><!--
+            !-->
+            </ul>
+        </div>
+    </article>
+
+    <footer>
+        <p>That’s all folks</p>
+        <p>Thank you for watching</p>
+    </footer>
+</section>
+
+    </div>
+    <!-- build:js scripts/vendor.js -->
+    <script src="jquery.min.js"></script>
+    <script src="underscore-min.js"></script>
+    <script src="backbone-min.js"></script>
+    <!-- Parallax -->
+    <script src="jquery.parallax.js"></script>
+    <script type="text/javascript" src="skrollr.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/main.js -->
+    <script src="main.js"></script>
+    <!-- endbuild -->
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="dist/skrollr.ie.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        
+        $(document).ready(function() {
+            $('#contact li:nth-of-type(1) a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Adresse mail home');
+            });
+            $('#contact li:nth-of-type(2) a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Resume');
+            });
+            $('#social li:nth-of-type(1) a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Twitter');
+
+            });
+            $('#social li:nth-of-type(2) a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Behance');
+
+            });
+            $('#social li:nth-of-type(3) a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Dribble');
+
+            });
+            $('#social li:nth-of-type(4) a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Linkedin');
+
+            });
+            $('#thanks-infos a').click(function(){
+               ga('send', 'event', 'Boutons contact', 'Click', 'Adresse mail footer');
+
+            });
+            $('#theWholeProject .enter-button').click(function(){
+               ga('send', 'event', 'Case study', 'Click', 'The Whole case study');
+
+            });
+            $('#partechProject .enter-button').click(function(){
+               ga('send', 'event', 'Case study', 'Click', 'Partech case study');
+
+            });
+            $('#tdfDragCursor').click(function(){
+               ga('send', 'event', 'Case study', 'Click', '100 ans de tour case study');
+
+            });
+            $('#socialCokeForm').on('submit', function(){
+               ga('send', 'event', 'Case study', 'Click', 'Partech case study');
+
+            });
+        });
+    </script>
+
+</body>
+</html>

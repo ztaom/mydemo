@@ -1,0 +1,97 @@
+<html>
+<head>
+	<title>Plotting Data</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+var maxVal;
+var minVal;
+var numSamples;
+var xScalar;
+var yScalar;
+		// data sets -- set literally or obtain from a file or .asp call
+var sanDiego =  [72, 70, 74, 72, 75, 76, 77, 78, 74, 72, 70, 68];
+var kansasCty = [20, 30, 40, 50, 60, 70, 80, 90, 70, 60, 50, 40];
+var buffalo =   [-10, -20, 0, 50, 50, 60, 90, 100, 50, 40, 30, 0];
+
+function init() {
+		// set these values for your data 
+	numSamples = 12;
+	maxVal = 120;
+	minVal = -30;
+	var stepSize = 10;
+	var colHead = 50;
+	var rowHead = 50;
+	var margin = 5;
+	var header = [" ", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] 
+		//
+		
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.fillStyle = "black"
+	ctx.font = "14 pt Helvetica"
+	
+	yScalar = (can.height - colHead - margin) / (maxVal - minVal);
+	xScalar = (can.width - rowHead) / numSamples;
+	
+	ctx.strokeStyle="rgba(128,128,255, 0.5)"; // light blue lines
+	ctx.beginPath();
+		// print  column header and draw vertical grid lines
+	for (i=1;i<=numSamples;i++) {
+		var x = i * xScalar;
+		ctx.fillText(header[i], x,colHead - margin);
+		ctx.moveTo(x, colHead);
+		ctx.lineTo(x, can.height - margin);
+	}
+		// print row header and draw horizontal grid lines
+	var count =  0;
+	for (scale=maxVal;scale>=minVal;scale = scale - stepSize) {
+		var y = colHead + (yScalar * count * stepSize); 
+		ctx.fillText(scale, margin,y + margin);
+		ctx.moveTo(rowHead,y)
+		ctx.lineTo(can.width,y)
+		count++;
+	}
+	ctx.stroke();
+	
+	ctx.translate(rowHead,can.height + minVal * yScalar);
+	ctx.scale(1,-1 * yScalar);
+	
+		// set a color and make one call to plotData() 
+		// for each data set
+	ctx.strokeStyle="green";
+	plotData(sanDiego);
+	ctx.strokeStyle="red";
+	plotData(kansasCty);
+	ctx.strokeStyle="purple";
+	plotData(buffalo);
+}
+
+function plotData(dataSet) {
+	ctx.beginPath();
+	ctx.moveTo(0, dataSet[0]);
+	for (i=1;i<numSamples;i++) {
+		ctx.lineTo(i * xScalar, dataSet[i]);
+	}
+	ctx.stroke();
+}
+
+</script>
+</head>
+
+<body onload="init()">
+<div align="center">
+<h2>Average Temperature By City</h2>
+
+<canvas id="can" height="400" width="650">
+</canvas>
+<br>
+	<!-- identify your data sets -->
+<span style="color:green"> San Diego = green </span> &nbsp;
+<span style="color:red"> Kansas City = red </span> &nbsp;
+<span style="color:purple"> Buffalo = purple </span>
+</div>
+</body>
+</html>

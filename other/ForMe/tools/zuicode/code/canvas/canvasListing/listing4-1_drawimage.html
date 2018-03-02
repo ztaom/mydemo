@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>drawImage()</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+
+function init() {
+	var sprite = document.getElementById("sprite");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.drawImage(sprite, 0,0);
+}
+
+</script>
+</head>
+
+<body onload="init()">
+<canvas id="can" height="200" width="200">
+</canvas>
+
+<img id="sprite" src="assets/lem.png" style="display:none">
+</body>
+</html>

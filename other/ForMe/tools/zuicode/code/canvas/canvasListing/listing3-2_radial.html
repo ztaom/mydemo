@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Radial gradient example</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	drawGradients();
+}
+
+// function drawGradients() {
+// 	ctx.fillStyle="blue";
+// 	ctx.beginPath;
+// 	ctx.arc(50,50, 50, 0, 2 * Math.PI);
+// 	ctx.fill();
+// 	var grad = ctx.createRadialGradient(50,40,5, 50,40,50);
+// 	grad.addColorStop(0, 'rgba(255,255,255,0.9)');
+// 	grad.addColorStop(1, 'rgba(0,0,0,0.6)');
+// 	ctx.beginPath;
+// 	ctx.fillStyle=grad;
+// 	ctx.arc(50,50, 50, 0, 2 * Math.PI);
+// 	ctx.fill();
+// }
+
+function drawGradients() {
+	var grad = ctx.createRadialGradient(50,50,5, 50,50,50);
+	grad.addColorStop(0, 'white');
+	grad.addColorStop(1, 'black');
+	ctx.fillStyle=grad;
+	ctx.arc(50,50, 50, 0, 2 * Math.PI);
+	ctx.fill();
+}
+
+</script>	
+	
+</head>
+<body onload="init()" style="background-color:#d9d9d9">
+<canvas id="can" height="200" width="400">
+</canvas>
+</body>
+</html>

@@ -1,0 +1,118 @@
+ <style>
+table .hzebra-odd td {background:#fff;} /* 奇数只能置于tr中 */
+table .hzebra-even td {background:#f6f6f6;} /* 偶数只能置于tr */
+table .ruled td {background:#ccc;} /* 鼠标滑过的颜色 */
+/***********************************************************************************************************
+ * 增加一列就增加一个<col class="">，详见：http://assets.dongao.cn/css/src/dui/template/module/table.html 
+ * <colgroup>
+ *   <col class="vzebra-odd">
+ *   <col class="vzebra-even">
+ *   <col class="vzebra-odd">
+ *   <col class="vzebra-even">
+ * </colgroup>
+ ***********************************************************************************************************/
+table .vzebra-odd {background:#C3D1EC;}
+table .vzebra-even {background:#3398e7;}
+</style>
+<div class="entry-title">
+  <h1>ZUI规范指南——ZUI模块库和内容区</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>表格<span class="feature">table</span></h3></div>
+    <div class="msg">
+      <div class="default tips">
+        <p class="content">t-c:水平居中，t-l:水平左对齐，t-r:水平右对齐，t-t:垂直顶部对齐，t-m:垂直居中对齐，t-b:垂直底部对齐</p>
+        <i class="icon"></i> </div>
+    </div>
+    <h3 class="pt-10 pb-10 f-14">1、Vertical zebra</h3>
+    <table summary="Vertical zebra" class="data-table2" width="100%">
+      <colgroup>
+        <col class="vzebra-odd">
+        <col class="vzebra-even">
+        <col class="vzebra-odd">
+        <col class="vzebra-even">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>th</th>
+          <th>th</th>
+          <th>th</th>
+          <th>th</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+      </tbody>
+    </table>
+    <pre class="brush:c-sharp;">
+    <table summary="Vertical zebra" class="data-table2" width="100%">
+      <colgroup>
+        <col class="vzebra-odd">
+        <col class="vzebra-even">
+        <col class="vzebra-odd">
+        <col class="vzebra-even">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>th</th>
+          <th>th</th>
+          <th>th</th>
+          <th>th</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>td</td>
+          <td>td</td>
+          <td>td</td>
+        </tr>
+      </tbody>
+    </table>
+    </pre>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

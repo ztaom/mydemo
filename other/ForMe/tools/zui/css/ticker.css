@@ -1,0 +1,20 @@
+#ticker-wrapper.has-js {height:30px; border: 1px solid #CFCFCF;}
+#ticker {padding: 0px 0px 0px 10px;	width:80%; height:23px; display: block; float: left; position: relative;overflow: hidden; background-color: #ffffff;}
+#ticker-title {padding-top: 7px; float: left; color:#990000; font-weight: bold;	background-color: #ffffff;}
+#ticker-content {margin: 0px; padding-top: 7px; float: left; position:absolute; color:#1F527B; font-weight: bold;background-color: #ffffff;}
+#ticker-swipe {padding-top: 7px; width:80%; height: 23px; position:absolute; top: 0px; left: 80px; background-color: #ffffff;display: block;}
+#ticker-swipe span {margin-left:1px;background-color: #ffffff;	border-bottom: 1px solid #1F527B; height: 12px;width: 7px;display: block;}
+#ticker-controls {padding: 7px 10px 0px 0px; float: right;}
+#ticker-controls li {padding: 0px; margin-left: 5px;float: left;cursor: pointer;height: 16px;width: 16px;display: block;}
+#ticker-controls li#play-pause {background-image: url('img/ticker/controls.png');background-position: 32px 16px;}
+#ticker-controls li#play-pause.over {background-position: 32px 32px;}
+#ticker-controls li#play-pause.down {background-position: 32px 0px;}
+#ticker-controls li#play-pause.paused {background-image: url('img/ticker/controls.png');background-position: 48px 16px;}
+#ticker-controls li#play-pause.paused.over {background-position: 48px 32px;}
+#ticker-controls li#play-pause.paused.down {background-position: 48px 0px;}
+#ticker-controls li#prev {background-image: url('img/ticker/controls.png');	background-position: 0px 16px;}
+#ticker-controls li#prev.over {background-position: 0px 32px;	}
+#ticker-controls li#prev.down {background-position: 0px 0px;}
+#ticker-controls li#next {background-image: url('img/ticker/controls.png'); background-position: 16px 16px;}
+#ticker-controls li#next.over {background-position: 16px 32px;}
+#ticker-controls li#next.down {background-position: 16px 0px;}

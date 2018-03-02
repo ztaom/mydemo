@@ -1,0 +1,186 @@
+<style lang="less" src="../../style/youkuplayer.less"></style>
+<template>
+  <view class='youkuplayer-container'>
+    <YoukuPlayerLayer wx:if='{{isShowLayer}}' :panelName.sync='panelName' :coverURL.sync='coverURL'></YoukuPlayerLayer>
+    <video wx:if='{{!isShowLayer}}'
+      class = 'youku-player'
+      id = 'youku-player'
+      src = '{{videoUrl}}'
+      autoplay = '{{autoplay}}'
+      binderror = 'onErrorHandler'
+      bindended = 'onEndHandler'
+      bindplay = 'onPlayHandler'
+      bindtimeupdate = 'onTimerHandler'
+      controls
+     ></video>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+import PlayListData from './ups-model';
+import YoukuPlayerLayer from './youkuPlayerLayer';
+import { getUpsData } from '@/API/';
+export default class YoukuPlayer extends wepy.component {
+  watch = {
+    vid(newValue, oldValue) {
+      if (newValue === oldValue) return;
+      this.reset();
+    },
+    coverURL(newValue, oldValue) {
+    }
+  };
+  props = {
+    vid: String,
+    coverURL: String
+  };
+  data = {
+    currectStream: {},
+    videoUrl: '',
+    autoplay: true,
+    retryCount: 0,
+    upsRetryCount: 0,
+    isShowLayer: false,
+    panelName: '',
+    videoContext: null,
+    isError: false
+  };
+  components = {
+    YoukuPlayerLayer: YoukuPlayerLayer
+  };
+  events = {
+    'REFRASH': ($event, ...args) => {
+      if (this.isError) {
+        this.reset();
+      } else {
+        this.isShowLayer = false;
+        this.videoContext.seek(0);
+        // this.videoContext.play();
+      }
+    },
+    'PLAY': ($event, ...args) => {
+      if (this.videoUrl) this.play();
+    }
+  };
+  methods = {
+    onPlayHandler() {
+      this.play();
+    },
+    onErrorHandler(data) {
+      this.retryCount++;
+      this.showError();
+    },
+    onTimerHandler(data) {
+      if (data.detail.currentTime > 390) {
+        this.isShowLayer = true;
+        this.panelName = 'end';
+        this.videoContext.pause();
+        this.$apply();
+      }
+    },
+    onEndHandler() {
+      this.isShowLayer = true;
+      this.panelName = 'end';
+      this.$apply();
+    }
+  };
+
+  _requestUps() {
+    const _data = {};
+    _data.vid = this.vid;
+    _data.ccode = '0517';
+    _data.client_ip = '192.168.1.1';
+    _data.utid = 'eWrCEmi2cFsCAWoLI41wnWhW';
+    _data.client_ts = Date.now();
+    getUpsData(_data, (res) => {
+      if (res.isSuccess && res.result && res.result.data) {
+        this.parseMeidaData(res.result.data);
+      } else {
+        this.upsRetryCount++;
+        if (this.upsRetryCount < 4) {
+          this._requestUps();
+        } else {
+          this.showError();
+        }
+      }
+    });
+  }
+  parseMeidaData(data) {
+    const playlistData = new PlayListData(data.data);
+    if (playlistData.videoData.coverURL) this.coverURL = playlistData.videoData.coverURL;
+    this.$emit('UPDATE_COVER_URL', this.coverURL);
+    if (playlistData.videoData.isChannelVip || playlistData.videoData.isFee) {
+      if (!playlistData.videoData.isTrial) {
+        this.showError('vip');
+        return;
+      }
+    }
+    const _streamData = playlistData.getMediaStreamData('mp4');
+
+    if (_streamData && _streamData[0] && _streamData[0].qualityList) {
+      this.currectStream = _streamData[0].qualityList[0]; // 取最低清晰度
+      if (this.currectStream && this.currectStream.segs[0] && this.currectStream.segs[0].src) {
+        // this.duration = this.currectStream.duration / 1000;
+        // this.videoUrl = this.currectStream.streamURL.replace('http://', 'https://');
+        this.videoUrl = this.currectStream.segs[0].src;
+        if (this.autoplay) this.play();
+        this.$apply();
+      } else {
+        this.showError();
+      }
+      // this.videoUrl = 'https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8';
+    } else {
+      this.showError();
+    }
+  }
+  // 显示错误
+  showError(errorPanel = 'error') {
+    if (errorPanel === '4g' || errorPanel === 'init') {
+      this.isError = false;
+    } else {
+      this.isError = true;
+    }
+    this.isShowLayer = true;
+    this.panelName = errorPanel;
+    this.$apply();
+  }
+  /**
+   * 重置状态
+   */
+  reset() {
+    let _panelName = 'init';
+    this.autoplay = true;
+    wepy.getNetworkType({
+      success: (res) => {
+        const networkType = res.networkType;
+        if (networkType !== 'wifi') {
+          _panelName = '4g';
+          this.autoplay = false;
+        }
+      }
+    });
+    this.videoUrl = '';
+    this.retryCount = 0;
+    this.upsRetryCount = 0;
+    this.errorMassage = '视频暂时无法播放，小酷正全力修复中，非常抱歉';
+    this.showError(_panelName);
+    if (this.vid) this._requestUps();
+    this.$apply();
+  }
+  /**
+   * 播放
+   */
+  play() {
+    if (this.isShowLayer) {
+      this.isShowLayer = false;
+    }
+    this.autoplay = true;
+    // this.videoContext.play();
+    this.$apply();
+  }
+  onLoad() {
+    this.videoContext = wepy.createVideoContext('youku-player');
+
+    this.reset();
+  }
+}
+</script>

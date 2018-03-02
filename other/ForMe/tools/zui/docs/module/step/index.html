@@ -1,0 +1,168 @@
+<style>
+/* step 步骤条 */
+.step{overflow:hidden; background:url(../css/img/step-bg.png) repeat-x 0px 4px; position:relative;}
+.step .icon {background:url(../css/img/step-bg.png) no-repeat -894px -82px; height:39px; width:80px; padding:0px; position:absolute; right:-20px; top:4px;}
+.step .icon i {display:block; margin-top:18px; font-style:normal; font-weight:normal;}
+.step .step-first {background:url(../css/img/step-bg.png) no-repeat 0px -78px;}
+.step li {font-weight:bold; padding:0px 10px; margin-right:20px; line-height:46px; position:relative; float:left;}
+.step li span {background:url(../css/img/steps.png) -234px -44px; width:26px; text-align:center; display:inline-block; color:#fff; margin-right:8px;}
+.step li.current {color:#ff4e00; background:url(../css/img/steps.png) no-repeat 0px 0px; padding-right:30px;}
+.step li.current span {background-position:-196px -45px;}
+.step li.current i {background:url(../css/img/steps.png) -230px 0px; display:block; width:30px; height:46px; position:absolute; right:0px; top:0px;}
+.step li.current i.last {background:url(../css/img/steps-flag.png) no-repeat 4px 0px; width:35px;}
+
+.step-flow ul {clear:both; overflow:hidden; *zoom:1;}
+.step-flow ul li {float:left; width:96px; text-align:center;}
+.step-flow .undone, .step-flow .current, .step-flow .done {height:22px;}
+.step-flow .undone {background:url(../css/img/step-undone.gif) no-repeat;}
+.step-flow .current {background:url(../css/img/step-current.gif) no-repeat;}
+.step-flow .done {background:url(../css/img/step-done.gif) no-repeat;}
+.step-flow .step-time {margin-left:48px;}
+.step-flow .first {width:55px!important; background-position:right 0; margin-left:41px; display:inline;}
+.step-flow .last {width:56px!important;}
+
+.course-step ul {clear:both; overflow:hidden; *zoom:1;}
+.course-step ul li {float:left; text-align:center; width:162px; _width:161px; font-size:12px; margin:0 7px; line-height:1.4; padding-bottom:0px;}
+.course-step .step-pic {margin-left:78px;}
+.course-step .step-pic li {height:24px; background:url(../css/img/course-step-bg.png) repeat-x; margin:0px!important; width:176px; text-align:left;}
+.course-step .step-pic li span, .course-step .step-pic li.current span {height:24px; width:20px; text-align:center; background:url(../css/img/course-step-normal.png) no-repeat; display:block; line-height:28px; font-weight:bold; position:relative; left:43%}
+.course-step .step-pic li.current span {background:url(../css/img/course-step-current.png) no-repeat; color:#fff;}
+.course-step .step-pic li.course-first {width:100px;}
+.course-step .step-pic li.course-first span {left:0px;}
+.course-step .step-pic li.course-last {width:79px;}
+.course-step .step-pic li.course-last span {left:100%;}
+.course-step .step-class li {color:#999; white-space:normal;}
+</style>
+<div class="entry-title">
+  <h1>ZUI规范指南——ZUI模块库和内容区</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>步骤条<span class="feature">step</span></h3></div>      
+    <h3 class="pt-10 pb-10 f-14">1、当前状态</h3>
+    <ol class="step">
+      <li class="step-first"><span>1</span>第一步<i></i></li>
+      <li class="current"><span>2</span>第二步（当前）<i></i></li>
+      <li><span>3</span>第三步<i></i></li>
+      <li><span>4</span>第四步<i class="last"></i></li>
+      <li class="icon"></li>
+    </ol>
+    <pre class="brush:c-sharp;">
+    <ol class="step">
+      <li class="step-first"><span>1</span>第一步<i></i></li>
+      <li class="current"><span>2</span>第二步（当前）<i></i></li>
+      <li><span>3</span>第三步<i></i></li>
+      <li><span>4</span>第四步<i class="last"></i></li>
+      <li class="icon"></li>
+    </ol>
+    </pre>
+    <h3 class="pt-10 pb-10 f-14">2、完成状态</h3>
+    <ol class="step">
+      <li class="step-first"><span>1</span>第一步<i></i></li>
+      <li><span>2</span>第二步（当前）<i></i></li>
+      <li><span>3</span>第三步<i></i></li>
+      <li class="current"><span>4</span>第四步<i class="last"></i></li>
+      <li class="icon"></li>
+    </ol>
+    <pre class="brush:c-sharp;">
+    <ol class="step">
+      <li class="step-first"><span>1</span>第一步<i></i></li>
+      <li><span>2</span>第二步（当前）<i></i></li>
+      <li><span>3</span>第三步<i></i></li>
+      <li class="current"><span>4</span>第四步<i class="last"></i></li>
+      <li class="icon"></li>
+    </ol>
+    </pre>
+    <h3 class="pt-10 pb-10 f-14">step-flow步骤条</h3>
+    <div class="step-flow">
+      <ul class="step-time">
+        <li>0-2小时</li>
+        <li>0-1天</li>
+        <li>1-2天</li>
+      </ul>
+      <ul>
+        <li class="done first"></li>
+        <li class="current"></li>
+        <li class="undone"></li>
+        <li class="undone last"></li>
+      </ul>
+      <ul class="">
+        <li>提交订单</li>
+        <li>订单审核通过</li>
+        <li>北京发货</li>
+        <li>收货并确认</li>
+      </ul>
+    </div>
+    <pre class="brush:c-sharp;">
+    <div class="step-flow">
+      <ul class="step-time">
+        <li>0-2小时</li>
+        <li>0-1天</li>
+        <li>1-2天</li>
+      </ul>
+      <ul>
+        <li class="done first"></li>
+        <li class="current"></li>
+        <li class="undone"></li>
+        <li class="undone last"></li>
+      </ul>
+      <ul class="">
+        <li>提交订单</li>
+        <li>订单审核通过</li>
+        <li>北京发货</li>
+        <li>收货并确认</li>
+      </ul>
+    </div>
+    </pre>
+    <h3 class="pt-10 pb-10 f-14">学习计划步骤(course-step)</h3>
+    <div class="course-step">
+      <ul class="step-class">
+        <li>预科班 &gt; 方法技巧班</li>
+        <li class="orange">基础班 &gt; 强化提高班 &gt; 重难点答疑班</li>
+        <li>习题精讲班 &gt; 专题精讲班</li>
+        <li>冲刺串讲班 &gt; 模考试题精讲班 &gt; 考前5天提示班</li>
+        <li>&nbsp;</li>
+      </ul>
+      <ul class="step-pic">
+        <li class="course-first "><span>1</span></li>
+        <li class="current"><span>2</span></li>
+        <li><span>3</span></li>
+        <li><span>4</span></li>
+        <li class="course-last"><span>5</span></li>
+      </ul>
+      <ul class="step-time">
+        <li>预习阶段</li>
+        <li>打基础&nbsp;</li>
+        <li>强化提高</li>
+        <li>冲刺阶段</li>
+        <li>考试（2011年05月15日）</li>
+      </ul>
+    </div>
+    <pre class="brush:c-sharp;">
+    <div class="course-step">
+      <ul class="step-class">
+        <li>预科班 &gt; 方法技巧班</li>
+        <li class="green">基础班 &gt; 强化提高班 &gt; 重难点答疑班</li>
+        <li>习题精讲班 &gt; 专题精讲班</li>
+        <li>冲刺串讲班 &gt; 模考试题精讲班 &gt; 考前5天提示班</li>
+        <li>&nbsp;</li>
+      </ul>
+      <ul class="step-pic">
+        <li class="course-first "><span>1</span></li>
+        <li class="current"><span>2</span></li>
+        <li><span>3</span></li>
+        <li><span>4</span></li>
+        <li class="course-last"><span>5</span></li>
+      </ul>
+      <ul class="step-time">
+        <li>预习阶段</li>
+        <li>打基础&nbsp;</li>
+        <li>强化提高</li>
+        <li>冲刺阶段</li>
+        <li>考试（2011年05月15日）</li>
+      </ul>
+    </div>
+    </pre>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

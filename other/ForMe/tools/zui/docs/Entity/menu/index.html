@@ -1,0 +1,92 @@
+
+<link rel="stylesheet" href="../css/biz/menus.css" />
+<div class="entry-title">
+  <h1>ZUI规范指南——实体</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>导航菜单<span class="feature">(menu nav)</span></h3></div>
+   <ul class="main-menus mb-10 no-visited">
+      <li ><span><a href="/usercenter/home.html">首页</a></span></li>
+      <li class="selected"><span><a href="/student/class.html">我要听课</a></span></li>
+      <li ><span><a href="/student/papers.html">我要做题</a></span></li>
+      <li ><span><a href="/student/qas_main.html">答疑板</a></span></li>
+      <li ><span><a href="/v/home.html">VIP</a></span></li>
+      <li ><span><a href="/usercenter/favorites.html">学习助手</a><i rel="../zui/docs/Entity/menu/menuAssistant.htm"></i></span>
+        <ul class="sub_menus">
+        </ul>
+      </li>
+      <li ><span><a href="/usercenter/account.html">账号和交易管理</a><i rel="../zui/docs/Entity/menu/menuAccount.htm"></i></span>
+        <ul class="sub_menus">
+        </ul>
+      </li>
+      <li class="more"><span><a class="ajax collapsible sticky no-visited" rel="/menuMore.htm" href="#moreMenu">更多</a></span></li>
+      <li class="menus-last"><span>其他</span></li>
+      <br class="clear" />
+    </ul>
+    <div class="tag-list more-menu hidden mb-10 no-visited" id="moreMenu"></div>
+  <pre class="brush:c-sharp;">
+    <ul class="main-menus mb-10 no-visited">
+      <li ><span><a href="/usercenter/home.html">首页</a></span></li>
+      <li class="selected"><span><a href="/student/class.html">我要听课</a></span></li>
+      <li ><span><a href="/student/papers.html">我要做题</a></span></li>
+      <li ><span><a href="/student/qas_main.html">答疑板</a></span></li>
+      <li ><span><a href="/v/home.html">VIP</a></span></li>
+      <li ><span><a href="/usercenter/favorites.html">学习助手</a><i rel="/menuAssistant.htm"></i></span>
+        <ul class="sub_menus">
+        </ul>
+      </li>
+      <li ><span><a href="/usercenter/account.html">账号和交易管理</a><i rel="/menuAccount.htm"></i></span>
+        <ul class="sub_menus">
+        </ul>
+      </li>
+      <li class="more"><span><a class="ajax collapsible sticky no-visited" rel="/menuMore.htm" href="#moreMenu">更多</a></span></li>
+      
+      <li class="menus-last"><span><a class="gray" href="/usercenter/mydongao.html">旧版</a><a class="green" href="/shop.html">快速选购</a><a class="fix blue" href="/fixProblem.html">课件修复</a><a target="_blank" class="blue help" href="http://www.53kf.com/company.php?arg=dongaokf&style=1">客服</a></span></li>
+      <br class="clear" />
+    </ul>
+    <div class="tag-list more-menu hidden mb-10 no-visited" id="moreMenu"></div>
+  </pre>
+  <div class="bg-237ad6 box-shadow" style="overflow:hidden">
+  <nav class="float-right no-visited no-underline pt-30 fw-b white">
+        <ul class="megamenu">
+          <li><a href="ZtaomCSS/index.html">ZtaomCSS</a></li>
+          <li><a href="">JavaScript</a></li>
+          <li><a href="">UCD</a></li>
+          <li><a href="">Ask</a></li>
+          <li><a href="">Talk</a></li>
+          <li><a href="">PK台</a></li>
+          <li><a href="">Mood</a></li>
+          <li class="have_submenu">
+            <a class="sub_nav" href="javascript:">Graffiti</a>
+            <div style="width:140px;">
+              <ul>
+                <li><a href="/paint/bomomo/">非主流涂鸦</a></li>
+                <li><a href="/paint/CurveDraw/">CurveDraw画板</a></li>
+                <li class="last"><a href="/paint/html5paint.html">html5涂鸦板</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="">TimeGlider</a></li>
+        </ul>
+      </nav>
+      </div>
+      <script src="http://ztaom.com/js/jquery.megamenu.js"></script>
+    <script type="text/javascript">
+      jQuery(function(){
+        var SelfLocation = window.location.href.split('?');
+        switch (SelfLocation[1]) {
+          case "justify_right":
+            jQuery(".megamenu").megamenu({ 'justify':'right' });
+            break;
+          case "justify_left":
+          default:
+            jQuery(".megamenu").megamenu();
+        }
+      });
+    </script>
+  
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

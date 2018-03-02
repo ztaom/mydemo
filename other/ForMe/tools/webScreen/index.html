@@ -1,0 +1,180 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>网页响应设计测试工具</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+
+  <!-- LOAD CSS -->
+  <link href="source/bootstrap.min.css" rel="stylesheet">
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link href="source/style.css" rel="stylesheet">
+
+  <!-- LOAD JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="source/sqlibrary.js" type="text/javascript"></script>
+  <script src="source/screenqueries.js"></script>
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+ 
+</head>
+
+<body>
+
+<!-- End AdPacks.com Ad Code -->
+<div class="navbar navbar-fixed-top Ann">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="http://ztaom.com/">ztaom</a></li>
+          <li>
+          <form id="sqUrlForm">
+            <div class="input-prepend">
+              <span class="add-on">Enter URL</span><input class="sqInput" size="30" type="text" placeholder="http:// OR localhost" value="">
+            </div>
+            <button id="sqView" class="btn btn-info" type="button">View</button>
+          </form>
+          </li>
+          <li class="sqAdjust"><a id="sqCurrentDevice" href="JavaScript:void(0);"><i class="icon-eye-open icon-white"></i> &nbsp;iPhone</a></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-mobile icon-white"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><span>APPLE</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo sqActiveDevice" href="#" data-width="320" data-height="480" data-browserchrome="iphone" data-truepheight="416" data-truelheight="268" data-truepmargin="20" data-truelmargin="20">iPhone</a></li>
+            <li class="divider"/>
+            <li><span>SAMSUNG</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="800" data-height="1280" data-browserchrome="note" data-truepheight="1073" data-truelheight="593" data-truepmargin="207" data-truelmargin="207">Galaxy Note</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="480" data-height="800">Infuse 4G</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="480" data-height="800" data-browserchrome="s2" data-truepheight="762" data-truelheight="442" data-truepmargin="38" data-truelmargin="38">Galaxy S II</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="720" data-height="1280">Nexus 4 ( Google )</a></li>
+            <li class="divider"/>
+            <li><span>HTC</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="540" data-height="960">HTC Evo</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="540" data-height="960">HTC Sensation</a></li>
+            <li class="divider"/>
+            <li><span>BLACKBERRY</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="480" data-height="800">BlackBerry Torch</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="640" data-height="480">BlackBerry Bold</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="360" data-height="480">BlackBerry Curve</a></li>
+            <li class="divider"/>
+            <li><span>LG</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="720" data-height="1280">LG Optimus 4X HD</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="720" data-height="1280">LG Spectrum</a></li>
+            <li class="divider"/>
+            <li><span>OTHER</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="480" data-height="800">Nokia Lumia</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="540" data-height="960">Motorola DROID</a></li>
+          </ul>
+          </li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-tablet icon-white"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><span>APPLE</span></li>
+            <li class="divider"/>
+            <li style="display:none"><a class="sqScrollTo" href="#" data-width="1536" data-height="2048">New iPad</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="768" data-height="1024" data-browserchrome="ipad" data-truepheight="928" data-truelheight="672" data-truepmargin="96" data-truelmargin="96">iPad</a></li>
+            <li class="divider"/>
+            <li><span>SAMSUNG</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="800" data-height="1280" data-browserchrome="tab10" data-truepheight="1176" data-truelheight="696" data-truepmargin="56" data-truelmargin="56">Galaxy Tab 10.1</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="600" data-height="1024">Galaxy Tab 7.0</a></li>
+            <li class="divider"/>
+            <li><span>SONY</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="800" data-height="1280">Sony Tablet P</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="800" data-height="1280">Sony Tablet S</a></li>
+            <li class="divider"/>
+            <li><span>OTHER</span></li>
+            <li class="divider"/>
+            <li><a class="sqScrollTo" href="#" data-width="600" data-height="1024">BlackBerry Playbook</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="800" data-height="1280">Asus Eee Pad</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="600" data-height="1024">Amazon Kindle Fire</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="480" data-height="800">Viewsonic ViewPad 7</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="600" data-height="1024">HP Slate 500</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="800" data-height="1280" data-browserchrome="xoom" data-truepheight="1176" data-truelheight="696" data-truepmargin="56" data-truelmargin="56">Motorola Xoom</a></li>
+            <li><a class="sqScrollTo" href="#" data-width="600" data-height="1024">HTC Flyer</a></li>
+          </ul>
+          </li>
+          <li style="display:none"><a id="sqDeviceMap" href="#"><i class="icon-map-marker icon-white"></i></a></li>
+          <li><a id="sqRotate" href="#"><i class="icon-retweet icon-white"></i> &nbsp;Rotate</a></li>
+          
+          <li id="sqSaver"><button id="sqTriggerSave" class="btn" onclick="submit()"></button><a id="sqModalSave" class="btn" data-toggle="modal" href="#sqModal"></a><button id="sqAllTriggerSave" class="btn btn-success"><i class="icon-download-alt icon-white"></i> Save</button></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a href="http://ztaom.com/" target="_blank">ztaom</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<!-- APPLICATION FRAME -->
+<div id="sqAppFrame" class="Ann">
+  
+  <div id="sqOverlay"></div>
+
+  <!-- RULER -->
+  <div id="sqHrRuler" class="clearfix"></div>
+  <div id="sqVrRuler" class="clearfix"></div>
+  <!-- RULER END -->
+    
+  <!-- GUIDE -->
+  <div id="sqHrGuide"></div>
+  <div id="sqVrGuide"></div>
+  <!-- GUIDE END -->    
+        
+  <!-- SOURCE WINDOW -->
+  <div id="sqSourceWindow">
+    <div id="sqBrowserChrome">
+            
+        <iframe id="sqSource" src="http://ztaom.com/" style="background: #fff"></iframe>
+          </div>  
+    <div id="sqLoader"></div>
+    <div id="sqError"></div>
+    <div id="sqResizeE"></div>
+    <div id="sqResizeS"></div>  
+  </div>
+  <!-- SOURCE WINDOW END -->
+    
+  <!-- FRAME CONTROLS --> 
+  <div id="sqFrameControls">
+    <a id="sqTrueView" href="#">Trueview</a>
+    <a id="sqReload" href="#">Reload</a>
+  </div>
+  <!-- FRAME CONTROLS END -->   
+    
+  <!-- CURRENT POSITION -->
+  <div id="sqCurPos">
+    <div id="sqVrPos"></div>
+    <div id="sqHrPos"></div>
+  </div>
+  <!-- CURRENT POSITION END -->
+
+</div>
+<!-- APPLICATION FRAME END -->
+
+
+<!-- SAVE & SHORTEN URL -->
+<div id="sqModal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal" >&times;</a>
+    <h4 style="padding: 3px 0;">COPY / SHARE URL</h4>
+  </div>
+  <div class="modal-body">
+    <h6>COPY URL FOR FUTURE REFERENCE</h6>
+    <div id="sqShortUrl" class="input-append">
+      <input class="span2 sqrightborder sqShortUrl" id="appendedPrependedInput" type="text" readonly="readonly" value="">
+      <a class="btn btn-success sqleftborder" href="#" id="sqCopy2Clip">Copy</a>
+    </div>
+      
+    <div class="sqGap"></div>
+  </div>
+</div>
+</body></html>

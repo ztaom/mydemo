@@ -1,0 +1,27 @@
+[submodule "ajax"]
+	path = ajax
+	url = git://github.com/sergeychernyshev/simile-ajax.git
+[submodule "timeplot"]
+	path = timeplot
+	url = git://github.com/sergeychernyshev/simile-timeplot.git
+[submodule "timeline"]
+	path = timeline
+	url = git://github.com/sergeychernyshev/simile-timeline.git
+[submodule "svn-assets"]
+	path = svn-assets
+	url = git://github.com/sergeychernyshev/SVN-Assets.git
+[submodule "dbupgrade"]
+	path = dbupgrade
+	url = git://github.com/sergeychernyshev/DBUpgrade.git
+[submodule "beacon/dommonster/dom-monster"]
+	path = beacon/dommonster/dom-monster
+	url = git://github.com/sergeychernyshev/dom-monster.git
+[submodule "flot"]
+	path = flot
+	url = git://github.com/flot/flot.git
+[submodule "users"]
+	path = users
+	url = git://github.com/StartupAPI/users.git
+[submodule "php-bootstrap"]
+	path = php-bootstrap
+	url = git://github.com/sergeychernyshev/php-bootstrap.git

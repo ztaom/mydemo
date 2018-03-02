@@ -1,0 +1,571 @@
+<!--$Id: oo1.html,v 1.29 2010/08/19 09:01:29 gaopeng Exp $ -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>${pageTitle }|${siteName }</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="http://assets.dongao.cn/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://assets.dongao.cn/plugin/opensearch/provider.xml" title="东奥会计培训" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/yui3/reset-fonts-grids.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/content.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/mod.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/breadcrumb.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/tabs.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/talk.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/mod_skins.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/talk_skins.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/mod_skins_ex.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/dui/yui3-hack.css?v=1" />
+<script src="http://assets.dongao.cn/js/lib/dui/d.js?v=1"></script>
+</head>
+<body>
+<div class="yui3-d0f yui3-t4">
+  <div id="hd">
+    <h1>ZUI css规范&gt;&gt;面向对象例子</h1>
+	<p>本页面使用了yui3-d0f控制整个页面宽度，页面模板使用yui3-t4</p>
+	<p>yui3-main里，使用了yui3-gf(1/4.3/4)，并在yui3-u(3/4)里面嵌套了yui3-gb，yui3-gb里又嵌套了yui3-gc</p>
+  </div>
+  
+  <div id="bd">
+  	
+    <ul class="breadcrumb">
+	  <li><a href="http://assets.dongao.cn/index.html">Home</a></li>
+	  <li><a href="http://assets.dongao.cn/css/src/dui/template/css/index.html">ZUI css规范</a></li>
+	  <li>面向对象css例子1</li>
+	</ul>
+	
+	<div class="mod simpleExt">
+		<div class="inner">
+			<div class="bd">
+				<ul class="breadcrumb">
+	  				<li><a href="http://assets.dongao.cn/index.html">Home</a></li>
+	  				<li><a href="http://assets.dongao.cn/css/src/dui/template/css/index.html">ZUI css规范</a></li>
+	  				<li>面向对象css例子1</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			
+    <div class="yui3-main">
+      <div class="yui3-b">
+      	<div class="yui3-gf">
+      	  <div class="yui3-u first">
+      	  	<h2>yui3-u first</h2>
+			
+      		<!--left sidebar-->
+			<div class="mod simple tabs tabPosTop">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+					<div class="hd topper">
+					  <ul class="tabControl">
+					  	<li><a href="#"><span>一周热点</span></a></li>
+						<li class="current"><a href="#"><span>一月热点</span></a></li>
+						<li><a href="#"><span>一年热点</span></a></li>						
+					  </ul> 
+			          <ul class="controls">
+			          	<li><a href="#"><span>x</span></a></li>
+						<li><a href="#"><span>-</span></a></li>
+						<li><a href="#"><span>+</span></a></li>
+					  </ul> 
+					</div>
+					<div class="bd">
+					  <ul> 
+				        <li>Tab 1 Content</li> 
+				        <li>Tab 2 Content</li> 
+				        <li class="current">
+				          <div class="data">
+				        	<ol class="simpleList">
+				        		<li>qqq</li>
+								<li>qqq</li>
+								<li>qqq</li>
+								<li>qqq</li>
+								<li>qqq</li>
+				        	</ol>
+						  </div>
+				        </li>				        
+			          </ul> 
+					</div>
+					
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			
+			<div class="mod complex excerpt highlight">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+					<div class="hd section">
+						<h3>.mod .complex .excerpt .highlight的效果</h3>
+					</div>
+					<div class="bd">
+					  <ul>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+					  </ul>
+					</div>
+					<div class="bd">
+					  <ul>
+						<li>a</li>
+						<li>
+							<div class="media">
+								<a href="" class="img"><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" /></a>
+								<div class="bd"><p>just a test of media</p></div>
+							</div>
+						</li>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+					  </ul>
+					</div>
+					<div class="ft act">
+						<p>Foot</p>
+					</div>
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			
+			<div class="mod complex photo foo"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .complex .photo .foo的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod complex flow comment"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .complex .flow .comment的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 			
+			
+			<div class="mod grab"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .grab的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod onlinestore"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd online"> 
+						<h3>.mod .onlinestore的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod faq"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd help"> 
+						<h3>.mod .faq的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod about"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd info"> 
+						<h3>.mod .about的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod simple"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .simple的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div>
+			
+			<div class="mod simpleExt"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .simpleExt的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod basic"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .basic的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div>			
+			
+			<div class="mod me"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .me的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod noted"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .noted的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div class="mod talk"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.mod .talk的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<!--endof left sidebar-->
+      	  </div>
+		  
+		  <!--main area {-->
+		  <div class="yui3-u">
+		  	<h2>yui3-u</h2>
+		  	
+		    <!--oo sample start { -->			
+			<div class="mod complex excerpt">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner">
+					<div class="hd help">
+						<h3>skin的分类和内容</h3>
+					</div>
+					<div class="bd">
+						<h3>skin的分类</h3>
+						<ol class="simpleList">
+							<li>Contour 外框</li>
+							<li>Background Objects 背景</li>
+							<li>Block headers 头部</li>
+							<li>Block Footers 尾部</li>
+						</ol>
+					</div>
+					<div class="bd">
+						<h3>skin的内容</h3>
+						<ul>
+							<li>
+								<h3>Contour</h3>
+								<ol class="simpleList">
+									<li><div class="mod grab"><div class="inner"><div class="hd"><h4>grab</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod simpleExt"><div class="inner"><div class="hd"><h4>simpleExt</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod simple"><div class="inner"><div class="hd"><h4>simple</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod basic"><div class="inner"><div class="hd"><h4>basic</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod noted"><div class="inner"><div class="hd"><h4>noted</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod talk"><div class="inner"><div class="hd"><h4>talk</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod me"><div class="inner"><div class="hd"><h4>me</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>									
+									<li><div class="mod complex excerpt"><b class="top"><b class="tl"></b><b class="tr"></b></b><div class="inner"><div class="hd"><h4>excerpt(extends complex)</h4></div><div class="bd">bd</div><div class="ft">ft</div></div><b class="bottom"><b class="bl"></b><b class="br"></b></b></div></li>
+									<li><div class="mod complex flow"><div class="inner"><div class="hd"><h4>flow(extends complex)</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod complex photo"><div class="inner"><div class="hd"><h4>photo(extends complex)</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod pop sommers"><div class="inner"><div class="hd"><h4>sommers(extends pop)</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+									<li><div class="mod pop gonzalo"><div class="inner"><div class="hd"><h4>gonzalo(extends pop)</h4></div><div class="bd">bd</div><div class="ft">ft</div></div></div></li>
+								</ol>
+							</li>
+							<li>
+								<h3>Background Objects</h3>
+								<ol class="simpleList">
+									<li>highlight</li>
+									<li>universe</li>
+									<li>comment</li>
+									<li>foo</li>
+									<li>nicole</li>
+									<li>login</li>									
+								</ol>
+							</li>
+							<li>
+								<h3>Block headers</h3>
+								<ol class="simpleList">
+									<li>bam</li>
+									<li>section</li>
+									<li>topper</li>
+									<li>gonz</li>
+									<li>online</li>
+									<li>help</li>
+									<li>info</li>
+								</ol>
+							</li>
+							<li>
+								<h3>Block Footers</h3>
+								<ol class="simpleList">
+									<li>act</li>
+								</ol>
+							</li>
+						</ul>
+					</div>
+					<div class="bd">
+						<h3>another body of mod</h3>
+					</div>
+					<div class="ft act">
+						<a href="mod_doc.html" target="_blank" title="more...">more...</a>
+					</div>
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div>	
+			
+			<div class="yui3-g">
+				<h3>yui3 grid嵌套例子 yui3-g</h3>
+				<div class="yui3-u first">
+					<h4>yui3-u first</h4>
+					<div class="mod bubble bubbleBottom discuss">
+				      <b class="top"><b class="tl"></b><b class="tr"></b></b>
+				      <div class="inner">
+					    <div class="hd attribution">
+						  <h3>.bubble以及其skin的效果</h3>
+					    </div>
+				        <div class="bd">
+				    	  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga</p>
+				        </div>
+				      </div>
+				      <b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			        </div>
+			        <div class="media">
+				      <a href="http://twitter.com/stubbornella" class="img"><img src="http://a3.twimg.com/profile_images/72157651/tattoo_pink_bkg_square_mini.jpg" alt="Stubbornella" /></a> 
+				      <div class="bd">
+					    <a href="http://twitter.com/stubbornella">@Stubbornella</a> 
+					    <span class="detail">14 minutes ago</span>
+				      </div> 
+			        </div>
+				</div>
+				
+				<div class="yui3-u">
+				  <h4>yui3-u</h4>
+				  <div class="mod bubble bubbleBottom yoyo">
+				    <b class="top"><b class="tl"></b><b class="tr"></b></b>
+				    <div class="inner">
+					  <div class="hd fire">
+						<h3>.bubble以及其skin的效果</h3>
+					  </div>
+				      <div class="bd">
+				    	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga</p>
+				      </div>
+				    </div>
+				    <b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			      </div>
+			      <div class="media">
+				    <a href="http://twitter.com/stubbornella" class="img"><img src="http://a3.twimg.com/profile_images/72157651/tattoo_pink_bkg_square_mini.jpg" alt="Stubbornella" /></a> 
+				    <div class="bd">
+					  <a href="http://twitter.com/stubbornella">@Stubbornella</a> 
+					  <span class="detail">14 minutes ago</span>
+				    </div> 
+			      </div>
+				</div>
+			</div>			
+			
+			<div class="yui3-gb">
+				<h3>yui3 grid嵌套例子 yui3-gb</h3>
+				<div class="yui3-u first">
+					<h4>yui3-u first</h4>
+					<p>ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo </p>
+				</div>
+				<div class="yui3-u">
+					<h4>yui3-u 1</h4>
+					<div class="yui3-gc">
+						<h4><em>继续嵌套 yui3-gc</em></h4>
+						<div class="yui3-u first">
+							<h5>yui3-u first</h5>
+							<p>继续嵌套继续嵌套继续嵌套继续嵌套继续嵌套继续嵌套继续嵌套</p>
+						</div>
+						<div class="yui-u">
+							<h5>yui3-u</h5>
+							<p>继续嵌套继续嵌套2继续嵌套继续嵌2套继续嵌套继2续嵌套继续嵌套</p>
+						</div>
+					</div>
+				</div>
+				<div class="yui3-u">
+					<h4>yui3-u 2</h4>
+					<p>oooo<strong class="highlight">ddddddddddddddd</strong>ooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo ooooooooooooooooooooooooo </p>
+				</div>				
+			</div>
+			
+			<div class="yui3-gd">
+				<h3>yui3 grid嵌套例子 yui3-gd</h3>				
+				<div class="yui3-u">
+					<h4>yui3-u</h4>
+					<div class="media">
+				      <a href="http://twitter.com/stubbornella" class="imgExt"><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" alt="me" /></a>
+				      <div class="bd">@Stubbornella 14 minutes ago</div>
+			        </div>	
+				</div>
+				<div class="yui3-u first">
+					<h4>yui3-u first，first决定了虽然html页面本内容是在后面，仍然输出在左侧</h4>					
+					<div class="media">
+				      <a href="http://twitter.com/stubbornella" class="img"><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" alt="me" /></a>
+				      <div class="bd">
+					    <p>Waltz hast nine haben deutsch rubberneckin ya hast. Spitzen wunderbar undervear achtung Blitz frau ker ist unter makin,Waltz hast nine haben deutsch rubberneckin ya hast. Spitzen wunderbar undervear achtung Blitz frau ker ist unter makin, corkin octoberfest frankfurter. In underbite zur und yodel die poopsie, frau cuckoo keepin, ker spitzen heinee ya. Mitten das weiner waltz stoppern sie keepin sightseerin flippin ker die pretzel du poppin. Gestalt poken, wearin poopsie footzerstompen auf, dorkin hinder das nine. Gestalt poppin dummkopf mitten morgen biergarten oof, buerger footzerstompen du makin haben. Wunderbar meister cuckoo glockenspiel poppin, poppin. Er blimp stoppern an und ist sauerkraut waltz gewerkin. Makin ker, underbite, underbite poopsie sparkin floppern kaputt, mitz sightseerin, corkin ya. rubberneckin ya hast. Spitzen wunderbar undervear achtung poppin haben noodle sightseerin er waltz blimp blitz der strudel. Handercloppen spitzen rubberneckin gewerkin rubberneckin in meister, blimp rubberneckin, poppin poppin rubberneckin rubberneckin.  Waltz hast nine haben deutsch rubberneckin ya hast. Spitzen wunderbar undervear Blitz frau ker ist unter makin, corkin octoberfest frankfurter. In underbite zur und yodel die poopsie, frau cuckoo keepin, ker spitzen heinee ya.</p>
+				      </div>
+			        </div>	
+				</div>
+			</div>							
+			
+			<hr/>	
+			
+			<div class="data"> 
+              <table> 
+			    <caption>.data与table的例子</caption>
+                <thead> 
+                  <tr> 
+                    <th scope="col"></th> 
+                    <th scope="col" colspan="4">Occurrences in one page</th> 
+                  </tr> 
+                </thead> 
+                <thead> 
+                  <tr> 
+                    <th scope="col">Declaration</th> 
+                    <th scope="col">Max</th> 
+                    <th scope="col">Percentage too many <br />&gt; 10</th> 
+                    <th scope="col">Percentage sites *way* too many <br />&gt; 100</th> 
+                    <th scope="col">Suggestion</th> 
+                  </tr>				  
+                </thead>
+				<tfoot></tfoot>
+				<tbody>
+				  <tr class="txtT txtR"> 
+                    <th scope="row">float</th> 
+                    <td>733</td> 
+                    <td>56%</td> 
+                    <td>13%</td> 
+                    <td>1111ess than 10.</td> 
+                  </tr> 
+				  <tr> 
+                    <th scope="row">float</th> 
+                    <td class="txtC txtB">733</td> 
+                    <td class="txtL txtT">56%</td> 
+                    <td class="txtR txtM">13%</td> 
+                    <td>1111ess than 10.</td> 
+                  </tr>				  
+				</tbody>
+			  </table>
+			</div>			
+			
+			<div class="mod complex photo"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>.complex .photo的效果</h3> 
+					</div> 
+					<div class="bd"> 
+					    <div class="media">
+					    	<a class="img" href=""><img src="http://member.dongao.com/upload_file/book_images/B6255E8B6883CD0D550A9073281BC882.member-aapp1.jpg" /></a>
+							<div class="bd">
+								<ul class="universe">
+									<li>售价：<em>￥30</em></li>
+									<li>
+										<div class="mod onlinestore">
+										  <div class="inner">
+											<ul class="bd">
+												<li><a href="">购买</a></li>
+												<li><a href="">收藏</a></li>
+												<li><a href="">查看作者</a></li>
+											</ul>
+										  </div>
+										</div>
+									</li>									
+								</ul>
+							</div> <!--bd-->
+							<a class="imgExt" href=""><img src="http://member.dongao.com/upload_file/book_images/B6255E8B6883CD0D550A9073281BC882.member-aapp1.jpg" /></a>
+					    </div> <!--media-->
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<!-- oo sample stop } -->
+			
+		  </div>
+		  <!--main area }-->
+		   
+        </div>
+      </div>
+	</div> <!--yui3-main-->
+	
+    <div class="yui3-b">
+      <h2>yui3-b</h2>
+      <div class="mod simpleExt">
+      	<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+		<div class="inner"> 
+		  <div class="bd"> 
+			 <script src="/css/src/dui/template/nav.js"></script>
+		  </div> 
+		</div> 
+		<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+      </div>
+      
+    </div>
+  </div> <!--bd-->
+  
+  <div id="ft">
+    <p>Copyright &#169; 2007-2010 东奥教育在线 Inc. All rights reserved.</p> 
+  </div>  
+
+</div>
+</body>
+
+<script src="http://assets.dongao.cn//css/src/dui/template/hook.js" type="text/javascript"></script>
+</html>

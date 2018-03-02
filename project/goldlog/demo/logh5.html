@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>h5埋点测试</title>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="site" content="">
+    <meta name="data-spm" content="">
+    <link rel="apple-touch-icon" href="" />
+    <link rel="apple-touch-icon-precomposed" href="" />
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="bookmark" href="" type="image/x-icon"/>
+    <script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js,lib-windvane/2.1.8/windvane.js,lib-env/1.9.9/env.js"></script>
+
+</head>
+<body data-noaplus>
+<script>with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","userid=\#getuid()\#&aplus&sidx=\#get_sign()\#&ckx=\#get_check()\#",id="beacon-aplus",src="//g.alicdn.com/alilog/mlog/aplus_o.js")</script>
+    <div class="wrap" style="display: block">
+        <h3>h5活动埋点验证</h3>
+        <p class="ps">关于H5活动，详细的统计可以通过spm和黄金令箭去统计，曝光(EXP)和点击(CLK)通过gmkey去抓取</p>
+        <ul>
+            <li>页面曝光统计spm 事件id：2006</p>
+            </li>
+            <li>黄金令箭：/yt/ykh5.ykh5.ykh5</li>
+            <li>1、页面区域曝光显示发出黄金令箭
+                <p id="showexp" style="display:none">(参数：li_exposure&nbsp;&nbsp;事件id：2101)</p>
+            </li>
+            <li>2、<span class="btn btn1">点击发送埋点</span>
+                <p>(参数：clickbtn1&nbsp;&nbsp;事件id：2101)</p>
+            </li>
+            <li>3、<span class="btn btn2">点击发送埋点自定义扩展参数之业务参与canyu=1</span>
+                <p>(参数：clickbtn2&param={"canyu":1}&nbsp;&nbsp;事件id：2101)</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

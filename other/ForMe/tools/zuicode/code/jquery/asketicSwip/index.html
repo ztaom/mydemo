@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>AsketicSwipe Gallery Demo</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="jquery.asketicswipe-min.js"></script>
+<style type="text/css">
+#main-images-controller { width:800px; height:600px; overflow:hidden; background-color: #000; }
+#main-images-controller.disabled #asketic-swipe-handler { opacity: 0.5; background-color: #333; }
+</style>
+<script type="text/javascript">
+
+            var g_imagesContainer = null;
+
+            
+
+            function handleImageMoved(e, imagesCurrent, imagesLength)
+
+            {
+
+                $('#current').html(imagesCurrent.toString());
+
+                $('.count').html(imagesLength.toString());
+
+            }
+
+            
+
+            function handleResize(e, width, height)
+
+            {
+
+                alert('New size is ' + width.toString() + 'x' + height.toString())
+
+            }
+
+            
+
+            function init(cycle)
+
+            {
+
+                g_imagesContainer = $('#main-images-controller').asketicSwipe({
+
+                        cycle           : cycle,          //Cycle the gallery
+
+                        scale           : 1,              //To streach out low-res images on mobile web (for example same size x2 smaller images)
+
+                        tolerance       : 0.25,           //% of width for next image
+
+                        time            : 300,            //Transition time
+
+                        touchSensitivity: 10,            //Vertical sensitivity,
+
+                        fitContainer    : true,          //scale images to fit container
+
+                        fitContainerMargin: 20,          //px margin if images fitted to container
+
+                        fitContainerUpscale: false       //if upscaled when fitContainer is true
+
+                    });
+
+            }
+
+            
+
+            $(document).ready(function(){
+
+                
+
+                init(true);
+
+                
+
+                $('#next').click(function(){
+
+                        g_imagesContainer.asketicSwipe.next();    
+
+                    });
+
+                
+
+                $('#prev').click(function(){
+
+                        g_imagesContainer.asketicSwipe.prev();    
+
+                    });
+
+                
+
+                $('#goto').click(function(){
+
+                        g_imagesContainer.asketicSwipe.moveTo( parseInt($('#index').val()) );    
+
+                    });
+
+                
+
+                $('#goto-animate').click(function(){
+
+                        g_imagesContainer.asketicSwipe.moveTo( parseInt($('#index').val()), true );    
+
+                    });
+
+                
+
+                $('#add-image').click(function(){
+
+                        var currentIndex = g_imagesContainer.asketicSwipe.getImageIndex();
+
+                        
+
+                        $('<li><img src="4.jpg" width="552" height="611" /></li>').appendTo('#main-images-controller ul');
+
+                        g_imagesContainer.asketicSwipe.refresh();
+
+                        
+
+                        handleImageMoved(null, currentIndex, g_imagesContainer.asketicSwipe.getImageCount());
+
+                        
+
+                        g_imagesContainer.asketicSwipe.moveTo( currentIndex );  
+
+                    });
+
+                
+
+                $('#resize-container').click(function(){
+
+                        g_imagesContainer.asketicSwipe.resize(640, //height
+
+                                                              480, //width
+
+                                                              true, //animate or not
+
+                                                              200, //time
+
+                                                              'linear'); //easing
+
+                    });
+
+                
+
+                $('#enable').click(function(){
+
+                        g_imagesContainer.asketicSwipe.setEnabled( !g_imagesContainer.asketicSwipe.getEnabled() );
+
+                    });
+
+                
+
+                $('#cycle').change(function(){
+
+                    var currentIndex = g_imagesContainer.asketicSwipe.getImageIndex();
+
+                    
+
+                    init( ($(this).attr('checked') == 'checked') );
+
+                    
+
+                    g_imagesContainer.asketicSwipe.moveTo( currentIndex );  
+
+                });
+
+                
+
+                g_imagesContainer.bind('nextComplete', handleImageMoved);
+
+                g_imagesContainer.bind('prevComplete', handleImageMoved);
+
+                g_imagesContainer.bind('resizeComplete', handleResize);
+
+                
+
+                handleImageMoved(null, 0, g_imagesContainer.asketicSwipe.getImageCount());
+
+            });
+
+            
+
+        </script>
+</head>
+
+<body>
+<div id="main-images-controller">
+  <ul>
+    <li> <img src="1.jpg" width="746" height="560" /> </li>
+    <li> <img src="2.jpg" width="746" height="560" /> </li>
+    <li> <img src="3.jpg" width="746" height="560" /> </li>
+  </ul>
+</div>
+<p> Image index
+  <label id="current">0</label>
+  of
+  <label class="count">0</label>
+</p>
+<p>
+  <input id="prev" type="button" value="Previous" />
+  <input id="next" type="button" value="Next" />
+</p>
+<p> Set new index:
+  <input id="index" type="text" />
+  of
+  <label class="count">0</label>
+  <input id="goto" type="button" value="Go to" />
+  <input id="goto-animate" type="button" value="Go to (animate)" />
+</p>
+<p>
+  <input id="add-image" type="button" value="Add image" />
+  <input id="resize-container" type="button" value="Resize container" />
+  <input id="enable" type="button" value="Enable/Disable" />
+</p>
+<script type="text/javascript" src="../../../js/cont.js"></script>
+</body>
+</html>

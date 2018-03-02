@@ -1,0 +1,188 @@
+ <style>
+.more {text-decoration:underline; color:#00c; cursor:pointer;}
+#info {background:#fff; padding:10px; text-align:left; width:50%; margin:0 auto; display:none; font-family:verdana, sans-serif;}
+#info p {font-size:11px; line-height:1.6em;}
+#info img {display:block; float:left; margin:0 10px 10px 0;}
+#info a {color:#00c;}
+.clear {clear:both; text-align:right;}
+.close {color:#c00; font-weight:bold; cursor:pointer;}
+</style>
+<script>
+$(document).ready(function() {
+    $('.hide').hide();
+    
+    $('body').append('<div id="infoBacking"></div><div id="infoHolder" class="large"></div>');
+    $('#infoBacking').css({
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        display: 'none',
+        textAlign: 'center',
+        background: '#000',
+        zIndex: '600'
+    });
+    if (document.all && !window.opera && !window.XMLHttpRequest) {
+		$('#infoBacking').css({
+			position: 'absolute',
+			left: 0,
+			top: 0,
+			display: 'none',
+			textAlign: 'center',
+			background: '#000',
+			zIndex: '600'
+		});
+	}
+    
+    $('#infoHolder').css({
+        left: 0,
+        top: 0,
+        display: 'none',
+        textAlign: 'center',
+        zIndex: '600',
+        position: 'fixed'
+    });
+    if (document.all && !window.opera && !window.XMLHttpRequest) {
+        $('#infoHolder').css({
+            position: 'absolute'
+        });
+    }    
+    
+    
+    $('.more').click(function(){
+    
+        if ($('.' + $(this).attr("title")).length > 0) {
+        
+            browserWindow();
+            getScrollXY();
+            
+            if (height < totalY) {
+                height = totalY;
+            }
+            
+            $('#infoBacking').css({
+                width: totalX + 'px',
+                height: height + 'px',
+                top: '0px',
+                left: scrOfX + 'px',
+                opacity: 0.85
+            });
+            if (document.all && !window.opera && !window.XMLHttpRequest) 
+                $('#infoBacking').css({
+                    height: '10000px'
+                });
+            $('#infoHolder').css({
+                width: width + 'px',
+                top: scrOfY + 25 + 'px',
+                left: scrOfX + 'px'
+            });
+            source = $(this).attr("title");
+            
+            $('#infoHolder').html('<div id="info">' + $('.' + source).html() + '<p class="clear"><span class="close">Close X</span></p></div>');
+            
+            $('#infoBacking').css({
+                display: 'block'
+            });
+            $('#infoHolder').show();
+            $('#info').fadeIn('slow');
+        }
+        
+        $('.close').click(function(){
+            $('#infoBacking').hide();
+            $('#infoHolder').fadeOut('fast');
+        });
+        
+    });
+    
+    /* find browser window size */
+    function browserWindow(){
+        width = 0
+        height = 0;
+        if (document.documentElement) {
+            width = document.documentElement.offsetWidth;
+            height = document.documentElement.offsetHeight;
+        } else if (window.innerWidth && window.innerHeight) {
+            width = window.innerWidth;
+            height = window.innerHeight;
+        }
+		
+        return [width, height];
+    }
+    
+    /* find total page height */
+    function getScrollXY(){
+        scrOfX = 0;
+        scrOfY = 0;
+        if (typeof(window.pageYOffset) == 'number') {
+            scrOfY = window.pageYOffset;
+            scrOfX = window.pageXOffset;
+        } else if (document.body && (document.body.scrollLeft || document.body.scrollTop)) {
+            scrOfY = document.body.scrollTop;
+            scrOfX = document.body.scrollLeft;
+        } else if (document.documentElement && (document.documentElement.scrollLeft || document.documentElement.scrollTop)) {
+            scrOfY = document.documentElement.scrollTop;
+            scrOfX = document.documentElement.scrollLeft;
+        }
+		
+        totalY = (window.innerHeight != null ? window.innerHeight : document.documentElement && document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body != null ? document.body.clientHeight : null);
+        
+        totalX = (window.innerWidth != null ? window.innerWidth : document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body != null ? document.body.clientWidth : null);
+        
+        return [scrOfX, scrOfY, totalY, totalX];
+    }
+    
+    
+});
+</script>
+<div class="entry-title">
+  <h1>ZUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>LightBox</h3></div>
+  <div class="bg-purple p-5">点击链接后，出现模态窗口</div>
+  <div class="lh-150">
+    <p>This script will allow you to show more information by clicking a piece of text such as this one - 
+	<span class="more" title="constable">John Constable</span>. 
+	The information can be anything you like, from plain text to images and even links to other pages. 
+	Further examples of 'more' information can be see by clicking this text - 
+	<span class="more" title="monet">Claude Monet</span>, and also this text - 
+	<span class="more" title="vincent">Vincent Van Gogh</span>.</p> 
+  </div>
+  <!--lightbox的内容 {-->
+<div class="constable hide"> 
+  <h2>John Constable</h2> 
+  <h4>(11 June 1776 - 31 March 1837)</h4> 
+  <p>Although he showed an early talent for art and began painting his native Suffolk scenery before he left school, his great originality matured slowly.</p> 
+  <img src="http://www.stunicholls.com/various/painter/constable.jpg" alt="The Hay Wain" title="The Hay Wain" /> 
+  <p>He committed himself to a career as an artist only in 1799, when he joined the Royal Academy Schools and it was not until 1829 that he was grudgingly made a full Academician, elected by a majority of only one vote.</p> 
+  <p>In 1816 he became financially secure on the death of his father and married Maria Bicknell after a seven-year courtship and in the fact of strong opposition from her family. During the 1820s he began to win recognition: The Hay Wain (National Gallery, London, 1821) won a gold medal at the Paris Salon of 1824 and Constable was admired by <a href="http://www.ibiblio.org/wm/paint/auth/delacroix/">Delacroix</a> and Bonington among others.</p> 
+  <p>His wife died in 1828, however, and the remaining years of his life were clouded by despondency.</p> 
+  <p>This text is an excerpt from <a href="http://www.ibiblio.org/wm/paint/auth/constable/">The&nbsp;WebMuseum,&nbsp;Paris</a></p> 
+</div> 
+ 
+<div class="monet hide"> 
+  <h2>Claude Monet</h2> 
+  <h4>(14 November 1840 - 5 December 1926)</h4> 
+  <p>His youth was spent in Le Havre, where he first excelled as a caricaturist but was then converted to landscape painting by his early mentor <a href="http://www.ibiblio.org/wm/paint/auth/boudin/">Boudin</a>, from whom he derived his firm predilection for painting out of doors.</p> 
+  <img src="http://www.stunicholls.com/various/painter/monet.jpg" alt="Women in the Garden" title="Women in the Garden" /> 
+  <p>In 1859 he studied in Paris at the Atelier Suisse and formed a friendship with <a href="http://www.ibiblio.org/wm/paint/auth/pissarro/">Pissarro</a>. After two years' military service in Algiers, he returned to Le Havre and met <a href="http://www.ibiblio.org/wm/paint/auth/jongkind/">Jongkind</a>, to whom he said he owed `the definitive education of my eye'.</p> 
+  <p>He then, in 1862, entered the studio of Gleyre in Paris and there met Renoir, Sisley, and Bazille, with whom he was to form the nucleus of the Impressionist group.</p> 
+  <p>Monet's devotion to painting out of doors is illustrated by the famous story concerning one of his most ambitious early works, Women in the Garden (Mus&#233;e d'Orsay, Paris; 1866-67). The picture is about 2.5 meters high and to enable him to paint all of it outside he had a trench dug in the garden so that the canvas could be raised or lowered by pulleys to the height he required.</p> 
+  <p><a href="http://www.ibiblio.org/wm/paint/auth/courbet/">Courbet</a> visited him when he was working on it and said Monet would not paint even the leaves in the background unless the lighting conditions were exactly right.</p> 
+  <p>This text is an excerpt from <a href="http://www.ibiblio.org/wm/paint/auth/monet/">The&nbsp;WebMuseum,&nbsp;Paris</a></p> 
+</div>
+ 
+<div class="vincent hide"> 
+  <h2>Vincent Van Gogh</h2> 
+  <h4>(30 March 1853 - 29 July 1890)</h4> 
+  <p>Gogh, Vincent (Willem) van (b. March 30, 1853, Zundert, Neth.--d. July 29, 1890, Auvers-sur-Oise, near Paris), generally considered the greatest Dutch painter and draughtsman after <a href="http://www.ibiblio.org/wm/paint/auth/rembrandt/">Rembrandt</a>.</p> 
+  <img src="http://www.stunicholls.com/various/painter/vincent.jpg" alt="The Starry Night" title="The Starry Night" /> 
+  <p>With <a href="http://www.ibiblio.org/wm/paint/auth/cezanne/">C&#233;zanne</a> and <a href="http://www.ibiblio.org/wm/paint/auth/gauguin/">Gauguin</a> the greatest of Post-Impressionist artists. He powerfully influenced the current of <a href="http://www.ibiblio.org/wm/paint/glo/expressionism/">Expressionism</a> in modern art. His work, all of it produced during a period of only 10 years, hauntingly conveys through its striking colour, coarse brushwork, and contoured forms the anguish of a mental illness that eventually resulted in suicide. Among his masterpieces are numerous self-portraits and the well-known <a href="http://www.ibiblio.org/wm/paint/auth/gogh/starry-night/">The&nbsp;Starry&nbsp;Night</a> (1889).</p>	
+  <p>This text is an excerpt from <a href="http://www.ibiblio.org/wm/paint/auth/gogh/">The&nbsp;WebMuseum,&nbsp;Paris</a></p> 
+</div>
+<!--lightbox的内容 }-->
+
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

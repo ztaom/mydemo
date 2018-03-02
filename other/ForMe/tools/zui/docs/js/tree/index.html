@@ -1,0 +1,106 @@
+ <div class="entry-title">
+  <h1>ZUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title">
+    <h3>树形菜单</h3>
+  </div>
+  <style>
+  /* fix for IE6 */
+.treeview .hitarea {width:9px; height:9px; display:inline-block;}
+* html .hitarea { display: inline; float:none; }
+.treeview li {padding:3px 0pt 3px 10px; font-weight:bold; color:#00569d;}
+.treeview .hover { color: red; cursor: pointer; }
+.treeview li.selected .selected-hitarea, .treeview li.selected .collapsable-hitarea, .treeview div.lastCollapsable-hitarea {background: url(http://www.ztaom.com/css/img/arrow_down.png) no-repeat 0 center;}
+.treeview li.expandable .expandable-hitarea, .treeview li.expandable .selected-hitarea, .treeview div.lastExpandable-hitarea {background: url(http://www.ztaom.com/css/img/arrow_right.png) no-repeat 0 center;}
+.treeview ul li ul li.expandable .expandable-hitarea, .treeview ul li ul li.selected .collapsable-hitarea, .treeview ul li ul li.selected .selected-hitarea, .treeview ul li ul li.expandable .selected-hitarea {background: url(http://www.ztaom.com/css/img/opened.png) no-repeat; margin-top:4px; margin-right:5px;}
+.treeview ul li ul li.expandable .expandable-hitarea, .treeview ul li ul li.expandable .selected-hitarea{background: url(http://www.ztaom.com/css/img/closed.png) no-repeat}
+.treeview li ul {padding:8px 0 5px 5px;}
+.treeview li ul li { color:#434240;}
+.treeview li ul li ul {padding:4px 0; margin-left:-16px;}
+.treeview li ul li ul li {padding-left:0; font-weight:normal;}
+.treeview li ul li ul li a {padding:2px 0 2px 30px;}
+.treeview li ul li ul li.current a {background:#eee; display:block; color:#00569d;}
+  </style>
+  <div class="treeview">
+            <ul id="side-nav" class="treeview-red">
+              <li><span>交互组件库</span>
+                <ul class="open">
+                  <li><span>简介</span>
+                    <ul class="f-12">
+                      <li><span><a href="">item</a></span></li>
+                      <li class="current"><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                    </ul>
+                  </li>
+                  <li><span>对话框</span>
+                    <ul class="f-12">
+                      <li><span><a href="">item</a></span></li>
+                      <li class="current"><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                    </ul>
+                  </li>
+                  <li><span>toggle</span>
+                    <ul class="f-12">
+                      <li><span><a href="">item</a></span></li>
+                      <li class="current"><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><span>模块库</span>
+                <ul class="f-12">
+                 <li><span>简介</span>
+                    <ul class="f-12">
+                      <li><span><a href="">item</a></span></li>
+                      <li class="current"><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                    </ul>
+                  </li>
+                  <li><span>对话框</span>
+                    <ul class="f-12">
+                      <li><span><a href="">item</a></span></li>
+                      <li class="current"><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                    </ul>
+                  </li>
+                  <li><span>toggle</span>
+                    <ul class="f-12">
+                      <li><span><a href="">item</a></span></li>
+                      <li class="current"><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                      <li><span><a href="">item</a></span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+            <script src="http://www.ztaom.com/js/treeview.js"></script>
+<script>
+	$(function(){
+		$("#side-nav").treeview({
+			animated: "fast",
+			collapsed: true,
+			unique: true,
+			persist: "cookie",
+			toggle: function() {
+				window.console && console.log("%o was toggled", this);
+			}
+		});
+	})
+</script>
+  
+  <pre class="brush:c-sharp;">
+  </pre>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script>

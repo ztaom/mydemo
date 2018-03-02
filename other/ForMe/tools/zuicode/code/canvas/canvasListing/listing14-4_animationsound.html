@@ -1,0 +1,115 @@
+<html>
+<head>
+	<title>Animation with Sound Effects</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var ball;
+var x;
+var y;
+var xVec;
+var yVec;
+var direc ;
+var rot = 0;
+var gravity = 1;
+var left=70;
+var right=525;
+var bottom=325;
+var interval ;
+var centerOffset = -75;
+var audio;
+var sound = 0;
+var bing = "assets/bing.mp4";
+var boing = "assets/boing.mp4";
+var button;
+
+function init() {
+	audio = document.getElementById("audio");
+	button = document.getElementById("button");
+	ball = document.getElementById("ball");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.strokeStyle="black";
+	// initialize position, speed, spin direction
+	x = 98;
+	y = 75;
+	xVec = 5.5;
+	yVec = 0;
+	direc = 1;
+	// draw lines for the ball to bounce off of
+	ctx.moveTo(0,bottom + 75);
+	ctx.lineTo(600,bottom+ 75);
+	ctx.lineTo(600,0)
+	ctx.stroke();
+	// set animation to repeat every 50 msec
+	interval = setInterval("animate()",50);
+}
+
+function animate() {
+	model();
+	// clear canvas except for lines at edge
+	ctx.clearRect(0,0,can.width -1 ,can.height -1);
+	draw();
+}
+
+function model() {
+	rot = rot + .1 * direc;
+	x = x + xVec;
+	yVec = yVec + gravity;
+	y = y + yVec;
+	bounceIf();
+}
+
+function bounceIf() {
+	if (y >= bottom) {
+		y = bottom ;
+		yVec = -1 * yVec - gravity	
+		// set audio for bottom bounce
+		audio.src = boing;
+		if (sound) audio.play();
+	}
+	if (x >= right || x <= left) {
+		xVec = -1 * xVec;
+		direc = -1 * direc ;
+		// set audio for side bounce
+		audio.src = bing;
+		if (sound) audio.play();
+	}
+}
+
+function draw() {
+	ctx.save();
+	ctx.translate(x,y);
+	ctx.rotate(rot);
+	ctx.drawImage(ball, centerOffset,centerOffset);
+	ctx.restore();
+}
+
+function soundToggle() {
+	if (!sound) {
+		audio.load();
+		audio.play();
+		sound = 1;
+		button.value="Turn Sounds Off";
+	} else {
+		sound = 0;
+		button.value="Enable Sounds";
+	}
+}
+		
+</script>	
+</head>
+
+<body onload="init()" style="background-color:#d9d9d9">
+<img id="ball" 
+     src="assets/soccerball1.png" 
+     style="display:none">
+<canvas id="can" height="400" width="600">
+</canvas>
+<audio id="audio" src="assets/boing.mp4" style="display:none">
+</audio>
+<input id="button" type="button" value="Enable Sounds" onclick="soundToggle()">
+</body>
+</html>

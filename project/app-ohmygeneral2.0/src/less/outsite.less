@@ -1,0 +1,63 @@
+@pxtorem: 2*37.5rem;
+html,body{background: #fff;}
+body{}
+.pic{display: block; width: 100%;}
+#outsite{
+	width: 750/@pxtorem; margin:0 auto; height: 1341/@pxtorem; background:url(//gw.alicdn.com/tfs/TB1nqvLj2xNTKJjy0FjXXX6yVXa-750-1341.png) no-repeat center top; background-size: 100% auto;
+	.title{
+		margin-bottom: 60/@pxtorem; padding-top:72/@pxtorem; 
+		.pic{margin-bottom: 12/@pxtorem;}
+	}
+	.card{
+		margin:0 40/@pxtorem 0/@pxtorem; position: relative;
+		.picwrap{width: 480/@pxtorem; margin:0 auto;}
+		.video{width: 100%; height: 600/@pxtorem; background:#ccc; margin-bottom: 60/@pxtorem; }
+	}
+	.getbtn{
+		height: 104/@pxtorem; margin-bottom: 10/@pxtorem;
+	}
+	.prizetime{
+		text-align: center; color: #fff;font-size: 26/@pxtorem; margin-bottom: 50/@pxtorem;
+		em{color: #f50050}
+	}
+	.banner{border:1px solid #e2d395; width: 689/@pxtorem; margin:0 auto;}
+}
+
+.masker{background:rgba(0,0,0,0.8); position: fixed; width: 100%; height: 100%; top:0; bottom:0; z-index: 99; animation: maskFade .5s forwards linear;}
+@keyframes maskFade{
+	0% {opacity: 0}
+	75% {opacity: 1}
+	100% {opacity: 1}
+}
+.pop{
+	position: fixed; z-index: 100;
+	.close{width: 56/@pxtorem; height: 56/@pxtorem; background:url(../img/close.png) no-repeat center center; background-size:52/@pxtorem; position: absolute; top:-80/@pxtorem; right:0;}
+}
+.mdj_pop{
+	width: 750/@pxtorem; height: 824/@pxtorem; background:url(../img/h5pop_bg.png) no-repeat; background-size: 750/@pxtorem auto; top:240/@pxtorem;
+	.close{right: 35/@pxtorem; top:-20/@pxtorem;}
+	.inner{position: relative; padding-top:170/@pxtorem; height: 390/@pxtorem;}
+	.mdj{
+		width: 618/@pxtorem; margin: 0 auto;
+	}
+	.txt1{
+		color: #fff; font-size: 30/@pxtorem; text-align: center; margin-bottom: 30/@pxtorem;
+		span{color: #ffea00;}
+	}
+	.txt2{color: #928eb8; text-align:center; width: 100%; position: absolute; bottom:-50/@pxtorem;}
+	.gotgetbtn{width: 502/@pxtorem; margin:0 auto; position: absolute; bottom:-240/@pxtorem; left: 50%; margin-left: -251/@pxtorem;}
+}
+
+.getsuccess{
+	background: #18191f; width: 662/@pxtorem; height: 202/@pxtorem; position: absolute; margin-left: -331/@pxtorem; left: 50%; top:520/@pxtorem; text-align: center;color: #fff; font-size: 30/@pxtorem; border-radius:20/@pxtorem; animation: okHide 3s forwards;
+	h3{
+		font-size: 34/@pxtorem; font-weight: bold; padding:45/@pxtorem 0 16/@pxtorem;
+		span{color: #ff2626}
+	}
+	p{}
+}
+@keyframes okHide{
+	0% {opacity: 1}
+	75% {opacity: 1}
+	100% {opacity: 0}
+}

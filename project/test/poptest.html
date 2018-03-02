@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>丽姬传poplayer</title>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="site" content="优酷">
+    <style></style>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $.ajax({
+        url: 'https://vote.youku.com/vote3/get_item_info.json',
+        type: 'get',
+        datatype: 'json',
+        data: {
+          type: 'item',
+          // project_id: '',
+          // group_id: '',
+          item_id: '1139',
+          getvote: 1,
+          callback: 'hand'
+        },
+        // beforeSend: function (xhr) {  
+        //    xhr.setRequestHeader("Test", "testheadervalue");  
+        // },
+        success: function(res){
+          console.log(res);
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+<script src="http://s.codepen.io/assets/libs/prefixfree.min.js"></script>
+<style>* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  font-family: segoe ui, helvetica neue, helvetica, arial, sans-serif;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+body {
+  font-size: 14px;
+}
+
+p {
+  font-size: 90%;
+  line-height: 25px;
+}
+
+/* Wrapper */
+.wrapper {
+  width: 350px;
+  margin: 20px auto;
+}
+
+/* Window */
+.window {
+  height: 450px;
+  background: url('http://s30.postimg.org/tycvlfagh/background.png');
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* Score */
+.score {
+  position: absolute;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 250%;
+  padding-top: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 2px 2px 0 #000;
+  z-index: 4;
+}
+
+/* Bird */
+.bird {
+  height: 28px;
+  width: 40px;
+  background: url('http://s28.postimg.org/k90gybbtl/bird_Sprite.png');
+  position: absolute;
+  bottom: 50%;
+  left: 130px;
+  z-index: 3;
+  animation: birdFlap 0.2s steps(3, end) infinite alternate;
+  transition: transform 0.3s;
+}
+
+@keyframes birdFlap {  
+  0% {background-position: 0 84px;}
+  100% {background-position: 0 0;}
+}
+
+/* Pipes */
+.pipe {
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  right: -60px;
+  z-index: 2;
+}
+
+.pipe.hidden {
+  display: none;
+}
+
+.pipe .topHalf {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.pipe .bottomHalf {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') top;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}</style></head><body>
+<div class="wrapper">
+  <div class="window">
+    <p class="score">0</p>
+    <div class="bird"></div>
+    
+    <div class="pipe hidden"></div>
+    <div class="pipe hidden"></div>
+  </div>
+  
+  <p>Click/Press space to begin. Refresh to restart.</p>
+</div>
+<script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>$(function(){
+  $window = $('.window'),
+  $bird = $('.bird'),
+  fallTime = 1000,
+  gapHeight = 120,
+  gameState = 2,
+  pipeId = 0;
+
+  var int = setInterval(function(){
+    if(gameState === 1){
+      spawnPipe();
+      movePipes();
+    }
+  }, 1300);
+  
+  var birdPosInterval = setInterval(function(){ 
+    if(gameState === 1){
+      birdPos();
+    }
+  }, 10);
+
+  $window.mousedown(function(){
+    birdFlap();
+    if(gameState === 2){
+      gameState = 1;
+      deleteInterval();
+    }
+  });
+  
+  $(window).keydown(function(e){
+    if(e.keyCode === 32){
+      birdFlap();
+      e.preventDefault();
+      if(gameState === 2){
+        gameState = 1;
+        deleteInterval();
+      }
+    }
+  });
+
+  function deleteInterval(){
+    setTimeout(function(){
+      var int= setInterval(function(){ 
+        if(gameState === 1){
+          deletePipe();
+        }
+      }, 1300);
+    }, 2050);
+  }
+  
+  function birdFlap(){
+    if(gameState === 1 || gameState === 2){
+      $bird.css('transform', 'rotate(-20deg)');
+      $bird.stop().animate({
+        bottom: '+=60px'
+      }, 200, function(){
+        birdPos();
+        $bird.css('transform', 'rotate(0deg)');
+        $bird.stop().animate({
+          bottom: '-=60px'
+        }, 300, 'linear', function(){
+          birdPos();
+          gravity();
+        });
+      });
+    }
+  }
+
+  function gravity(){
+    birdPercent = parseInt($bird.css('bottom')) / $window.height();
+    totalFallTime = fallTime * birdPercent;
+    $bird.stop().animate({
+      bottom: '0'
+    }, totalFallTime, 'linear');
+
+    $bird.css('transform', 'rotate(90deg)');
+  }
+
+  function spawnPipe(){
+    pipeId++;
+    pipeTopHeight = Math.floor(Math.random() * ($window.height() - 250)) + 50;
+    pipeBottomHeight = $window.height() - (pipeTopHeight + gapHeight);
+    pipe = '<div class="pipe" pipe-id="' + pipeId + '"><div style="height: ' + pipeTopHeight + 'px" class="topHalf"></div><div style="height:' + pipeBottomHeight + 'px" class="bottomHalf"></div></div>';
+    $window.append(pipe);
+  }
+
+  function deletePipe(){
+    $('.window .pipe').first().remove();
+  }
+
+  function movePipes(){
+    $('.pipe').each(function(){
+      $(this).animate({
+        right: '+=160px'
+      }, 1300, 'linear');
+    });
+  }
+  
+  function birdPos(){
+    if(parseInt($bird.css('bottom')) === 0){
+      gameEnd();
+    }
+    
+    curPipe = $('.pipe:nth-of-type(4)');
+    if(curPipe.length > 0){
+      pipeTop = $('.pipe:nth-of-type(4) .topHalf');
+      pipeBottom = $('.pipe:nth-of-type(4) .bottomHalf');
+      if(($bird.offset().left + $bird.width()) >= curPipe.offset().left && $bird.offset().left <= (curPipe.offset().left + curPipe.width())){
+        if($bird.offset().top < (curPipe.offset().top + pipeTop.height()) || ($bird.offset().top + $bird.height()) > ((curPipe.offset().top + pipeTop.height()) +   gapHeight)){
+          gameEnd();
+        }
+      } else if($bird.offset().left >= (curPipe.offset().left + curPipe.width())){
+        $('.score').text(curPipe.attr('pipe-id'));
+      }
+    }
+  }
+  
+  function gameEnd(){
+    clearInterval(birdPosInterval);
+    $('.pipe').stop();
+    gravity();
+    gameState = 0;
+  }
+})
+</script>
+</body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title></title>
+<link rel="icon" href="../../img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="../../css/common.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+
+<style>
+#slideshow {
+	margin: 50px auto;
+	position: relative;
+	width: 400px;
+	height:350px;
+}
+#slideshow li {
+	float: left;
+	overflow: hidden;
+	margin: 0 20px 0 0;
+}
+#slideshow li a {
+	color: #222;
+	text-decoration: none;
+	font: 15px/1 Helvetica, sans-serif;
+	-webkit-transition: color 0.5s ease;
+	   -moz-transition: color 0.5s ease;
+	     -o-transition: color 0.5s ease;
+	    -ms-transition: color 0.5s ease;
+	        transition: color 0.5s ease;
+}
+#slideshow li a:hover {
+	color: #50b0df;
+}
+#slideshow li img {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 1s ease-in-out;
+     -moz-transition: opacity 1s ease-in-out;
+       -o-transition: opacity 1s ease-in-out;
+      -ms-transition: opacity 1s ease-in-out;
+          transition: opacity 1s ease-in-out;
+}
+#slideshow li img:target {
+	z-index: 1;
+}
+#slideshow li img:not(:target) {
+	opacity: 0;
+}
+</style>
+</head>
+<body>
+<div id="subcont">
+<h1 class="bl_solid_bottom mb_10 f_18 pb_5">:target slide show</h1>
+<div id="slideshow">
+  <ul>
+    <li><a href="#one">One</a><img id="one" src="../../img/1.jpg"/></li>
+    <li><a href="#two">Two</a> <img id="two" src="../../img/2.jpg"/></li>
+    <li><a href="#three">Three</a> <img id="three" src="../../img/3.jpg"/></li>
+    <li><a href="#four">Four</a> <img id="four" src="../../img/4.jpg"/></li>
+    <li><a href="#five">Five</a> <img id="five" src="../../img/5.jpg"/></li>
+  </ul>
+</div>
+<textarea class="code" style="height:1200px;" readonly="true">
+<style>
+#slideshow {
+	margin: 50px auto;
+	position: relative;
+	width: 400px;
+	height:350px;
+}
+#slideshow li {
+	float: left;
+	overflow: hidden;
+	margin: 0 20px 0 0;
+}
+#slideshow li a {
+	color: #222;
+	text-decoration: none;
+	font: 15px/1 Helvetica, sans-serif;
+	-webkit-transition: color 0.5s ease;
+	   -moz-transition: color 0.5s ease;
+	     -o-transition: color 0.5s ease;
+	    -ms-transition: color 0.5s ease;
+	        transition: color 0.5s ease;
+}
+#slideshow li a:hover {
+	color: #50b0df;
+}
+#slideshow li img {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity 1s ease-in-out;
+     -moz-transition: opacity 1s ease-in-out;
+       -o-transition: opacity 1s ease-in-out;
+      -ms-transition: opacity 1s ease-in-out;
+          transition: opacity 1s ease-in-out;
+}
+#slideshow li img:target {
+	z-index: 1;
+}
+#slideshow li img:not(:target) {
+	opacity: 0;
+}
+</style>
+<div id="slideshow">
+  <ul>
+    <li><a href="#one">One</a><img id="one" src="../../img/1.jpg"/></li>
+    <li><a href="#two">Two</a> <img id="two" src="../../img/2.jpg"/></li>
+    <li><a href="#three">Three</a> <img id="three" src="../../img/3.jpg"/></li>
+    <li><a href="#four">Four</a> <img id="four" src="../../img/4.jpg"/></li>
+    <li><a href="#five">Five</a> <img id="five" src="../../img/5.jpg"/></li>
+  </ul>
+</div>
+</textarea>
+</div>
+<script type="text/javascript" src="../../js/cont.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+<title>Frequency Addition</title>
+
+
+<script type="text/javascript">
+var canvas = [];
+var ctx = [];
+var cHeight = 50;
+var canvasWidth = 180;
+var canvasHeight = 150;
+
+var aCircle = 2 * Math.PI;
+var ninetyDeg = 0.5 * Math.PI;
+var sixDeg = Math.PI / 30 ;
+
+// vertical scale for 3 sine waves above and below x-axis without hitting edges
+var vScale = (canvasHeight / 6) - 2;
+
+var freq = [] ;
+var color = [] ;
+var phase = [] ;
+var globalPhase = 0 ;
+
+var label = [] ;
+
+
+function init() {
+	color[0]="red";
+	color[1]="green";
+	color[2]="blue";
+	color[3]="white";
+	label[0] = document.getElementById("label0");
+	label[1] = document.getElementById("label1");
+	label[2] = document.getElementById("label2");
+	canvas[0] = document.getElementById("canvas0");
+	canvas[1] = document.getElementById("canvas1");
+	canvas[2] = document.getElementById("canvas2");
+	canvas[3] = document.getElementById("canvas3");
+	for (i=0;i<4;i++) {
+		ctx[i] = canvas[i].getContext("2d");
+		ctx[i].fillStyle="black";
+		ctx[i].strokeStyle=color[i];
+		ctx[i].lineWidth=2;
+	}
+	freq[0]=1;
+	freq[1]=2;
+	freq[2]=3;
+	phase[0]=0;
+	phase[1]=0;
+	phase[2]=0;
+	labelWaves();
+	setInterval("animate()", 40);
+}
+
+function labelWaves() {
+	for (i=0;i<3;i++) {
+		var phaseDeg = parseInt(phase[i] / Math.PI * 180);
+		var labelString = 'Frequency: ' + freq[i] + ' &nbsp; Phase: ' + phaseDeg + '&deg;';
+		label[i].innerHTML = labelString;
+	}
+}
+
+function animate() {
+	globalPhase = globalPhase + sixDeg;
+	drawSinWave(0);
+	drawSinWave(1);
+	drawSinWave(2);
+	drawAllWaves();
+}
+
+
+function drawSinWave (index) {
+	var thisCtx = ctx[index];
+	// clear to black
+	thisCtx.fillRect(0,0,canvasWidth,cHeight);
+	// draw X axis
+ 	var xAxis = cHeight / 2;
+	thisCtx.beginPath();
+ 	thisCtx.moveTo(canvasWidth,xAxis);
+ 	thisCtx.lineTo(0,xAxis);
+	// plot graph of sine wave
+ 	var xCoord=0;
+ 	var steps=canvasWidth / freq[index];
+ 	for (i=0; i<freq[index]; i++) {
+ 		for (j=0; j<=steps; j++) {
+ 			var xCoord = i*steps+j ;
+ 			var radians= (aCircle / steps) * j + phase[index] + (globalPhase * freq[index]) ;
+ 			var sinY= Math.sin(radians) ;
+ 			var yCoord= sinY * vScale + xAxis;
+ 			thisCtx.lineTo(xCoord,yCoord);
+ 		}
+ 	}
+ 	thisCtx.stroke();
+}
+
+function drawAllWaves() {
+	var thisCtx = ctx[3] ;
+	thisCtx.fillRect(0,0,canvasWidth,canvasHeight);
+	// draw X axis
+	thisCtx.beginPath();
+	var xAxis = canvasHeight / 2;
+ 	thisCtx.moveTo(canvasWidth,xAxis);
+ 	thisCtx.lineTo(0,xAxis);
+ 	// plot graph of all waves added together
+ 	var xCoord=0;
+	for (i=0;i<canvasWidth;i++) {
+		var xCoord = i;
+		var yCoord = 0;
+		for (j=0;j<3;j++) {
+			var steps = canvasWidth/freq[j] ;
+			var radians = (aCircle / steps) * i + phase[j] + (globalPhase * freq[j]);
+			var sinY = Math.sin(radians);
+			yCoord = yCoord + sinY;
+		}
+		yCoord = yCoord * vScale + xAxis;
+		thisCtx.lineTo(xCoord,yCoord);
+ 	}
+	thisCtx.stroke();
+}
+		
+
+function increment(index) {
+	freq[index]++ ;
+	drawSinWave(index);
+	labelWaves();
+}
+
+function decrement(index) {
+	freq[index]-- ;
+	if (freq[index] < 0)
+		freq[index] = 0;
+	drawSinWave(index);
+	labelWaves();
+}
+
+function addPhase(index) {
+	var thePhase = phase[index] + ninetyDeg ;
+	if (parseInt(thePhase) == 6)
+		thePhase = 0 ;
+	phase[index] = thePhase ;
+	labelWaves();
+	drawSinWave(index);
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<P>
+<EM>
+The canvas element is well-suited to display scientific or numeric data, especially interactive data.
+</EM>
+
+<H1>Frequency Addition</H1>
+
+<div id="main" 
+		style="border: 5px inset #80e080;
+		width:480px;" >
+<div id="waves" style="margin: 5px; width: 200;">
+<B>Wave 1</B><BR>
+<canvas id="canvas0" width="180" height="50">
+test
+</canvas>
+<BR>
+
+<B>Wave 2</B><BR>
+<canvas id="canvas1" width="180" height="50">
+</canvas>
+<BR>
+
+<B>Wave 3</B><BR>
+<canvas id="canvas2" width="180" height="50">
+</canvas>
+
+<div>
+<br><B>Addition of waves 1, 2, and 3</B><BR>
+<canvas id="canvas3" width="180" height="150">
+</canvas>
+</div>
+
+</div>
+
+<div id="controls" 
+	style="width: 120; 
+	margin: 5px; 
+	position:absolute; left:200px; top:118px;">
+	
+<p id="label0">Freq: 1 Phase: 0</p>
+<input type="button" value=" ^ " onclick="increment(0)">
+<input type="button" value=" v " onclick="decrement(0)">
+<input type="button" value="+90&deg;" onclick="addPhase(0)">
+
+<P id="label1">Freq: 2 Phase: 0</P>
+<input type="button" value=" ^ " onclick="increment(1)">
+<input type="button" value=" v " onclick="decrement(1)">
+<input type="button" value="+90&deg;" onclick="addPhase(1)">
+
+<P id="label2">Freq: 3 Phase: 0</P>
+<input type="button" value=" ^ " onclick="increment(2)">
+<input type="button" value=" v " onclick="decrement(2)">
+<input type="button" value="+90&deg;" onclick="addPhase(2)">
+
+</div>
+</div>
+
+<P>
+Complex waveforms can be made by adding simple sine waves. 
+<P>
+Increase or decrease the frequencies and increment the phase of the component sine waves to see how they add together.
+
+<div style="border: 5px inset #80e080;
+		width:480px;">
+<div style="margin:5px;"
+<P style="font-weight:bold;">
+Assignment 1: Understanding Active Noise Cancellation
+</P>
+<P>
+Active noise cancellation adds a wave at the same frequency as the noise, but 180&deg; out of phase.
+<P>
+Choose a frequency for wave 1. This is your signal.
+<P>
+Choose a different frequency for wave 2. Consider this noise.
+<p>
+Set wave 3 to zero frequency. See how the noise distorts the signal in the bottom box.
+<p>
+Now set wave 3 to the same frequency as wave 2. Adjust the phase to 180&deg;.
+<P>
+See how waves 2 and 3 cancel each other out. 
+Change the frequency or phase of wave 1 and note that the bottom box changes identically.
+The noise is canceled but the signal comes through.
+</div>
+</div>
+
+</body>
+</html>

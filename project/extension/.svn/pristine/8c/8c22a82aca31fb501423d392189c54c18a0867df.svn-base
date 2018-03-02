@@ -1,0 +1,196 @@
+/**
+ * Created by youku on 2015/10/22.
+ */
+(function(){
+    setTimeout(function(){
+        window.scrollTo(0, 1);
+    },10);
+    document.querySelector(".download").addEventListener("touchmove", function (e) {
+        e.preventDefault();
+    },false);
+    var reportPoint = function(link){
+        if(link!==""&&link!==null)
+        new Image().src=link;
+    };
+    var getCategory = function(){
+        var url = location.href;
+        var url_param = {};
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(url.indexOf("?") + 1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                url_param[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return url_param["category"];
+    };
+    var iphone_url,pad_url,and_url,count_hz,iphone_hz,pad_hz,and_hz;
+    var getUrlHz = function(){
+        //category 默认是百度(baidu_1)， 百度， 搜狗， 360
+        var category = getCategory();
+        switch (category){
+            //百度 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+            case "baidu_1":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.8.2_baiduyoukupinzhuan.apk";
+                break;
+            case "baidu_2":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-baiduSEM25.apk";
+                break;
+            case "baidu_3":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-baiduSEM21.apk";
+                break;
+            case "baidu_4":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-baiduSEM16.apk";
+                break;
+            case "baidu_5":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-baiduSEM12.apk";
+                break;
+            case "baidu_6":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-baiduSEM4.apk";
+                break;
+            case "baidu_7":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-baiduSEM2.apk";
+                break;
+            //搜狗 ================
+            case "sougou_1":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM21.apk";
+                break;
+            case "sougou_2":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM22.apk";
+                break;
+            case "sougou_3":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM23.apk";
+                break;
+            case "sougou_4":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM24.apk";
+                break;
+            case "sougou_5":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM25.apk";
+                break;
+            case "sougou_6":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM26.apk";
+                break;
+            case "sougou_7":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM27.apk";
+                break;
+            case "sougou_8":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM28.apk";
+                break;
+            case "sougou_9":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM29.apk";
+                break;
+            case "sougou_10":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.3_zhanlue-sougouSEM30.apk";
+                break;
+            //360 ===
+            case "360_1":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM2.apk";
+                break;
+            case "360_2":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM3.apk";
+                break;
+            case "360_3":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM4.apk";
+                break;
+            case "360_4":
+                iphone_url="https://itunes.apple.com/app/apple-store/id336141475";
+                pad_url="https://itunes.apple.com/app/apple-store/id336141475";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.10.1_zhanlue-360SEM5.apk";
+                break;
+            //百度品专及其他
+             default :
+                iphone_url="https://itunes.apple.com/cn/app/id336141475";
+                pad_url="https://itunes.apple.com/cn/app/you-ku-hd/id394075284";
+                and_url="http://dl.m.cc.youku.com/android/phone/Youku_Android_5.8.2_baiduyoukupinzhuan.apk";
+        }
+    };
+    /*http://static.youku.com/h5/html/extension/extension.html
+    * http://static.youku.com/h5/html/extension/extension.html?category  百度品专
+    * http://static.youku.com/h5/html/extension/extension.html?category=shenma 神马品专
+    * http://static.youku.com/h5/html/extension/extension.html?category=shenmaSEM 神马sem
+    * http://static.youku.com/h5/html/extension/extension.html?category=baiduSEM 百度sem
+    * http://static.youku.com/h5/html/extension/extension.html?category=sogoSEM
+    * http://static.youku.com/h5/html/extension/extension.html?category=baidu_downloadcard
+    * */
+    var downLink = function(){
+        getUrlHz();
+        reportPoint(count_hz);
+        var ua = navigator.userAgent.toLowerCase(),
+            url="",hz="";
+        if (/iphone|ipod/.test(ua)) {
+            $(".download").html('<img src="img/iosdown.png"/>');
+            $('.topic .download').html('<img src="img/download.png"/>');
+            url = iphone_url;
+        } else if(/ipad/.test(ua)){
+            $(".download").html('<img src="img/iosdown.png"/>');
+            $('.topic .download').html('<img src="img/download.png"/>');
+            url = pad_url;
+        } else{
+            $(".download").html('<img src="img/anddown.png"/>');
+            $('.topic .download').html('<img src="img/download.png"/>');
+            url = and_url;
+        }
+        $(".download").on("tap",function(){
+            reportPoint(hz);
+            if(url!==""&&url!==null)
+            location.href=url;
+        });
+    };
+    downLink();
+
+    //背景图设置
+    var date = new Date(),year=date.getFullYear(),mouth = (date.getMonth()+1), day = date.getDate(),hour = date.getHours()
+    var updateTime = year+''+mouth+''+day+''+hour;
+
+    var bgOne = 'url('+'http://r4.ykimg.com/051000005824101F67BC3D3D4C064D4A'+'?'+updateTime+')';
+    var bgTwo = 'url('+'http://r1.ykimg.com/051000005824102C67BC3D3D620135B5'+'?'+updateTime+')';
+    var bgThr = 'url('+'http://r3.ykimg.com/051000005824100E67BC3D3D2E01058D'+'?'+updateTime+')';
+    var bgFour = 'url('+'http://r3.ykimg.com/051000005824103667BC3D3D8A04A9AE'+'?'+updateTime+')';
+    var bgBanner = 'http://r2.ykimg.com/051000005824106167BC3D4544040012'+'?'+updateTime;
+    $('.p1').css('backgroundImage',bgOne)
+    $('.p2').css('backgroundImage',bgTwo)
+    $('.p3').css('backgroundImage',bgThr)
+    $('.p4').css('backgroundImage',bgFour)
+
+    $('.topic .tpbg').attr('src',bgBanner)
+})();

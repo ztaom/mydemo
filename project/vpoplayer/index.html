@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>native 播放页播放控制及分享</title>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="site" content="">
+    <meta name="data-spm" content="">
+    <link rel="apple-touch-icon" href="" />
+    <link rel="apple-touch-icon-precomposed" href="" />
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="bookmark" href="" type="image/x-icon"/>
+    <script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js,lib-windvane/2.1.8/windvane.js,lib-env/1.9.9/env.js"></script>
+    <script>
+        window.WindVane.call('WVPopLayer', 'display', {});
+    </script>
+    <style>
+        .wrap{width: 100%; background:#fff; height: 100%; position: absolute; top:0; bottom:0; left: 0; right: 0;}
+    </style>
+</head>
+<body data-noaplus>
+<script>with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","userid=\#getuid()\#&aplus&sidx=\#get_sign()\#&ckx=\#get_check()\#",id="beacon-aplus",src="//g.alicdn.com/alilog/mlog/aplus_o.js")</script>
+    <div class="wrap">
+    hello
+    </div>
+
+
+<script>
+document.querySelector('.wrap').addEventListener("touchend", function(event){
+    event.preventDefault();
+    window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+        //关闭成功
+    }, function (e) {
+        //关闭失败
+    });
+})
+</script>
+<script>
+//视频api
+var params = {
+            'url': 'http://m.youku.com/video/id_XMTcxMjE5MDc4NA==.html',
+            'title': '分享标题测试',
+            'image': 'http://r1.ykimg.com/0516000058EF44EFADBDD306B6098183',
+            'desc': '分享描述'
+        };
+        window.WindVane.call('WVBehavioursBridge', 'showShareView', params, function(e) {
+            alert('success' + JSON.stringify(e));
+        }, function(e) {
+            alert('failure' + JSON.stringify(e));
+        });
+
+   //下面是windvane和播放器交互的例子
+    //播放
+    document.querySelector("#play").onclick=function(){
+        var params = {
+        };
+        window.WindVane.call('DJH5Player', 'play', params, function(e) {
+          alert('success: ' + JSON.stringify(e));
+        }, function(e) {
+          alert('failure: ' + JSON.stringify(e));
+        });
+    };
+    //暂停
+    document.querySelector("#pause").onclick=function(){
+        var params = {
+        };
+        window.WindVane.call('DJH5Player', 'pause', params, function(e) {
+          alert('success: ' + JSON.stringify(e));
+        }, function(e) {
+          alert('failure: ' + JSON.stringify(e));
+        });
+    };
+    //控制进度
+    document.querySelector("#duration").onclick=function(){
+        var params = {
+          millisecond:"60000"//毫秒
+        };
+        window.WindVane.call('DJH5Player', 'duration', params, function(e) {
+          alert('success: ' + JSON.stringify(e));
+        }, function(e) {
+          alert('failure: ' + JSON.stringify(e));
+        });
+    };
+    //查询信息
+    document.querySelector("#videoinfo").onclick=function(){
+        var params = {
+        };
+        window.WindVane.call('DJH5Player', 'videoinfo', params, function(e) {
+          alert('success: ' + JSON.stringify(e.param));//信息在param中
+        }, function(e) {
+          alert('failure: ' + JSON.stringify(e));
+        });
+    };
+    //查询屏幕状态（是否全屏）
+    document.querySelector("#fullscreen").onclick=function(){
+        var params = {
+        };
+        window.WindVane.call('DJH5Player', 'screenstate', params, function(e) {
+            alert('success: ' + JSON.stringify(e.param.state));//布尔值
+        }, function(e) {
+            alert('failure: ' + JSON.stringify(e));
+        });
+    };
+
+    //监听播放
+    document.addEventListener('DJH5PlayerListener.play', function(e) {
+      alert(JSON.stringify(e));
+    }, false);
+    //监听暂停
+    document.addEventListener('DJH5PlayerListener.pause', function(e) {
+      alert(JSON.stringify(e));
+    }, false);
+    //监听进度
+    document.addEventListener('DJH5PlayerListener.duration', function(e) {
+      //param.millisecond 毫秒
+      console.log(JSON.stringify(e.param));
+    }, false);
+    //监听是否进入全屏
+    document.addEventListener('DJH5PlayerListener.fullscreen', function(e) {
+      alert(JSON.stringify(e));
+    }, false);
+    //监听是否进入半屏
+    document.addEventListener('DJH5PlayerListener.halfscreen', function(e) {
+      alert(JSON.stringify(e));
+    }, false);
+</script>
+</body>
+</html>

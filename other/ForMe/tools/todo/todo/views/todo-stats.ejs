@@ -1,0 +1,16 @@
+<span id="todo-count">
+	<strong>共 <%= this.remaining %></strong> <%= (this.remaining > 1) ? "个项目" : "个项目" %></span>
+<ul id="filters" class="hidden">
+	<li>
+		<a class="selected" href="#!/">All</a>
+	</li>
+	<li>
+		<a href="#!/active">Active</a>
+	</li>
+	<li>
+		<a href="#!/completed">Completed</a>
+	</li>
+</ul>
+<% if(this.completed > 0) { %>
+	<button id="clear-completed">删除已完成项目 (<%= this.completed %>)</button>
+<% } %>

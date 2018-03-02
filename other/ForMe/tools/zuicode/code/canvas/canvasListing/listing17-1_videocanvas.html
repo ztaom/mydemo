@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta name = "viewport" content = "width = device-width">
+<title>Canvas Over Video</title>
+
+<script type="text/javascript">
+
+var can;
+var ctx;
+var vid;
+var playButton;
+var vidTimer;
+var text;
+var angle = 0;
+
+function init() {
+	vid = document.getElementById("vid");
+	playButton = document.getElementById("play");	
+	can = document.getElementById("can");
+	ctx = can.getContext('2d');
+	vid.addEventListener('ended', vidEnd, false);
+	vid.addEventListener('play', setAnimate, false);
+	ctx.fillStyle = "white";
+	ctx.strokeStyle = "black";
+	ctx.font = "20pt Helvetica";
+	ctx.textAlign = "center";
+	ctx.textBaseline = "middle" ;
+	animate();
+}
+
+// Draw spinning text
+function animate() {
+	ctx.save();
+	// clear screen
+	ctx.clearRect(0,0,can.width,can.height);
+	// set origin at center of canvas
+	ctx.translate(can.width / 2, can.height / 2);
+	// spin the canvas
+	ctx.rotate(angle);
+	// draw white text with a black outline
+	ctx.fillText ("Animation over video!", 0,0);
+	ctx.strokeText ("Animation over video!", 0,0);
+	ctx.restore();
+	// increment rotation angle, reset to 0 at 2 * Pi
+	angle = angle + 0.1;
+	if (angle>6.28) angle = 0;
+	// if video not paused or ended, repeat in 50 msec
+	var vidState = document.querySelector("video");
+	if (!vidState.paused && !vidState.ended)
+		vidTimer = setTimeout("animate();", 50);
+}
+
+// Start animation when video starts playing
+function setAnimate() {
+	clearTimeout(vidTimer);
+	vidTimer = setTimeout("animate();", 50);
+}
+
+
+function playVideo() {
+	if (playButton.value=="Play") {
+		vid.play();
+		play.value = "Pause";
+	}
+	else {
+		vid.pause();
+		playButton.value = "Play";
+	}
+}
+
+function vidEnd() {
+	playButton.value = "Play";
+	clearTimeout(vidTimer);
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<video src="assets/myMovie.m4v" id="vid" 
+		style="position:absolute; top: 10; left: 10;"
+>
+</video>
+
+<canvas id="can" height="270" width="480" 
+		style="position:absolute; top: 10; left: 10;" 
+>
+</canvas>
+
+<p 		style="position:absolute; top: 300; left: 50;">
+<input type="button" value="Play" onclick="playVideo()" id="play"
+	   style="font:18 pt Helvetica">
+</p>
+
+</body>
+</html>

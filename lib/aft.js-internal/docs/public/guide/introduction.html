@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>简介 — aft.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="简介 — aft.js">
+        <meta property="og:description" content="AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等">
+        <meta property="og:image" content="../images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="简介 — aft.js">
+        <meta name="twitter:description" content="AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等">
+        <meta name="twitter:image" content="../images/logo.png">
+
+        <link rel="icon" href="../images/logo.png" type="image/x-icon">
+        
+        <!-- main page styles -->
+        <link rel="stylesheet" href="../css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="../js/vue.js"></script>
+        <script>
+            window.PAGE_TYPE = "guide";
+            window.NPM_NAME = "@ali/aft.js";
+            window.NPM_VERSION = "0.3.10";
+        </script>
+    </head>
+    <body class="docs">
+        <div id="main" class="fix-sidebar">
+            <div class="sidebar">
+    <div class="list">
+        <ul class="menu-root">
+            
+                <li>
+                    <a href="../guide/introduction.html" class="sidebar-link current">简介</a>
+                </li>
+            
+                <li>
+                    <a href="../guide/basic.html" class="sidebar-link">基本功能</a>
+                </li>
+            
+                <li>
+                    <a href="../guide/advanced.html" class="sidebar-link">进阶功能</a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div class="content guide with-sidebar introduction-guide">
+    
+      <h1>简介</h1>
+    
+    <h2 id="AFT是什么"><a href="#AFT是什么" class="headerlink" title="AFT是什么"></a>AFT是什么</h2><p>AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等。</p>
+<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><blockquote>
+<p> IE9+, Firefox lastest, Chrome lastest and Android Browser 4.4+, iOS Safari 7.0+.</p>
+</blockquote>
+<h2 id="获取代码"><a href="#获取代码" class="headerlink" title="获取代码"></a>获取代码</h2><p>通过tnpm安装 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tnpm install @ali/aft.js</div></pre></td></tr></table></figure>
+<p>然后在代码中引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> AFT <span class="keyword">from</span> <span class="string">'@ali/aft.js'</span>;</div></pre></td></tr></table></figure>
+<p>或直接在HTML中用script的方式引入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/@ali/aft.js/browser/polyfill.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/@ali/aft.js/browser/aft-lite.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> AFT = <span class="built_in">window</span>.AFT;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="JS对象动画"><a href="#JS对象动画" class="headerlink" title="JS对象动画"></a>JS对象动画</h3><blockquote>
+<p>animate(initial: object): Tween</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> tween = AFT.animate(&#123;</div><div class="line">  <span class="attr">opacity</span>: <span class="number">0</span>  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>通过<a href="../api/index.html#lite-animate">animate</a>方法，可以创建一个<a href="../api/index.html#lite-Tween">Tween</a>实例，并接收一个js对象为初始参数。</p>
+<blockquote>
+<p>tween.to(result: object).duration(time: number).easing(type: string|function): Tween</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tween.to(&#123;</div><div class="line">  <span class="attr">opacity</span>: <span class="number">1</span></div><div class="line">&#125;)</div><div class="line">.duration(<span class="number">1000</span>)</div><div class="line">.easing(<span class="string">'ease-out'</span>)</div></pre></td></tr></table></figure>
+<p>通过链式调用<a href="../api/index.html#lite-Tween">Tween</a>实例的方法，来定义一次<a href="basic.html#动画是什么">动画</a>。</p>
+<blockquote>
+<p>tween.play(): Tween</p>
+</blockquote>
+<p>通过调用<a href="../api/index.html#Tween-play">play</a>方法，来播放这次动效，并在<a href="../api/index.html#Tween-update">update</a>方法中获得每一帧变化后的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tween.update(<span class="function"><span class="params">current</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(current.get(<span class="string">'opacity'</span>));</div><div class="line">&#125;).play();【</div></pre></td></tr></table></figure>
+<p><a href="http://groups.alidemo.cn/fdilab/aft.js-internal/examples/animate/stopwatch.html" target="_blank" rel="external">参考示例</a></p>
+<h3 id="HTML元素动画"><a href="#HTML元素动画" class="headerlink" title="HTML元素动画"></a>HTML元素动画</h3><blockquote>
+<p>animate(initial: HTMLElement): Tween</p>
+</blockquote>
+<p>用<a href="../api/index.html#lite-animate">animate</a>方法，即可以操作一个js对象，也可以操作一个HTML元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AFT.animate(<span class="built_in">document</span>.getElementById(<span class="string">'rectangle'</span>))</div><div class="line">.to(&#123;</div><div class="line">  <span class="attr">backgroundColor</span>: <span class="string">'#f00'</span>,</div><div class="line">  <span class="attr">rotateZ</span>: <span class="string">'360deg'</span></div><div class="line">&#125;)</div><div class="line">.duration(<span class="number">400</span>)</div><div class="line">.easing(<span class="string">'ease-in'</span>)</div><div class="line">.iteration(<span class="number">2</span>)</div><div class="line">.direction(<span class="string">'alternate'</span>)</div><div class="line">.play();</div></pre></td></tr></table></figure>
+<p>当操作一个HTML元素时，<a href="../api/index.html#Tween-to">to</a>方法参数中的对象键名，必须是CSS的标准属性，且仅支持分量写法，例如：<code>backgroundColor</code>，<code>borderLeftColor</code>, <code>paddingLeft</code>等，不支持组合写法，例如：<code>margin</code>,<code>padding</code>等。而对于<code>transform</code>属性的动效，可以直接写其矩阵变换方法，同样也只支持分量写法，例如：<code>translateX</code>，<code>rotateZ</code>等。<strong>并且因为矩阵变换不可逆的特性，当前版本尚不支持有初始变换矩阵值的元素</strong>。</p>
+<p><a href="http://groups.alidemo.cn/fdilab/aft.js-internal/examples/animate/flashcolors.html" target="_blank" rel="external">参考示例</a></p>
+<h2 id="继续深入"><a href="#继续深入" class="headerlink" title="继续深入"></a>继续深入</h2><h3 id="玩转复杂的动画逻辑"><a href="#玩转复杂的动画逻辑" class="headerlink" title="玩转复杂的动画逻辑"></a>玩转复杂的动画逻辑</h3><p><a href="../api/index.html#lite-animate">animate</a>方法能快速的创建一个动画，但是对于由多个或复杂动画片段组成的完整场景就需要用到<a href="../api/index.html#runtime-Effect">Effect</a>，<a href="../api/index.html#runtime-Animation">Animation</a>，<a href="../api/index.html#runtime-Timeline">Timeline</a>三个模块。</p>
+<blockquote>
+<p>createEffect(): Effect</p>
+</blockquote>
+<p>通过<a href="../api/index.html#lite-createEffect">createEffect</a>的工厂方法可以创建一个<a href="../api/index.html#runtime-Effect">Effect</a>实例，并链式的调用<a href="">动效方法</a>来定义一系列动效。这些定义好的<a href="">动效</a>是可以被复用的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fadeInEffect = AFT.createEffect();</div><div class="line">fadeInEffect.to(&#123;</div><div class="line">  <span class="attr">opacity</span>: <span class="number">1</span></div><div class="line">&#125;)</div><div class="line">.duration(<span class="number">400</span>)</div><div class="line">.easing(<span class="string">'ease-in'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> bounceInEffect = AFT.createEffect();</div><div class="line">bounceInEffect.to(&#123;</div><div class="line">  <span class="attr">translateY</span>: <span class="string">'50px'</span></div><div class="line">&#125;)</div><div class="line">.duration(<span class="number">400</span>)</div><div class="line">.easing(<span class="string">'cubic-bezier(.42,0,.5,1.5)'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>createAnimation(initial: object|HTMLElement, effect: Effect, iteration: number): Animation</p>
+</blockquote>
+<p>通过<a href="../api/index.html#lite-createAnimation">createAnimation</a>的工厂方法创建一个<a href="../api/index.html#runtime-Animation">Animation</a>实例，并把js对象或HTML元素同某个<a href="basic.html#动效是什么">动效</a>绑定，就定义了一个<a href="basic.html#动画是什么">动画</a>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rect = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">rect.style.cssText = <span class="string">'opacity:0;width:100px;height:100px;background-color:black;'</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(rect);</div><div class="line"></div><div class="line"><span class="keyword">const</span> fadeIn = AFT.createAnimation(rect, fadeInEffect);</div><div class="line"><span class="keyword">const</span> bounceIn = AFT.createAnimation(rect, bounceInEffect);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>createTimeline(): Timeline</p>
+<p>timeline.add(animation: Animation, options: {playAt: number|function, stopAt: number|function}): Timeline</p>
+<p>timeline.play(): Timeline</p>
+</blockquote>
+<p>通过<a href="../api/index.html#lite-createTimeline">createTimeline</a>的工厂方法创建一个<a href="../api/index.html#runtime-Timeline">Timeline</a>实例，并通过实例的<a href="../api/index.html#Timeline-add">add</a>方法添加一个<a href="basic.html#动画是什么">动画</a>以及<a href="basic.html#播放时机">动画播放时机</a>的参数，就可以控制这个动画了。</p>
+<p><strong>让上述定义的两个动画一起播放</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> timeline = AFT.createTimeline();</div><div class="line">timeline.add(fadeIn, &#123;</div><div class="line">  <span class="attr">playAt</span>: <span class="number">0</span></div><div class="line">&#125;).add(bounceIn, &#123;</div><div class="line">  <span class="attr">playAt</span>: <span class="number">0</span></div><div class="line">&#125;).play();</div></pre></td></tr></table></figure>
+<p>让上述定义的两个动画顺序播放</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> timeline = AFT.createTimeline();</div><div class="line">timeline.add(fadeIn, &#123;</div><div class="line">  <span class="attr">playAt</span>: <span class="number">0</span></div><div class="line">&#125;).add(bounceIn, &#123;</div><div class="line">  <span class="attr">playAt</span>: <span class="function"><span class="params">()</span> =&gt;</span> fadeIn.finished</div><div class="line">&#125;).play();</div></pre></td></tr></table></figure>
+<p><a href="http://groups.alidemo.cn/fdilab/aft.js-internal/examples/timeline/matrix.html" target="_blank" rel="external">参考示例</a></p>
+<h3 id="用渲染引擎制作动画"><a href="#用渲染引擎制作动画" class="headerlink" title="用渲染引擎制作动画"></a>用渲染引擎制作动画</h3><p>AFT提供了一套基于<a href="advanced.html#aft-render">虚拟DOM的渲染引擎</a>，它比较轻便，且同时支持HTML/CSS和Canvas的渲染。</p>
+<p>如需用这套渲染引擎，需要引入额外的代码库：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> render <span class="keyword">from</span> <span class="string">'@ali/aft.js/render'</span>;</div></pre></td></tr></table></figure>
+<p>或用在script引入的情况下，把<code>browser/aft-lite.js</code>替换为<code>browser/aft.min.js</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/@ali/aft.js/browser/polyfill.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/@ali/aft.js/browser/aft.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> render = <span class="built_in">window</span>.AFT.render;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>class Canvas2D extends Engine</p>
+</blockquote>
+<p>通过创建不同的引擎类，来选择不同的渲染方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> engine = <span class="keyword">new</span> render.Canvas2D();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>engine.setCanvasElement(element: HTMLElement): Engine</p>
+<p>engine.setCanvasSize(width: number, height?: number): Engine</p>
+<p>engine.setClearColor(color: string): Engine</p>
+<p>engine.resize(): Engine</p>
+</blockquote>
+<p>引擎创建后，需要进行一系列的初始化操作，包括绑定HTML元素，设置画布尺寸，设置画布颜色，以及重新计算引擎的视区大小。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> canvasElement = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">canvasElement.style.cssText = <span class="string">'width:100%;height:100%'</span>;</div><div class="line">engine.setCanvasElement(canvasElement);</div><div class="line">engine.setCanvasSize(<span class="number">750</span>);</div><div class="line">engine.setClearColor(<span class="string">'#000'</span>);</div><div class="line">engine.resize();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>class Scene()</p>
+</blockquote>
+<p>创建一个<a href="../api/index.html#core-Scene">Scene</a>实例，用来存放场景内的元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> scene = <span class="keyword">new</span> render.Scene();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>class Rectangle extends Element</p>
+<p>element.position: Vector3</p>
+<p>element.style: Map</p>
+<p>element.transform: Map</p>
+</blockquote>
+<p>创建一个<a href="../api/index.html#elements-Rectangle">Rectangle</a>的实例，并分别设置位置，样式和矩阵变换。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> rectEl = <span class="keyword">new</span> render.Rectangle(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">rectEl.position.set(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">rectEl.style.set(<span class="string">'opacity'</span>, <span class="number">0</span>);</div><div class="line">rectEl.transform.set(<span class="string">'translateY'</span>, <span class="number">50</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>engine.drawBuffer(elements: Array<element>): Engine</element></p>
+<p>engine.flush(): Engine</p>
+</blockquote>
+<p>通过<a href="../api/index.html#Engine#drawBuffer">drawBuffer</a>和<a href="../api/index.html#Engine#flush">flush</a>方法，可以绘制出<a href="../api/index.html#elements-Rectangle">Rectangle</a>的实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">engine.drawBuffer([rectEl]);</div><div class="line">engine.flush();</div></pre></td></tr></table></figure>
+<p>默认情况下，<a href="../api/index.html#runtime-Animation">Animation</a>对象或<a href="../api/index.html#lite-animate">animate</a>方法并不支持对<a href="../api/index.html#elements-Element">Element</a>实例的动画操控，但基于AFT提供的<a href="advanced.html#扩展动画对象">扩展动画对象</a>机制，在render中已经让<a href="../api/index.html#runtime-Animation">Animation</a>支持了对<a href="../api/index.html#elements-Element">Element</a>实例的控制。接下去要做的，也就是把<a href="../api/index.html#elements-Element">Element</a>实例托管给<a href="../api/index.html#runtime-Animation">Animation</a>。</p>
+<blockquote>
+<p>timeline.on(‘afterplay’,  callback: function);</p>
+</blockquote>
+<p>并在动画的每一帧中调用引擎的渲染方法即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fadeIn = AFT.createAnimation(rectEl, fadeInEffect);</div><div class="line"><span class="keyword">const</span> bounceIn = AFT.createAnimation(rectEl, bounceInEffect);</div><div class="line"></div><div class="line"><span class="keyword">const</span> timeline = AFT.createTimeline();</div><div class="line">timeline.add(fadeIn, &#123;</div><div class="line">  <span class="attr">playAt</span>: <span class="number">0</span></div><div class="line">&#125;).add(bounceIn, &#123;</div><div class="line">  <span class="attr">playAt</span>: <span class="number">0</span></div><div class="line">&#125;).on(<span class="string">'afterplay'</span>, () =&gt; &#123;</div><div class="line">  engine.drawBuffer([rectEl]);</div><div class="line">  engine.flush();</div><div class="line">&#125;).play();</div></pre></td></tr></table></figure>
+<p><a href="http://groups.alidemo.cn/fdilab/aft.js-internal/examples/render/flashcolors.html" target="_blank" rel="external">参考示例</a></p>
+<h2 id="兼容旧版本"><a href="#兼容旧版本" class="headerlink" title="兼容旧版本"></a>兼容旧版本</h2><p>在最新版本中，同时兼容了1.x/2.x版本的API。以往版本中的AFT实例，可以通过如下方式创建：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Legacy&#125; <span class="keyword">from</span> <span class="string">'@ali/aft.js/legacy'</span>;</div><div class="line"><span class="keyword">const</span> canvasElement = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">const</span> aft = <span class="keyword">new</span> Legacy(canvasElement);</div></pre></td></tr></table></figure>
+<p>在获取兼容老版本AFT类后，就可以用1.x版本的API进行开发了。当然，新的项目建议直接使用新版本的API。</p>
+<p><a href="http://groups.alidemo.cn/fdilab/aft.js-internal/examples/legacy/matrix.html" target="_blank" rel="external">参考示例</a></p>
+
+    
+      <div class="guide-links">
+        
+        
+          <span style="float:right"><a href="../guide/basic.html">基本功能</a> →</span>
+        
+      </div>
+    
+    <div class="footer">
+      <a href="http://gitlab.alibaba-inc.com/fdilab/aft.js/blob/master/docs/src/guide/introduction.md" target="_blank">
+        Edit this page on Gitlab!
+      </a>
+    </div>
+</div>
+
+        </div>
+        <script src="../js/smooth-scroll.min.js"></script>
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="../js/css.escape.js"></script>
+        <script src="../js/common.js"></script>
+    </body>
+</html>

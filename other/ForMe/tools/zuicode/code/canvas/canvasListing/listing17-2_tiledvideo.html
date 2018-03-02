@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta name = "viewport" content = "width = device-width">
+<title>Tiled Video</title>
+
+<script type="text/javascript">
+
+var can;
+var ctx;
+var vid;
+var playButton;
+var vidTimer;
+var angle = -1;
+var imageWidth = 480;
+var imageHeight = 270;
+var tWide;
+var tHigh;
+var xOffset;
+var yOffset;
+var vidState;
+var topOffset = 72;
+var leftOffset = 22;
+
+function init() {
+	vid = document.getElementById("vid");
+	vidState = document.querySelector("video");
+	playButton = document.getElementById("play");	
+	can = document.getElementById("can");
+	ctx = can.getContext('2d');
+	vid.addEventListener('ended', vidEnd, false);
+	vid.addEventListener('play', setAnimate, false);
+	// Tile width and height (divide image into 4 tiles)
+	tWide = imageWidth / 2;
+	tHigh = imageHeight / 2;
+	// Offset from center of tile image to upper left corner
+	xOffset = imageWidth / -4 ;
+	yOffset = imageHeight / -4 ;
+	animate();
+}
+
+// If video not paused, draw image in 4 tiles, 
+// rotating each tile about the center
+function animate() {
+	if (!vidState.paused) {
+		// If video ended,draw image once with no rotation
+		if (vidState.ended) angle = 0;
+		// If angle is negative, increment but display without rotation
+		var angle2 = Math.max(0,angle);
+		// Clear screen
+		ctx.clearRect(0,0,can.width,can.height);
+		// Draw four tiles, rotated about the center
+		ctx.save();
+  		ctx.translate(tWide / 2 + leftOffset, tHigh / 2 + topOffset);
+  		ctx.rotate(angle2);
+		ctx.drawImage(vid,0,0,tWide,tHigh,xOffset,yOffset,tWide,tHigh);
+		ctx.restore();
+		ctx.save();
+  		ctx.translate(tWide * 3 / 2 + leftOffset, tHigh / 2 + topOffset);
+  		ctx.rotate(angle2);
+		ctx.drawImage(vid,tWide,0,tWide,tHigh,xOffset,yOffset,tWide,tHigh);
+		ctx.restore();
+		ctx.save();
+  		ctx.translate(tWide / 2 + leftOffset, tHigh * 3 / 2 + topOffset);
+  		ctx.rotate(angle2);
+		ctx.drawImage(vid,0,tHigh,tWide,tHigh,xOffset,yOffset,tWide,tHigh);
+		ctx.restore();
+		ctx.save();
+  		ctx.translate(tWide * 3 / 2 + leftOffset, tHigh * 3 / 2 + topOffset);
+  		ctx.rotate(angle2);
+		ctx.drawImage(vid,tWide,tHigh,tWide,tHigh,xOffset,yOffset,tWide,tHigh);
+		ctx.restore();
+		// Increment angle
+		angle = angle + 0.02;
+		// If at full circle, reset angle
+		// and display without rotation for fifty cycles
+		if (angle>6.28) angle = -1;
+		// If video not paused and video not ended, repeat animation in 50 ms
+		if (!vidState.ended)
+			vidTimer = setTimeout("animate();", 50);
+	}
+}
+
+// Set display angle to 0 for fifty cycles
+function reset() {
+	angle = -1;
+}
+
+// Start animation when video starts playing
+function setAnimate() {
+	clearTimeout(vidTimer);
+	vidTimer = setTimeout("animate();", 50);
+}
+
+
+function playVideo() {
+	if (playButton.value=="Play") {
+		vid.play();
+		play.value = "Pause";
+	}
+	else {
+		vid.pause();
+		playButton.value = "Play";
+	}
+}
+
+function vidEnd() {
+		playButton.value = "Play";
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<video src="assets/myMovie.m4v" id="vid" 
+		style="display:none" >
+</video>
+
+<canvas id="can" height="420" width="522" >
+</canvas>
+<hr>
+<p>
+<input type="button" value="Play" onclick="playVideo()" id="play"
+	   style="font:18pt Helvetica">
+<input type="button" value="Reset" onclick="reset()" style="font:18pt Helvetica">
+</p>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<style>
+.feedback-form {}
+.smiles {border:1px solid #ccc; overflow:hidden; padding:5px; zoom:1}
+.feedback-topic{background-color:#EEF2F5; border: 1px solid #BCC6CF; padding:5px; position:relative; overflow:hidden; zoom:1}
+.feedback-topic span {float:left; margin-right:10px; display:block;}
+.feedback-topic span a{display:inline-block; padding:4px 5px 6px;}
+.feedback-topic span.selected a {background:#fff;}
+.feedback-topic .data-container {overflow:hidden; background:#fff; padding:5px; display:none; clear:both; zoom:1; float:left; width:100%;}
+</style>
+<div class="entry-title">
+  <h1>ZUI规范指南——</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>意见反馈<span class="feature">(feedback)</span></h3></div>
+  
+  <div class="feedback-form">
+  <div class="smiles mb-10">
+    <p>How easy was it to find what you were looking for?</p>
+    <p class="face"><a href="" class="face-1">sdf</a><a href="" class="face-2"></a><a href="" class="face-3"></a><a href="" class="face-4"></a><a href="" class="face-5"></a></p>
+  </div>
+  <div class="feedback-topic">
+    <p class="mb-5">Select your feedback topic below</p>
+    <span><a href="#Sales">Sales</a></span><span><a href="#Markting">Markting</a></span><span><a href="#Support">Support</a></span>
+    <div class="data-container" id="Sales">Select a relevant issue Sales</div>
+    <div class="data-container" id="Markting">Select a relevant issue Markting</div>
+    <div class="data-container" id="Support">Select a relevant issue Support</div>
+    <br class="clear"/>
+    <span><a href="#Bug">Bug</a></span><span><a href="#Other">Other</a></span>
+    <div class="data-container" id="Bug">Select a relevant issue Bug</div>
+    <div class="data-container" id="Other">Select a relevant issue Other</div>
+  </div>
+  <div class="t-r mt-10"><a href="" class="btn b-small b-white"><span>Send</span></a><a href="" class="btn b-small b-white m-n"><span>Cansel</span></a></div>
+</div>
+  
+  <pre class="brush:c-sharp;">
+  <div class="feedback-form">
+  <div class="smiles mb-10">
+    <p>How easy was it to find what you were looking for?</p>
+    <p class="face"><a href="" class="face-1">sdf</a><a href="" class="face-2"></a><a href="" class="face-3"></a><a href="" class="face-4"></a><a href="" class="face-5"></a></p>
+  </div>
+  
+&lt;script type="text/javascript">
+$(document).ready(function(){
+	$(".face a").each(function(){
+		$(this).click(function(){
+		  $(this).addClass('border-green').siblings().removeClass("border-green"); 
+		  return false;
+		})
+		$(this).hover(function(){
+			$(this).addClass('border-dotted'); 
+		},function(){
+			$(this).removeClass('border-dotted');
+		});
+	})
+});
+&lt;/script>
+
+  <div class="feedback-topic">
+    <p class="mb-5">Select your feedback topic below</p>
+    <span><a href="#Sales">Sales</a></span><span><a href="#Markting">Markting</a></span><span><a href="#Support">Support</a></span>
+    <div class="data-container" id="Sales">Select a relevant issue Sales</div>
+    <div class="data-container" id="Markting">Select a relevant issue Markting</div>
+    <div class="data-container" id="Support">Select a relevant issue Support</div>
+    <br class="clear"/>
+    <span><a href="#Bug">Bug</a></span><span><a href="#Other">Other</a></span>
+    <div class="data-container" id="Bug">Select a relevant issue Bug</div>
+    <div class="data-container" id="Other">Select a relevant issue Other</div>
+  </div>
+  <div class="t-r mt-10"><a href="" class="btn small"><span>Send</span></a><a href="" class="btn small m-n"><span>Cansel</span></a></div>
+</div>
+&lt;script type="text/javascript">
+$(document).ready(function(){	
+	$(".feedback-topic span").click(function() {
+		var href = $(this).children("a").attr("href");
+		if ($(href).hasClass("data-container")){
+			$(this).addClass("selected").siblings().removeClass("selected");
+			$(href).show().siblings(".data-container").hide();
+			return false;
+		}
+	});
+});
+&lt;/script>
+
+  </pre>
+  
+
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".face a").each(function(){
+		$(this).click(function(){
+		  $(this).addClass('border-green').siblings().removeClass("border-green"); 
+		  return false;
+		})
+		$(this).hover(function(){
+			$(this).addClass('border-dotted'); 
+		},function(){
+			$(this).removeClass('border-dotted');
+		});
+	})
+	
+	
+	$(".feedback-topic span").click(function() {
+		var href = $(this).children("a").attr("href");
+		if ($(href).hasClass("data-container")){
+			$(this).addClass("selected").siblings().removeClass("selected");
+			$(href).show().siblings(".data-container").hide();
+			return false;
+		}
+	});
+});
+</script>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

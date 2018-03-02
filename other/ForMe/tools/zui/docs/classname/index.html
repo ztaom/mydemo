@@ -1,0 +1,235 @@
+<div class="entry-title">
+  <h1>ZUI规范指南&mdash;&mdash;类名介绍</h1>
+</div>
+<div class="entry">
+  <div class="content-title">
+    <h3>类名介绍</h3>
+  </div>
+  <table cellpadding="0" cellspacing="0" class="data1">
+    <thead>
+      <tr>
+        <th width="20%">类名</th>
+        <th width="20%">对应属性值</th>
+        <th>使用</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>no-visited</td>
+        <td>a:link, a:visited {}</td>
+        <td>no-visited用在点击链接文字后文本的链接颜色不变，可用于a或其他元素，如：&lt;a href="" class="no-visited"&gt;链接文字&lt;/a&gt;<a href="javascript:void()" class="no-visited">链接文字</a></td>
+      </tr>
+      <tr>
+        <td>underline</td>
+        <td>text-decoration:underline;</td>
+        <td>underline使用在文本需要下划线的时候使用，可用于a或其他元素，如：&lt;a href="" class="underline"&gt;带下划线的文字&lt;/a&gt;<a href="" class="underline">链接文字</a>，如果不需要使用下划线，可以使用underline的相反属性no-underline</td>
+      </tr>
+      <tr>
+        <td>tip</td>
+        <td>border-bottom: 1px #237ad6 dotted; cursor:help;</td>
+        <td>只能用于a标签，用于帮助文本上，如：&lt;a href="" class="tip"&gt;帮助文字&lt;/a&gt;<a href="javascript:void()" class="tip">帮助文字</a></td>
+      </tr>
+      <tr>
+        <td>bg-none，bg-blue, white etc</td>
+        <td>background, color</td>
+        <td>bg-xxxx表示背景颜色，white表示文本的颜色，具体参见元素库中的"色系和颜色参照表"</td>
+      </tr>
+      <tr>
+        <td>t-c</td>
+        <td>text-align:center</td>
+        <td>表示文本居中对齐</td>
+      </tr>
+      <tr>
+        <td>t-l</td>
+        <td>text-align:left</td>
+        <td>表示文本居左对齐</td>
+      </tr>
+      <tr>
+        <td>t-r</td>
+        <td>text-align:right</td>
+        <td>表示文本居右对齐</td>
+      </tr>
+      <tr>
+        <td>t-t</td>
+        <td>vertical-align:top;</td>
+        <td>表示文本垂直居顶对齐</td>
+      </tr>
+      <tr>
+        <td>t-b</td>
+        <td>vertical-align:bottom;</td>
+        <td>表示文本垂直居底对齐</td>
+      </tr>
+      <tr>
+        <td>t-m</td>
+        <td>vertical-align:middle;</td>
+        <td>表示文本垂直居中对齐</td>
+      </tr>
+      <tr>
+        <td>block</td>
+        <td>display:block</td>
+        <td>用于将inline元素更改成块元素</td>
+      </tr>
+      <tr>
+        <td>inline</td>
+        <td>display:inline-block</td>
+        <td>将块元素写成内联元素</td>
+      </tr>
+      <tr>
+        <td>hidden</td>
+        <td>display:none;</td>
+        <td>隐藏元素</td>
+      </tr>
+      <tr>
+        <td>clear， clearfix</td>
+        <td>clear:both;</td>
+        <td>主要是清楚浮动</td>
+      </tr>
+      <tr>
+        <td>float-left</td>
+        <td>float:left</td>
+        <td>让元素向左浮动</td>
+      </tr>
+      <tr>
+        <td>float-right</td>
+        <td>float:right</td>
+        <td>让元素向右浮动</td>
+      </tr>
+      <tr>
+        <td>float-none</td>
+        <td>float:none</td>
+        <td>让元素没有浮动</td>
+      </tr>
+      <tr>
+        <td>p-absolute</td>
+        <td>position:absolute</td>
+        <td>让元素成为绝对定位元素</td>
+      </tr>
+      <tr>
+        <td>p-relative</td>
+        <td>position:relative</td>
+        <td>让元素成为相对定位元素</td>
+      </tr>
+      <tr>
+        <td>break-word</td>
+        <td>word-break:break-all; word-wrap:break-word; table-layout:fixed; *table-layout:auto;</td>
+        <td>主要是让整行英文文本折行显示</td>
+      </tr>
+      <tr>
+        <td>lh-150</td>
+        <td>line-height:150</td>
+        <td>控制文本间的间距，分别为lh-150， lh-160， lh-170， lh-180</td>
+      </tr>
+      <tr>
+        <td>bl-solid</td>
+        <td>border:1px solid #ccc</td>
+        <td>控制边框的样式</td>
+      </tr>
+      <tr>
+        <td>bl-dashed</td>
+        <td>border:1px dashed #ccc</td>
+        <td>控制边框的样式</td>
+      </tr>
+      <tr>
+        <td>bl-solid-bottom</td>
+        <td>border-bottom:1px solid #ccc</td>
+        <td>控制底边框的样式</td>
+      </tr>
+      <tr>
+        <td>bl-solid-right</td>
+        <td>border-right:1px solid #ccc</td>
+        <td>控制右边框的样式</td>
+      </tr>
+      <tr>
+        <td>bl-colorBlue</td>
+        <td>border-color:#3774c8</td>
+        <td>控制边框的颜色，详见元素库中的边框样式</td>
+      </tr>
+      <tr>
+        <td>imgborder</td>
+        <td>padding:2px; border:1px solid #68bbed; background:#fff;</td>
+        <td>控制图片的边框样式和背景，用法：&lt;img src="" class="imgborder"/&gt;</td>
+      </tr>
+      <tr>
+        <td>fw-b</td>
+        <td>font-weight:bold</td>
+        <td>文本加粗</td>
+      </tr>
+      <tr>
+        <td>fw-n</td>
+        <td>font-weight:none</td>
+        <td>文本不加粗</td>
+      </tr>
+       <tr>
+        <td>f-11</td>
+        <td>font-size:11</td>
+        <td>文本的字体大小，分别有f-11，f-12，f-13，f-14，f-15，f-16，f-18，f-20，f-22，f-24，f-40</td>
+      </tr>
+      <tr>
+        <td>p-10</td>
+        <td>padding:10px</td>
+        <td>设置模块元素的内边距，还有p-5</td>
+      </tr>
+      <tr>
+        <td>p-n</td>
+        <td>padding:0px</td>
+        <td>让模块的内边距为0</td>
+      </tr>
+      <tr>
+        <td>pt-5</td>
+        <td>padding-top:5px;</td>
+        <td>模块元素距顶的内边距，主要有pt-2，pt-3，pt-4，pt-5，pt-10，pt-20，pt-30，pt-40</td>
+      </tr>
+      <tr>
+        <td>pb-5</td>
+        <td>padding-bottom:5px;</td>
+        <td>模块元素距底的内边距，主要有pb-2，pb-3，pb-4，pb-5，pb-10</td>
+      </tr>
+      <tr>
+        <td>pl-5</td>
+        <td>padding-left:5px;</td>
+        <td>模块元素距左的内边距，主要有pl-5，pl-10</td>
+      </tr>
+      <tr>
+        <td>pr-5</td>
+        <td>padding-right:5px;</td>
+        <td>模块元素距左的内边距，主要有pr-5，pr-10</td>
+      </tr>
+      <tr>
+        <td>m-10</td>
+        <td>margin:10px</td>
+        <td>设置模块元素的外边距，还有m-5</td>
+      </tr>
+      <tr>
+        <td>m-n</td>
+        <td>margin:0px</td>
+        <td>让模块的外边距为0</td>
+      </tr>
+      <tr>
+        <td>mt-5</td>
+        <td>margin-top:5px;</td>
+        <td>模块元素距顶的外边距，主要有mt-2，mt-3，mt-4，mt-5，mt-10，mt-20，mt-30，mt-40</td>
+      </tr>
+      <tr>
+        <td>mb-5</td>
+        <td>margin-bottom:5px;</td>
+        <td>模块元素距底的外边距，主要有mb-2，mb-3，mb-4，mb-5，mb-10</td>
+      </tr>
+      <tr>
+        <td>ml-5</td>
+        <td>margin-left:5px;</td>
+        <td>模块元素距左的外边距，主要有ml-5，ml-10</td>
+      </tr>
+      <tr>
+        <td>mr-5</td>
+        <td>margin-right:5px;</td>
+        <td>模块元素距左的外边距，主要有mr-5，mr-10</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

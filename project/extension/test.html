@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>优酷App下载</title>
+<link rel="stylesheet" type="text/css" href="http://static.youku.com/h5/html/extension/css/extension.css">
+<script src="http://static.youku.com/h5/html/extension/js/zepto.min.js"></script>
+</head>
+<body>
+<div class="pages">
+<div class="page p1">
+<div class="item-01">
+<img src="img/item1.png" width="124" />
+<div class="item-02">
+<p class="circle01"></p>
+<p class="circle02"></p>
+<p class="circle03"></p>
+<p class="circle04"></p>
+</div>
+</div>
+<div class="item-03">
+<img src="img/item2.png" width="177" class="tada animated"/>
+</div>
+<div class="item-04">
+<img src="img/company.png" width="187"/>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="page p2">
+<div class="item-01">
+<img src="img/item3.png" width="210" />
+</div>
+<div class="item-02">
+<img src="img/item4.png" width="171" class="zoomIn animated"/>
+<div>
+<p class="circle01 fadeInDown animated"></p>
+<p class="circle02 fadeInDown animated"></p>
+<p class="circle03 fadeInDown animated"></p>
+<p class="circle04 fadeInDown animated"></p>
+<p class="circle05 fadeInDown animated"></p>
+</div>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="page p3">
+<div class="item-01">
+<img src="img/item6.png" width="162"/>
+</div>
+<div class="item-02">
+<p class="circle01 fadeInUp animated"></p>
+<p class="circle02 fadeInUp animated"></p>
+<p class="circle03 fadeInUp animated"></p>
+<p class="circle04 fadeInUp animated"></p>
+<p class="circle05 fadeInUp animated"></p>
+<p class="circle06 fadeInUp animated"></p>
+<p class="circle07 fadeInUp animated"></p>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="page p4">
+<div class="item-01">
+<img src="img/item8.png" width="142"/>
+</div>
+<div class="item-02  bounceIn animated">
+<p class="circle01"></p>
+<p class="circle02"></p>
+<p class="circle03"></p>
+<p class="circle04"></p>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="page p5">
+<div class="item-01">
+<img src="img/item11.png" width="177"/>
+</div>
+</div>
+</div>
+<div class="dots">
+<div class="dot dot1 cur"></div>
+<div class="dot dot2"></div>
+<div class="dot dot3"></div>
+<div class="dot dot4"></div>
+<div class="dot dot5"></div>
+</div>
+<div class="download">
+</div>
+<script src="http://static.youku.com/h5/html/extension/js/slider.js"></script>
+<script src="http://static.youku.com/h5/html/extension/js/extension.js"></script>
+<script>
+var date = new Date(),year=date.getFullYear(),mouth = (date.getMonth()+1), day = date.getDate(),hour = date.getHours()
+var updateTime = year+''+mouth+''+day+''+hour;
+
+var bgOne = 'url('+'http://static.youku.com/h5/html/extension/img/item1.png'+'?'+updateTime+')';
+$('.p1').css('background',bgOne)
+</script>
+</body>
+</html>

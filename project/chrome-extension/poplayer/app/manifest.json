@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Poplayer",
+  "description": "Poplayer Chrome Extension",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+		"http://mt2.alibaba-inc.com/",
+    "activeTab",
+    "storage"
+  ]
+}

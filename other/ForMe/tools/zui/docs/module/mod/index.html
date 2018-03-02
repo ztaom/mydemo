@@ -1,0 +1,155 @@
+ <div class="entry-title">
+  <h1>ZUI规范指南——ZUI模块库和内容区</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>常见模块</h3></div>
+        
+  <h3 class="f-14 pt-10 pb-10">普通mod结构</h3>
+  <div class="mod m-normal">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is normal</div>
+     </div>
+   </div>
+   <pre class="brush:c-sharp;">
+    <div class="mod m-normal">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is normal</div>
+     </div>
+   </div>
+   </pre>
+   <h3 class="f-14 pt-10 pb-10">裸mod结构</h3>
+   <div class="mod m-naked">
+     <div class="inner">
+       <div class="bar"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is naked</div>
+     </div>
+   </div>
+   <pre class="brush:c-sharp;">
+    <div class="mod m-naked">
+     <div class="inner">
+       <div class="bar"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is naked</div>
+     </div>
+   </div>
+   </pre>
+   <h3 class="f-14 pt-10 pb-10">加强的mod结构</h3>
+   <div class="mod m-strong">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is strong</div>
+     </div>
+   </div>
+   <pre class="brush:c-sharp;">
+    <div class="mod m-strong">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is strong</div>
+     </div>
+   </div>
+   </pre>
+   <h3 class="f-14 pt-10 pb-10">圆角mod结构</h3>
+   <div class="message msg-tips mb-10">
+     <i class="icon"></i><i class="close"></i>
+     <p class="content">圆角结构分为首页的圆角和其他页面的圆角，在首页使用圆角时用m-curvy-index，在其他页面则用m-curvy-other</p>
+   </div>
+   <div class="mod m-curvy-other">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is curvy-other</div>
+     </div>
+   </div>
+   <pre class="brush:c-sharp;">
+    <div class="mod m-curvy-other">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is curvy-other</div>
+     </div>
+   </div>
+   </pre>
+   <h3 class="f-14 pt-10 pb-10">flow的mod结构</h3>
+   <div class="message msg-tips mb-10">
+     <i class="icon"></i><i class="close"></i>
+     <p class="content">&lt;span class="ie"&gt;&lt;/span&gt;是为了在ie下面也能产生flow效果</p>
+   </div>
+   <div class="mod m-flow">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is flow</div>
+     </div>
+     <span class="ie"></span>
+   </div>
+   <pre class="brush:c-sharp;">
+    <div class="mod m-flow">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is flow</div>
+     </div>
+     <span class="ie"></span>
+   </div>
+   </pre>
+   <h3 class="f-14 pt-10 pb-10">shadow的mod结构</h3>
+   <div class="mod m-shadow">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is shadow</div>
+     </div>
+   </div>
+   <pre class="brush:c-sharp;">
+    <div class="mod m-shadow">
+     <div class="inner">
+       <div class="bar t-alphaBlue bl-solid-bottom bl-alphaBlue"><h3 class="f-14">bar</h3></div>
+       <div class="bd p-10">This is shadow</div>
+     </div>
+   </div>
+   </pre>
+   <h3 class="f-14 pt-10 pb-10">回复评论区域模块 post-bd (i是箭头，由 p-a-t、p-a-b、p-a-l、p-a-r、p-a-t-b、p-a-b-b、p-a-l-b、p-a-r-b控制位置，在主区域中不得再使用&lt;i&gt;)</h3>
+    <h4 class="f-13 pt-10 pb-10 fw-b">1、arrow-small</h4>
+    <div class="zebra-bg post-bd p-a-t"><i></i>post-bd p-a-t</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd p-a-t"><i></i>post-bd p-a-t</div>
+    </pre>
+
+    <div class="zebra-bg post-bd"><i class="p-a-b"></i>post-bd p-a-b</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd">< class="p-a-b"i></i>post-bd p-a-b</div>
+    </pre>
+    <div class="zebra-bg post-bd"><i class="p-a-l"></i>post-bd p-a-l</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd"><i class="p-a-l"></i>post-bd p-a-l</div>
+    </pre>
+    <div class="zebra-bg post-bd"><i class="p-a-r"></i>post-bd p-a-r</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd"><i class="p-a-r"></i>post-bd p-a-r</div>
+    </pre>
+    <h4 class="f-13 pt-10 pb-10 fw-b">2、arrow-big</h4>
+    <div class="zebra-bg post-bd"><i class="p-a-t-b"></i>post-bd p-a-t-b</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd"><i class="p-a-t-b"></i>post-bd p-a-t-b</div>
+    </pre>
+    <div class="zebra-bg post-bd"><i class="p-a-b-b"></i>post-bd p-a-b-b</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd"><i class="p-a-b-b"></i>post-bd p-a-b-b</div>
+    </pre>
+    <div class="zebra-bg post-bd"><i class="p-a-l-b"></i>post-bd p-a-l-b</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd"><i class="p-a-l-b"></i>post-bd p-a-l-b</div>
+    </pre>
+    <div class="zebra-bg post-bd"><i class="p-a-r-b"></i>post-bd p-a-r-b</div>
+    <pre class="brush:c-sharp;">
+    <div class="zebra-bg post-bd"><i class="p-a-r-b"></i>post-bd p-a-r-b</div>
+    </pre>
+    <div class="post-bd post-bd-blue"><i class="p-a-t"></i>post-bd post-bd-blue</div>
+    <pre class="brush:c-sharp;">
+    <div class="post-bd post-bd-blue"><i class="p-a-t"></i>post-bd post-bd-blue</div>
+    </pre>
+    <div class="post-bd post-bd-blue"><i class="p-a-b"></i>post-bd post-bd-blue</div>
+    <pre class="brush:c-sharp;">
+    <div class="post-bd post-bd-blue"><i class="p-a-b"></i>post-bd post-bd-blue</div>
+    </pre>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

@@ -1,0 +1,92 @@
+
+.hide-and-seek{
+	background-color: #e5a6a2;
+}
+
+.hide-and-seek #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}
+
+.cloudbusting{
+	background-color: #ec9b8a;
+}
+
+.cloudbusting #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #f1f1f1, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #f1f1f1, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #f1f1f1, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #f1f1f1, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #f1f1f1, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}
+
+.untitled{
+	background-color: #fafafc;
+}
+
+.untitled #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #ecd9ca, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #ecd9ca, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #ecd9ca, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #ecd9ca, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #ecd9ca, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}
+
+.remix-project{
+	background-color: #e5e5e5;
+}
+
+.remix-project #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #b2b2b2, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #b2b2b2, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #b2b2b2, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #b2b2b2, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #b2b2b2, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}
+
+.mistero-buffo{
+	background-color: #ffec01;
+}
+
+.mistero-buffo #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #ffec01, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #ffec01, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #ffec01, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #ffec01, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #ffec01, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}
+
+
+.about{
+	background-color: #dba39f;
+}
+
+.about #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #feefc7, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}
+
+.re-create, .single_remix{
+	background-color: #ececec;
+}
+
+.re-create #rotate_background, .single_remix #rotate_background{
+	background-image: -moz-radial-gradient(50% 50%, circle closest-side, #ececec, rgba(0,0,0,0) 100%);
+	background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #ececec, rgba(0,0,0,0) 100%);
+	background-image: -o-radial-gradient(50% 50%, circle closest-side, #ececec, rgba(0,0,0,0) 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle closest-side, #ececec, rgba(0,0,0,0) 100%);
+	background-image: radial-gradient(50% 50%, circle closest-side, #ececec, rgba(0,0,0,0) 100%);
+	opacity: 1;
+}

@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>scrollNav.js</title>
+<meta nam='description' content=''>
+<meta name='keywords' content=''>
+<meta name="viewport" content="initial-scale=1">
+<link rel='stylesheet' href='http://scrollnav.com/assets/css/style.css'>
+
+
+</head>
+<body>
+
+	<div class="main" role="main">
+
+		<article class="post__article">
+
+			<h2>Description</h2>
+			<p>scrollNav is a light jQuery plugin that grabs your page's existing content, divides it up into logical sections and builds a customizable scrolling sidebar navigation. Scroll this page and watch the nav follow along with you.</p>
+
+			<h2>Features</h2>
+			<ul class="features-list">
+				<li class="feature simple">
+					<h3>Simple to setup</h3>
+					<p>A single file import and function in your footer and you're on your way.</p>
+				</li>
+				<li class="feature customize">
+					<h3>Fully Customizable</h3>
+					<p>All the styling is up to you and the few bits controled by the plugin are editable</p>
+				</li>
+				<li class="feature size">
+					<h3>Tiny Size</h3>
+					<p>Damn right it's fast! At 1.5kb min'd and GZip'd, scrollNav is pretty unintrusive.</p>
+				</li>
+			</ul>
+
+			<h2>Usage</h2>
+
+			<h3>Import</h3>
+
+			<p>Start by importing the script to your page, the best location is in the footer, but no matter what, make sure it follows your jQuery file.</p>
+
+			<pre>&lt;script src=&quot;jquery.scrollNav.min.js&quot;&gt;&lt;/script&gt;</pre>
+
+			<h3>Build your page</h3>
+
+			<p>Include a class or id hook on the element you want to apply the plugin to and include an <code>&lt;h2&gt;</code> for section headings you want to inlcude in the navigation.</p>
+
+<pre>
+&lt;div class=&quot;main&quot;&gt;
+    &lt;article class=&quot;post__article&quot;&gt;
+        &lt;header class&quot;post__header&quot;&gt;
+            &lt;h1 class=&quot;post__heading&quot;&gt;This is the main heading for the article&lt;/h1&gt;
+            &lt;p class=&quot;post__sub-heading&quot;&gt;This is a sub-heading for the article&lt;/p&gt;
+        &lt;/header&gt;
+        &lt;p&gt;Yada yada yada...&lt;/p&gt;
+        &lt;h2&gt;This is a section heading&lt;/h2&gt;
+        &lt;p&gt;More yada yada...&lt;/p&gt;
+        &lt;h2&gt;Another section heading&lt;/h2&gt;
+        &lt;p&gt;More more yada...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/div&gt;
+</pre>
+
+			<h3>Initialize</h3>
+
+			<p>Now initialize the plugin with your hook for the article</p>
+
+			<pre>$('.post__article').scrollNav();</pre>
+
+			<p>The plugin scans the article, grabs all the <code>&lt;h2&gt;</code>s, adds them to the navigation list and inserts the list before the article. It&#8217;s that easy&#8230;well almost.</p>
+
+			<h3>Styling</h3>
+		
+<pre>
+&lt;nav class=&quot;scroll-nav&quot;&gt;
+    &lt;div class=&quot;scroll-nav__wrapper&quot;&gt;
+        &lt;span class=&quot;scroll-nav__heading&quot;&gt;
+        &lt;ol class=&quot;scroll-nav__list&quot;&gt;
+            &lt;li class=&quot;scroll-nav__item&quot;&gt;
+                &lt;a class=&quot;scroll-nav__link&quot;&gt;
+</pre>
+
+			<p>An <code>active</code> class is attached to the nav item matching the section that is the highest within the view bounds. An <code>in-view</code> class is attached to all nav items whose section is within the view bounds. If you have short sections at the end of your page and dislike that the last nav itmes are never activated, you can use the <code>in-view</code> hook to style all sections with in the view.
+
+			<p>There are loading hooks added to the body element (similar to how Typekit handles font loading) to allow for css transitions or any other changes in css you'd need. When the plug-in starts <code>sn-loading</code> is added to the body class and is replaced by <code>sn-active</code> when the plugin is successful or <code>sn-failed</code> if it fails.</p>
+
+			<h2>Options</h2>
+
+			<p>There are a few customizable options in scrollNav using key : value pairs. Here are the defaults.</p>
+
+<pre>
+$('.post-article').scrollNav({
+    sections: 'h2',
+    subSections: false,
+    sectionElem: 'section',
+    showHeadline: true,
+    headlineText: 'Scroll To',
+    showTopLink: true,
+    topLinkText: 'Top',
+    fixedMargin: 40,
+    scrollOffset: 40,
+    animated: true,
+    speed: 500,
+    insertTarget: this.selector,
+    insertLocation: 'insertBefore',
+    arrowKeys: false,
+    onInit: null,
+    onRender: null,
+    onDestroy: null
+});
+</pre>
+
+			<h3>Sections</h3>
+
+			<p>As mentioned, the script automatically searches for <code>&lt;h2&gt;</code>s within the target article. If your page structure differs, feel free to target another element, like an <code>&lt;h3&gt;</code> or <code>&lt;h4&gt;</code> or even a class, like <code>.scroll-headline</code>.</p>
+
+			<h3>Sub-sections</h3>
+
+			<p>Set to <code>false</code> by default, the plugin supports nesting sub-sections within each section in the final nav. Available selectors are the same as Sections.</p>
+
+			<h3>Section Wrapper Element</h3>
+
+			<p>If your article already contains <code>section</code> tags, you'll want to change this to <code>'div'</code>. Sub-sections aren't affected by this option.
+
+			<h3>Show Headline</h3>
+
+			<p>Set this to <code>false</code> to remove the Headline Text entirely.</p>
+
+			<h3>Headline Text</h3>
+
+			<p>scrollNav&#8217;s default headline text is &#8216;Scroll To&#8217;, but feel free to change it to whatever works for you, like &#8216;Article Sections&#8217; or &#8216;Page Navigation&#8217;</p>
+
+			<h3>Show Top Link</h3>
+
+			<p>Set this to <code>false</code> to remove the <code>Top</code> nav item entirely.</p>
+
+			<h3>Top Link Text</h3>
+
+			<p>scrollNav&#8217;s default return to the top link text is &#8216;Top&#8217;, but feel free to change it to whatever works for you.</p>
+
+			<h3>Fixed Margin</h3>
+
+			<p>This is the <code>top</code> dimension you set for the <code>.scroll-nav.fixed</code> class, which is applied as the user scrolls down the page and is removed as they scroll above the article. You definitely want to set this if you don&#8217;t use the default 40px, otherwise the nav will jump around as the user scrolls past the top of the article.</p>
+
+			<h3>Scroll Offset</h3>
+
+			<p>This option affects two things. First is the "active state" boundries within the viewport. The bounderies are within the area from the top and bottom of the viewport offset by this amount. Second is the destination when scrolling the page. This will place the heading of the section right at the top edge of the "active state" boundry.</p>
+
+			<h3>Animated Scrolling</h3>
+
+			<p>The plugin animates the page scroll when clicking on a nav link by default. Set this to <code>false</code> if you do not wish to animate the scroll.</p>
+
+			<h3>Scrolling Speed</h3>
+
+			<p>Change this to either increase or decrease the animated page scroll speed.</p>
+
+			<h3>Insertion Target</h3>
+
+			<p>If you need to insert the nav relative to an element other than the one scrollNav is initialized on, you can change it here.</p>
+
+			<h3>Insertion Location</h3>
+
+			<p>You can pass any of the following jQuery insertion methods to change where scrollNav is inserted in relation to the targeted container. <code>insertBefore</code>, <code>prependTo</code>, <code>appendTo</code>, or <code>insertAfter</code></p>
+
+			<h3>Arrow Key Navigation</h3>
+
+			<p>Set to <code>false</code> by default, change this to `true` to allow up/down arrow keys to jump through each section.</p>
+
+			<h3>Callback functions</h3>
+
+			<p>There are three new callback functions that you can utilize to accomodate anything you need to run after specific scrollNav events. They are onInit, onRender, and onDestroy. Add them to your options just like any other and they should look like this:</p>
+
+<pre>
+$('.post__article').scrollNav({
+    onInit: function() {
+        callback actions in here
+    }
+});
+</pre>
+			<h2>Errors</h2>
+
+			<p>The plugin will refuse to build and log an error message if it doesn&#8217;t find your desired container or any sections within the container. If the nav doesn&#8217;t show up on load, check your browser&#8217;s console.</p>
+
+			<h2>Issues</h2>
+
+			<p>There are a few known issues, including poor location updating when scrolling on touch devices. If you find any others please submit them to the.</p>
+
+			<h2>License</h2>
+
+			<p>scrollNav is Copyright &copy; 2012-2013 James Wilson, released under the This means you can re-create, edit or share the plugin as long as you maintain the same open licensing.</p>
+
+			<h2>Authors</h2>
+
+			<div style="height:500px;"></div>
+			<h2>Colophon</h2>
+			<div style="height:500px;"></div>
+		</article>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="jquery.scrollNav.js"></script>
+	<script>
+		$('.post__article').scrollNav({
+			headlineText: 'scrollNav',
+			fixedMargin: 60,
+			scrollOffset: 80,
+			arrowKeys: true
+		});
+		var $item = $('.scroll-nav__item');
+		$.each($item, function(){
+			$text = $(this).find('a').html().toLowerCase();
+			$(this).addClass($text);
+		});
+	</script>
+</body>
+</html>

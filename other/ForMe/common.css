@@ -1,0 +1,28 @@
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%; background:#fff}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, img, dl, dt, dd, ol, ul, li, form, label, sup, i, button,input, button, textarea{ margin:0; padding:0; border:0; outline:0; vertical-align:baseline; font-size:100%; font-family:inherit; font-weight:inherit; font-style:normal; }
+li { list-style:none; }
+:focus { outline: 0; }
+a img { border: none; }
+
+body {font-family:"微软雅黑", Arial, Helvetica, Tahoma; color:#000; font-size:62.5%; text-align: left;}
+/*
+设置字体必须用rem或em
+1rem=16px 16px*62.5%=10px 12px=1.2rem
+rem的值并不是固定的
+rem是CSS3新增的一个相对单位root rem <IE8
+*/
+
+article,aside,canvas,figcaption,figure,footer,header,nav,section{display:block;}
+input{-webkit-appearance:none; outline:none}
+
+/* 常用基础样式 */
+a:link, a:visited, a:active { text-decoration:none; color: #333; }
+
+header{background:#eee; padding:5px 0; text-align: center; font-size: 20px; font-weight: bold; box-shadow:0 0 3px;}
+
+.mulu{padding:20px;}
+.mulu h2{font-size: 18px;padding:10px 0; font-weight: bold;}
+.mulu ul li{font-size: 16px; padding:5px 0 5px 10px;}
+.mulu ul li h3{font-weight: bold; margin-bottom: 20px; font-size: 14px;}
+
+.code{background-color: #f7f7f9;border: 1px solid #e1e1e8; padding: 10px;border-radius: 4px;line-height: 1.5;font-size: 13px; display: block;}

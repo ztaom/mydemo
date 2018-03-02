@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>视频demo</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.css" />
+<link rel="stylesheet" href="//g-assets.daily.taobao.net/mtb/lib-video-player/1.2.0/cssrem/video.css" />
+
+<script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js"></script>
+<style>
+  body, html {margin: 0; padding:0;}
+  .lib-video {width: 100%; height: 400px}
+  button{width: 100px; height: 40px}
+  h3{font-size: 20px; line-height: 30px}
+</style>
+
+</head>
+<body>
+  <!-- VIDEO SAMPLES -->
+  <div>
+    <h3>点播视频</h3>
+    <button onclick="reloadPlayerVideo()">reload视频</button>
+    <video webkit-playsinline="webkit-playsinline" id="J_Video_Player" src="//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/34341521.mp4" class="lib-video vjs-hidden" poster="//img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+      <source src="//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/34341521.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script src="//g-assets.daily.taobao.net/mtb/lib-video-player/1.2.0/??hls.js,video.js"></script>
+  <script>
+    var VideoPlayer = window['lib-video-player'];
+
+    var myPlayer = VideoPlayer('J_Video_Player', {
+      timeout : 8000 // default 10000
+    });
+
+    function reloadPlayerVideo(){
+      myPlayer.reload('//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/33880444.mp4?appKey=7588');
+    }
+
+    // setTimeout(function(){
+    //  myPlayer.pause();
+    // }, 3000)
+  </script>
+</body>
+</html>

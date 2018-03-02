@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Rotating Words with CSS Animations</title>
+        <script type="text/javascript" src="../../../js/jquery-1.7.2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style4.css" />
+		 
+		<style>
+			.no-cssanimations .rw-wrapper .rw-sentence span:first-child{
+				opacity: 1;
+			}
+		</style>
+		<!--[if lt IE 9]> 
+			<style>
+				body{ background: #fff; }
+				.rw-wrapper{ display: none; } 
+				.rw-sentence-IE{ display: block;  }
+			</style>
+		<![endif]-->
+    </head>
+    <body>
+        <div class="container">
+			 
+			<header>
+				<h1>Rotating Words <span>with CSS Animations</span></h1>
+				<nav class="codrops-demos">
+					<a href="index.html">Demo 1</a>
+					<a href="index2.html">Demo 2</a>
+					<a href="index3.html">Demo 3</a>
+					<a class="current-demo" href="index4.html">Demo 4</a>
+					<a href="index5.html">Demo 5</a>
+				</nav>
+			</header>
+			<section class="rw-wrapper">
+				<h2 class="rw-sentence">
+					<span>We design &amp; develop</span>
+					<div class="rw-words rw-words-1">
+						<span>beautiful websites</span>
+						<span>interesting apps</span>
+						<span>impactful identities</span>
+						<span>working strategies</span>
+						<span>incredible gadgets</span>
+						<span>intelligent systems</span>
+					</div>
+					<div class="rw-words rw-words-2">
+						<span>that captivate your users</span>
+						<span>that create huge revenue</span>
+						<span>that make you stand out</span>
+						<span>that will push you forward</span>
+						<span>that make your life easy</span>
+						<span>that automatize processes</span>
+					</div>
+				</h2>
+			</section>
+			<h2 class="rw-sentence-IE">We design &amp; develop beautiful websites that captivate your users</h2>
+        </div>
+        <script type="text/javascript" src="../../../js/cont.js"></script>
+    </body>
+</html>

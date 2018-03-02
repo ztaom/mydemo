@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+		<link media="all" rel="stylesheet" href="./index.css" type="text/css" />
+		<script src="./jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="./qrcode.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="left">
+			<div class="qrcode">
+				<div id="qrcode"></div>
+				<span id="res-data" class="res-data"></span>
+			</div>
+			<div class="config-labels">
+				<h4 class="configs-header">常用配置</h4>
+				<div id="config-labels">
+				</div>
+				<div>
+					<input type="text" id="config-name" class="config-name-input" style="display:none;" placeholder="请输入名称"/>
+				</div>
+			</div>
+		</div>
+		<form class="ui form mockform">
+			<div class="inline fields">
+				<div class="five wide field">
+					<label>Android URI</label>
+				</div>
+				<div class="eight wide field">
+					<div class="ui icon input">
+						<input type="text" placeholder="Native URI" name="uriandroid" class="field-input">
+					</div>
+				</div>
+			</div>
+			<div class="inline fields ">
+				<div class="five wide field">
+					<label>iOS URI</label>
+				</div>
+				<div class="eight wide field">
+					<div class="ui icon input">
+						<input type="text" placeholder="Native URI" name="uriios"  class="field-input">
+					</div>
+				</div>
+			</div>
+			<div class="inline fields">
+				<div class="five wide field">
+					<label>modalThreshold</label>
+				</div>
+				<div class="eight wide field">
+					<div class="ui icon input">
+						<input type="number" max="1" min="0" placeholder="modalThreshold" name="modalThreshold" value="0.8" class="field-input">
+					</div>
+				</div>
+			</div>
+			<div class="inline fields">
+				<div class="five wide field">
+					<label>次数</label>
+				</div>
+				<div class="eight wide field">
+					<div class="ui icon input">
+						<input type="number" max="1" min="0" placeholder="弹出次数" name="times" value="0" class="field-input">
+					</div>
+				</div>
+			</div>
+			<div class="inline fields checkboxfields">
+				<div class="five wide field checkboxfield-left">
+					<input type="checkbox" id="showCloseBtn" name="showCloseBtn"  class="field-input">
+					<label for="showCloseBtn">关闭按钮</label>
+				</div>
+				<div class="five wide field">
+					<input type="checkbox" id="enableHardwareAcceleration" name="enableHardwareAcceleration"  class="field-input">
+					<label for="enableHardwareAcceleration">硬件加速(Android)</label>
+				</div>
+			</div>
+			<div class="inline fields">
+				<div class="five wide field">
+					<label>高级配置</label>
+				</div>
+				<div class="eight wide field">
+					<div class="ui checkbox">
+						<textarea name="moreConfig" class="field-input">{}</textarea>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" value="false" name="uuid" value="poplayer_mock">
+			<input type="button" class="save-btn" id="save-btn" value="保存配置" />
+		</form>
+	</div>
+	<script src="./index.js" type="text/javascript"></script>
+</body>
+</html>

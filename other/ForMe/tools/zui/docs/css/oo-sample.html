@@ -1,0 +1,535 @@
+<!--$Id: oo-sample.html,v 1.22 2010/08/05 01:26:34 gaopeng Exp $ -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>${pageTitle }|${siteName }</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="http://assets.dongao.cn/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://assets.dongao.cn/plugin/opensearch/provider.xml" title="东奥会计培训" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/yui3/reset-fonts-grids.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/content.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/mod.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/mod_skins.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/breadcrumb.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/tabs.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/talk.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/plugin/talk_skins.css?v=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.dongao.cn/css/lib/oo/mod_skins_ex.css?v=1" />
+<script src="http://assets.dongao.cn/js/lib/dui/d.js?v=1"></script>
+</head>
+<body>
+<div class="yui3-d0f yui3-t4">
+  <div id="hd">
+    <h1>ZUI css规范&gt;&gt;面向对象例子</h1>
+  </div>
+  
+  <div id="bd">
+    <div class="yui3-main">
+      <div class="yui3-b">
+      	<div class="yui3-gf">
+      	  <div class="yui3-u first">
+      		<script src="nav.js"></script>	
+      	  </div>
+		  <div class="yui3-u">
+		  	<h2>模块定义以及其skin</h2>
+			<p>mod/complex/pop<hr/>mod's skin:simple,basic,simpleExt,me,noted,grab,faq,onlinestore,about,talk<hr/>
+			complex's skin:photo,flow,excerpt<hr/>pop's skin:sommers,gonzalo</p>
+			
+			<h2>背景的skin</h2>
+			<p></p>
+			
+			<h2>block header and footer的skin</h2>
+			<p></p>
+			
+			<hr/>
+		  	
+		    <!--oo sample start { -->
+			<h2>.media的使用例子</h2>
+			<div class="media">
+				<a href="http://twitter.com/stubbornella" class="img"><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" alt="me" /></a>
+				<div class="bd">
+					@Stubbornella 14 minutes ago
+				</div>
+			</div>	
+			<div class="media">
+				<a href="http://twitter.com/stubbornella" class="imgExt"><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" alt="me" /></a>
+				<div class="bd">
+					@Stubbornella 14 minutes ago
+				</div>
+			</div>					
+			
+			<hr/>
+			
+			<h2>.breadcrumb的使用例子</h2>
+			<ul class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Study</a></li>
+				<li>Current Page Title</li>
+			</ul>
+			
+			<hr/>
+			
+			<h2>.mod .tabs .simple的使用例子</h2>
+			<div class="mod simple tabs tabPosBottom">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+					<div class="bd">
+					  <ul> 
+				        <li>Tab 1 Content</li> 
+				        <li>Tab 2 Content</li> 
+				        <li class="current">Tab 3 Content<br /><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" /><br /><br /></li>				        
+			          </ul> 
+					</div>
+					<div class="hd topper">
+					  <ul class="tabControl">
+					  	<li><a href="#"><span>Tab 1</span></a></li>
+						<li><a href="#"><span>Tab 2</span></a></li>
+						<li class="current"><a href="#"><span>Tab 3</span></a></li>						
+					  </ul> 
+			          <ul class="controls">
+			          	<li><a href="#"><span>x</span></a></li>
+						<li><a href="#"><span>-</span></a></li>
+						<li><a href="#"><span>+</span></a></li>
+					  </ul> 
+					</div>
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			
+			<h2>.mode .tabs .simpleExt的使用例子</h2>
+			<div class="mod simpleExt tabs tabPosTop">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+					<div class="hd section">
+					  <ul class="tabControl">
+					  	<li><a href="#"><span>Tab 1</span></a></li>
+						<li><a href="#"><span>Tab 2</span></a></li>
+						<li class="current"><a href="#"><span>Tab 3</span></a></li>						
+					  </ul> 
+			          <ul class="controls">
+			          	<li><a href="#"><span>x</span></a></li>
+						<li><a href="#"><span>-</span></a></li>
+						<li><a href="#"><span>+</span></a></li>
+					  </ul> 
+					</div>
+					<div class="bd">
+					  <ul> 
+				        <li>Tab 1 Content</li> 
+				        <li>Tab 2 Content</li> 
+				        <li class="current">Tab 3 Content<br/><br/><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" /><br /><br /></li>				        
+			          </ul> 
+					</div>
+					
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			
+			<h2>.mode .tabs .noted的使用例子</h2>
+			<div class="mod noted tabs tabPosLeft">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+					<div class="hd bam">
+					  <ul class="tabControl">
+					  	<li><a href="#"><span>Tab 1</span></a></li>
+						<li><a href="#"><span>Tab 2</span></a></li>
+						<li class="current"><a href="#"><span>Tab 3</span></a></li>						
+					  </ul> 
+			          <ul class="controls">
+			          	<li><a href="#"><span>x</span></a></li>
+						<li><a href="#"><span>-</span></a></li>
+						<li><a href="#"><span>+</span></a></li>
+					  </ul> 
+					</div>
+					<div class="bd">
+					  <ul> 
+				        <li>Tab 1 Content</li> 
+				        <li class="current">Tab 2 Content</li> 
+				        <li>Tab 3 Content<br/><br/><img src="http://www.dongao.com/index/UploadFiles_9070/201006/2010063018111090.jpg" /><br /><br /></li>				        
+			          </ul> 
+					</div>
+					
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			
+			<hr/>
+			
+			<h2>.bubble以及其skin的使用例子</h2>
+			<div class="mod bubble bubbleBottom discuss">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+				    <div class="bd">
+				    	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga</p>
+				    </div>
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			<div class="media">
+				<a href="http://twitter.com/stubbornella" class="img"><img src="http://a3.twimg.com/profile_images/72157651/tattoo_pink_bkg_square_mini.jpg" alt="Stubbornella" /></a> 
+				<div class="bd">
+					<a href="http://twitter.com/stubbornella">@Stubbornella</a> 
+					<span class="detail">14 minutes ago</span>
+				</div> 
+			</div>
+			
+			<hr/>
+			
+			<h2>.complex .excerpt的使用例子</h2>
+			<div class="mod complex excerpt">
+				<b class="top"><b class="tl"></b><b class="tr"></b></b>
+				<div class="inner">
+					<div class="hd section">
+						<h3>mod标题</h3>
+					</div>
+					<div class="bd">
+					  <ul>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+						<li>a</li>
+					  </ul>
+					</div>
+					<div class="ft act">
+						<p>Foot</p>
+					</div>
+				</div>
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b>
+			</div>
+			
+			<h2>.complex .photo的使用例子</h2>
+			<div class="mod complex photo"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.complex .flow的使用例子</h2>
+			<div class="mod complex flow"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<hr/>
+			
+			<h2>.mod .grab的使用例子</h2>
+			<div class="mod grab"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .onlinestore的使用例子</h2>
+			<div class="mod onlinestore"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd online"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .faq的使用例子</h2>
+			<div class="mod faq"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd help"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .about的使用例子</h2>
+			<div class="mod about"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd info"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .simple的使用例子</h2>
+			<div class="mod simple"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .basic的使用例子</h2>
+			<div class="mod basic"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .simpleExt的使用例子</h2>
+			<div class="mod simpleExt"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .me的使用例子</h2>
+			<div class="mod me"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .noted的使用例子</h2>
+			<div class="mod noted"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.mod .talk的使用例子</h2>
+			<div class="mod talk"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<hr/>
+			
+			<h2>.pop .sommers的使用例子</h2>
+			<div class="mod pop sommers"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd bam"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<h2>.pop .gonzalo的使用例子</h2>
+			<div class="mod pop gonzalo"> 
+				<b class="top"><b class="tl"></b><b class="tr"></b></b> 
+				<div class="inner"> 
+					<div class="hd gonz"> 
+						<h3>hot deals</h3> 
+					</div> 
+					<div class="bd"> 
+					    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+					</div> 
+				</div> 
+				<b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+			</div> 
+			
+			<div id="popup"> 
+		      <div class="mod pop gonzalo"> 
+			    <b class="top"><b class="tl"></b><b class="tr"></b></b> 
+			    <div class="inner"> 
+				  <div class="bd"> 
+					<h3 class="error">.pop的使用例子，Please login...</h3> 
+					<p>to see customer care information.</p> 
+				  </div> 
+			    </div> 
+			    <b class="bottom"><b class="bl"></b><b class="br"></b></b> 
+		      </div> 
+	        </div> 
+			
+			<hr/>
+			
+			<h2>.data与table的例子</h2>
+			<div class="data"> 
+              <table> 
+                <thead> 
+                  <tr> 
+                    <th scope="col"></th> 
+                    <th scope="col" colspan="4">Occurrences in one page</th> 
+                  </tr> 
+                </thead> 
+                <thead> 
+                  <tr> 
+                    <th scope="col">Declaration</th> 
+                    <th scope="col">Max</th> 
+                    <th scope="col">Percentage too many <br />&gt; 10</th> 
+                    <th scope="col">Percentage sites *way* too many <br />&gt; 100</th> 
+                    <th scope="col">Suggestion</th> 
+                  </tr>				  
+                </thead>
+				<tfoot></tfoot>
+				<tbody>
+				  <tr class="txtT txtR"> 
+                    <th scope="row">float</th> 
+                    <td>733</td> 
+                    <td>56%</td> 
+                    <td>13%</td> 
+                    <td>1111ess than 10.</td> 
+                  </tr> 
+				  <tr> 
+                    <th scope="row">float</th> 
+                    <td class="txtC txtB">733</td> 
+                    <td class="txtL txtT">56%</td> 
+                    <td class="txtR txtM">13%</td> 
+                    <td>1111ess than 10.</td> 
+                  </tr>				  
+				</tbody>
+			  </table>
+			</div>
+			
+			<h2>.data与table .spec的例子</h2>
+			<div class="data"> 
+              <table class="spec"> 
+                <thead> 
+                  <tr> 
+                    <th scope="col"></th> 
+                    <th scope="col" colspan="4">Occurrences in one page</th> 
+                  </tr> 
+                </thead> 
+                <thead> 
+                  <tr> 
+                    <th scope="col">Declaration</th> 
+                    <th scope="col">Max</th> 
+                    <th scope="col">Percentage too many <br />&gt; 10</th> 
+                    <th scope="col">Percentage sites *way* too many <br />&gt; 100</th> 
+                    <th scope="col">Suggestion</th> 
+                  </tr>				  
+                </thead>
+				<tfoot></tfoot>
+				<tbody>
+				  <tr class="txtT txtR"> 
+                    <th scope="row">float</th> 
+                    <td>733</td> 
+                    <td>56%</td> 
+                    <td>13%</td> 
+                    <td>1111ess than 10.</td> 
+                  </tr> 
+				  <tr> 
+                    <th scope="row">float</th> 
+                    <td class="txtC txtB">733</td> 
+                    <td class="txtL txtT">56%</td> 
+                    <td class="txtR txtM">13%</td> 
+                    <td>1111ess than 10.</td> 
+                  </tr>				  
+				</tbody>
+			  </table>
+			</div>
+			
+			<hr/>
+			
+			<div class="data">
+			  <ol class="simpleList">
+			  	<h3>ol.simpleList</h3>
+				<li class="category"><a href="#">li.category</a></li>
+				<li class="important"><a href="#">li.important</a></li>
+				<li><a href="#">aa</a></li>
+				<li><a href="#">aa</a></li>
+				<li><a href="#">aa</a></li>
+			  </ol>
+			  <ul class="simpleList">
+			  	<h3>ul.simpleList</h3>
+				<li><a href="#">aa</a></li>
+				<li><a href="#">aa</a></li>
+				<li><a href="#">aa</a></li>
+				<li><a href="#">aa</a></li>
+				<li><a href="#">aa</a></li>
+			  </ul>
+			</div>
+			
+			<!-- oo sample stop } -->
+			
+		  </div>
+        </div>
+      </div>
+	</div> <!--yui3-main-->
+	
+    <div class="yui3-b">
+      <script src="/css/src/dui/template/nav.js"></script>
+    </div>
+  </div> <!--bd-->
+  
+  <div id="ft">
+    <p>Copyright &#169; 2007-2010 东奥教育在线 Inc. All rights reserved.</p> 
+  </div>  
+
+</div>
+</body>
+
+<script src="http://assets.dongao.cn//css/src/dui/template/hook.js" type="text/javascript"></script>
+</html>

@@ -1,0 +1,836 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="data-spm" content="a2h0f">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>三生三世</title>
+    <script src="http://g.alicdn.com/mtb/lib-windvane/2.1.4/windvane.js"></script>
+    <script>
+        if (document.documentElement.clientWidth < document.documentElement.clientHeight) {
+            window.WindVane.call('WVPopLayer', 'display', {});
+
+            window.WindVane.call('WVPopLayer', 'increaseReadTimes', {}, function (num) {
+                //成功增加打开次数
+            }, function (e) {});
+        }
+
+        //预加载
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/cloudbg.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/renwu.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/title.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/text.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/shan.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/wumai.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/yuyuebtn.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/huaban1.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/huaban2.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/huaban3.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/huaban4.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/huaban5.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/huaban6.png";
+        (new Image()).src = "http://static.youku.com/h5/html/taohua/img/backsprites1.png";
+    </script>
+    <style>
+        html {
+            -webkit-text-size-adjust: none;
+            width: 100%; height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -webkit-user-select: none;
+            user-select: none;
+            overflow: hidden;
+        }
+
+        a, img {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            outline: 0;
+            border: 0;
+        }
+
+        body, p {
+            margin: 0;
+            padding: 0;
+            vertical-align: baseline;
+        }
+
+        /*
+        0.1rem = 2px
+        */
+        #wrapper {
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            width: 18.75rem;
+            height: 33.3rem;
+            display: none
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .show {
+            display: block !important;
+        }
+
+        .yuyue {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            -webkit-animation: showPage 0.1s 1s forwards;
+        }
+
+        .yuyue .bgpic {
+            display: block;
+            width: 18.75rem;
+        }
+
+        .yuyue .title, .yuyue .shan, .yuyue .renwu, .info, .yuyue .wumai {
+            position: absolute;
+            left: 50%;
+        }
+
+        .info{opacity: 0}
+
+        #btn {
+            opacity: 0;
+            z-index: 150;
+            position: absolute;
+            left: 50%;
+            bottom: 3rem;
+            margin-left: -4.125rem;
+            width: 8.25rem;
+            height: 2.575rem;
+            background: url(http://static.youku.com/h5/html/taohua/img/yuyuebtn.png) no-repeat;
+            background-size: 8.25rem auto;
+        }
+
+        #close {
+            opacity: 0;
+            z-index: 150;
+            position: absolute;
+            right: .5rem;
+            top: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: url(http://static.youku.com/h5/html/taohua/img/close.png) no-repeat center center;
+            background-size: 1.2rem auto;
+        }
+
+        .addBtn #btn .addBtn #close{
+            z-index: 150;
+        }
+
+        #btn,#close, .info{
+            -webkit-animation: showPage 0.1s 1.3s forwards;
+        }
+
+        .yuyue .title {
+            background: url(http://static.youku.com/h5/html/taohua/img/title.png) no-repeat;
+            background-size: 4.075rem auto;
+            width: 4.075rem;
+            height: 8.925rem;
+            top: 4.175rem;
+            margin-left: -2.0375rem;
+            z-index: 11;
+            animation: atitle 8s infinite linear
+        }
+
+        .yuyue .shan {
+            background: url(http://static.youku.com/h5/html/taohua/img/shan.png) no-repeat;
+            background-size: 6.4rem auto;
+            width: 6.4rem;
+            height: 5.1rem;
+            top: 5.375rem;
+            margin-left: 2.9rem;
+            left: 0;
+            z-index: 9;
+            animation: ashan 12s infinite linear
+        }
+
+        .yuyue .renwu {
+            background: url(http://static.youku.com/h5/html/taohua/img/renwu.png) no-repeat;
+            background-size: 18.75rem auto;
+            width: 18.75rem;
+            height: 17.725rem;
+            top: 8.25rem;
+            left: 0;
+            z-index: 10;
+            animation: arenwu 16s infinite linear;
+        }
+
+        .yuyue .wumai {
+            background: url(http://static.youku.com/h5/html/taohua/img/wumai.png) no-repeat;
+            background-size: 18.75rem auto;
+            width: 18.75rem;
+            height: 9.8rem;
+            bottom: 8rem;
+            left: 0;
+            z-index: 11;
+            animation: awumai 10s infinite forwards ease-in;
+            opacity: 0
+        }
+
+        .info {
+            background: url(http://static.youku.com/h5/html/taohua/img/text.png) no-repeat;
+            background-size: 11.425rem auto;
+            width: 11.425rem;
+            height: 2.025rem;
+            margin-left: -5.7125rem;
+            bottom: 6.45rem;
+            z-index: 12
+        }
+
+        @-webkit-keyframes atitle {
+            0% {
+                -webkit-transform: translateY(0);
+            }
+            25% {
+                -webkit-transform: translateY(-1rem);
+            }
+            50% {
+                -webkit-transform: translateY(0rem);
+            }
+            75% {
+                -webkit-transform: translateY(-1rem);
+            }
+            100% {
+                -webkit-transform: translateY(0rem);
+            }
+        }
+
+        @-webkit-keyframes arenwu {
+            0% {
+                -webkit-transform: translateY(0);
+            }
+            9% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            10% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            19% {
+                -webkit-transform: translateY(0rem);
+            }
+            20% {
+                -webkit-transform: translateY(0rem);
+            }
+            29% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            30% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            39% {
+                -webkit-transform: translateY(0rem);
+            }
+            40% {
+                -webkit-transform: translateY(0rem);
+            }
+            49% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            50% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            59% {
+                -webkit-transform: translateY(0rem);
+            }
+            60% {
+                -webkit-transform: translateY(0rem);
+            }
+            69% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            70% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            79% {
+                -webkit-transform: translateY(0rem);
+            }
+            80% {
+                -webkit-transform: translateY(0rem);
+            }
+            89% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            90% {
+                -webkit-transform: translateY(-1.4rem);
+            }
+            99% {
+                -webkit-transform: translateY(0rem);
+            }
+            100% {
+                -webkit-transform: translateY(0rem);
+            }
+        }
+
+        @-webkit-keyframes ashan {
+            0% {
+                -webkit-transform: translateX(0);
+            }
+            50% {
+                -webkit-transform: translateX(1.5rem);
+            }
+            100% {
+                -webkit-transform: translateX(0rem);
+            }
+        }
+
+        @-webkit-keyframes awumai {
+            0% {
+                -webkit-transform: translateX(-15rem);
+                opacity: 1
+            }
+            80% {
+                -webkit-transform: translateX(0rem);
+                opacity: 1
+            }
+            100% {
+                -webkit-transform: translateX(0rem);
+                opacity: 0
+            }
+        }
+
+        #wrapper .hbdiv {
+            position: absolute;
+            width: 5rem;
+            height: 5rem;
+            z-index: 12;
+            -webkit-animation-iteration-count: infinite, infinite;
+            -webkit-animation-direction: normal, normal;
+            -webkit-animation-timing-function: linear, ease-in;
+        }
+
+        #wrapper .hbdiv img {
+            position: absolute;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-transform-origin: 50% -100%;
+        }
+
+        @-webkit-keyframes fade {
+            0% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes drop {
+            0% {
+                -webkit-transform: translate(0, -2.5rem);
+            }
+            100% {
+                -webkit-transform: translate(0, 32.5rem);
+            }
+        }
+
+        @-webkit-keyframes flyBlossoms {
+            0% {
+                -webkit-transform: translate(-2.5rem, 0);
+            }
+            100% {
+                -webkit-transform: translate(22.5rem, -15rem);
+            }
+        }
+
+        @-webkit-keyframes clockwiseSpin {
+            0% {
+                -webkit-transform: rotate(-50deg);
+            }
+            100% {
+                -webkit-transform: rotate(50deg);
+            }
+        }
+
+        @-webkit-keyframes counterclockwiseSpinAndFlip {
+            0% {
+                -webkit-transform: scale(-1, 1) rotate(50deg);
+            }
+            100% {
+                -webkit-transform: scale(-1, 1) rotate(-50deg);
+            }
+        }
+
+        #popwrap{
+            z-index: 140;
+            position: absolute;
+            width: 13.7rem;
+            height: 8.45rem;
+            bottom: 8.55rem;
+            left: 2.5rem;
+            display: none;
+            background: url(http://static.youku.com/h5/html/taohua/img/popbg.png?v2118) no-repeat center 0;
+            background-size: cover;
+        }
+
+        #popwrap .popContent{
+            position: absolute;
+            bottom: 2.5rem;
+            width: 13.7rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #ff3669;
+        }
+
+        #rainBox, #flyBox, #blossomsBox, #blossomsOutBox {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #blossomsBox, #blossomsOutBox {
+            z-index: 130;
+        }
+
+        .blossom {
+            opacity: 0;
+            position: absolute;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .blossomShow .blossom1 {
+            top: 16rem;
+            left: 8rem;
+            -webkit-transform: rotate(45deg) translate(0, 0) scale(14);
+            -webkit-animation: blossom1In 0.4s forwards;
+        }
+
+        @-webkit-keyframes blossom1In {
+            0% {
+                opacity: 0;
+                -webkit-transform: rotate(45deg) translate(0, 0) scale(14);
+            }
+            100% {
+                opacity: 0.8;
+                -webkit-transform: rotate(45deg) translate(0, 0) scale(1);
+            }
+        }
+
+        .blossoms1, .blossoms1copy {
+            position: absolute;
+            bottom: 0;
+            top: 16rem;
+            left: 6rem;
+            width: 7.5rem;
+            height: 9.5rem;
+            opacity: 0;
+            -webkit-transform: scale(8);
+        }
+
+        .blossomShow .blossoms1 {
+            -webkit-animation: blossoms1In 0.4s 0.1s forwards;
+        }
+
+        .blossomShow .blossoms1copy {
+            -webkit-animation: blossoms1In 0.5s 0.2s forwards;
+        }
+
+        @-webkit-keyframes blossoms1In {
+            20% {
+                opacity: 0;
+                -webkit-transform: scale(8);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+        }
+
+        .blossoms {
+            position: absolute;
+            bottom: 0;
+            top: 7rem;
+            left: 2rem;
+            width: 15.375rem;
+            height: 13.425rem;
+            opacity: 0;
+            -webkit-transform: scale(8);
+        }
+
+        @-webkit-keyframes blossomsIn {
+            20% {
+                opacity: 0;
+                -webkit-transform: scale(8);
+            }
+            100% {
+                opacity: 0.8;
+                -webkit-transform: scale(1);
+            }
+        }
+
+        .blossomShow .blossoms2 {
+            top: 7rem;
+            left: 2rem;
+            -webkit-animation: blossomsIn 0.5s 0.1s forwards;
+        }
+
+        .blossomShow .blossoms3 {
+            top: 12rem;
+            left: 1rem;
+            -webkit-animation: blossomsIn 0.5s 0.2s forwards;
+        }
+
+        .blossomShow .blossoms4 {
+            top: 18rem;
+            left: -2rem;
+            -webkit-animation: blossomsIn 0.5s 0.3s forwards;
+        }
+
+        .blossomShow .blossoms5 {
+            top: 20rem;
+            left: 6rem;
+            -webkit-animation: blossomsIn 0.5s 0.4s forwards;
+        }
+
+        .blossomShow .blossoms6 {
+            top: 10rem;
+            left: 4rem;
+            -webkit-animation: blossomsIn 0.5s 0.5s forwards;
+        }
+
+        .blossomShow .blossoms7 {
+            top: 7rem;
+            left: 2rem;
+            -webkit-animation: blossomsIn 0.6s 0.1s forwards;
+        }
+
+        .blossomShow .blossoms8 {
+            top: 12rem;
+            left: 1rem;
+            -webkit-animation: blossomsIn 0.6s 0.2s forwards;
+        }
+
+        .blossomShow .blossoms9 {
+            top: 18rem;
+            left: -2rem;
+            -webkit-animation: blossomsIn 0.6s 0.3s forwards;
+        }
+
+        .blossomShow .blossoms10 {
+            top: 20rem;
+            left: 6rem;
+            -webkit-animation: blossomsIn 0.6s 0.4s forwards;
+        }
+
+        .blossomShow .blossoms11 {
+            top: 10rem;
+            left: 4rem;
+            -webkit-animation: blossomsIn 0.6s 0.5s forwards;
+        }
+
+        .blossomsbg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            opacity: 0;
+            -webkit-transform: scale(4);
+        }
+
+        .blossomShow .blossomsbg {
+            -webkit-animation: blossomIn 1.1s forwards;
+        }
+
+        @-webkit-keyframes blossomIn {
+            50% {
+                opacity: 0;
+                -webkit-transform: scale(4);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+        }
+
+        
+        .backanimte {opacity: 0;}
+        .showOutBox .backanimte{background:url(http://static.youku.com/h5/html/taohua/img/backsprites1.png) no-repeat 0 0; background-size:cover; width: 18.75rem; height:33.3rem; position: absolute; -webkit-animation: backanimte 1s 1s steps(16) forwards; }
+        @-webkit-keyframes backanimte {
+            0% {
+                background-position: 0 0;
+                opacity: 1;
+            }
+            100% {
+                background-position: 0 -532.8rem;
+                opacity: 0;
+            }
+        }
+
+
+        #blossomsBox{
+            -webkit-animation: hidePage 0.01s 1s forwards;
+        }
+
+        #blossomsOutBox,#flyBox{
+            opacity: 0;
+        }
+
+        #blossomsOutBox,#flyBox{
+            -webkit-animation: showPage 0.01s 1s forwards;
+        }
+
+        @-webkit-keyframes hidePage {
+            99%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes showPage{
+            99%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+        .hideList #yuyue,
+        .hideList #popwrap,
+        .hideList #blossomsBox,
+        .hideList #blossomsOutBox,
+        .hideList #flyBox,
+        .hideList #close,
+        .hideList #info,
+        .hideList #btn{
+            display: none;
+        }
+
+        /* 自动隐藏 */
+        .hidePagee{animation:ahidePagee 4s forwards;}
+
+        @-webkit-keyframes ahidePagee{
+            0%{
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body onload="start()" data-spm="8263585">
+<script type="text/javascript" id="beacon-aplus" src="//g.alicdn.com/alilog/mlog/aplus_o.js"
+        exparams="clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx" async></script>
+<div id="wrapper" class="hideList">
+    <div id="container">
+        <div id="yuyue" class="yuyue">
+            <img src="http://static.youku.com/h5/html/taohua/img/cloudbg.png" class="bgpic">
+            <div class="title"></div>
+            <div class="shan"></div>
+            <div class="renwu"></div>
+            <div class="wumai"></div>
+        </div>
+        <div id="popwrap">
+            <div id="popContent" class="popContent"></div>
+        </div>
+
+        <div id="blossomsBox">
+            <img class="blossoms1" src="http://static.youku.com/h5/html/taohua/img/blossoms1.png"/>
+            <img class="blossoms blossoms2" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms3" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms4" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms5" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms6" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms7" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms8" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms9" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms10" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossoms blossoms11" src="http://static.youku.com/h5/html/taohua/img/blossoms.png"/>
+            <img class="blossomsbg" src="http://static.youku.com/h5/html/taohua/img/back1.png"/>
+        </div>
+
+        <div id="blossomsOutBox" class="showOutBox">
+            <div class="backanimte"></div>
+        </div>
+        <div id="flyBox"></div>
+        
+        <div class="close" id="close"></div>
+        <div class="info" id='info'></div>
+        <div class="button" id="btn"></div>
+    </div>
+    <div id="rainBox"></div>
+</div>
+<script src="http://static.youku.com/h5/html/taohua/js/huabanyu.js?v1000"></script>
+<script src="http://static.youku.com/h5/html/taohua/js/rainFun.js?v1954"></script>
+<script>
+    var wrapDom = document.getElementById('wrapper');
+    var containerDom = document.getElementById('container');
+    var textList = ['月老已上班 桃花将泛滥',
+        '桃花体质 人见人爱',
+        '由于颜值过高 运势无法预告',
+        '晴天多发朋友圈 桃花多到像募捐',
+        '上天很心疼 桃花运爆棚',
+    '春节拜恩师 真桃花出世',
+    '运势如虹 桃花正浓',
+    '单身已成精 桃花指数零',
+    '头顶有霞光 桃花运超旺',
+    '看片发弹幕 桃花挡不住'];
+    (function (doc, win) {
+        window.WindVane.call('WVPopLayer', 'increaseReadTimes', {}, function (s) {
+            //成功增加打开次数
+        }, function (e) {
+            //打开失败
+        });
+        var docEl = doc.documentElement;
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = docEl.clientWidth;
+        var clientHeight = docEl.clientHeight;
+
+        if (clientWidth > 0.78 * clientHeight) {
+            clientWidth = 0.78 * clientHeight;
+        }
+
+        wrapDom.style.width = clientWidth + 'px';
+        wrapDom.style.height = clientHeight + 'px';
+        var recalc = function () {
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+    function randomInteger(low, high) {
+        return low + Math.floor(Math.random() * (high - low));
+    }
+
+    function start() {
+        var close = document.getElementById('close');
+        var info = document.getElementById('info');
+        var btn = document.getElementById('btn');
+        var popWrap = document.getElementById('popwrap');
+        var blossomsBox = document.getElementById('blossomsBox');
+        var blossomsOutBox = document.getElementById('blossomsOutBox');
+        var flyBox = document.getElementById('flyBox');
+        var yuyue = document.getElementById('yuyue');
+        var popContent = document.getElementById('popContent');
+        var randomNum = randomInteger(0, 10);
+        var showText = '由于颜值过高 运势无法预告';
+        var hideTimer;
+
+        var judge = window.localStorage.getItem("isFirst") || 0;
+
+        //跳转播放页
+        // var skipLink = 'youku://play?vid=XMjQ3ODM1MTg5Mg==&source=poplayer';
+
+        // var ua = navigator.userAgent.toLowerCase()
+        // if (/iphone|ipad/.test(ua)) {
+        //     skipLink = 'youku://jsplay?vid=XMjQ3ODM1MTg5Mg==&source=poplayer';//iOS链接
+        // } 
+
+        wrapDom.classList.add('show');
+
+        blossomsBox.classList.add('blossomShow');
+        showText = textList[randomNum];
+        popContent.innerText = showText;
+        if(!!judge && parseInt(judge) >= 10000){
+            //rainBlossom('rainBox', false);
+            rainPeach('rainBox')
+        }else{
+            window.localStorage.setItem("isFirst", ++judge);
+            wrapDom.classList.remove('hideList');
+            rainBlossom('flyBox', true);
+        }
+        // localStorage.clear();
+
+        close.addEventListener('touchend', function (event) {
+            event.preventDefault();
+            ga('send', 'event', 'poplayer', 'close');
+            //rainBlossom('rainBox', false);
+            rainPeach('rainBox')
+            //clearTimeout(hideTimer)
+            containerDom.removeChild(popWrap);
+            containerDom.removeChild(info);
+            containerDom.removeChild(btn);
+            containerDom.removeChild(yuyue);
+            containerDom.removeChild(flyBox);
+            containerDom.removeChild(blossomsBox);
+            containerDom.removeChild(blossomsOutBox);
+            containerDom.removeChild(close);
+        }, false);
+
+        
+        btn.addEventListener('touchend', function () {
+            event.preventDefault();
+            ga('send', 'event', 'poplayer', 'order');
+            popWrap.style.display = 'block';
+            blossomsOutBox.style.display = 'none';
+            
+            document.getElementById('container').className = 'hidePagee'
+            rainPeach('rainBox')
+
+            // hideTimer = setTimeout(function(){
+            //     containerDom.removeChild(popWrap);
+            //     containerDom.removeChild(info);
+            //     containerDom.removeChild(btn);
+            //     containerDom.removeChild(yuyue);
+            //     containerDom.removeChild(flyBox);
+            //     containerDom.removeChild(blossomsBox);
+            //     containerDom.removeChild(blossomsOutBox);
+            //     containerDom.removeChild(close);
+            //     window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+            //         //关闭成功
+            //     }, function (e) {
+            //         //关闭失败
+            //     });
+            // },4000);
+        },false);
+
+        // popWrap.addEventListener('touchstart', function () {
+        //     ga('send', 'event', 'poplayer', 'popup_more');
+        //     window.WindVane.call('WVPopLayer', 'navToUrl', {
+        //         'url':skipLink
+        //     }, function(s){
+                
+        //     }, function(e) {
+
+        //     });
+        // });
+
+    }
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90485274-2', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

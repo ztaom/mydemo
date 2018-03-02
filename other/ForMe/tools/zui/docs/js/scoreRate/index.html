@@ -1,0 +1,66 @@
+<!--$Id: index.html,v 1.1 2011/05/18 08:02:42 xuerong Exp $ -->
+<style>
+.score {position:relative;}
+.score .starTip {position:absolute; z-index:10; background:#fff; padding:4px 30px; width:100px; top:-40px;}
+.score .starTip .p-a-b {left:70px;}
+</style>
+<div class="entry-title">
+  <h1>DUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>星级评分<span class="feature">(rate score)</span></h3></div>
+  <div class="score" id="score2">
+    <div class="starTip post-bd post-bd-blue hidden"><span class="p-a-b"></span><em class="logocolor">3分</em> 解答的一般</div>
+  </div>
+  <script src="http://www.ztaom.com/js/jquery.raty.js"></script>
+<script type="text/javascript"> 
+	$(function() {
+		$('#score1,#score2,#score3,#score4').raty({
+			start:2,
+			width:150	
+		}); 
+		$('.score img').addClass('star');
+	});
+</script> 
+<script>
+   $(function(){
+	   $(".score").hover(function(){
+		   $(this).find('.starTip').show();
+	   },function(){
+		   $(this).find('.starTip').hide();
+	   })
+   })
+</script>
+  <pre class="brush:c-sharp;">
+  &lt;style>
+.score {position:relative;}
+.score .starTip {position:absolute; z-index:10; background:#fff; padding:4px 30px; width:100px; top:-40px;}
+.score .starTip .p-a-t {left:70px;}
+&lt;/style>
+  <div class="score" id="score2">
+    <div class="starTip post-bd post-bd-blue hidden"><span class="p-a-t"></span><em class="logocolor">3分</em> 解答的一般</div>
+  </div>
+  &lt;script src="../../../../js/src/jq/plugin/jquery.raty.js">&lt;/script>
+&lt;script type="text/javascript"> 
+	$(function() {
+		$('#score1,#score2,#score3,#score4').raty({
+			start:2,
+			width:150	
+		}); 
+		$('.score img').addClass('star');
+	});
+&lt;/script> 
+&lt;script>
+   $(function(){
+	   $(".score").hover(function(){
+		   $(this).find('.starTip').show();
+	   },function(){
+		   $(this).find('.starTip').hide();
+	   })
+   })
+&lt;/script>
+  </pre>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script>

@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title></title>
+<link rel="icon" href="../../img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="../../css/common.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+
+
+</head>
+<body>
+<div id="subcont">
+<h1 class="bl_solid_bottom mb_10 f_18 pb_5">css3玻璃背景效果</h1>
+<style>
+.glass {
+    position: relative;
+	width: 200px;
+	height: 200px;
+}
+.glass:after{
+    content: " "; 
+    display: block;
+    position: absolute;
+	border-radius:4px;
+    top: 0; right: 0; bottom: 0; left: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 0; border-top:0px;
+    -webkit-background-origin: border-box;
+    -moz-background-origin: border;
+    background-origin: border-box;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, .15)), to(rgba(0, 0, 0, .25))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+    background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+}
+</style>
+<div class="glass"></div>
+<textarea class="code" style="height:100px;" readonly="true">
+<style>
+.glass {
+    position: relative;
+	width: 200px;
+	height: 200px;
+}
+.glass:after{
+    content: " "; 
+    display: block;
+    position: absolute;
+	border-radius:4px;
+    top: 0; right: 0; bottom: 0; left: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 0; border-top:0px;
+    -webkit-background-origin: border-box;
+    -moz-background-origin: border;
+    background-origin: border-box;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, .15)), to(rgba(0, 0, 0, .25))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), -moz-linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+    background: linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .25)), linear-gradient(left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0));
+}
+</style>
+<div class="glass"></div>
+</textarea>
+<style>
+#shelf {
+   -webkit-perspective: 500; 
+   -moz-perspective: 500; 
+   position: relative;
+   width: 400px;
+   height:50px;
+   margin-top:20px;
+}
+
+#shelf .icon {
+  border: 1px solid rgba(0,0,0,0.27);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(22,127,232,0.65)), to(rgba(0,60,123,0.65)));
+  background-image: -webkit-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: -moz-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: -o-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: -ms-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  -webkit-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  -moz-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 50;
+  cursor: pointer;
+  top: -15px;
+  left: 50px;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+}
+
+#shelf .icon2 {
+  border: 1px solid rgba(0,0,0,0.27);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(242,171,43,0.65)), to(rgba(225,123,25,0.65)));
+  background-image: -webkit-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: -moz-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: -o-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: -ms-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  -webkit-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  -moz-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 50;
+  cursor: pointer;
+  top: -15px;
+  left: 128px;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+}
+
+#shelf .icon3 {
+  border: 1px solid rgba(0,0,0,0.27);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(209,237,233,0.65)), to(rgba(0,191,162,0.65)), color-stop(3%, rgba(193,233,227,0.65)), color-stop(12%, rgba(177,228,220,0.65)), color-stop(90%, rgba(89,210,191,0.65)));
+  background-image: -webkit-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: -moz-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: -o-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: -ms-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  -webkit-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  -moz-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 50;
+  cursor: pointer;
+  top: -15px;
+  left: 205px;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+}
+
+#shelf .icon:hover, #shelf .icon2:hover, #shelf .icon3:hover {
+  top: -22px;
+}
+</style>
+
+<div id="shelf">
+  <!-- Add icons here -->
+  <a class="icon" href="#"></a>
+  <a class="icon2" href="#"></a>
+  <a class="icon3" href="#"></a>	
+</div>
+
+<textarea class="code" style="height:100px;" readonly="true">
+<style>
+#shelf {
+   -webkit-perspective: 500; 
+   -moz-perspective: 500; 
+   position: relative;
+   width: 400px;
+   height:50px;
+   margin-top:20px;
+}
+
+#shelf .icon {
+  border: 1px solid rgba(0,0,0,0.27);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(22,127,232,0.65)), to(rgba(0,60,123,0.65)));
+  background-image: -webkit-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: -moz-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: -o-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: -ms-linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  background-image: linear-gradient(top, rgba(22,127,232,0.65), rgba(0,60,123,0.65));
+  -webkit-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  -moz-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 50;
+  cursor: pointer;
+  top: -15px;
+  left: 50px;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+}
+
+#shelf .icon2 {
+  border: 1px solid rgba(0,0,0,0.27);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(242,171,43,0.65)), to(rgba(225,123,25,0.65)));
+  background-image: -webkit-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: -moz-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: -o-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: -ms-linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  background-image: linear-gradient(top, rgba(242,171,43,0.65), rgba(225,123,25,0.65));
+  -webkit-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  -moz-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 50;
+  cursor: pointer;
+  top: -15px;
+  left: 128px;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+}
+
+#shelf .icon3 {
+  border: 1px solid rgba(0,0,0,0.27);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(209,237,233,0.65)), to(rgba(0,191,162,0.65)), color-stop(3%, rgba(193,233,227,0.65)), color-stop(12%, rgba(177,228,220,0.65)), color-stop(90%, rgba(89,210,191,0.65)));
+  background-image: -webkit-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: -moz-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: -o-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: -ms-linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  background-image: linear-gradient(top, rgba(209,237,233,0.65), rgba(193,233,227,0.65) 3%, rgba(177,228,220,0.65) 12%, rgba(89,210,191,0.65) 90%, rgba(0,191,162,0.65));
+  -webkit-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  -moz-box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.3);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 50;
+  cursor: pointer;
+  top: -15px;
+  left: 205px;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+}
+
+#shelf .icon:hover, #shelf .icon2:hover, #shelf .icon3:hover {
+  top: -22px;
+}
+</style>
+
+<div id="shelf">
+  <!-- Add icons here -->
+  <a class="icon" href="#"></a>
+  <a class="icon2" href="#"></a>
+  <a class="icon3" href="#"></a>	
+</div>
+</textarea>
+</div>
+<script type="text/javascript" src="../../js/cont.js"></script>
+</body>
+</html>

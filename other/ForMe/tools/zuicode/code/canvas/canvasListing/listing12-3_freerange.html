@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>Butterfly</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var sprite = new Array();
+var counter=0;
+var rot = 0;
+var centerX = -176;
+var centerY = -127
+var canX = 0;
+var canY = 225;
+
+function init() {
+	can=document.getElementById("can");
+	ctx=can.getContext("2d");
+	// get images into array
+	sprite[0]=document.getElementById("b1");
+	sprite[1]=document.getElementById("b2");
+	sprite[2]=document.getElementById("b3");
+	sprite[3]=document.getElementById("b4");
+	// set shadow color, offset, blur
+	ctx.shadowColor="rgba(80,80,80,.3)";
+	ctx.shadowBlur="5";
+	ctx.shadowOffsetX="10";
+	ctx.shadowYOffsetY="20";
+	// draw butterfly
+	draw();
+	// wait 3 sec, then begin animation
+	var t= setTimeout("flap()", 3000);
+	}
+
+function flap() {
+	// flap wings four times quickly, then wait randomly up to 1.5 sec
+	var wait = 40;
+	counter = counter + 1;
+	if (counter==4) {
+		counter=0;
+		wait=wait + Math.random() * 1500;
+		rot=rot+.01;
+	}
+	// draw butterfly, move canvas, repeat
+	draw();
+	moveCan();
+	setTimeout("flap()", wait);
+}
+
+function draw() {
+	// draw rotated: translate to x,y; rotate; draw at 0,0, offset to center
+	ctx.clearRect(0,0, can.width,can.height);
+	ctx.save();
+	ctx.translate(can.width / 2,can.height / 2);
+	ctx.rotate(rot);
+	ctx.drawImage(sprite[counter],centerX,centerY);
+	ctx.restore();
+}
+
+function moveCan() {
+	canX = canX + 1;
+	canY = canY - 2;
+	if (canY < -80) 
+		canY = -80;
+	if (canX > 400)
+		canX = 400;
+	// use CSS style to move canvas
+	can.style.left = canX;
+	can.style.top = canY;
+}
+
+</script>
+	
+</head>
+<body onload="init()" onmousedown="moveToMouse()">
+
+<H1>Butterfly</h1>
+
+<P>Why are they called butterflies?</P>
+<P>Shouldn't they be flutter-bys?</P>
+
+<h2>but-ter-fly</h2>
+<P><i>--noun</i></p>
+<ol>
+<li>any of numerous diurnal insects of the order Lepidoptera, characterized by clubbed antennae, a slender body, and large, broad, often conspicuously marked wings.
+</li>
+
+<li>a person who flits aimlessly from one interest or group to another: a social butterfly.
+</li>
+
+<li>butterflies, ( used with a plural verb ) Informal . a queasy feeling, as from nervousness, excitement, etc.
+</li>
+</ol>
+
+<img id="b1" style="display:none"
+     src="assets/butterfly/butterfly1.png" >
+<img id="b2" style="display:none"
+     src="assets/butterfly/butterfly2.png" >
+<img id="b3" style="display:none"
+     src="assets/butterfly/butterfly3.png" >
+<img id="b4" style="display:none"
+     src="assets/butterfly/butterfly4.png" >
+<canvas id="can" height="380" width="380" 
+        style="position:absolute;left:0;top:225">
+</canvas>
+
+</body>
+</html>

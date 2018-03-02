@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Animated rotation</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var ball;
+var x;
+var y;
+var shadowX;
+var shadowY;
+var rot = 0;
+var interval ;
+
+function init() {
+	ball = document.getElementById("ball");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.shadowColor="gray";
+	ctx.fillStyle="blue";
+	x= 200;
+	y= 200;
+	shadowX = 10;
+	shadowY = 10;
+	ctx.shadowOffsetX = shadowX;
+	ctx.shadowOffsetY = shadowX;
+	interval = setInterval("animate()",20);
+}
+
+function animate() {
+	rot = rot + .05 ;
+	ctx.save();
+	ctx.clearRect(0,0,can.width -1 ,can.height -1);
+	ctx.translate(x,y);
+	ctx.rotate(rot);
+	ctx.drawImage(ball, -75, -75);
+	ctx.fillRect(80,80, 50, 50);
+	ctx.restore();
+}
+
+</script>	
+	
+</head>
+<body onload="init()" style="background-color:d9d9d9">
+<img id="ball" src="assets/soccerball1.png" style="display:none">
+<canvas id="can" height="400" width="400" >
+</canvas>
+</body>
+</html>

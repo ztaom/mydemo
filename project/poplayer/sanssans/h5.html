@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="data-spm" content="a2h0g">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>三生三世十里桃花</title>
+<style>
+html {-webkit-text-size-adjust: none;-webkit-user-select: none; user-select: none;}
+body {width:100%; height: 100%; font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial; line-height: 1.5; }
+a, img {-webkit-tap-highlight-color: rgba(0, 0, 0, 0); outline: 0;border: 0;}
+body, p {margin: 0; padding: 0; vertical-align: baseline; }
+/*
+0.1rem = 2px
+*/
+#wrapper {overflow-x: hidden; width: 100%;}
+
+/*
+ 花瓣雨
+*/
+#wrapper .hbdiv{position: fixed; width: 100px; height: 100px; z-index: 12;
+    -webkit-animation-iteration-count: infinite, infinite;   
+    -webkit-animation-direction: normal, normal;   
+    -webkit-animation-timing-function: linear, ease-in;
+}
+
+#wrapper .hbdiv img{position: absolute;
+     -webkit-animation-iteration-count: infinite;   
+     -webkit-animation-direction: alternate;   
+     -webkit-animation-timing-function: ease-in-out;   
+     -webkit-transform-origin: 50% -100%;
+ }
+@-webkit-keyframes fade   
+{   
+    0%   { opacity: 1; }   
+    95%  { opacity: 1; }   
+    100% { opacity: 0; }   
+}   
+@-webkit-keyframes drop   
+{   
+    0%   { -webkit-transform: translate(0px, -50px); }  
+    100% { -webkit-transform: translate(0px, 650px); }   
+}
+@-webkit-keyframes clockwiseSpin   
+{   
+    0%   { -webkit-transform: rotate(-50deg); }   
+    100% { -webkit-transform: rotate(50deg); }   
+}   
+@-webkit-keyframes counterclockwiseSpinAndFlip    
+{     
+    0%   { -webkit-transform: scale(-1, 1) rotate(50deg); }   
+    100% { -webkit-transform: scale(-1, 1) rotate(-50deg); }   
+}
+
+#popwrap, #sharetip{width: 100%; height: 100%; position: fixed; top:0; bottom:0;left: 0; z-index: 100; display: none; background:url(img/popbg.png) no-repeat center 0; background-size: cover; width: 100%;}
+#popwrap .inner{border:0.05rem solid #f32464; width: 15.125rem; height: 10.125; box-sizing: border-box; padding:0.2rem;position: absolute; left: 50%; margin-left: -7.5625rem; top:7.3rem;}
+#popwrap #popcont{border:0.05rem solid #f32464; width: 14.625rem; height: 9.55rem; box-sizing: border-box;}
+#popwrap #popcont img{display: block;width: 100%;}
+#popclose, #shclose {background:url(img/close.png) no-repeat center center; background-size:1.2rem auto; width: 1.2rem; height: 1.2rem; position: absolute; top:.5rem; right: .5rem;}
+
+#sharetip{background-image: url(img/sharetip.png?ss);}
+#shclose{top:27.25rem; left:50%; margin-left: -.6rem; right: auto}
+
+.yuyuebtn,.sharebtn{background:url(img/yuyuebtn.png) no-repeat; background-size: 8.25rem auto; width: 8.25rem; height: 2.575rem; position: absolute; left:50%; margin-left: -4.125rem; top:27.425rem; z-index: 13}
+
+.page{position: relative;}
+.page .picbg{display: block; width: 100%;}
+.page .videowrap{width: 17.7rem; height: 9.95rem; background:#fff; padding:1px; position: absolute; top:16.95rem; left: 50%; margin-left: -8.85rem}
+.page .sharebtn{top:7.375rem; background-image: url(img/sharebtn.png)}
+
+
+.cloud{position: absolute; bottom:-2rem; width: 100%; height: 4rem;z-index: 1;}
+.cloud .c1, .cloud .c2 {position: absolute; left: 0; opacity: 0}
+.cloud .c1{background: url(img/cloud1.png) no-repeat; background-size:37.425rem auto; width: 37.425rem; height: 5rem; top:0rem; }
+.cloud .c2{background: url(img/cloud2.png) no-repeat; background-size:35.45rem auto; width: 35.45rem; height: 5rem; bottom:0rem; left: auto; right: 0;}
+.cloud .ca1{animation: cleft 10s forwards linear;}
+.cloud .ca2{animation: cright 10s forwards linear;}
+
+@-webkit-keyframes cleft{
+    0%  {transform: translateX(6rem); }
+    10% {opacity: 1}
+    100%  {transform: translateX(0rem);opacity: 1}
+}
+@-webkit-keyframes cright{
+    0%  {transform: translateX(-6rem);}
+    10% {opacity: 1}
+    100%  {transform: translateX(0rem); opacity: 1}
+}
+
+</style>
+<script src="js/zepto.min.js"></script>
+<script src="http://static.youku.com/h5/player/embed/unifull/unifull_.js"></script>
+</head>
+<body onload="start()" data-spm="8286146">
+<img src="img/fenxiang.jpg" width="300" height="300" style="display:none" alt="分享图">
+<script type="text/javascript" id="beacon-aplus" src="//g.alicdn.com/alilog/mlog/aplus_o.js" exparams="clog=o&amp;aplus&amp;sidx=aplusSidx&amp;ckx=aplusCkx" async=""></script>
+<div id="wrapper">
+    <div class="page p1">
+        <img src="img/page1.jpg" class="picbg">
+        <div class="videowrap" id="player"></div>
+        <div id="popwrap">
+            <div class="inner">
+                <div id="popcont">
+                    
+                </div>
+            </div>
+            <i id="popclose"></i>
+        </div>
+        <div class="yuyuebtn" id="btn"></div>
+
+        <div class="cloud">
+            <div class="c1"></div>
+            <div class="c2"></div>
+        </div>
+    </div>
+    <div class="page p2">
+        <img src="img/page2.jpg" class="picbg">
+    </div>
+    <div class="page p3">
+        <img src="img/page3.jpg" class="picbg">
+        <div class="cloud">
+            <div class="c1"></div>
+            <div class="c2"></div>
+        </div>
+    </div>
+    <div class="page p4">
+        <img src="img/page4.jpg" class="picbg">
+        <div class="cloud">
+            <div class="c1"></div>
+            <div class="c2"></div>
+        </div>
+    </div>
+    <div class="page p5">
+        <img src="img/page5.jpg" class="picbg">
+    </div>
+    <div class="page p6">
+        <img src="img/page6.jpg" class="picbg">
+        <div class="sharebtn" id="shbtn"></div>
+    </div>
+    <div id="sharetip">
+        <i id="shclose"></i>
+    </div>
+</div>
+<script>
+    var btn = document.getElementById('btn');
+    var popWrap = document.getElementById('popwrap');
+    var shareTip =document.getElementById('sharetip')
+    var popCont = document.getElementById('popcont');
+    var popClose = document.getElementById('popclose');
+    var shClose = document.getElementById('shclose');
+    var image = document.createElement('img');
+    var randomNum = 1;
+
+    (function (doc, win) {
+        var docEl = doc.documentElement;
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = docEl.clientWidth;
+        var clientHeight = docEl.clientHeight;
+
+        if(clientWidth > 0.78 * clientHeight){
+            clientWidth = 0.78 * clientHeight;
+        }
+
+        // wrapDom.style.width = clientWidth + 'px';
+        // wrapDom.style.height = clientHeight + 'px';
+        var recalc = function () {
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+    function randomInteger(low, high){
+        return low + Math.floor(Math.random() * (high - low));
+    }
+    document.addEventListener('touchend', function(e) {
+        var mscrollY = window.scrollY
+        var page = $('.page');
+        if(mscrollY > 0 && mscrollY < 717){
+            page.eq(0).find('.c1').addClass('ca1')
+            page.eq(0).find('.c2').addClass('ca2')
+        } else if (mscrollY > 1350 && mscrollY < 2047) {
+            page.eq(2).find('.c1').addClass('ca1')
+            page.eq(2).find('.c2').addClass('ca2')
+        } else if(mscrollY > 2047 && mscrollY < 2702){
+            page.eq(3).find('.c1').addClass('ca1')
+            page.eq(3).find('.c2').addClass('ca2')
+        } else {
+            page.find('.c1').removeClass('ca1')
+            page.find('.c2').removeClass('ca2')
+        }
+    });
+    function start() {
+        btn.addEventListener('touchend', function() {
+            randomNum = randomInteger(1, 4);
+            image.src = 'img/pop' + randomNum + '.png';
+            popWrap.style.display = 'block';
+            popCont.appendChild(image); 
+        });
+
+        popClose.addEventListener('touchend', function() {
+            popWrap.style.display = 'none';
+        });
+
+        document.getElementById('shbtn').addEventListener('touchend', function() {
+            shareTip.style.display = 'block';
+        });
+
+        shClose.addEventListener('touchend', function() {
+            shareTip.style.display = 'none';
+        });
+    }
+
+</script>
+<script type="text/javascript">
+    var config = {
+      vid: 'XMjQ3ODM1MTg5Mg==',  //视频id 尽量使用编码之后的id （必选）
+      prefer: "h5", //固定参数
+      expand: 0,//固定参数
+      canWide: 0,//固定参数
+      poster: 'img/videobg.jpg',
+      client_id: "youkumobileplaypage",  //如是合作方 使用合作方应用id，非合作方，在优酷域名下，该处固定
+      wintype: "interior",  //固定
+      events: {
+      },
+      firsttime:0,//开始时间 有该值的时候，播放会自动seek到该时间点播放（可选）
+      playlistconfig: {},
+      vvlogconfig: {
+          rurl: window.document.referrer
+      },
+      adconfig: {},
+      weixin:true/*ios微信或者是webview中如果需要小屏播放，该参数为true 
+                   （ps：前提是打开页面的应用支持小屏播放，否则无效）(可选)*/
+    };
+    var ykPlayerH5 = new YKU.Player("player",config);   //第一个参数为容器id   第二次参数为参数配置对象
+</script>
+<script src="js/huabanyu.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90485274-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

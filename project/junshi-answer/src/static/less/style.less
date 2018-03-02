@@ -1,0 +1,331 @@
+@pxtorem: 2*37.5rem;
+html,body{
+    background:#cd3132;
+}
+img{
+    max-width: 100%;
+}
+.pic{display: block; width: 100%}
+.main{
+    position: relative;
+}
+.mask{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    text-align: center;
+    z-index: 2;
+    .logo{
+        position:absolute;
+        top:4/@pxtorem;
+        left:50%;
+        width:467/@pxtorem;
+        -webkit-transform: translate(-50%,0);
+        transform: translate(-50%,0);
+    }
+}
+.back{
+    img{
+        display: block;
+        margin:auto;
+    }
+}
+.entry{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width: 100%;
+    height:100%;
+    color:#000;
+    z-index: 3;
+    .entry-btn{
+        position: absolute;
+        top:1045/@pxtorem;
+        left:50%;
+        width:308/@pxtorem;
+        height:104/@pxtorem;
+        background:none;
+        border:none;
+        -webkit-transform: translate(-50%,0);
+        transform: translate(-50%,0);
+        text-indent: -1000/@pxtorem;
+        overflow: hidden;
+    }
+}
+.answer{
+    position: absolute;
+    /*top:525/@pxtorem;*/
+    top:40%;
+    left:50%;
+    width:499/@pxtorem;
+    height:576/@pxtorem;
+    transform: translate(-50%,0);
+    z-index: 3;
+    .list{
+        padding:20/@pxtorem 45/@pxtorem;
+        .mt{
+            font-weight: bold;
+            span{
+                color:#c9403a;
+                font-size:29/@pxtorem;
+                em{
+                    font-size:42/@pxtorem;
+                }
+            }
+            p{
+                font-size:30/@pxtorem;
+            }
+        }
+        .QA{
+            p{
+                width:330/@pxtorem;
+                height:80/@pxtorem;
+                font-size:29/@pxtorem;
+                line-height: 80/@pxtorem;
+                background:url("../images/qa.png");
+                background-size:330/@pxtorem 80/@pxtorem;
+                text-indent: 44/@pxtorem;
+                margin:20/@pxtorem auto 0;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
+            .answer_right{
+                background:url("../images/qa_right.png");
+                background-size:330/@pxtorem 80/@pxtorem;
+            }
+            .answer_error{
+                background:url("../images/qa_error.png");
+                background-size:330/@pxtorem 80/@pxtorem;
+            }
+        }
+    }
+}
+.result{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+    z-index: 3;
+    .msg{
+        position: absolute;
+        left:50%;
+        top:25%;
+        height:43/@pxtorem;
+        line-height: 43/@pxtorem;
+        color:#fff;
+        padding:0 20/@pxtorem;
+        background:#ee9796;
+        -webkit-transform: translate(-50%,0);
+        transform: translate(-50%,0);
+        border-radius: 40/@pxtorem;
+        white-space:nowrap;
+        .place{
+            display: inline-block;
+            width:45/@pxtorem;
+        }
+        .num{
+            position: absolute;
+            top:-8/@pxtorem;
+            right:17%;
+            font-size:48/@pxtorem;
+            color:#db4239;
+            font-weight: bold;
+            /*top:-6/@pxtorem;*/
+        }
+    }
+    .draw{
+        position:absolute;
+        left:50%;
+        top:75%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    .invite{
+        position:absolute;
+        left:50%;
+        top:86%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+}
+.pop{
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index: 99;
+    .cover{
+        position: absolute;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.8);
+    }
+    .layer{
+        position: absolute;
+        left:50%;
+        top:50%;
+        width:507/@pxtorem;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        text-align: center;
+        .close{
+            position:absolute;
+            right:0px;
+            top:0px;
+            display: block;
+            width:55/@pxtorem;
+            height:50/@pxtorem;
+            z-index: 99;
+        }
+        .award{
+            position: absolute;
+            left:50%;
+            top:-285/@pxtorem;
+            width:463/@pxtorem;
+            -webkit-transform: translate(-45%,0);
+            transform: translate(-45%,0);
+        }
+        .btnhd{
+            margin-top:20/@pxtorem;
+        }
+    }
+    .toast{
+        position: absolute;
+        left:50%;
+        top:50%;
+        display:flex;
+        display:-wbekit-flex;
+        -webkit-justify-content:center;
+        justify-content:center;
+        -webkit-flex-wrap:wrap/wrap-reverse;
+        flex-wrap:wrap/wrap-reverse;
+        -webkit-align-items:center;
+        align-items:center;
+        width:507/@pxtorem;
+        min-height:297/@pxtorem;
+        color:#fff;
+        font-size:32/@pxtorem;
+        background: -webkit-linear-gradient(#ef6d5e, #fa5b5a);
+        background: linear-gradient(#ef6d5e, #fa5b5a);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        text-align: center;
+        border-radius: 20/@pxtorem;
+    }
+    .share{
+        position: absolute;
+        top:0px;
+        right:44/@pxtorem;
+        z-index: 1;
+    }
+}
+
+/*
+414x488
+诸葛亮：https://gw.alicdn.com/tfs/TB1.g7yhH_I8KJjy1XaXXbsxpXa-1242-488.png
+司马懿：https://gw.alicdn.com/tfs/TB19g7yhH_I8KJjy1XaXXbsxpXa-1242-488.png
+张飞：https://gw.alicdn.com/tfs/TB1Va2whRfH8KJjy1XbXXbLdXXa-1242-488.png
+包子：https://gw.alicdn.com/tfs/TB1g7.nhLDH8KJjy1XcXXcpdXXa-119-130.png
+*/
+.back{
+    position: relative;
+    z-index: 1;
+}
+.baozi{width: 119/@pxtorem; height: 130/@pxtorem; position: absolute; top:245/@pxtorem; right: 90/@pxtorem;animation: baoziRotate 0.5s linear infinite}
+.avatar{
+    width: 414/@pxtorem; height: 488/@pxtorem; position: absolute; top:80/@pxtorem; left: 96/@pxtorem;
+    div{width: 414/@pxtorem; height: 488/@pxtorem; background-repeat: no-repeat; background-size: auto 488/@pxtorem; animation: aRotate 1s linear infinite}
+    .ani_normal{background-position: 0 0;}
+    .ani_ok{background-position: -414/@pxtorem 0; animation-play-state:paused;}
+    .ani_error{background-position: right 0; animation-play-state:paused;}
+}
+.pauseani{animation-play-state:paused;}
+@keyframes aRotate{
+    0%   {transform:rotateZ(0deg);}
+    50%  {transform:rotateZ(5deg);}
+    100% {transform:rotateZ(0deg);}
+}
+@keyframes baoziRotate{
+    0%   {transform:rotateZ(0deg);}
+    50%  {transform:rotateZ(5deg);}
+    100% {transform:rotateZ(0deg);}
+}
+
+
+/*首页人物动画1.656*/
+.aniwrap{
+    position: absolute; width: 750/@pxtorem; overflow: hidden; height: 750/@pxtorem; 
+    /*top: 320/@pxtorem; */
+    top: 26%; 
+    left: 50%; margin-left: -375/@pxtorem;
+    .people{
+        width: 375/@pxtorem; position: absolute;
+        img{display: block;}
+        .hd{position: absolute; z-index: 3}
+        .bd{position: absolute; z-index: 2}
+        .hand{position: absolute; z-index: 1}
+    }
+    .p_left,.left_shand{animation: moveLeft 1.2s linear infinite;}
+    .p_right, .right_shand{animation: moveRight 1.2s linear infinite;}
+    .p_left{
+        left: 0; top:0;  z-index: 2;
+        .hd{width: 234/@pxtorem; height: 384/@pxtorem; top:47/@pxtorem; left: 52/@pxtorem; animation: hdRt 1.2s linear infinite;}
+        .bd{width: 356/@pxtorem; height: 554/@pxtorem; left: 0; top:139/@pxtorem;}
+        .hand{width: 169/@pxtorem; height: 337/@pxtorem; left: 248/@pxtorem; top:26/@pxtorem;transform-origin: center 250/@pxtorem; animation: handLt 1.2s linear infinite;}
+    }
+    .p_right{
+        right: 0; top:0; z-index: 1;
+        .hd{width: 220/@pxtorem; height: 346/@pxtorem; right:90/@pxtorem; top:47/@pxtorem; animation: hdRt 1.2s linear infinite;}
+        .bd{width: 370/@pxtorem; height: 308/@pxtorem; right:-2/@pxtorem; top:155/@pxtorem;}
+        .hand{width: 194/@pxtorem; height: 300/@pxtorem; right:192/@pxtorem; top:22/@pxtorem;transform-origin: center 250/@pxtorem; animation: handRt 1.2s linear infinite;}
+    }
+    .left_shand{position: absolute;width: 316/@pxtorem; height: 176/@pxtorem; left: 52/@pxtorem; top:548/@pxtorem; z-index: 10}
+    .right_shand{position: absolute;width: 362/@pxtorem; height: 368/@pxtorem; right:-2/@pxtorem; top:356/@pxtorem; z-index: 10}
+    .heart{width: 45/@pxtorem; height: 41/@pxtorem; position: absolute; bottom:74/@pxtorem; left: 50%; margin-left: -22.5/@pxtorem; z-index: 10; animation: hZoomIn 1.2s linear infinite;}
+    .vip{width: 618/@pxtorem; height: 265/@pxtorem; position: absolute; left: 50%; margin-left: -309/@pxtorem; bottom:115/@pxtorem; z-index: 9;}
+}
+.startanswer{width: 100%; display: block; animation: zoomIn 1s linear infinite; position: absolute; 
+    /*top:1070/@pxtorem;*/
+    top:88%;
+}
+@keyframes zoomIn{
+    0%   {transform:scale(1);}
+    50%  {transform:scale(1.1);}
+    100% {transform:scale(1);}
+}
+@keyframes hZoomIn{
+    0%   {transform:scale(0.8);}
+    50%  {transform:scale(1.1);}
+    100% {transform:scale(0.8);}
+}
+@keyframes moveLeft{
+    0%   {transform: translateX(0/@pxtorem);}
+    50%  {transform: translateX(-20/@pxtorem);}
+    100% {transform: translateX(0/@pxtorem);}
+}
+@keyframes moveRight{
+    0%   {transform: translateX(0/@pxtorem);}
+    50%  {transform: translateX(20/@pxtorem);}
+    100% {transform: translateX(0/@pxtorem);}
+}
+@keyframes hdRt{
+    0%   {transform:rotateZ(0deg);}
+    50%  {transform:rotateZ(10deg);}
+    100% {transform:rotateZ(0deg);}
+}
+@keyframes handLt{
+    0%   {transform:rotate(0deg);}
+    50%  {transform:rotate(-10deg);}
+    100% {transform:rotate(0deg);}
+}
+@keyframes handRt{
+    0%   {transform:rotate(-5deg);}
+    50%  {transform:rotate(10deg);}
+    100% {transform:rotate(-5deg);}
+}

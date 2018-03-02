@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link href="http://vjs.zencdn.net/5.11.6/video-js.css" rel="stylesheet">
+  <script src="http://www.jq22.com/demo/jquerytz/jquery-1.11.0.min.js"></script>
+  <style type="text/css">
+
+  #box { width: 450px; height: 274px; padding-top: 20px; cursor: move; position: absolute; top: 30px; left: 30px; background-color: #09C; border: 1px solid #CCCCCC}
+
+  #coor { width: 10px; height: 10px; overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C; z-index: 1}
+
+  body { background-color: #F3F3F3; }
+
+  .video-js {width: 100%; height: 100%}
+
+  #box2 { width: 450px; height: 274px; padding-top: 20px; cursor: move; position: absolute; top: 30px; left: 500px; background-color: #09C; border: 1px solid #CCCCCC}
+
+  #coor2 { width: 10px; height: 10px; overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C; z-index: 99}
+
+  </style>
+
+  <script type="text/javascript">
+    //window.location.href = 'tmall://page.tm/webview?url=http%3A%2F%2Fh5.m.taobao.com%2Ftblive%2Flive-share.html';
+  </script>
+</head>
+
+<body>
+<div id="box">
+    <div id="coor"></div>
+    <video id="my-video" class="video-js" autoplay preload="auto" width="100%" height="100%"
+    poster="http://img.alicdn.com/imgextra/i3/703596186/TB23QiMaV6AQeBjSZFIXXctXpXa_!!0-tbCommonAudio.jpg" data-setup='{ "techOrder": ["flash"] }'>
+      <source src="http://tbflive.alicdn.com/mediaplatform/639295044_1476338268659.flv?auth_key=1476943068-0-0-df1d9902c6138f4faa73964a38f18ae9" type='video/x-flv'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+</div>
+
+<div id="box2">
+    <div id="coor2"></div>
+    <video id="my-video2" class="video-js" autoplay preload="auto" width="100%" height="100%"
+    poster="http://img.alicdn.com/imgextra/i3/703596186/TB23QiMaV6AQeBjSZFIXXctXpXa_!!0-tbCommonAudio.jpg" data-setup='{ "techOrder": ["flash"] }'>
+      <source src="http://tbflive.alicdn.com/mediaplatform/ae27e58e-cd3b-41b0-84b6-8e2ca26819c1.flv?auth_key=1478930606-0-0-d77ac603c95c75aa3185b7079470b39d" type='video/x-flv'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+</div>
+
+
+
+
+  <script src="http://vjs.zencdn.net/5.11.6/video.js"></script>
+
+  <script>
+    $(function() {
+      $(document).mousemove(function(e) {
+        if (!!this.move) {
+          var posix = !document.move_target ? {'x': 0, 'y': 0} : document.move_target.posix,
+            callback = document.call_down || function() {
+              $(this.move_target).css({
+                'top': e.pageY - posix.y,
+                'left': e.pageX - posix.x
+              });
+            };
+
+          callback.call(this, e, posix);
+        }
+      }).mouseup(function(e) {
+        if (!!this.move) {
+          var callback = document.call_up || function(){};
+          callback.call(this, e);
+          $.extend(this, {
+            'move': false,
+            'move_target': null,
+            'call_down': false,
+            'call_up': false
+          });
+        }
+      });
+
+      var $box = $('#box').mousedown(function(e) {
+          var offset = $(this).offset();
+          
+          this.posix = {'x': e.pageX - offset.left, 'y': e.pageY - offset.top};
+          $.extend(document, {'move': true, 'move_target': this});
+      }).on('mousedown', '#coor', function(e) {
+          var posix = {
+                  'w': $box.width(), 
+                  'h': $box.height(), 
+                  'x': e.pageX, 
+                  'y': e.pageY
+              };
+          
+          $.extend(document, {'move': true, 'call_down': function(e) {
+              $box.css({
+                  'width': Math.max(30, e.pageX - posix.x + posix.w),
+                  'height': Math.max(30, e.pageY - posix.y + posix.h)
+              });
+          }});
+          return false;
+      });
+
+
+      var $box = $('#box2').mousedown(function(e) {
+          var offset = $(this).offset();
+          
+          this.posix = {'x': e.pageX - offset.left, 'y': e.pageY - offset.top};
+          $.extend(document, {'move': true, 'move_target': this});
+      }).on('mousedown', '#coor2', function(e) {
+          var posix = {
+                  'w': $box.width(), 
+                  'h': $box.height(), 
+                  'x': e.pageX, 
+                  'y': e.pageY
+              };
+          
+          $.extend(document, {'move': true, 'call_down': function(e) {
+              $box.css({
+                  'width': Math.max(30, e.pageX - posix.x + posix.w),
+                  'height': Math.max(30, e.pageY - posix.y + posix.h)
+              });
+          }});
+          return false;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title>poplayer 跳转测试</title>
+    <script src="//g.alicdn.com/mtb/lib-flexible/0.3.2/flexible.js"></script>
+    <script src="http://g.alicdn.com/mtb/lib-windvane/2.1.8/windvane.js"></script>
+
+    
+    <style>
+        body{padding:0; margin:0;}
+        .wrapper {
+            width: 100%;
+            color: #555;
+            font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding:.5rem;
+            box-sizing: border-box;
+        }
+
+        .skipList {
+            margin-top: .5rem;
+            padding: 0.3rem;
+            background-color: #05ad3d;
+            color: #fff;
+            border: none;
+            border-radius: 0.2rem;
+            font-size: .5rem;
+        }
+    </style>
+</head>
+<body onload="loadFun()">
+<div style="background:#333; width:50px; height: 50px; margin-left: 100px" id=""></div>
+<div class="wrapper" style="display: none">
+    <h2>跳转</h2>
+    <div>
+        <button id="skipToPlayer" class="skipList">跳播放页按钮</button>
+    </div>
+    <div>schema播放页:<span id="skipPlayDom"></span></div>
+    <div>
+        <button id="skipToLive" class="skipList">跳直播页按钮</button>
+    </div>
+    <div>schema直播页:<span id="skipLiveDom"></span></div>
+
+    <div>
+        <button id="skipToWeb" class="skipList">跳网页按钮</button>
+    </div>
+    <div>web地址:<span id="skipWebDom"></span></div>
+</div>
+
+<script>
+var vidone = 'XMjkzNDEwMzM3Mg==';
+var vidtwo = 'XMjkzNDEwMzEyNA==';
+var nativeWindVane = window.WindVane;
+var params = {
+      "play": 1,
+      "hdchange": 1,
+      "langchange": 1,
+      "fullscreen": 1,
+      "halfscreen": 1,
+      "start":1
+    };
+nativeWindVane.call('DJH5Player', 'openlistener', params, () => {
+  alert('READY!');
+}, function(e) {
+  alert('Player error');
+});
+
+document.addEventListener('DJH5PlayerListener.start', function(e) {
+  nativeWindVane.call('DJH5Player', 'videoinfo', {}, function(e) {
+    if (e && e.param) {
+      var videoInfo = e.param['videoinfo'];
+      try {
+        var eid = videoInfo['video']['encodeid'];
+        alert(eid);
+
+        if(eid===vidone){
+            alert('1')
+            window.WindVane.call('WVPopLayer', 'display', {}, function(){
+                alert('第一个poplayer')
+                
+            });
+        } else if(eid===vidtwo){
+            alert('2')
+            setTimeout(function(){
+                window.WindVane.call('WVPopLayer', 'display', {}, function(){
+                    alert('第二个poplayer')
+                });
+            }, 1000)
+            
+        }
+      } catch (ew) {
+        console.error('data error!');
+      }
+    }
+  
+}, function(e) {
+    console.log('error');
+  });
+}, false);
+// window.WindVane.call('WVPopLayer', 'display', {}, function(){
+//       alert('第二个poplayer')
+//   });
+//控制进度
+// var paramss = {
+//       second:"60"//秒
+//  };
+// window.WindVane.call('DJH5Player', 'duration', paramss, function(e) {
+//       alert('duration success: ' + JSON.stringify(e));
+// }, function(e) {
+//       alert('duration failure: ' + JSON.stringify(e));
+// });
+//开启监听，除了prepare其他监听默认关闭
+//  var params = {
+//     // "play":1,
+//     // "pause":1,
+//     "duration":1
+//     // "hdchange":1,
+//     // "langchange":1,
+//     // "fullscreen":1,
+//     // "halfscreen":1,
+//     // "playend":1,
+//     // "playerror":1,
+//     // "start":1
+// };
+// window.WindVane.call('DJH5Player', 'openlistener', params, function(e) {
+//   isopen = true;
+//   alert('openlistener success: ' + JSON.stringify(e));
+// }, function(e) {
+//   alert('openlistener failure: ' + JSON.stringify(e));
+// });
+// //监听进度
+// document.addEventListener('DJH5PlayerListener.duration', function(e) {
+//   //param.second 毫秒
+  
+//   if(e.param.second = 10000){
+//     console.log("duration"+JSON.stringify(e.param));
+//   }
+// }, false);
+
+
+
+window.WindVane.call('WVNetwork', 'getNetworkType', {}, function(e) {
+    alert(JSON.stringify(e));
+});
+    function loadFun() {
+        var ua = window.navigator.userAgent;
+        var isIos = /iPhone|iPad/.test(ua);
+
+        var skipToPlayer = document.getElementById('skipToPlayer');
+        var skipPlayDom = document.getElementById('skipPlayDom');
+        
+        skipPlayDom.innerHTML = playLink;
+
+        var skipToLive = document.getElementById('skipToLive');
+        var skipLiveDom = document.getElementById('skipLiveDom');
+        var liveLink = 'youku://playLive?id=14';
+        skipLiveDom.innerHTML = liveLink;
+
+        var adToLive = "youku://livehome";
+
+        // poplayer跳转到播放页，自动检测历史播放记录,ios用s=showid, showid的值在打开m.youku.com，对应的电视剧，
+        // 在network下面搜索get找api里面showIdEn对应的值，
+        // android卓端需要加上cookieid, cookieid的值等于__ysuid
+        var playLink = 'youku://playVideo?s=9cd2277647d311e5b692';
+
+
+        var adToPlay = "youku://play?source=mplaypage&cookieid=14943003592907QKvBp&showid=e46186b0f71711e5a080"
+
+        var webLink = 'https://hudong.vip.youku.com/act/jslmredpacket.html';
+        
+
+        //跳转到任意播放页
+        skipToPlayer.onclick = function () {
+
+            if(isIos){
+                window.WindVane.call('DYKBaseJSBridge', 'nativeOpen', {
+                    'url': playLink
+                }, function (s) {
+                    //跳转成功
+                }, function (e) {
+                    window.alert('跳转播放页失败,错误:' + JSON.stringify(e));
+                });
+            } else {
+                window.WindVane.call('WVPopLayer', 'navToUrl', { 'url':adToPlay}, function(s){
+                   // do something when success;
+                }, function(e) {
+                 // do something when failed;
+                });
+            }
+
+
+        };
+
+        //跳转到任意直播页
+        skipToLive.onclick = function () {
+            if(isIos){
+                window.WindVane.call('DYKBaseJSBridge', 'nativeOpen', {
+                    'url': liveLink
+                }, function (s) {
+                    //跳转成功
+                }, function (e) {
+                    window.alert('跳转直播失败,错误:' + JSON.stringify(e));
+                });
+            } else {
+                window.WindVane.call('WVPopLayer', 'navToUrl', { 'url':adToLive}, function(s){
+                   // do something when success;
+                }, function(e) {
+                 // do something when failed;
+                });
+            }
+        };
+
+        //跳出poplayer到webview  跳出poplayer
+        skipToWeb.onclick = function () {
+          if(isIos){
+              window.WindVane.call('DYKBaseJSBridge', 'nativeOpen', {
+                  'url': 'youku://openWVH5?isWindVane=1&url='+webLink
+              }, function (s) {
+                  //跳转成功
+              }, function (e) {
+                  window.alert('跳webView页面,错误:' + JSON.stringify(e));
+              });
+          }else{
+              window.WindVane.call('WVPopLayer', 'navToUrl', {
+                  'url': webLink+'?isWindVane=1'
+              }, function (s) {
+                  //跳转成功
+              }, function (e) {
+                  window.alert('跳转失败,错误:' + JSON.stringify(e));
+              });
+          }
+        };
+
+    }
+</script>
+<!-- <script>
+function callback(data){
+    console.log(data)
+}
+</script> -->
+<!-- <script src="https://huodong.m.taobao.com/api/data/v2/8da372244f7440728c8eb148120cbd73.js"></script> -->
+</body>
+</html>

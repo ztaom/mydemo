@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>视频demo</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.css" />
+<link rel="stylesheet" href="./cssrem/video.css" />
+
+<script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js"></script>
+<style>
+	body, html {margin: 0; padding:0;}
+	.lib-video {width: 100%; height: 400px}
+	button{width: 100px; height: 40px}
+	h3{font-size: 20px; line-height: 30px}
+</style>
+
+</head>
+<body>
+	<!-- LIVE SAMPLES -->
+	<div>
+		<h3>直播视频(移动端统一使用M3U8格式文件, PC非Safari使用flv格式做兼容)</h3>
+		<p>当前直播已停止推流，仅展示用法说明</p>
+		<video webkit-playsinline="webkit-playsinline" playsinline="playsinline" fullscreen="default" live id="J_Video_Player_Live" class="lib-video vjs-hidden" poster="//img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+ 			<source src="http://tbflive.alicdn.com/mediaplatform/0c72b0f2-0bf1-4c5b-a5dc-695880320913.m3u8?auth_key=1490942608-0-0-f96833c88a316837a56b86cb7c57834e" type="application/x-mpegURL"> 		
+ 			<source src="http://tbflive.alicdn.com/mediaplatform/0c72b0f2-0bf1-4c5b-a5dc-695880320913.flv?auth_key=1490942608-0-0-65362c6f8d0436fc2fbd9e8dbdc7542f" type="rtmp/flv">
+		</video>
+	</div>
+
+	<div>
+		<h3>点播回放，m3u8格式</h3>
+		<video webkit-playsinline="webkit-playsinline" id="J_Video_Player_m3u8" class="lib-video vjs-hidden" poster="//img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+ 			<source src="http://tbfliving.alicdn.com/mediaplatform/72126688_1473731080200.m3u8" type="application/x-mpegURL"> 		
+		</video>
+	</div>
+
+	<!-- VIDEO SAMPLES -->
+	<div>
+		<h3>点播视频</h3>
+		<button onclick="reloadPlayerVideo()">reload视频</button>
+		<video webkit-playsinline="webkit-playsinline" id="J_Video_Player" src="//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/34341521.mp4" class="lib-video vjs-hidden" poster="//img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+			<source src="//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/34341521.mp4" type="video/mp4">
+		</video>
+	</div>
+  <script src="../publish/video.js"></script>
+	<script>
+		var VideoPlayer = this['lib-video-player'];
+
+		var myPlayerLive = VideoPlayer('J_Video_Player_Live');
+
+		var myPlayerM3u8 = VideoPlayer('J_Video_Player_m3u8');
+
+		var myPlayer = VideoPlayer('J_Video_Player', {
+			timeout : 8000 // default 10000
+		});
+
+		window.libVideoPlayerDebug = true;
+
+		myPlayerLive.on('video:error', function(ev){
+			console.log('myPlayer:::video:error::' + JSON.stringify(ev));
+		})
+
+		function reloadPlayer(){
+			myPlayerLive.reload('http://tbflive.alicdn.com/mediaplatform/126875260_1465191485062.flv?auth_key=1465796285-0-0-d9caa9895232b02535e88d1462226b86');
+		}
+
+		function reloadPlayerVideo(){
+			myPlayer.reload('//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/33880444.mp4?appKey=7588');
+		}
+
+		// setTimeout(function(){
+		// 	myPlayer.pause();
+		// }, 3000)
+	</script>
+</body>
+</html>

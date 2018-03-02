@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="utf-8" />
+<title>ZUI前端开发规范体系</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="icon" href="http://www.ztaom.com/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="http://ztaom.com/css/reset-layout.css">
+<link rel="stylesheet" href="http://ztaom.com/css/siteStyle.css">
+<script type="text/javascript" src="http://ztaom.com/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://ztaom.com/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://ztaom.com/js/cookie.js"></script>
+<!--[if lt IE 9]>
+<script src="http://ztaom.com/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23118098-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<style>
+body {}
+#loader { background:url(img/loader.gif) no-repeat center center; width:100%; height:100%; min-height:300px }
+#topnav { position:absolute; top:-2px; right:30px; -moz-box-shadow:0 4px 5px #ccc;  -webkit-box-shadow:0 4px 5px #ccc; overflow:hidden; zoom:1;}
+#topnav li { float:left; }
+#topnav li a { border-right:1px solid #cfba5a; background:#ffec86; height:18px; padding:6px 10px 4px 10px; color:#333; font-size:1.1em; text-decoration:none; display:inline-block;}
+#topnav li a:hover { background:#ffe25f; color:black }
+#topnav li .last { border:none; }
+#navigation {position:fixed; width:250px;}
+#navigation #search { padding:4px; background:#e8e8e8; border-bottom:1px solid #ddd; border-right:1px solid #aaa }
+#navigation #search input { height:22px;}
+#navigation #static-list { overflow:auto; overflow-x:hidden; border-right:1px solid #aaa }
+#navigation #static-list li.category { border-bottom:1px solid #ddd; }
+#navigation #static-list li.category span { background:url(img/arrow.png) 0 3px no-repeat #eee; padding:10px 0 7px 25px; display:block; cursor:pointer }
+#navigation #static-list li.category ul { display:none }
+#navigation #static-list li.category:hover span { background-position:0 -24px }
+#navigation #static-list li.category .category-sub { font-weight:bold;}
+#navigation #static-list li.open span { background-position:0 -51px }
+#navigation #static-list li.open:hover span { background-position:0 -51px }
+#navigation #static-list li.cat-selected span { background-position:0 -24px }
+#navigation #static-list li.sub { background:white; border-top:1px solid #eee;}
+#navigation #static-list li.sub a { text-decoration:none; color:#333 }
+#navigation #static-list li.sub a span { background:none; margin:0; padding:5px 0 5px 25px; display:block }
+#navigation #static-list li.sub a span .red { text-decoration:underline; background:none; }
+#navigation #static-list li.sub a span.desc { color:#aaa; font-size:0.8em; width:30000px; overflow:hidden; padding:0 0 5px 26px; min-height:12px }
+#navigation #static-list li.sub a span.desc .red { text-decoration:none; font-weight:normal }
+#navigation #static-list li.sub:hover { background:#dfdfdf }
+/*#navigation #static-list li.odd { background:#edf3fe }*/
+#navigation #static-list li.selected { background:#3875d7 }
+#navigation #static-list li.selected span { color:white }
+#navigation #static-list li.selected:hover { background:#0069c1 }
+#navigation #results { border-right:1px solid #aaa; display:none; overflow-x:hidden }
+#navigation #results li.sub { background:white; border-top:1px solid #eee;}
+#navigation #results li.sub a { text-decoration:none; color:#333 }
+#navigation #results li.sub a span { background:none; margin:0; padding:5px 0 5px 25px; display:block }
+#navigation #results li.sub a span .red { text-decoration:underline }
+#navigation #results li.sub a span.desc { color:#aaa; font-size:0.8em; width:30000px; overflow:hidden; padding:0 0 5px 26px; min-height:12px }
+#navigation #results li.sub a span.desc .red { text-decoration:none; font-weight:normal }
+#navigation #results li.sub:hover { background:#dfdfdf }
+#navigation #results li.odd { background:#edf3fe }
+#navigation #results li.selected { background:#3875d7 }
+#navigation #results li.selected span { color:white }
+#navigation #results li.selected:hover { background:#0069c1 }
+#content {}
+#content .entry { padding:10px 20px 100px;}
+#content .entry .feature {color:#666; font-size:12px;}
+#content .entry .link-entry { border:2px dashed #eee; padding:5px; margin:10px 0 }
+.entry-title { background:#ecf3fe; padding:15px 30px 10px 20px }
+.content-title h3 { background:#eee; padding:5px 8px 3px; border-bottom:1px solid #AAA; margin:10px 0; font-size:14px; }
+/*source css style*/
+
+.syntaxhighlighter { background-color: #fff !important;}
+/* Highlighed line number */
+.syntaxhighlighter .line.highlighted .number { color: black !important; }
+/* Highlighed line */
+.syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 { background-color: #e0e0e0 !important; }
+/* Gutter line numbers */
+.syntaxhighlighter .line .number { color: #afafaf !important; background:#eee!important;}
+/* Add border to the lines */
+.syntaxhighlighter .line .content { border-left: 3px solid #6CE26C !important; color: #000 !important; }
+.syntaxhighlighter.printing .line .content { border: 0 !important; }
+/* First line */
+.syntaxhighlighter .line.alt1 { background-color: #fff !important; }
+/* Second line */
+.syntaxhighlighter .line.alt2 { background-color: #F8F8F8 !important; }
+.syntaxhighlighter .toolbar { background-color: #F8F8F8 !important; border: #E7E5DC solid 1px !important; }
+.syntaxhighlighter .toolbar a { color: #a0a0a0 !important; }
+.syntaxhighlighter .toolbar a:hover { color: red !important; }
+/************************************
+ * Actual syntax highlighter colors.
+ ************************************/
+.syntaxhighlighter .plain, .syntaxhighlighter .plain a { color: #000 !important; }
+.syntaxhighlighter .comments, .syntaxhighlighter .comments a { color: #008200 !important; }
+.syntaxhighlighter .string, .syntaxhighlighter .string a { color: blue !important; }
+.syntaxhighlighter .keyword { color: #069 !important; font-weight: bold !important; }
+.syntaxhighlighter .preprocessor { color: gray !important; }
+.syntaxhighlighter .variable { color: #a70 !important; }
+.syntaxhighlighter .value { color: #090 !important; }
+.syntaxhighlighter .functions { color: #ff1493 !important; }
+.syntaxhighlighter .constants { color: #0066CC !important; }
+.syntaxhighlighter .script { background-color: yellow !important; }
+.syntaxhighlighter .color1, .syntaxhighlighter .color1 a { color: #808080 !important; }
+.syntaxhighlighter .color2, .syntaxhighlighter .color2 a { color: #ff1493 !important; }
+.syntaxhighlighter .color3, .syntaxhighlighter .color3 a { color: red !important; }
+.syntaxhighlighter, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody { margin: 0 !important; padding: 0 !important; border: 0 !important; outline: 0 !important; background: none !important; text-align: left !important; float: none !important; vertical-align: baseline !important; position: static !important; left: auto !important; top: auto !important; right: auto !important; bottom: auto !important; height: auto !important; width: auto !important; line-height: 1.1em !important; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; font-weight: normal !important; font-style: normal !important; font-size: 1em !important; min-height: inherit !important; /* For IE8, FF & WebKit */ min-height: auto !important; /* For IE7 */ }
+.syntaxhighlighter { width: 99% !important; /* 99% fixes IE8 horizontal scrollbar */ margin: 1em 0 1em 0 !important; padding: 1px !important; /* adds a little border on top and bottom */  border:1px solid #ededed!important;}
+.syntaxhighlighter .bold { font-weight: bold !important; }
+.syntaxhighlighter .italic { font-style: italic !important; }
+.syntaxhighlighter .line { }
+.syntaxhighlighter .no-wrap .line .content { white-space: pre !important; }
+.syntaxhighlighter .line table { border-collapse: collapse !important; }
+.syntaxhighlighter .line td { vertical-align: top !important; }
+.syntaxhighlighter .line .number { width: 3em !important; }
+.syntaxhighlighter .line .number code { width: 2.7em !important; padding-right: .3em !important; text-align: right !important; display: block !important; }
+.syntaxhighlighter .line .content { padding-left: .5em !important; }
+.syntaxhighlighter .line .spaces { }
+/* Disable border and margin on the lines when no gutter option is set */
+.syntaxhighlighter.nogutter .line .content { border-left: none !important; }
+.syntaxhighlighter .bar { display: none !important; position:relative!important;}
+.syntaxhighlighter .bar.show { display: block !important; }
+.syntaxhighlighter.collapsed .bar { display: block !important; }
+/* Adjust some properties when collapsed */
+
+.syntaxhighlighter.collapsed .lines { display: none !important; }
+.syntaxhighlighter .lines.no-wrap { overflow: auto !important; overflow-y: hidden !important; }
+/* Styles for the toolbar */
+
+.syntaxhighlighter .toolbar { position: absolute !important; right: 0px !important; top: 0px !important; font-size: 1px !important; padding: 8px 8px 8px 0 !important; /* in px because images don't scale with ems */ }
+.syntaxhighlighter.collapsed .toolbar { font-size: 80% !important; padding: .2em 0 .5em .5em !important; position: static !important; }
+.syntaxhighlighter .toolbar a.item, .syntaxhighlighter .toolbar .item { display: block !important; float: left !important; margin-left: 8px !important; background-repeat: no-repeat !important; overflow: hidden !important; text-indent: -5000px !important; }
+.syntaxhighlighter.collapsed .toolbar .item { display: none !important; }
+.syntaxhighlighter.collapsed .toolbar .item.expandSource { background-image: url(img/magnifier.png) !important; display: inline !important; text-indent: 0 !important; width: auto !important; float: none !important; height: 16px !important; padding-left: 20px !important; }
+.syntaxhighlighter .toolbar .item.viewSource { background-image: url(img/page_white_code.png) !important; }
+.syntaxhighlighter .toolbar .item.printSource { background-image: url(img/printer.png) !important; }
+.syntaxhighlighter .toolbar .item.copyToClipboard { text-indent: 0 !important; background: none !important; overflow: visible !important; }
+.syntaxhighlighter .toolbar .item.about { background-image: url(img/help.png) !important; }
+
+.syntaxhighlighter.printing, .syntaxhighlighter.printing .line.alt1 .content, .syntaxhighlighter.printing .line.alt2 .content, .syntaxhighlighter.printing .line.highlighted .number, .syntaxhighlighter.printing .line.highlighted.alt1 .content, .syntaxhighlighter.printing .line.highlighted.alt2 .content, {
+ background: none !important;
+}
+.syntaxhighlighter.printing .line .number { color: #bbb !important;}
+.syntaxhighlighter.printing .line .content { color: #000 !important; }
+.syntaxhighlighter.printing .toolbar { display: none !important; }
+.syntaxhighlighter.printing a { text-decoration: none !important; }
+.syntaxhighlighter.printing .plain, .syntaxhighlighter.printing .plain a { color: #000 !important; }
+.syntaxhighlighter.printing .comments, .syntaxhighlighter.printing .comments a { color: #008200 !important; }
+.syntaxhighlighter.printing .string, .syntaxhighlighter.printing .string a { color: blue !important; }
+.syntaxhighlighter.printing .keyword { color: #069 !important; font-weight: bold !important; }
+.syntaxhighlighter.printing .preprocessor { color: gray !important; }
+.syntaxhighlighter.printing .variable { color: #a70 !important; }
+.syntaxhighlighter.printing .value { color: #090 !important; }
+.syntaxhighlighter.printing .functions { color: #ff1493 !important; }
+.syntaxhighlighter.printing .constants { color: #0066CC !important; }
+.syntaxhighlighter.printing .script { font-weight: bold !important; }
+.syntaxhighlighter.printing .color1, .syntaxhighlighter.printing .color1 a { color: #808080 !important; }
+.syntaxhighlighter.printing .color2, .syntaxhighlighter.printing .color2 a { color: #ff1493 !important; }
+.syntaxhighlighter.printing .color3, .syntaxhighlighter.printing .color3 a { color: red !important; }
+
+.page{}
+.page .p-column {position:relative; _position:static;}
+.p-main .p-column {position:static;}
+.p-main {width:100%;}
+.page .p-main {float:right; margin-left:-25em;}
+.page .p-column {float:left; width:240px;}
+.page .p-main .p-column {margin-left:250px;}
+.p-main .p-column {float:none;  width:auto;}
+</style>
+<!--<script>
+$(function(){
+     if($.browser.msie) {
+        alert("你的浏览器不能正常查看，请使用火狐浏览器查看");
+　　　　 //window.close(); 
+     }
+});
+</script>-->
+<body>
+  <div class="page">
+    <div class="p-main">
+      <div class="p-column">
+        <div id="content">
+          <div class="entry-title">
+            <h1>ZUI规范指南</h1>
+          </div>
+          <div class="entry">
+            <div class="content-title">
+              <h3>ZUI(dongao user interface)</h3>
+            </div>
+            <div class="lh-150">
+              <p>　　ZUI是UED部门标准化小组的代号。我们的主要任务是统一和整理dongao前端展现的各种标准和规范。为设计师、工程师、产品经理在协作过程中提供统一的标准规范。最终保证用户体验，使产品规范统一，提高产品的开发效率，节省不必要的开发成本。</p>
+            </div>
+            <div class="content-title">
+              <h3>ZUI设计原则</h3>
+            </div>
+            <div class="lh-150">
+              <p>　　User Friendly, Developer Friendly, Machine Friendly,简约不简单的设计</p>
+            </div>
+            <div class="content-title">
+              <h3>ZUI使命</h3>
+            </div>
+            <div class="lh-150">
+              <p>　　从设计网站到设计用户行为</p>
+            </div>
+            <div class="content-title">
+              <h3>户体验式的网页制作</h3>
+            </div>
+            <div class="lh-180 pl-10">
+              <p> <strong>1. 输入控件的自动聚焦和可用键盘切换输入焦点</strong>
+              <br/>使用JavaScript实现页面加载完成后立即自动聚焦(focus)到第一个输入控件。可用TAB键（IE缺省实现）或方向键切换聚焦到下一个输入控件。
+              <br/><strong>2. 可用Enter（或Ctrl＋Enter）键提交，确保和点击提交按钮的效果是相同的</strong>
+              <br/>不要在提交按钮上加入onClick=&rdquo;…&rdquo;这样的JavaScript代码。
+              <br/><strong>3．鼠标动作提示和回应</strong>
+              <br/>对用户的鼠标定位操作，当移动到可响应的位置上时，应给予视觉或听觉的提示。
+              <br/><strong>4．尽可能早的在客户端完成输入数据合法性验证</strong>
+              <br/>输入数据的合法性检验应该在客户端使用JavaScript进行验证。除非验证只能在服务器端完成，否则验证工作应在最早能完成的情况下进行。
+              <br/><strong>5．根据应用场景决定在表单页面和提交后返回页面间是否使用中间过渡页面</strong>
+              <br/>根据应用场景，决定是否显示接收表单页面（表单页面和提交后返回页面间的中间过渡页面），以及使用何种方式显示接收表单页面。
+              <br/><strong>6．防止表单重复提交处理</strong>
+              <br/>对提交按钮点击后做变灰处理避免在网络响应较慢情况下用户重复提交同一个表单。使用页面过期失效避免用户后退浏览重复提交表单。
+              <br/><strong>7．页面链接是打开新窗口、使用原窗口还是弹出窗口的原则</strong>
+              <br/>一般而言，首页上链接可以使用target=&rdquo;_blank&rdquo;属性打开新窗口，而其他页面上的链接都应使用原窗口或弹出窗口。如果链接页面内容相对原页面来说不重要，是附属性质的，可以使用弹出窗口方式。
+              <br/><strong>8．尽可能少的排列可选项，尽可能少的安排操作步骤</strong>
+              <br/>根据用户操作习惯安排尽可能少的操作菜单选项，同时要保证尽可能少的操作步骤。
+              <br/><strong>9．操作逻辑无漏洞，保证数据是操作安全的</strong>
+              <br/>多个页面间的操作和同个页面上的多个操作间的逻辑关系在设计上是安全和严谨的。保证不会出现不被允许的用户操作组合，至少不会因为用户的不适当的操作导致出错。
+            </p>
+            </div>
+            
+          </div>
+        </div>
+        <div style="position:fixed; bottom:-5px; left:260px;">
+        <div class="float-left ml-10 pl-10">
+        <script type="text/javascript"><!--
+google_ad_client = "ca-pub-0293958384530494";
+/* ZUI广告 */
+google_ad_slot = "8197656929";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-column">
+      <div id="navigation">
+        <div id="loader"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul id="topnav">
+  <li><a href="index.html">回ZUI首页</a></li>
+  <li><a href="http://www.ztaom.com/" target="_blank">ZTAOM</a></li>
+  <li><a href="http://ztaom.com/Item/list.asp?id=664" target="_blank">UED</a></li>
+  <li><a href="http://www.ztaom.com/ask/" class="last" target="_blank">互助问答</a></li>
+</ul>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 
+<script type="text/javascript" src="js/shCore.js"></script> 
+<script type="text/javascript" src="js/shBrushCSharp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.config.clipboardSwf = 'js/clipboard.swf';
+	SyntaxHighlighter.all();
+</script> 
+<script type="text/javascript" src="js/highlight.js"></script>
+<script type="text/javascript" src="js/jquery.ba-bbq.min.js"></script> 
+<script type="text/javascript" src="js/jquery.ba-dotimeout.min.js"></script> 
+<script type="text/javascript" src="js/main.js"></script> 
+
+</body>
+</html>

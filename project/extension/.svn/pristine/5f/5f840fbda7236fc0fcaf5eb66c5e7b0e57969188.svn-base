@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>优酷App下载</title>
+    <link rel="stylesheet" type="text/css" href="css/extension.css">
+    <script src="js/zepto.min.js"></script>
+</head>
+<body>
+<div class="w">
+    <section class="topic">
+        <img src="img/blank.png" class="tpbg">
+        <div class="download"></div>
+    </section>
+    <section class="contlist">
+        <div class="item" onclick="window.location.href='http://youku.com'">
+            <div class="pic">
+                <img src="http://r3.ykimg.com/050C00005823D9CD67BC3D3E0C02746C" width="125" height="70">
+                <span>10:35</span>
+            </div>
+            <div class="text">
+                <h3>战马高清加长版电视预告 War这不是orse-HD Extended TV sh 薛荣</h3>
+                <span class="playnum">75.3万</span>
+                <div class="l_download">下载应用观看</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="http://r3.ykimg.com/050C00005823D9CD67BC3D3E0C02746C" width="125" height="70">
+                <span>10:35</span>
+            </div>
+            <div class="text">
+                <h3>战马高清加长版电视预告 War这不是orse-HD Extended TV sh </h3>
+                <span class="playnum">75.3万</span>
+                <div class="l_download">下载应用观看</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="http://r3.ykimg.com/050C00005823D9CD67BC3D3E0C02746C" width="125" height="70">
+                <span>10:35</span>
+            </div>
+            <div class="text">
+                <h3>战马高清加长版电视预告 War这不是orse-HD Extended TV sh </h3>
+                <span class="playnum">75.3万</span>
+                <div class="l_download">下载应用观看</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="http://r3.ykimg.com/050C00005823D9CD67BC3D3E0C02746C" width="125" height="70">
+                <span>10:35</span>
+            </div>
+            <div class="text">
+                <h3>战马高清加长版电视预告 War这不是orse-HD Extended TV sh </h3>
+                <span class="playnum">75.3万</span>
+                <div class="l_download">下载应用观看</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="http://r3.ykimg.com/050C00005823D9CD67BC3D3E0C02746C" width="125" height="70">
+                <span>10:35</span>
+            </div>
+            <div class="text">
+                <h3>战马高清加长版电视预告 War这不是orse-HD Extended TV sh </h3>
+                <span class="playnum">75.3万</span>
+                <div class="l_download">下载应用观看</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="pic">
+                <img src="http://r3.ykimg.com/050C00005823D9CD67BC3D3E0C02746C" width="125" height="70">
+                <span>10:35</span>
+            </div>
+            <div class="text">
+                <h3>战马高清加长版电视预告 War这不是orse-HD Extended TV sh </h3>
+                <span class="playnum">75.3万</span>
+                <div class="l_download">下载应用观看</div>
+            </div>
+        </div>
+    </section>
+    <footer class="yk-footer">
+    <link rel="stylesheet" type="text/css" href="http://static.youku.com/v1.0.180/index/css/mfooter.css">
+        <div class="copyright">
+            Copyright&copy;2016 优酷 youku.com 版权所有<br />
+            <a target="_blank" href="http://c.youku.com/piracy">反盗版盗链声明</a>
+            <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证060288号</a>
+            <a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202006082400023" target="_blank">
+                <i class="ico-icp" title="经营性网站备案"></i>
+            </a>
+        </div>
+    </footer>
+
+</div>
+
+<script src="js/extension.js"></script>
+<script type="text/javascript">
+
+
+var url = 'http://api.m.youku.com/api/cms/commonBox';
+function area_test_jsonp(){
+    $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        jsonpCallback: 'CallBack',
+        processData: false,
+        type: 'get',
+        success: function(data) {
+            alert('ok');
+            alert(data);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('error');
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    });
+    return false;
+}
+function CallBack(data){
+    alert(data.image_link);
+}
+</script>
+</body>
+</html>

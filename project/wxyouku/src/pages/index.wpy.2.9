@@ -1,0 +1,388 @@
+<style lang="less">
+.container{padding-top:74rpx; display:none}
+</style>
+<template>
+  <view class="container" style="display:{{contDisplay}}">
+    <!-- 导航 -->
+    <view class="navwrap">
+      <!-- <scroll-view scroll-x> -->
+      <view class="nav">
+        <repeat for="{{navList}}" item="item" key="index" index="index">
+          <view class="item {{item.navClassCurrent}}" id="nav{{index}}" catchtap="selectNav({{index}})">
+            {{item.pageName}}
+            <text class="botline"></text>
+          </view>
+        </repeat>
+      </view>
+      <!-- </scroll-view> -->
+    </view>
+
+    <!-- 轮播图 -->
+    <swiper :getSwiperList.sync="swiperList"></swiper>
+
+    <!-- 正在热播 -->
+    <panel wx:if="{{showMod.RB}}">
+      <view class="title" slot="title">{{modBaseInfo.titleRB}}</view>
+      <view class="drawlist">
+        <repeat for="{{getModList.RB}}" key="index" index="index" item="item" wx:if="{{index>=updateItem.RB && index<(updateItem.RB+6)}}">
+          <drawList :item="item" :showDec="true" :showTime="false"></drawList>
+        </repeat>
+      </view>
+      <view @tap="clickUpdate(6)" data-type="RB" data-num="{{itemNum.RB}}" wx:if="{{showUpdateBtn.RB}}">
+        <update></update>
+      </view>
+      <line></line>
+    </panel>
+
+    <!-- 电影 -->
+    <panel wx:if="{{showMod.DY}}">
+      <view class="title" slot="title">{{modBaseInfo.titleDY}}</view>
+      <repeat for="{{onlyPicList_DY}}" key="index" index="index" item="item">
+        <singlePic :item="item"></singlePic>
+      </repeat>
+      <view class="drawlist">
+        <repeat for="{{getModList.DY}}" key="index" index="index" item="item" wx:if="{{index>=updateItem.DY && index<(updateItem.ZY+6)}}">
+          <drawList :item="item" :showDec="true" :showTime="false"></drawList>
+        </repeat>
+      </view>
+      <view @tap="clickUpdate(6)" data-type="DY" data-num="{{itemNum.DY}}" wx:if="{{showUpdateBtn.DY}}">
+        <update></update>
+      </view>
+      <line></line>
+    </panel>
+
+    <!-- 热播剧集 -->
+    <panel wx:if="{{showMod.JJ}}">
+      <view class="title" slot="title">{{modBaseInfo.titleJJ}}</view>
+      <repeat for="{{onlyPicList_JJ}}" key="index" index="index" item="item">
+        <singlePic :item="item"></singlePic>
+      </repeat>
+      <view class="drawlist">
+        <repeat for="{{getModList.JJ}}" key="index" index="index" item="item" wx:if="{{index>=updateItem.JJ && index<(updateItem.JJ+6)}}">
+          <drawList :item="item" :showDec="true" :showTime="false"></drawList>
+        </repeat>
+      </view>
+      <view @tap="clickUpdate(6)" data-type="DM" data-num="{{itemNum.JJ}}" wx:if="{{showUpdateBtn.JJ}}">
+        <update></update>
+      </view>
+      <line></line>
+    </panel>
+
+    <!-- 人气热综 -->
+    <panel wx:if="{{showMod.ZY}}">
+      <view class="title" slot="title">{{modBaseInfo.titleZY}}</view>
+      <view class="drawlist">
+        <repeat for="{{getModList.ZY}}" key="index" index="index" item="item" wx:if="{{index>=updateItem.ZY && index<(updateItem.ZY+6)}}">
+          <drawList :item="item" :showDec="true" :showTime="false"></drawList>
+        </repeat>
+      </view>
+      <view @tap="clickUpdate(6)" data-type="ZY" data-num="{{itemNum.ZY}}" wx:if="{{showUpdateBtn.ZY}}">
+        <update></update>
+      </view>
+      <line></line>
+    </panel>
+
+    <!-- 动漫 -->
+    <panel wx:if="{{showMod.DM}}">
+      <view class="title" slot="title">{{modBaseInfo.titleDM}}</view>
+      <view class="drawlist">
+        <repeat for="{{getModList.DM}}" key="index" index="index" item="item" wx:if="{{index>=updateItem.DM && index<(updateItem.DM+6)}}">
+          <drawList :item="item" :showDec="true" :showTime="false"></drawList>
+        </repeat>
+      </view>
+      <view @tap="clickUpdate(6)" data-type="DM" data-num="{{itemNum.DM}}" wx:if="{{showUpdateBtn.DM}}">
+        <update></update>
+      </view>
+      <line></line>
+    </panel>
+
+    <!-- 网络院线 -->
+    <panel wx:if="{{showMod.YX}}">
+      <view class="title" slot="title">{{modBaseInfo.titleYX}}</view>
+      <view class="drawlist">
+        <repeat for="{{getModList.YX}}" key="index" index="index" item="item" wx:if="{{index>=updateItem.YX && index<(updateItem.YX+6)}}">
+          <drawList :item="item" :showDec="true" :showTime="false"></drawList>
+        </repeat>
+      </view>
+      <view @tap="clickUpdate(6)" data-type="YX" data-num="{{itemNum.YX}}" wx:if="{{showUpdateBtn.YX}}">
+        <update></update>
+      </view>
+    </panel>
+
+    <!-- 通用页尾 -->
+    <footer></footer>
+  </view>
+  <loading hidden="{{ !loading }}">加载中...</loading>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Panel from '@/components/panel'
+  import drawList from '@/components/drawList'
+  import singlePic from '@/components/singlePic'
+  import swiper from '@/components/swiper'
+  import line from '@/components/line'
+  import footer from '@/components/footer'
+  import update from '@/components/update'
+  import mixin from '../mixins'
+  // import listData from '@/config/listMock' // mock数据
+  import {getBaseData} from '@/API/'
+  // import util from '../utils/util'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '优酷视频'
+    }
+    components = {
+      panel: Panel,
+      drawList: drawList,
+      singlePic: singlePic,
+      swiper: swiper,
+      update: update,
+      line: line,
+      footer: footer
+    }
+
+    mixins = [mixin]
+
+    data = {
+      navList: [],
+      buttonClicked: false,
+      navClassCurrent: '',
+      contDisplay: '',
+      loading: true,
+      updateItem: {
+        RB: 1,
+        DM: 1,
+        JJ: 1,
+        DY: 1,
+        ZY: 1,
+        YX: 1
+      },
+      modList: [],
+      swiperList: null,
+      getModList: {},
+      showMod: {},
+      modBaseInfo: {},
+      onlyPicList_DY: null,
+      onlyPicList_JJ: null,
+      updataNum: 1,
+      itemNum: {},
+      showUpdateBtn: {}
+    }
+
+    onReady() {
+      // 获取数据
+    }
+
+    computed = {
+    }
+
+    methods = {
+      // 选择栏目
+      selectNav(index, e) {
+        // 点击跳转到列表页
+        if (index > 0 && !this.buttonClicked) {
+          this.$navigate('./list', {atest: '首页点击过来', pageId: index})
+        }
+      },
+
+      // 点击更新数据
+      clickUpdate(showItems, e) {
+        let objNum = e.currentTarget.dataset.num
+        const _length = this.getObjLength(this.modList[objNum])
+        let modType = e.currentTarget.dataset.type
+
+        switch (modType) {
+          case 'RB':
+            this.updateItem.RB += Number(showItems)
+            break
+          case 'DY':
+            this.updateItem.DY += Number(showItems)
+            break
+          case 'JJ':
+            this.updateItem.JJ += Number(showItems)
+            break
+          case 'ZY':
+            this.updateItem.ZY += Number(showItems)
+            break
+          case 'DM':
+            this.updateItem.DM += Number(showItems)
+            break
+          case 'YX':
+            this.updateItem.YX += Number(showItems)
+            break
+          default:
+            break
+        }
+
+        // 动漫
+        if ((modType === 'RB' && this.updateItem.RB < _length) || (modType === 'DY' && this.updateItem.DY < _length) || (modType === 'JJ' && this.updateItem.JJ < _length) || (modType === 'DM' && this.updateItem.DM < _length) || (modType === 'ZY' && this.updateItem.ZY < _length) || (modType === 'YX' && this.updateItem.YX < _length)) {
+          console.log(modType)
+        } else {
+          this.updateItem = {
+            RB: 1,
+            DY: 1,
+            JJ: 1,
+            DM: 1,
+            ZY: 1,
+            YX: 1
+          }
+        }
+      }
+    }
+
+    events = {
+    }
+
+    watch = {
+      modList (newValue, oldValue) {
+        for (let i = 0; i < newValue.length; i++) {
+          let itemLength = this.getObjLength(newValue[i])
+          if (itemLength >= 12) {
+            console.log('s')
+          }
+        }
+      }
+    }
+
+    onShow() {
+      // 加载返回顶部
+      wepy.pageScrollTo({
+        scrollTop: 0,
+        duration: 0
+      })
+      // 获取导航信息
+      this.navList = this.$parent.globalData.navList
+      this.navList[0].navClassCurrent = 'current'
+
+      for (let i = 0; i < this.navList.length; i++) {
+        if (i !== 0) {
+          this.navList[i].navClassCurrent = ''
+        } else {
+          this.navList[0].navClassCurrent = 'current'
+        }
+      }
+    }
+
+    // 显示页面
+    showCont() {
+      this.contDisplay = 'block'
+      this.loading = false
+      this.$apply()
+    }
+
+    // 获取数据
+    loadData() {
+      const self = this
+      // 首页数据
+      const pageId = {
+        id: 0
+      }
+
+      // 获取本地存储信息
+      let _data = null
+      if (wepy.getStorageSync('indexData')) {
+        wepy.getStorage({
+          key: 'indexData',
+          success: function(getRes) {
+            _data = getRes.data
+          }
+        })
+      }
+      getBaseData(pageId, (res) => {
+        console.log(res.data.data.list)
+
+        // 将线上数据设为本地数据
+        wepy.setStorage({
+          key: 'indexData',
+          data: res.data.data
+        })
+
+        if (self.loading) {
+          _data = res.data.data
+        }
+
+        const listMap = new Map()
+        for (let i = 0; i < res.data.data.list.length; i++) {
+          let modId = _data.list[i].moduleId
+          let listArr = {
+            title: _data.list[i].title,
+            itemA: _data.list[i].components[0].itemResult.item,
+            itemB: _data.list[i].components[1] ? _data.list[i].components[1].itemResult.item : 'nodata'
+          }
+          listMap.set(modId, listArr)
+          const modDataA = listMap.get(modId).itemA
+          const modDataB = listMap.get(modId).itemB
+          const modTitle = listMap.get(modId).title
+          if (modId === 1666) {
+            self.swiperList = modDataA
+          } else if (modId === 20790) {
+            // 正在热播
+            self.getModList.RB = modDataA
+            self.$apply()
+            self.modBaseInfo.titleRB = modTitle
+            this.showMod.RB = true
+            self.itemNum.RB = i
+            self.showUpdateBtn.RB = (self.getObjLength(modDataA) >= 12) ? 1 : 0
+          } else if (modId === 20802) {
+            // 热播剧集
+            self.onlyPicList_JJ = modDataA
+            self.getModList.JJ = modDataB
+            self.$apply()
+            self.modBaseInfo.titleJJ = modTitle
+            this.showMod.JJ = true
+            self.itemNum.JJ = i
+            self.showUpdateBtn.JJ = (self.getObjLength(modDataB) >= 12) ? 1 : 0
+          } else if (modId === 20801) {
+            // 电影
+            self.onlyPicList_DY = modDataA
+            self.getModList.DY = modDataB
+            self.$apply()
+            self.modBaseInfo.titleDY = modTitle
+            this.showMod.DY = true
+            self.itemNum.DY = i
+            self.showUpdateBtn.DY = (self.getObjLength(modDataB) >= 12) ? 1 : 0
+          } else if (modId === 20805) {
+            // 动漫
+            self.getModList.DM = modDataA
+            self.$apply()
+            self.modBaseInfo.titleDM = modTitle
+            this.showMod.DM = true
+            self.itemNum.DM = i
+            self.showUpdateBtn.DM = (self.getObjLength(modDataA) >= 12) ? 1 : 0
+          } else if (modId === 3292) {
+            // 人气热综
+            self.getModList.ZY = modDataA
+            self.$apply()
+            self.modBaseInfo.titleZY = modTitle
+            this.showMod.ZY = true
+            self.itemNum.ZY = i
+            self.showUpdateBtn.ZY = (self.getObjLength(modDataA) >= 12) ? 1 : 0
+          } else if (modId === 3705) {
+            // 网络院线
+            self.getModList.YX = modDataA
+            self.$apply()
+            self.modBaseInfo.titleYX = modTitle
+            this.showMod.YX = true
+            self.itemNum.YX = i
+            self.showUpdateBtn.YX = (self.getObjLength(modDataA) >= 12) ? 1 : 0
+          }
+        }
+
+        // 获取每一个模块的数据
+        for (let n in _data.list) {
+          self.modList[n] = _data.list[n].components[0].itemResult.item
+          // console.log(self.modList[n])
+        }
+        self.showCont()
+      }, () => {
+        self.showCont()
+      })
+    }
+
+    onLoad() {
+      this.loadData()
+    }
+  }
+</script>

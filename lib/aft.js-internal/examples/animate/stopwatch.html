@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<script src="../../browser/polyfill.min.js"></script>
+<script src="../../browser/aft-lite.js"></script>
+<style>
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+h1 div {
+    width: 1em;
+    text-align: center;
+    font-family: Courier New, Courier, monospace;
+    font-size: 40px;
+}
+</style>
+</head>
+<body>
+<h1>
+    <div id="hh"></div>
+    <div class="sp">:</div>
+    <div id="mm"></div>
+    <div class="sp">:</div>
+    <div id="ss"></div>
+    <div class="sp">.</div>
+    <div id="sss"></div>
+</h1>
+<script>
+    var animate = window.AFT.animate;
+
+    function fix(n, m) {
+        var s = String(Math.floor(n));
+        return new Array(m - s.length + 1).join('0') + s;
+    }
+
+    var sssEl = document.getElementById('sss');
+    var sssAnimation = animate({
+            sss: 0
+        })
+        .to({
+            sss: 999
+        })
+        .duration(999)
+        .easing('linear')
+        .iteration(Infinity)
+        .update(current => {
+            sssEl.textContent = fix(current.get('sss'), 3);
+        });
+
+    var ssEl = document.getElementById('ss');
+    var ssAnimation = animate({
+            ss: 0
+        })
+        .to({
+            ss: 59
+        })
+        .duration(1000 * 59)
+        .easing('linear')
+        .iteration(Infinity)
+        .update(current => {
+            ssEl.textContent = fix(current.get('ss'), 2);
+        });
+
+    var mmEl = document.getElementById('mm');
+    var mmAnimation = animate({
+            mm: 0
+        })
+        .to({
+            mm: 59
+        })
+        .duration(1000 * 59 * 59)
+        .easing('linear')
+        .iteration(Infinity)
+        .update(current => {
+            mmEl.textContent = fix(current.get('mm'), 2);
+        });
+
+    var hhEl = document.getElementById('hh');
+    var hhAnimation = animate({
+            hh: 0
+        })
+        .to({
+            hh: 99
+        })
+        .duration(1000 * 59 * 59 * 99)
+        .easing('linear')
+        .iteration(Infinity)
+        .update(current => {
+            hhEl.textContent = fix(current.get('hh'), 2);
+        });
+    
+    sssAnimation.play();
+    ssAnimation.play();
+    mmAnimation.play();
+    hhAnimation.play();
+</script>
+</body>
+</html>

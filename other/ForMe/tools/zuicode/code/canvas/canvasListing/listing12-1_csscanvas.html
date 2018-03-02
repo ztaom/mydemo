@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Background Image and Border</title>
+	
+<style>
+canvas {
+	background-image:url('assets/cork.png');
+	border: 10px inset brown;
+}
+</style>
+	
+<script type="text/javascript">
+
+function init() {
+	var can = document.getElementById("can");
+	var ctx = can.getContext("2d");
+	console.log(can.offsetLeft);
+	console.log(can.offsetTop);
+	ctx.fillStyle = "white";
+	ctx.fillRect(25,25,120,100);
+	ctx.font = "24 pt Helvetica";
+	ctx.fillStyle = "black";
+	ctx.fillText("Notice:", 30,55);
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="400">
+</canvas>
+
+</body>
+</html>

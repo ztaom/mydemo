@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>CSS Shapes</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="Gary" />
+<link rel="stylesheet" href="../common.css">
+<style>
+/* 方形 */
+.square{width: 100px; height:100px; background: #000;}
+
+/* 圆形 border-radius可以把值写成100% */
+.circle{width: 100px; height:100px; -webkit-border-radius:50px; -moz-border-radius:50px; -ms-border-radius:50px; -o-border-radius:50px; border-radius:50px; background: #000;}
+
+
+/* 椭圆 */
+.oval{width: 200px; height:100px; -webkit-border-radius:100px/50px; -moz-border-radius:100px/50px; -ms-border-radius:100px/50px; -o-border-radius:100px/50px; border-radius:100px/50px; background: #000;}
+
+/* 三角形 */
+.triangle{width: 0px; height: 0px; border-bottom:100px solid #000; border-left:50px solid transparent; border-right:50px solid transparent; margin-bottom: 10px;}
+.triangle_topright{width: 0px; height: 0px; border-top:100px solid #000; border-left:100px solid transparent;}
+
+/* 菱形 */
+.diamond{width: 100px; height: 100px; background: #000; margin: 40px 0;
+	/* Rotate */
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   -o-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   /* Rotate Origin */
+   -webkit-transform-origin: 50% 50%;
+   -moz-transform-origin: 50% 50%;
+   -ms-transform-origin: 50% 50%;
+   -o-transform-origin: 50% 50%;
+   transform-origin: 50% 50%;
+}
+/* 平行四边形 skew倾斜*/
+.parallelogram {width: 150px; height:100px; background: #000;-webkit-transform: skew(-20deg); -moz-transform: skew(-20deg); -o-transform: skew(-20deg); transform: skew(-20deg);}
+
+/* 对话框 */
+.speech_bubble{width: 150px; height: 80px; background: #000; border-radius:5px; position: relative;}
+.speech_bubble:before{content:''; width: 0px; height: 0px; border-right:20px solid #000; border-top:10px solid transparent; border-bottom:10px solid transparent; position: absolute; left: -20px; top:10px;}
+
+/* 蛋型 */
+.egg{display:block; width:126px; height:180px; background-color:orange; -webkit-border-radius:63px 63px 63px 63px/108px 108px 72px 72px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;}
+
+/* 食豆人 */
+.pacman {
+  width: 0px;
+  height: 0px;
+  border-right: 60px solid transparent;
+  border-top: 60px solid blue;
+  border-left: 60px solid blue;
+  border-bottom: 60px solid blue;
+  border-radius:60px;
+}
+
+/* 桃心 */
+.heart { 
+	position: relative;
+	height: 140px;
+}
+.heart:before, .heart:after {
+   position: absolute;
+   content: "";
+   left: 70px; top: 0;
+   width: 70px;
+   height: 115px;
+   background: blue;
+   -moz-border-radius: 50px 50px 0 0;
+   border-radius: 50px 50px 0 0;
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   -o-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   -webkit-transform-origin: 0 100%;
+   -moz-transform-origin: 0 100%;
+   -ms-transform-origin: 0 100%;
+   -o-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+}
+.heart:after { 
+left: 0; background: red;
+   -webkit-transform: rotate(45deg); 
+   -moz-transform: rotate(45deg); 
+   -ms-transform: rotate(45deg); 
+   -o-transform: rotate(45deg);
+   transform: rotate(45deg);
+   -webkit-transform-origin: 100% 100%;
+   -moz-transform-origin: 100% 100%;
+   -ms-transform-origin: 100% 100%;
+   -o-transform-origin: 100% 100%;
+   transform-origin :100% 100%;
+}
+
+/* 八卦 */
+.bagua{
+	width: 96px;
+   height: 48px;
+   background: #eee;
+   border-color: red;
+   border-style: solid;
+   border-width: 2px 2px 50px 2px;
+   border-radius: 100%;
+   position: relative;
+}
+.bagua:before{
+	content: "";
+   position: absolute;
+   top: 50%;
+   left: 0;
+   background: #eee;
+   border: 18px solid red;
+   border-radius: 100%;
+   width: 12px;
+   height: 12px;
+}
+.bagua:after{
+	content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background: red;
+   border: 18px solid #eee;
+   border-radius:100%;
+   width: 12px;
+   height: 12px;
+}
+
+/* 八角形 */
+.octagon {
+   width: 100px; 
+   height: 100px; 
+   background: blue;
+   position:relative;
+}
+.octagon:before {
+   height: 0;
+   width: 40px;
+   content:"";
+   position: absolute; 
+   border-bottom: 30px solid blue;
+   border-left: 30px solid white; 
+   border-right: 30px solid white; 
+}
+.octagon:after {
+   height: 0;
+   width: 40px;
+   content:"";
+   position: absolute; 
+   border-top: 30px solid blue; 
+   border-left: 30px solid white;  
+   border-right: 30px solid white; 
+   margin: 70px 0 0 0;
+}
+ 
+</style>
+</head>
+<body>
+	<header>
+		CSS Shapes
+	</header>
+	<div class="mulu">
+		<h2>基本图形</h2>
+		<ul>
+			<li>
+				<h3>方形</h3>
+				<div class="square"></div>
+				<pre class="code">.square{width: 100px; height:100px; background: #000;}</pre>
+			</li>
+			<li>
+				<h3>圆形</h3>
+				<div class="circle"></div>
+				<pre class="code">.circle{width: 100px; height:100px; -webkit-border-radius:50px; -moz-border-radius:50px; -ms-border-radius:50px; -o-border-radius:50px; border-radius:50px; background: #000;}</pre>
+			</li>
+			<li>
+				<h3>椭圆</h3>
+				<div class="oval"></div>
+				<pre class="code">.oval{width: 200px; height:100px; -webkit-border-radius:100px/50px; -moz-border-radius:100px/50px; -ms-border-radius:100px/50px; -o-border-radius:100px/50px; border-radius:100px/50px; background: #000;}</pre>
+			</li>
+			<li>
+				
+			</li>
+			<li>
+				<h3>菱形</h3>
+				<div class="diamond"></div>
+				<pre class="code">.diamond{width: 100px; height: 100px; background: #000; margin: 40px 0;
+   /* Rotate */
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   -o-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   /* Rotate Origin */
+   -webkit-transform-origin: 50% 50%;
+   -moz-transform-origin: 50% 50%;
+   -ms-transform-origin: 50% 50%;
+   -o-transform-origin: 50% 50%;
+   transform-origin: 50% 50%;
+}</pre>
+			</li>
+			<li>
+				<h3>平行四边形</h3>
+				<div class="parallelogram"></div>
+				<pre class="code">.parallelogram {width: 150px ; height:100px; background: #000;-webkit-transform: skew(-20deg); -moz-transform: skew(-20deg); -o-transform: skew(-20deg); transform: skew(-20deg);}</pre>
+			</li>
+			<li>
+				<h3>对话框</h3>
+				<div class="speech_bubble"></div>
+				<pre class="code">.speech_bubble{width: 150px; height: 80px; background: #000; border-radius:5px; position: relative;}
+.speech_bubble:before{content:''; width: 0px; height: 0px; border-right:20px solid #000; border-top:10px solid transparent; border-bottom:10px solid transparent; position: absolute; left: -20px; top:10px;}</pre>
+			</li>
+			<li>
+				<h3>蛋型</h3>
+				<div class="egg"></div>
+				<pre class="code">.egg{display:block; width:126px; height:180px; background-color:orange; -webkit-border-radius:63px 63px 63px 63px/108px 108px 72px 72px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;}</pre>
+			</li>
+			<li>
+				<h3>食豆人</h3>
+				<div class="pacman"></div>
+				<pre class="code">.pacman {
+  width: 0px;
+  height: 0px;
+  border-right: 60px solid transparent;
+  border-top: 60px solid blue;
+  border-left: 60px solid blue;
+  border-bottom: 60px solid blue;
+  border-radius:60px;
+}</pre>
+			</li>
+			<li>
+				<h3>桃心</h3>
+				<div class="heart"></div>
+				<pre class="code">.heart { 
+	position: relative;
+	height: 140px;
+}
+.heart:before, .heart:after {
+   position: absolute;
+   content: "";
+   left: 70px; top: 0;
+   width: 70px;
+   height: 115px;
+   background: blue;
+   -moz-border-radius: 50px 50px 0 0;
+   border-radius: 50px 50px 0 0;
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   -o-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   -webkit-transform-origin: 0 100%;
+   -moz-transform-origin: 0 100%;
+   -ms-transform-origin: 0 100%;
+   -o-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+}
+.heart:after { 
+left: 0; background: red;
+   -webkit-transform: rotate(45deg); 
+   -moz-transform: rotate(45deg); 
+   -ms-transform: rotate(45deg); 
+   -o-transform: rotate(45deg);
+   transform: rotate(45deg);
+   -webkit-transform-origin: 100% 100%;
+   -moz-transform-origin: 100% 100%;
+   -ms-transform-origin: 100% 100%;
+   -o-transform-origin: 100% 100%;
+   transform-origin :100% 100%;
+}</pre>
+			</li>
+			<li>
+				<h3>八卦</h3>
+				<div class="bagua"></div>
+				<pre class="code">
+.bagua{
+	width: 96px;
+   height: 48px;
+   background: #eee;
+   border-color: red;
+   border-style: solid;
+   border-width: 2px 2px 50px 2px;
+   border-radius: 100%;
+   position: relative;
+}
+.bagua:before{
+	content: "";
+   position: absolute;
+   top: 50%;
+   left: 0;
+   background: #eee;
+   border: 18px solid red;
+   border-radius: 100%;
+   width: 12px;
+   height: 12px;
+}
+.bagua:after{
+	content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background: red;
+   border: 18px solid #eee;
+   border-radius:100%;
+   width: 12px;
+   height: 12px;
+}
+				</pre>
+			</li>
+			<li>
+				<h3>八角形</h3>
+				<div class="octagon"></div>
+				<pre class="code"></pre>
+			</li>
+			<li>
+				<h3></h3>
+				<div class=""></div>
+				<pre class="code"></pre>
+			</li>
+			<li>
+				<h3></h3>
+				<div class=""></div>
+				<pre class="code"></pre>
+			</li>
+			<li>
+				<h3></h3>
+				<div class=""></div>
+				<pre class="code"></pre>
+			</li>
+			<li>
+				<h3></h3>
+				<div class=""></div>
+				<pre class="code"></pre>
+			</li>
+			<li>
+				<h3></h3>
+				<div class=""></div>
+				<pre class="code"></pre>
+			</li>
+			<li>
+				<h3></h3>
+				<div class=""></div>
+				<pre class="code"></pre>
+			</li>
+		</ul>
+	</div>
+
+
+<script src="../device.js"></script>
+<script>
+if (device.type === "mobile") {
+  console.log('mobile')
+} else if (device.type === "pad") {
+  console.log('pad')
+} else if (device.type === "pc") {
+  console.log('pc')
+} else {
+  console.log('other')
+}
+</script>
+
+</body>
+</html>

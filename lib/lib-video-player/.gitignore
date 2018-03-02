@@ -1,0 +1,8 @@
+release
+coverage
+site
+doc/README.md
+sitetpl
+node_modules
+.DS_Store
+npm-debug.log

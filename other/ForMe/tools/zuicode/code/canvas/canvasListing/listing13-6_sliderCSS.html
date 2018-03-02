@@ -1,0 +1,142 @@
+<html>
+<head>
+	<title>Custom Slider</title>
+	<!-- Fill the iOS screen /-->
+	<meta name="viewport" content="width=400" />
+	
+<style>
+
+canvas {
+	position:absolute; top:10; left:10;
+	background-color: beige;
+	border-radius: 25;
+	border: 1 px solid #404040;
+}
+
+.slider {
+	position: absolute;
+	top: 115;
+	left:85;
+	width: 152;
+	height = 52;
+}
+
+.bar {
+	position: relative;
+	top:30;
+	width: 152;
+	height: 2 px;
+	background-color: #404040 ;
+}
+
+.knob {
+	position: relative;
+	left:0;
+	border: 1 px solid #404040;
+	background-color: #C0C0C0 ;
+	width:50 px;
+	height: 50 px;
+	border-radius: 25 px;
+}
+	
+</style>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var image;
+var slider;
+var knob;
+var mouseIsDown;
+var knobMid;
+
+function init() {
+	slider = document.getElementById("slider");
+	knob = document.getElementById("knob");
+	image = document.getElementById("image");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	mouseIsDown = 0;
+	knobMid = knob.offsetWidth / 2;
+	margin = can.offsetLeft - 1;
+	textInit();
+	showVal();
+}
+
+function textInit() {
+	ctx.fillStyle = "blue";
+	ctx.font = "24 pt Helvetica";
+	ctx.textAlign = "center";
+	ctx.textBaseline = "bottom";
+}
+
+function showVal() {
+	// value goes from 0 to slider-width minus knob width
+	var sliderVal = knob.offsetLeft;
+	ctx.save();
+	ctx.clearRect(0,0, can.width, can.height);
+	var scale= .25 + sliderVal / 200 ;
+	ctx.scale(scale, scale);
+	ctx.drawImage(image, 0,0);
+	ctx.restore();
+	ctx.fillText(sliderVal, can.width / 2, can.height - 5);
+	setTimeout("showVal()", 25);
+}
+
+function mouseDown() {
+	mouseIsDown = 1;
+	mouseXY();
+}
+
+function mouseUp() {
+	mouseIsDown = 0;
+}
+
+function mouseXY(e) {
+	if (mouseIsDown) {
+		if (!e) var e = event;
+		var mouseX = e.pageX - slider.offsetLeft;
+		if (mouseX >= 0 && mouseX <= slider.offsetWidth ) {
+			setKnob(mouseX);
+		}
+	}
+}
+
+function touchXY(e) {
+	if (!e) var e = event;
+	// slide, don't scroll
+	e.preventDefault(); 
+	var touchX = e.touches[0].pageX - slider.offsetLeft;
+	if (touchX >= 0 && touchX <= slider.offsetWidth) {
+		setKnob(touchX);
+	}
+}
+
+function setKnob(x) {
+	var knobX = x - knobMid;
+	knobX = Math.max(knobX, 0);
+	knobX = Math.min(knobX, slider.offsetWidth - knob.offsetWidth);
+	knob.style.left = knobX;
+}
+
+</script>
+</head>
+
+<body onload="init()" onmouseup="mouseUp()" >
+
+<canvas id="can" height="200" width="300">
+</canvas>
+
+<div class="slider" id="slider"
+	onmousedown="mouseDown()" onmousemove="mouseXY()"
+	ontouchstart="touchXY()" ontouchmove="touchXY()">
+	<div class="bar">
+	</div>
+	<div id="knob" class="knob" 
+	</div>
+<div>
+<img id="image" style="display:none"
+	 src="http://homepage.mac.com/qt4web/butterfly/butterfly1.png" >
+</body>
+</html>

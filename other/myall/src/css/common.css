@@ -1,0 +1,372 @@
+/* by xuerong */
+/* reset 重设浏览器的默认样式 */
+/*-webkit-text-size-adjust禁止文本缩放*/
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: #eee;
+}
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+em,
+img,
+ol,
+ul,
+li,
+form,
+label,
+i,
+article,
+aside,
+footer,
+header,
+nav,
+section,
+menu {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+}
+img {
+  border: 0;
+}
+li {
+  list-style: none;
+}
+a img {
+  border: none;
+}
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+/* html5初始化 */
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+/* variable */
+/* @{images} URLs*/
+body {
+  font-family: "Microsoft YaHei", Arial, Helvetica, Tahoma;
+  color: #333;
+  font-size: 14px;
+}
+/* 常用基础样式 */
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #333;
+}
+a:hover {
+  color: red;
+  text-decoration: none;
+  outline-width: 0;
+}
+/* 清楚浮动 */
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  clear: both;
+  display: block;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0!important;
+  line-height: 0;
+  content: ".";
+}
+*html .clearfix {
+  height: 1%;
+}
+.clearfac {
+  overflow: hidden;
+  zoom: 1;
+}
+.clear {
+  clear: both;
+}
+.masker {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 999;
+  text-align: center;
+}
+/*webkit表单元素的默认外观怎么重置*/
+.btn {
+  display: inline-block;
+}
+.thing0 {
+  float: left;
+}
+/*  outputs:.div{float:left;};  */
+.fr,
+.thing1 {
+  float: right;
+}
+.thing1 {
+  /* .outputs:.fr,.thing1{float:right;};  */
+}
+.a,
+#b {
+  color: red;
+}
+.thing2 {
+  color: red !important;
+}
+.thing3 {
+  color: red;
+}
+/* 基准为phone6 750×1334 rem = px / 基准值*/
+/* 控制任何屏幕下字体打下一样 */
+.box {
+  width: 1.33333333rem;
+  font-size: 16px;
+  /*for mx3*/
+  /*for 小米note */
+  /*for 三星note4 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAMAAADWOFNCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0M0Q3ODMyMTk4ODRFMjExQThGNEE4N0Y4RjVDRDk3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1N0E2MzM5ODg1MzUxMUUyOTUyMzg3Qzg5RjQwMkE3OCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1N0E2MzM5Nzg1MzUxMUUyOTUyMzg3Qzg5RjQwMkE3OCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMURBQzg1MTM0ODVFMjExOUY4RTkwQTFERDkyQzVEOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0M0Q3ODMyMTk4ODRFMjExQThGNEE4N0Y4RjVDRDk3RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjzKqKgAAAMAUExURfPaxScQBf3wrunHq+WsdGq848eWNpbm+ZzcSfzy6HPH6JiqpLh5TrWRRGml1ITa87eJOOzRu1QhCMR7Q+e1h1in2I5jL3Kr1fnu49jPqerGVK5XLvjlmMGHKdCYaW+etue6lXTT7WKby9qlL5lTMefGZWjC56hYFdamevjhxurLsoXT7niz2/bh0bb8qOS8UneozEMZCLN7J1yVx8/QcvXUucVyN5XEzIzh9t+WXdWpR3MmCIc2DLZmF2UjCNy0i+nCm8B+IZKyvsSbQ/nq3ti5Z9m1Vqbz/Wi03Ni6eFWc0WuhzojlqeLIitStVa2mcMN1GZLV6aLzl0iLxtedWpdMFJLrq4TI5tfGluXVqnp9IotJFLpyHL9UK8n3tJ1WGdWaKo/WmnsyDXzQ6p6qLU6a08jUvYMoCKlhGPDWwblnNmMVBXrXp6Xu96W9Pvnuwe7SeOvShcmlVazBslqw3dqpicqEPEuTzbFcFvPXe7VjKqNxKGC44u3Mp4c2GGrV6fXdic++kseqaeGyN8seD7GyXJo8DKNGD6J7M9SMSplDD/f+8lLJ286hQ8alc8KZVdTYgvbk1saQL8iCTLX9/822iHzW8MXEm3pRKd+nacVqOHVFGZaYdvfl0ubhvtWXTn48EahoIV5lG6bT0/HOsp3rmqRMEKc+FLJ/MtnDi5U1FM+MWYXcpGhwHuvOdcBkLr2JXFCi1seyfHm3xfTfm203EP751dr+xNqxSuWdaXza7vTeztNeL59iN91uOY8sC8mHHuzi2XIuDPfm2ZmeKs98Ol3S4pnxsGImFd7kj5xiING1bXcyIfbo3c2bN50wEmQtDLEXC4w/Dn8XB41VIHy+3X7l8U6PxLBxIK5KJtPcl3/ivONKJ7WbVpfi8njN663+uej/149CJePPj+7Go7rBbvTjqIHl7lw4GW+JNfno2OOxgOy7ie7OYO3dzNWagpvt+qrg6eC+nXXW7lxuH+bBp86NJuqARaxSE9A9G7FOD8Kjl/G9msO0m57e8P///ylX2U0AAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAJ0klEQVR42kzWe1yS9x4H8AcvOA1FnkTwThjqDNJHy0guxtC80OyyyDxoOk0RnUcrLfOyWW6WdrDEbmYpLlJbW2bpZlFZOM/ZNImhLj2buWOt4xFtHpvNdTq574O7fV/8Bbz5fJ8fv9/3eZCFhSM7vsfrgw9WHTv25ZdfHjt2bNUq8+v7Vcf+uWPLlguLtWWxVn62sLCALHz2zsbdfbGxYmIs63Kuu3upe2kuy9XVNcB1VxmR9aj+v3Y+Pj7WxcV25GfLFmvDkQXkX98sGY3dHaokhq6PYOXm7rewcC+dnnZ1LZtu79Trd8XXA/IpzssrHrP7VS375giyZY+9UqxXEvVKZWgAK9fdAtjl3Onp6ZwnyaHKzvYnS8yKSrX+XS3bgbwmFisBqVRESGOVlpZaWEzvz91fmpOTLFA5EnNzoh+Aora15f0Rtg15zVFJVOpVHndURH0nyzWgtDRg//79FjlPypIFex3VrJz6s9Y+eXltbX8K24D8lajXK1UikchDpUrW6wNY3gG50xafurMuhyaIojuKcj51uQYdtqW1Ffv8SYkhSrQpQYTDYX3nc29WQPun7pfb2wMKPNb11kXk1Kfjqi0t7+/vLXv2m1Lp9XdAJYgSEjIK9B6izvUBORYBrPYnEaKjJkfx4Ufx8XGwGmmggP2uiB6ABLipTFANE2NDdz3pfN65a1e0yXL2qH3v6KP483iH+9r+9lsYruCiEgoKMuZ9+ZVBw0Hi0PXtob1BsW8i585NInMtE3W7L6bn5aXtM6vfO/SA1gTz801NRl7ScEYQUfnmo8GiK/Hhtra24eeQsNPY4d3pUW379qWZ1W9Zok2C+RdN85WVvJSMJGmROPbR7qPx2/0B2dLDOcgJ7LS9C60tLa0tr/i9GzdOPltUQQkFTc3zh5r4PKNUrW4R912c1YbTLc+Z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");
+  width: 8rem;
+  height: 10.66666667rem;
+}
+[data-dpr="2"] .box {
+  font-size: 32px;
+}
+[data-dpr="2.5"] .box {
+  font-size: 40px;
+}
+[data-dpr="2.75"] .box {
+  font-size: 44px;
+}
+[data-dpr="3"] .box {
+  font-size: 48px;
+}
+[data-dpr="4"] .box {
+  font-size: 64px;
+}
+#header {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  position: fixed;
+  top: 0px;
+  left: 230px;
+  width: 100%;
+  z-index: 1;
+  height: 49px;
+  line-height: 49px;
+}
+#aside {
+  border-right: 1px solid #e8e8e8;
+  width: 230px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: fixed;
+  left: 0px;
+  top: 0;
+  background: #fff;
+  z-index: 99999;
+  bottom: 0px;
+}
+#aside .inner {
+  padding: 15px;
+}
+#aside .inner h3 {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+#aside h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #777;
+  background: #fff;
+  width: 208px;
+  padding-left: 22px;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 1s;
+  border-bottom: 1px solid #e8e8e8;
+  height: 49px;
+  line-height: 49px;
+}
+#aside h2:hover {
+  opacity: 0;
+  transition: opacity 1s;
+}
+#aside p.forme {
+  width: 208px;
+  padding-left: 22px;
+  font-size: 18px;
+  position: absolute;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  height: 49px;
+  line-height: 49px;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+#aside .sdbox {
+  line-height: 1.8;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+#aside .fh {
+  height: 200px;
+  overflow-y: auto;
+}
+#main {
+  padding-left: 230px;
+  position: relative;
+}
+#main #menu {
+  height: 40px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fff;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0px;
+  padding-left: 230px;
+  z-index: 10;
+  text-align: center;
+  line-height: 40px;
+}
+#main #menu a {
+  margin: 0px 10px;
+}
+#main #content {
+  padding: 100px 15px 15px;
+  position: relative;
+}
+.doc h2,
+.doc h3 {
+  margin-bottom: 10px;
+}
+.doc [class^='icon'] {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.doc .icon_1 {
+  background: blue;
+}
+.doc .icon_2 {
+  background: red;
+}
+.reader .r_nav {
+  width: 150px;
+  float: left;
+  padding-right: 15px;
+}
+.reader .r_nav li {
+  display: block;
+  padding: 0 15px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.reader .r_nav li h3 {
+  font-weight: bold;
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.reader .r_nav li.current {
+  background: rgba(255, 255, 255, 0.5);
+}
+.reader .r_cont {
+  overflow: hidden;
+  background: #fff;
+  border: 0px;
+  position: relative;
+}
+.reader .r_cont .rtips {
+  position: absolute;
+  z-index: 10;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+pre {
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* 部分android系统中元素被点击时产生的边框怎么去掉
+a,button,input,textarea{
+    -webkit-tap-highlight-color: rgba(0,0,0,0;)
+    -webkit-user-modify:read-write-plaintext-only; 
+}
+
+ webkit表单输入框placeholder的颜色值能改变么
+input::-webkit-input-placeholder{color:#AAAAAA;}
+input:focus::-webkit-input-placeholder{color:#EEEEEE;}
+
+移动端禁止选中内容
+-webkit-user-select: none;
+-moz-user-select: none; 
+-ms-user-select: none; 
+
+//竖屏时使用的样式
+@media all and (orientation:portrait) {
+    ...
+}
+
+//横屏时使用的样式
+@media all and (orientation:landscape) {
+    ...
+}
+
+手机拍照和上传图片
+<!-- 选择照片 -->
+<input type=file accept="image/*">
+<!-- 选择视频 -->
+<input type=file accept="video/*">
+
+设计高性能CSS3动画的几个要素
+尽可能地使用合成属性transform和opacity来设计CSS3动画，
+不使用position的left和top来定位
+利用translate3D开启GPU加速
+.css {
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
+ */

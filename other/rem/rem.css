@@ -1,0 +1,14 @@
+body{font-size:12px;}
+
+.btn {
+    width: 6rem;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    background: #06c;
+    color: #fff;
+    border-radius: .5rem;
+    text-decoration: none;
+    text-align: center;    
+}

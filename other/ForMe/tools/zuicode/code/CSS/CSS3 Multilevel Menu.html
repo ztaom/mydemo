@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title></title>
+<link rel="icon" href="../../img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="../../css/common.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+
+<style>
+#nav {
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    background-color:#B8D1F8;
+    border:1px solid #000C80;
+    height:24px;
+    list-style:none outside none;
+    margin:0;
+    padding:1px;
+}
+#nav ul ul {
+    background-color:#FFFFFF;
+    border:1px solid #8A867A;
+    display:none;
+    height:auto;
+    left:0;
+    padding:0;
+    position:absolute;
+    top:25px;
+    width:168px;
+
+    background-image:-webkit-gradient(left center , #F8FAFF 0%, #B8D1F8 15%, #FFFFFF 15%, #FFFFFF 100%);
+    background-image:-moz-linear-gradient(left center , #F8FAFF 0%, #B8D1F8 15%, #FFFFFF 15%, #FFFFFF 100%);
+}
+#nav ul ul ul {
+    display:none;
+    left:168px;
+    position:absolute;
+    top:-1px;
+    width:168px;
+}
+#nav ul li {
+    float:left;
+    margin-right:1px;
+    position:relative;
+}
+#nav ul li a {
+    border:1px solid #B8D1F8;
+    color:#000;
+    cursor:default;
+    display:block;
+    font:11px Tahoma,Arial;
+    padding:3px 3px 4px;
+    text-decoration:none;
+}
+#nav ul li span {
+    background:url("http://www.script-tutorials.com/demos/266/images/u.gif") no-repeat scroll 90% center transparent;
+    border:1px solid #B8D1F8;
+    color:#000;
+    cursor:default;
+    display:block;
+    font:11px Tahoma,Arial;
+    padding:3px 14px 4px 3px;
+    position:relative;
+}
+#nav ul ul li span {
+    background:url("http://www.script-tutorials.com/demos/266/images/s.gif") no-repeat scroll 97% center transparent;
+}
+#nav ul ul li {
+    float:none;
+    margin-right:0;
+    padding:1px;
+    text-indent:10px;
+}
+#nav ul ul li a,#nav ul ul li span {
+    border:1px solid transparent;
+    padding:3px 3px 5px 2px;
+}
+#nav ul ul li a img,#nav ul ul li span img {
+    border-width:0;
+    float:left;
+    margin-right:5px;
+    vertical-align:middle;
+}
+#nav ul li:hover > a,#nav ul li:hover > span {
+    background-color:#FFF2C8;
+    border:1px solid #000C80;
+    color:#000;
+}
+#nav img.close {
+    display:none;
+    height:100%;
+    left:0;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:-1;
+}
+#nav ul li span:focus + ul,#nav ul li ul:hover,#nav ul:hover + img.close {
+    display:block;
+}
+</style>
+</head>
+<body>
+<div id="subcont">
+<h1 class="bl_solid_bottom mb_10 f_18 pb_5">CSS3 Multilevel Menu</h1>
+<div id="nav">
+    <ul>
+        <li><span tabindex="1">File</span>
+            <ul>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/http://www.script-tutorials.com/demos/266/images/icon1.gif" alt="" />New</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon2.gif" alt="" />Open</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon3.gif" alt="" />Close</a></li>
+                <li><span tabindex="1"><img src="http://www.script-tutorials.com/demos/266/images/icon4.gif" alt="" />Save</span>
+                    <ul>
+                        <li><span tabindex="1"><img src="http://www.script-tutorials.com/demos/266/images/icon4.gif" alt="" />Option 1</span>
+                            <ul>
+                                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon1.gif" alt="" />Option A</a></li>
+                                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon2.gif" alt="" />Option B</a></li>
+                                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon3.gif" alt="" />Option C</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon2.gif" alt="" />Option 2</a></li>
+                        <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon3.gif" alt="" />Option 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon5.gif" alt="" />Save As</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon1.gif" alt="" />Print</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon2.gif" alt="" />Exit</a></li>
+            </ul>
+        </li>
+        <li><span tabindex="1">Edit</span>
+            <ul>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon1.gif" alt="" />Cut</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon2.gif" alt="" />Copy</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon3.gif" alt="" />Paste</a></li>
+            </ul>
+        </li>
+        <li><span tabindex="1">View</span>
+            <ul>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon1.gif" alt="" />Normal</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon2.gif" alt="" />Web Layout</a></li>
+                <li><a href="#"><img src="http://www.script-tutorials.com/demos/266/images/icon3.gif" alt="" />Print Layout</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Insert</a></li>
+        <li><a href="#">Format</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">Table</a></li>
+        <li><a href="#">Window</a></li>
+        <li><a href="http://www.script-tutorials.com/">Help</a></li>
+        <img class="close" src="http://www.script-tutorials.com/demos/266/images/spacer.gif" alt="" />
+    </ul>
+</div>
+</div>
+<script type="text/javascript" src="../../js/cont.js"></script>
+</body>
+</html>

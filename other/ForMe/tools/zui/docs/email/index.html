@@ -1,0 +1,43 @@
+ <div class="entry-title">
+  <h1>ZUI规范指南&mdash;&mdash;东奥EMAIL模板的书写</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>各大email服务提供商对email的处理</h3></div>
+  <ol class="order-list pl-10">
+    <li>邮件内容是被布局在整个邮箱页面中的某个div中:
+      <dl class="bg-purple p-5">
+        <dt>gmail</dt>
+        <dt>hotmail</dt>
+        <dt>sohu</dt>
+      </dl>
+    </li>
+    <li>邮件内容被布局在独立的iframe中:
+      <dl class="bg-purple p-5">
+        <dt>sina</dt>
+        <dt>163</dt>
+      </dl>
+    </li>
+  </ol>
+  <div class="content-title"><h3>编写原则</h3></div>
+  <ol class="order-list ml-10">
+    <li>不要写style标签、不要写class，所有CSS都用style属性，什么元素需要什么样式就用style写内联的CSS</li>
+    <li>少用图片，邮箱不会过滤你的img标签，但是系统往往会默认不载入陌生来信的图片，如果用了很多图片的邮件，在片没有载入的情况下，丑陋无比甚至看不清内容，没耐心的用户直接就删除了。图片上务必加上alt
+    <li>不要在style里面写float、position这些style，因为会被过滤。那么如何实现左右布局或者更复杂的布局呢？用table</li>
+    <li>style内容里面background可以设置color，但是img会被过滤，就是说不能通过CSS来设置背景图片了。但是有一个很有意思的元素属性，也叫background，里面可以定义一个图片路径，这是个不错的替代方案，虽然这样功能有限，比如无法定位背景图片了，有总比没有好</li>
+    <li>div模式的邮箱不支持flash，iframe模式的有待验证</li>
+  </ol>
+  <div class="content-title"><h3>东奥E-mail模板</h3></div>
+  <ol class="order-list pl-10">
+    <li><a href="docs/email/curvy_div/index.htm" target="_blank" class="no-visited">圆角div结构</a></li>
+    <li><a href="docs/email/table/index.htm" target="_blank" class="no-visited">简单table结构</a></li>
+    <li><a href="docs/email/email-template.html" target="_blank" class="no-visited">email模板</a></li>
+  </ol>
+  <div class="content-title"><h3>例子</h3></div>
+  <ol class="order-list pl-10">
+    <li><a href="http://cn.wsj.com/gb/NewsletterEvening.asp" target="_blank" class="icon-external no-visited">http://cn.wsj.com/gb/NewsletterEvening.asp</a></li>
+  </ol>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

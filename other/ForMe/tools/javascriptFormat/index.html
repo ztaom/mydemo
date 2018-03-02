@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en-us" dir="ltr" class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en-us" dir="ltr" class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-us" dir="ltr" class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-us" dir="ltr" class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-us" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="http://www.ztaom.com/favicon.ico" type="image/x-icon" />
+<title>Online javascript format</title>
+<style type="text/css">
+* { margin: 0; padding: 0; }
+.ie6 div { display: none }
+.ie6 #ie6-go-away { display: block !important; }
+img { border: 0; display: block; vertical-align: baseline; }
+#blurb { width: 260px; float: right; }
+#beauty { border-top: 1px solid #f6f6f6; margin-left: 5px; margin-right: 270px; }
+body { background: #eee; }
+body, button, select, label { font:13px/1.231 arial, sans-serif; *font-size:small;
+}
+select, label { font-size: 12px; }
+body, html { height: 100%; color: #333; }
+textarea { color: #444; height: 100%; width: 100%; border: 0; }
+.ie7 fieldset#textarea-wrap { padding: 5px 0; }
+.ie8 fieldset#textarea-wrap { padding: 5px 0 0 5px; }
+fieldset { border: 0; }
+ul, li { list-style: none; }
+a { color: #36d; }
+fieldset#textarea-wrap { height: auto; position: absolute; background: white; left: 0; top: 0px; right: 0; bottom: 0; display: block; margin-left: 5px; margin-bottom: 5px; margin-right: 270px; margin-top: 5px; border: 1px solid #ccc; border-right: 1px solid #666; border-bottom: 1px solid #666; padding: 5px; }
+label { cursor: pointer; }
+#options { margin-top: 5px; margin-bottom: 15px; }
+#options li { margin-bottom: 4px; font-size: 90%; }
+#options select { font:13px/1.231 arial, sans-serif; width: 220px; }
+#tabsize { margin-top: 2px; }
+#brace-style { margin-bottom: 6px; }
+#blurb h2 { font-size: 12px; font-weight: bold; color: #555; }
+#blurb p { line-height: 140%; font-size: 11px; margin-right: 16px; margin-bottom: 11px; }
+#footer { font-size: 11px; line-height: 140%; }
+#blurb p.me-me-me { margin-bottom: 4px; }
+#blurb p.contributors { color: #666; }
+#blurb #uses li { font-size: 11px; margin-bottom: 4px; }
+#blurb #uses li.writeme { font-style: normal; color: #888; margin-bottom: 30px; line-height: 130%; }
+</style>
+<link rel="stylesheet" href="http://www.ztaom.com/css/siteStyle.css">
+<script type="text/javascript" src="http://www.ztaom.com/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://www.ztaom.com/js/cookie.js"></script>
+<script type="text/javascript" src="beautify.js" ></script>
+<script type="text/javascript" src="beautify-html.js" ></script>
+<script type="text/javascript" src="tests/sanitytest.js" ></script>
+<script type="text/javascript" src="tests/beautify-tests.js" ></script>
+<script type="text/javascript" src="unpackers/javascriptobfuscator_unpacker.js" ></script>
+<script type="text/javascript" src="unpackers/urlencode_unpacker.js" ></script>
+<script type="text/javascript" src="unpackers/p_a_c_k_e_r_unpacker.js" ></script>
+<script type="text/javascript" src="unpackers/myobfuscate_unpacker.js" ></script>
+<script type="text/javascript">
+
+var the = {
+    beautify_in_progress: false
+}
+
+function trim_leading_comments(str)
+{
+    // very basic. doesn't support /* ... */
+    str = str.replace(/^(\s*\/\/[^\n]*\n)+/, '');
+    str = str.replace(/^\s+/, '');
+    return str;
+}
+
+function run_tests()
+{
+    var st = new SanityTest();
+    run_beautifier_tests(st);
+    JavascriptObfuscator.run_tests(st);
+    P_A_C_K_E_R.run_tests(st);
+    Urlencoded.run_tests(st);
+    MyObfuscate.run_tests(st);
+    $('#testresults').html(st.results()).show();
+}
+
+
+function any(a, b)
+{
+    return a ? a : b;
+}
+
+function read_settings_from_cookie()
+{
+    $('#tabsize').val(any($.cookie('tabsize'), '4'));
+    $('#brace-style').val(any($.cookie('brace-style'), 'collapse'));
+    $('#detect-packers').attr('checked', $.cookie('detect-packers') !== 'off');
+    $('#preserve-newlines').attr('checked', $.cookie('preserve-newlines') !== 'off');
+    $('#keep-array-indentation').attr('checked', $.cookie('keep-array-indentation') === 'on');
+
+}
+
+function store_settings_to_cookie()
+{
+    var opts = { expires: 360 };
+    $.cookie('tabsize', $('#tabsize').val(), opts);
+    $.cookie('brace-style', $('#brace-style').val(), opts);
+    $.cookie('detect-packers', $('#detect-packers').attr('checked') ? 'on' : 'off', opts);
+    $.cookie('preserve-newlines', $('#preserve-newlines').attr('checked') ? 'on' : 'off', opts);
+    $.cookie('keep-array-indentation', $('#keep-array-indentation').attr('checked') ? 'on' : 'off', opts);
+
+}
+
+function unpacker_filter(source)
+{
+
+    var stripped_source = trim_leading_comments(source);
+    var unpacked = '';
+
+    if (P_A_C_K_E_R.detect(stripped_source)) {
+        unpacked = P_A_C_K_E_R.unpack(stripped_source);
+        if (unpacked !== stripped_source) {
+            return unpacker_filter(unpacked);
+        }
+    }
+
+    if (Urlencoded.detect(source)) {
+        unpacked = Urlencoded.unpack(source);
+        if (unpacked !== stripped_source) {
+            return unpacker_filter(unpacked);
+        }
+    }
+
+    if (JavascriptObfuscator.detect(stripped_source)) {
+        unpacked = JavascriptObfuscator.unpack(stripped_source);
+        if (unpacked !== stripped_source) {
+            return unpacker_filter(unpacked);
+        }
+    }
+
+    if (MyObfuscate.detect(stripped_source)) {
+        unpacked = MyObfuscate.unpack(stripped_source);
+        if (unpacked !== stripped_source) {
+            return unpacker_filter(unpacked);
+        }
+    }
+    return source;
+}
+
+
+function beautify()
+{
+    if (the.beautify_in_progress) return;
+
+    store_settings_to_cookie();
+
+    the.beautify_in_progress = true;
+
+    var source = $('#source').val().replace(/^\s+/, '');
+    var indent_size = $('#tabsize').val();
+    var indent_char = indent_size == 1 ? '\t' : ' ';
+    var preserve_newlines = $('#preserve-newlines').attr('checked');
+    var keep_array_indentation = $('#keep-array-indentation').attr('checked');
+    var brace_style = $('#brace-style').val();
+
+    if ($('#detect-packers').attr('checked')) {
+        source = unpacker_filter(source);
+    }
+
+    var comment_mark = '<-' + '-';
+    if (source && source[0] === '<' && source.substring(0, 4) !== comment_mark) {
+        $('#source').val(
+            style_html(source, indent_size, indent_char, 80, brace_style)
+        );
+    } else {
+        var v = (
+            js_beautify(unpacker_filter(source), {
+                indent_size: indent_size,
+                indent_char: indent_char,
+                preserve_newlines:preserve_newlines,
+                brace_style: brace_style,
+                keep_array_indentation:keep_array_indentation,
+                space_after_anon_function:true})
+        );
+        $('#source').val(
+            js_beautify(unpacker_filter(source), {
+                indent_size: indent_size,
+                indent_char: indent_char,
+                preserve_newlines:preserve_newlines,
+                brace_style: brace_style,
+                keep_array_indentation:keep_array_indentation,
+                space_after_anon_function:true})
+        );
+    }
+
+    the.beautify_in_progress = false;
+}
+
+$(function() {
+
+    if ($.browser.msie) {
+        $('#source').width( $('#textarea-wrap').width() - 10)
+                    .height($('#textarea-wrap').height() - 10);
+    }
+
+    read_settings_from_cookie();
+
+    var default_text = "// This is just a sample script. Paste your real code here.\nif ('this_is'==/an_example/){of_beautifer();}else{var a=b?(c%d):e[f];}";
+    $('#source').val(default_text).bind('click focus', function () {
+        if ($(this).val() == default_text) {
+            $(this).val('');
+        }
+    }).bind('blur', function () {
+        if ($(this).val() == '') {
+            $(this).val(default_text);
+        }
+
+    })
+    $(window).bind('keydown', function (e) {
+        if (e.ctrlKey && e.keyCode == 13) {
+            beautify();
+        }
+    })
+    $('#submit').bind('click', beautify);
+    $('select').bind('change', beautify);
+});
+</script>
+</head>
+<body>
+<div id="blurb">
+  <fieldset id="options">
+    <ul>
+      <li>
+        <select name="tabsize" id="tabsize">
+          <option value="1">indent with a tab character</option>
+          <option value="2">indent with 2 spaces</option>
+          <option value="3">indent with 3 spaces</option>
+          <option value="4">indent with 4 spaces</option>
+          <option value="8">indent with 8 spaces</option>
+        </select>
+      </li>
+      <li>
+        <select id="brace-style">
+          <option value="collapse">Braces with control statement</option>
+          <option value="expand">Braces on own line</option>
+          <option value="end-expand">End braces on own line</option>
+        </select>
+      </li>
+      <li>
+        <input class="checkbox" type="checkbox" id="preserve-newlines" />
+        <label for="preserve-newlines"> Preserve empty lines?</label>
+        <br />
+      </li>
+      <li>
+        <input class="checkbox" type="checkbox" id="detect-packers" />
+        <label for="detect-packers"> Detect packers and obfuscators?</label>
+        <br />
+      </li>
+      <li>
+        <input class="checkbox" type="checkbox" id="keep-array-indentation" />
+        <label for="keep-array-indentation"> Keep array indentation?</label>
+      </li>
+    </ul>
+  </fieldset>
+  <button id="submit" class="btn b-white">格式化</button>
+  <div class="pt-30 t-r pr-10"><a href="http://www.ztaom.com/" title="返回ztaom首页" class="gray">回ZTAOM首页</a></div>
+</div>
+<div id="beauty">
+  <fieldset id="textarea-wrap">
+    <textarea id="source"></textarea>
+  </fieldset>
+</div>
+<p id="ie6-go-away" style="display:none">IE6. 你的浏览器不支持</p>
+</body>
+</html>

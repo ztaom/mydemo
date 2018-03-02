@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="data-spm" content="a2h0f">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>poplayer test</title>
+    <script src="http://g.alicdn.com/mtb/lib-windvane/2.1.4/windvane.js"></script>
+    <script>
+        if(document.documentElement.clientWidth < document.documentElement.clientHeight){
+            window.WindVane.call('WVPopLayer', 'display', {});
+        }
+
+        //预加载
+        (new Image()).src="img/bg.png";
+        (new Image()).src="img/mod_1.png";
+        (new Image()).src="img/mod_2.png";
+        (new Image()).src="img/mod_3.png";
+        (new Image()).src="img/mod_4.png";
+        (new Image()).src="img/mod_5.png";
+        (new Image()).src="img/titlebg.png";
+        (new Image()).src="img/titletext.png";
+    </script>
+    <style>
+        
+    </style>
+</head>
+<body onload="start()" data-spm="8263585">
+<script type="text/javascript" id="beacon-aplus" src="//g.alicdn.com/alilog/mlog/aplus_o.js" exparams="clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx" async></script>
+<div id="wrapper">
+    <div id="home">
+        this is poplayer test!
+    </div>
+</div>
+<script>
+    (function (doc, win) {
+        window.WindVane.call('WVPopLayer', 'increaseReadTimes', {}, function (s) {
+            //成功增加打开次数
+        }, function (e) {
+            //打开失败
+        });
+        var docEl = doc.documentElement;
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = docEl.clientWidth;
+        var clientHeight = docEl.clientHeight;
+        var wrapper = document.getElementById("wrapper");
+
+        if(clientWidth > 0.78 * clientHeight){
+            clientWidth = 0.78 * clientHeight;
+        }
+
+        wrapper.style.width = clientWidth + 'px';
+        wrapper.style.height = clientHeight + 'px';
+        var recalc = function () {
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+    function start() {
+        var homeDom = document.getElementById('home');
+        homeDom.classList.add('show');
+
+        var hideTimer = setTimeout(function(){
+            homeDom.classList.remove('show');
+            clearTimeout(hideTimer);
+            window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+                //关闭成功
+            }, function (e) {
+                //关闭失败
+            });
+        },4700);
+
+        var closeTimer = setTimeout(function(){
+            clearTimeout(closeTimer);
+            document.body.addEventListener('touchend',function(event){
+                event.preventDefault();
+                homeDom.classList.remove('show');
+                clearTimeout(hideTimer);
+                window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+                    //关闭成功
+                }, function (e) {
+                    //关闭失败
+                });
+            },false);
+        },3200);
+    }
+</script>
+</body>
+</html>

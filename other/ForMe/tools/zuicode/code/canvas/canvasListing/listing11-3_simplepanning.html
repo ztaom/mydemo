@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>Panning Background</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var back;
+var front;
+var fore;
+var sprite = new Array();
+var index = 0;
+var counter = 0;
+var x;
+var x2;
+var spriteX = 250;
+var spriteY = 50;
+var size;
+var overlap = 80;
+var imgWidth = 1498;
+
+function init() {
+	back = document.getElementById("back");
+	front = document.getElementById("front");
+	fore = document.getElementById("window");
+	sprite[0]=document.getElementById("b1");
+	sprite[1]=document.getElementById("b2");
+	sprite[2]=document.getElementById("b3");
+	sprite[3]=document.getElementById("b4");
+	size=0.2;
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	x = -100;
+	x2 = -100;
+	animate();
+}
+
+function animate() {
+	x = x - 1.5;
+	x2 = x2 - 4;
+	counter = counter + .25;
+	index = parseInt(counter % 4);
+	spriteX = spriteX + 1 - Math.random() * 2;
+	spriteX = Math.min(spriteX, 400);
+	spriteX = Math.max(spriteX, 100);
+	spriteY = spriteY + 1 - Math.random() * 2;
+	spriteY = Math.min(spriteY, 300);
+	spriteY = Math.max(spriteY, 20);
+	if (index<2)
+		size = size + .005 - Math.random() * .01;
+	if (size > 0.3)
+		size = 0.3;
+	if (size < 0.1)
+		size = 0.1;
+	drawBack();
+	drawFront();
+	drawSprite();
+	setTimeout("animate()",25);
+}
+
+function drawBack() {
+	ctx.drawImage(back, x,0);
+	if (x < -1 * (imgWidth - can.width))
+		ctx.drawImage(back, x + imgWidth,0);
+	if (x<= -1 * imgWidth)
+		x = x + imgWidth;
+}
+
+function drawFront() {
+	ctx.drawImage(front, x2,376);
+	if (x2 < -1 * (imgWidth - can.width))
+		ctx.drawImage(front, x2 + imgWidth,376);
+	if (x2<= -1 * imgWidth)
+		x2 = x2 + imgWidth;
+}
+
+function drawSprite() {
+	ctx.save();
+	ctx.translate(spriteX,spriteY);
+	ctx.rotate(1);
+	ctx.scale(size,size);
+	ctx.drawImage(sprite[index], 0,0);
+	ctx.restore();
+}
+
+function drawFrame()  {
+// 	var bounce = Math.random();
+// 	ctx.save();
+// 	ctx.scale(1.1,1.4);
+// 	ctx.drawImage(fore, 0,bounce - 60);
+// 	ctx.restore();
+}
+
+</script>	
+	
+</head>
+<body onload="init()" >
+<h2>Panning Background</h2>
+<canvas id="can" height="500" width="500" >
+</canvas>
+<img id="back" src="assets/landscape.png" style="display:none">
+<img id="front" src="assets/foreground.png" style="display:none">
+
+<img id="b1" src="assets/butterfly/butterfly1.png" style="display:none">
+<img id="b2" src="assets/butterfly/butterfly2.png" style="display:none">
+<img id="b3" src="assets/butterfly/butterfly3.png" style="display:none">
+<img id="b4" src="assets/butterfly/butterfly4.png" style="display:none">
+
+<img id="window" src="window3.png" style="display:none">
+</body>
+</html>

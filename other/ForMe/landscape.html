@@ -1,0 +1,343 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+<style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:before, :after {
+  content: '';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: #150505;
+  overflow: hidden;
+}
+
+.landscape {
+  position: relative;
+  height: 600px;
+  background: linear-gradient(to bottom, #521515 0%, #661a1a 100%);
+  overflow: hidden;
+}
+
+.landscape * {
+  position: absolute;
+  bottom: 0;
+}
+
+.sun {
+  left: 60%;
+  bottom: 150px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #d04949 0%, rgba(208, 73, 73, 0) 100%);
+}
+
+.hills {
+  left: 50%;
+}
+
+.hills div {
+  overflow: hidden;
+  border-radius: 8%;
+  transform: rotate(45deg);
+}
+
+.hills div:nth-child(1),
+.hills div:nth-child(2),
+.hills div:nth-child(3) {
+  bottom: -350px;
+  width: 500px;
+  height: 500px;
+  background: #521515;
+}
+
+.hills div:nth-child(1) {
+  left: -750px;
+}
+
+.hills div:nth-child(2) {
+  left: -250px;
+}
+
+.hills div:nth-child(3) {
+  left: 250px;
+}
+
+.hills div:nth-child(4),
+.hills div:nth-child(5) {
+  bottom: -400px;
+  left: -600px;
+  width: 500px;
+  height: 500px;
+  background: #3d1010;
+}
+
+.hills div:nth-child(4) {
+  left: -500px;
+}
+
+.hills div:nth-child(5) {
+  left: 0;
+}
+
+.treeset {
+  left: 50%;
+}
+
+.tree {
+  width: 4px;
+  height: 10px;
+  background: #290a0a;
+}
+
+.tree:before {
+  left: -5px;
+  bottom: 100%;
+  width: 14px;
+  height: 14px;
+  border-radius: 10px 0 10px 0;
+  background: #290a0a;
+  transform: rotate(-45deg);
+}
+
+.tree:nth-child(1) {
+  left: -310px;
+}
+
+.tree:nth-child(2) {
+  left: -290px;
+}
+
+.tree:nth-child(3) {
+  left: 40px;
+}
+
+.tree:nth-child(4) {
+  left: 60px;
+}
+
+.tree:nth-child(5) {
+  left: 80px;
+}
+
+.tree:nth-child(6) {
+  left: 100px;
+}
+
+.tree:nth-child(7) {
+  left: 120px;
+}
+
+.tree:nth-child(8) {
+  left: 140px;
+}
+
+.tree:nth-child(9) {
+  left: 160px;
+}
+
+.tree:nth-child(10) {
+  left: 180px;
+}
+
+.tree:nth-child(11) {
+  left: 200px;
+}
+
+.tree:nth-child(12) {
+  left: 220px;
+}
+
+.tree:nth-child(13) {
+  left: 240px;
+}
+
+.tree:nth-child(14) {
+  left: 260px;
+}
+
+.tree:nth-child(15) {
+  left: 280px;
+}
+
+.building {
+  left: 50%;
+  width: 250px;
+  height: 520px;
+  margin-left: -250px;
+}
+
+.tower {
+  background: linear-gradient(to bottom, #3d1010 0%, #1d0707 100%);
+  box-shadow: inset 0 5px 0 #290a0a, inset 0 -1px 0 #290a0a, inset 0 -5px 0 #150505, inset 1px 0 0 #290a0a, inset -1px 0 0 #290a0a;
+  overflow: hidden;
+}
+
+.t1 {
+  left: 110px;
+  width: 30px;
+  height: 520px;
+}
+
+.t2 {
+  left: 80px;
+  width: 60px;
+  height: 380px;
+}
+
+.t3 {
+  left: 55px;
+  width: 60px;
+  height: 230px;
+}
+
+.t4 {
+  left: 110px;
+  width: 60px;
+  height: 140px;
+}
+
+.t5 {
+  left: 0;
+  width: 55px;
+  height: 40px;
+}
+
+.t6 {
+  left: 170px;
+  width: 80px;
+  height: 30px;
+}
+
+.tower:before {
+  top: 5px;
+  left: 0;
+  width: 1px;
+  height: calc(100% - 11px);
+  box-shadow: 0px 0px #451212, 5px 0 #451212, 10px 0 #451212, 15px 0 #451212, 20px 0 #451212, 25px 0 #451212, 30px 0 #451212, 35px 0 #451212, 40px 0 #451212, 45px 0 #451212, 50px 0 #451212, 55px 0 #451212, 60px 0 #451212, 65px 0 #451212, 70px 0 #451212, 75px 0 #451212, 80px 0 #451212, 85px 0 #451212, 90px 0 #451212, 95px 0 #451212, 100px 0 #451212, 105px 0 #451212, 110px 0 #451212, 115px 0 #451212, 120px 0 #451212, 125px 0 #451212;
+}
+
+.tower:after {
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  box-shadow: 0px 0px #1d0707, 0 -10px #1d0707, 0 -20px #1d0707, 0 -30px #1d0707, 0 -40px #1d0707, 0 -50px #1d0707, 0 -60px #1d0707, 0 -70px #1d0707, 0 -80px #1d0707, 0 -90px #1d0707, 0 -100px #1d0707, 0 -110px #1d0707, 0 -120px #1d0707, 0 -130px #1d0707, 0 -140px #1d0707, 0 -150px #1d0707, 0 -160px #1d0707, 0 -170px #1d0707, 0 -180px #1d0707, 0 -190px #1d0707, 0 -200px #1d0707, 0 -210px #1d0707, 0 -220px #1d0707, 0 -230px #1d0707, 0 -240px #1d0707, 0 -250px #1d0707, 0 -260px #1d0707, 0 -270px #1d0707, 0 -280px #1d0707, 0 -290px #1d0707, 0 -300px #1d0707, 0 -310px #1d0707, 0 -320px #1d0707, 0 -330px #1d0707, 0 -340px #1d0707, 0 -350px #1d0707, 0 -360px #1d0707, 0 -370px #1d0707, 0 -380px #1d0707, 0 -390px #1d0707, 0 -400px #1d0707, 0 -410px #1d0707, 0 -420px #1d0707, 0 -430px #1d0707, 0 -440px #1d0707, 0 -450px #1d0707, 0 -460px #1d0707, 0 -470px #1d0707, 0 -480px #1d0707, 0 -490px #1d0707, 0 -500px #1d0707;
+}
+
+.d {
+  left: 50%;
+  z-index: 1;
+  margin-left: -5px;
+  width: 11px;
+  height: 12px;
+  border: 1px solid #150505;
+  border-bottom: 0;
+  background: #290a0a;
+}
+
+.d:before {
+  left: 4px;
+  width: 1px;
+  height: 12px;
+  background: #150505;
+}
+
+.d:after {
+  top: 4px;
+  left: 2px;
+  width: 5px;
+  height: 3px;
+  border-left: 1px solid #150505;
+  border-right: 1px solid #150505;
+}
+
+.radio {
+  width: 2px;
+  background: #290a0a;
+}
+
+.r1 {
+  left: 124px;
+  height: 70px;
+  bottom: 520px;
+}
+
+.r2 {
+  left: 95px;
+  height: 40px;
+  bottom: 380px;
+}
+
+.radio:after {
+  left: -4px;
+  bottom: 0;
+  width: 10px;
+  height: 4px;
+  background: #290a0a;
+}
+
+/* Codepen Preview Mode */
+@media only screen and (height: 300px) {
+  .landscape {
+    margin-top: -320px;
+  }
+}
+</style></head><body>
+<div class='landscape'>
+  <div class='sun'></div>
+  <div class='hills'>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class='treeset'>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+    <div class='tree'></div>
+  </div>
+  <div class='building b1'>
+    <div class='tower t1'></div>
+    <div class='tower t2'></div>
+    <div class='tower t3'>
+      <div class='d'></div>
+    </div>
+    <div class='tower t4'>
+      <div class='d'></div>
+    </div>
+    <div class='tower t5'>
+      <div class='d'></div>
+    </div>
+    <div class='tower t6'>
+      <div class='d'></div>
+    </div>
+    <div class='radio r1'></div>
+    <div class='radio r2'></div>
+  </div>
+</div>
+
+</body></html>

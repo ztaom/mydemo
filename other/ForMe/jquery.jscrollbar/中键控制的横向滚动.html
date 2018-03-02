@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>中键控制的横向滚动</title>
+<meta name="title" content="">
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<style>
+body{padding:0 0 10px 0;margin:0;font:14px/1.3em "Microsoft Yahei";}
+#test{width: 630px;overflow: hidden;height: 333px;background: gray;padding: 0;border: 0;}
+</style>
+</head>
+<body>
+  <div id="test">
+    <img src="http://y0.ifengimg.com/e7f199c1e0dbba14/2014/0215/rdn_52ff14beb7742.jpg" alt="" width="1000" height="500">
+  </div>
+<script type="text/javascript" src="require/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="require/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="require/jquery.jqdrag-1.0.min.js"></script>
+<script type="text/javascript" src="src/jquery.jscrollbar-1.0.2.src.js"></script>
+<script>
+  $(function(){
+    $('#test').jscrollbar({
+      width:12,
+      color:'orange',
+      opacity:0.7,
+      position:'inner',
+      mouseScrollDirection:'horizontal' // 'vertical' | 'horizontal'
+    });
+    $('#test').on('scroll',function(e,obj){
+      console.log(obj);
+    })
+    $('#test').on('finished',function(e,obj){
+      console.log('finished',obj);
+    })
+    setTimeout(function(){
+      $('#test').jscrollbar('scrollBy','x',10)
+                .jscrollbar('scrollTo','x',300)
+                .jscrollbar('scrollTo','y',100)
+                .animate({'opacity':0.8},1000);
+      },2000)
+  });
+</script>
+</body>
+</html>

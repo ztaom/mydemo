@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Layered Panning Background</title>
+<script type="text/javascript">
+
+var can;
+var ctx;
+var back = new Array;
+var x = [0, 0, 0];
+var y = [ 0, -2, 376];
+var xIncr = [0.3, 1, 4];
+var imgWidth = 1498;
+
+function init() {
+	back[0] = document.getElementById("sky");
+	back[1] = document.getElementById("back");
+	back[2] = document.getElementById("front");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	animate();
+}
+
+function animate() {
+	drawBack();
+	setTimeout("animate()",25);
+}
+
+function drawBack() {
+	for (i=0;i<3;i++) {
+		x[i] = x[i] - xIncr[i];
+		ctx.drawImage(back[i], x[i],y[i]);
+		if (x[i] < -1 * (imgWidth - can.width))
+			ctx.drawImage(back[i], x[i] + imgWidth,y[i]);
+		if (x[i]<= -1 * imgWidth)
+			x[i] = x[i] + imgWidth;
+	}
+}
+</script>	
+</head>
+
+<body onload="init()" >
+<canvas id="can" height="500" width="600" >
+</canvas>
+<h1 style="position:relative; top:-300; left: 125; color:#ffffff">
+Grand Canyon Vacation
+</h2>
+<img id="sky"  style="display:none"
+	 src="assets/sky.png">
+<img id="back"  style="display:none"
+	 src="assets/landscape2.png">
+<img id="front"  style="display:none"
+	 src="assets/foreground.png">
+</body>
+</html>

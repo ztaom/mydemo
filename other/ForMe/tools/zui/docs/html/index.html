@@ -1,0 +1,87 @@
+<!--$Id: todo.html,v 1.2 2010/08/02 04:58:28 xuerong Exp $ -->
+
+<div class="entry-title">
+  <h1>DUI规范指南——页面HTML结构</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>东奥页面书写总原则</h3></div>
+  <h3 class="f-12 p-5">页面内容和结构的语义化</h3>
+  <ol class="order-list pl-10">
+    <li>使用分层语义化模板思想开发页面</li>
+    <li>XHTML的本质是该是什么就用什么</li>
+    <li>table仅用于展示二维数据</li>
+    <li>页面应具有明确的分级结构</li>
+    <li>单个页面中h1标签是唯一的。且位置尽可能靠近body</li>
+  </ol>
+  <h3 class="f-12 p-5">代码缩进及格式化</h3>
+  <ol class="order-list pl-10">
+    <li>div的缩进用2个空格，其他tag不缩进</li>
+  </ol>
+  <h3 class="f-12 p-5">HTML 标签的使用规则</h3>
+  <ol class="order-list pl-10">
+    <li>xhtml 标签一定要小写，并有封闭符</li>
+    <li>要使用有语义的标签，尽量少使用无语义标签div和span</li>
+    <li>a标签都要加title属性，img标签都要加alt属性</li>
+    <li>不能采用HTML进行定位、布局(例如用空格、br、hr、center、font等标记)，而应该采用CSS </li>
+  </ol>
+  <h3 class="f-12 p-5">HTML页面模板</h3>
+  <pre class="brush:c-sharp;">
+&lt;!DOCTYPE html"&gt;
+&lt;html lang="cn""&gt;
+&lt;head"&gt;
+<meta charset="gb2312" />
+<title>ZUI规范指南</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="icon" href="http://www.ztaom.com/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="../css/reset-layout.css">
+<link rel="stylesheet" href="../css/siteStyle.css">
+<link rel="stylesheet" href="http://assets.dongao.cn/css/src/dui/biz/course.css" />
+&lt;script type="text/javascript" src="../js/jquery-1.4.2.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../js/cookie.js"&gt;&lt;/script&gt;
+<!--[if lt IE 9]>
+<script src="../js/html5.js" type="text/javascript"></script>
+<![endif]-->
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+     <h3 class="f-12 p-5">通用规则</h3>
+     <p class="pl-10">宽度由布局grid决定，高度由content决定</p>
+     <h3 class="f-12 p-5">语义化标签书写原则</h3>
+     <ol class="order-list pl-10">
+       <li>Block-Level标签，可以包含Block-Level和Inline-Level标签;</li>
+       <li>P是块级标签，但不能再嵌套块级标签;</li>
+       <li>Inline-Level标签，仅可以包含文本或其它Inline-Level标签;</li>
+       <li>下面的标签不能包含任何Block-Level标签;
+         <div class="p-5">
+         <span class="fw-b orange">button</span>按钮<br/>
+         <span class="fw-b orange">del</span>被删除的文本<br/>
+         <span class="fw-b orange">ins</span>插入的文本<br/>
+         <span class="fw-b orange">map</span>图片的热区<br/>
+         <span class="fw-b orange">object</span>组件<br/>
+         <span class="fw-b orange">script</span>客户端脚本
+         </div>
+       </li>
+       
+       <li>以下标签也可以认为是Block-Level标签，但不能单独使用。
+         <div class="p-5">
+         <span class="fw-b orange">dd</span>定义的描述<br/>
+         <span class="fw-b orange">dt</span>定义的标题<br/>
+         <span class="fw-b orange">li</span>列表的项<br/>
+         <span class="fw-b orange">tbody</span>表格体<br/>
+         <span class="fw-b orange">td</span>表格单元格<br/>
+         <span class="fw-b orange">tfoot</span>表格脚<br/>
+         <span class="fw-b orange">th</span>表格头中的单元格<br/>
+         <span class="fw-b orange">thead</span>表格头<br/>
+         <span class="fw-b orange">tr</span>表格的行
+         </div>
+       </li>
+     </ol>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script src="http://assets.dongao.cn/js/lib/dui/dui.js"></script>

@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Line Caps and Joins</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.clearRect(0,0,can.width,can.height);
+	ctx.save();
+	
+	ctx.strokeStyle="black";
+	ctx.lineWidth=12;
+	ctx.lineCap=document.getElementById("cap").value;
+	ctx.beginPath();
+	ctx.moveTo(10,10);
+	ctx.lineTo(10,170);
+	ctx.stroke();
+
+	ctx.lineJoin=document.getElementById("join").value;
+	ctx.beginPath();
+	ctx.moveTo(170,10);
+	ctx.lineTo(40,10);
+	ctx.lineTo(40,170);
+	ctx.stroke();
+	
+	ctx.beginPath();
+	ctx.moveTo(70,170);
+	ctx.lineTo(130,50);
+	ctx.lineTo(190,170);
+	ctx.stroke();	
+
+	ctx.restore();
+}
+
+
+</script>
+	
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="200">
+</canvas>
+<br>
+lineCap:
+<select id="cap" onchange="init()" style="font:18 pt Helvetica">
+  <option value="butt">butt</option>
+  <option value="round">round</option>
+  <option value="square">square</option>
+</select>
+
+lineJoin:
+<select id="join" onchange="init()" style="font:18 pt Helvetica">
+  <option value="bevel">bevel</option>
+  <option value="round">round</option>
+  <option value="miter">miter</option>
+</select>
+
+
+
+</body>
+</html>

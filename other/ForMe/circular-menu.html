@@ -1,0 +1,119 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+
+<style>@import "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+
+body {
+  background: white url("images/xu0zS7g.jpg") no-repeat fixed;
+  background-size: cover;
+}
+
+a {
+  font-size: 14px;
+  text-decoration: none;
+  outline: 0;
+}
+
+.circle,
+.ring {
+  height: 256px;
+  position: relative;
+  width: 256px;
+}
+
+.circle {
+  margin: 0 auto;
+}
+
+.ring {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  opacity: 0;
+
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-transform: scale(0.1) rotate(-270deg);
+  -moz-transform: scale(0.1) rotate(-270deg);
+  -transform: scale(0.1) rotate(-270deg);
+
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.open .ring {
+  opacity: 1;
+  
+  -webkit-transform: scale(1) rotate(0);
+  -moz-transform: scale(1) rotate(0);
+  -transform: scale(1) rotate(0);
+}
+
+.center {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  bottom: 0;
+  color: white;
+  height: 80px;
+  left: 0;
+  line-height: 80px;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 80px;
+  
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.open .center {
+  border-color: #aaaaaa;
+}
+
+.menuItem {
+  border-radius: 50%;
+  color: #eeeeee;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: absolute;
+  text-align: center;
+  width: 40px;
+}</style></head><body>
+<div class="circle">
+  <div class="ring">
+    <a href="" class="menuItem fa fa-home fa-2x"></a>
+    <a href="" class="menuItem fa fa-comment fa-2x"></a>
+    <a href="" class="menuItem fa fa-play fa-2x"></a>
+    <a href="" class="menuItem fa fa-camera fa-2x"></a>
+    <a href="" class="menuItem fa fa-music fa-2x"></a>
+    <a href="" class="menuItem fa fa-user fa-2x"></a>
+    <a href="" class="menuItem fa fa-trash-o fa-2x"></a>
+    <a href="" class="menuItem fa fa-star fa-2x"></a>
+  </div>
+  <a href="#" class="center fa fa-th fa-2x"></a>
+</div>
+
+<script>var items = document.querySelectorAll('.menuItem');
+
+for(var i = 0, l = items.length; i < l; i++) {
+  items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+  
+  items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+}
+
+document.querySelector('.center').onclick = function(e) {
+   e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
+}
+</script>
+</body></html>

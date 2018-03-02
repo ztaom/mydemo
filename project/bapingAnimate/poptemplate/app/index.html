@@ -1,0 +1,5111 @@
+<!DOCTYPE html>
+<html data-template-syntax="mustache">
+<head>
+<meta charset="utf-8" />
+<meta id="pageTitle" name="mt-page-title">
+<title id="pageTitle" name="mt-page-title"></title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, viewport-fit=cover" />
+<script data-mt-inline src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js,lib-promise/3.1.3/polyfillB.js,lib-gesture/1.2.1/gesture.js,lib-windvane/2.1.8/windvane.js"></script>
+<script data-mt-inline src="//g-assets.daily.taobao.net/hollywood/hollywood-lib/2.0.0/poplayer.js"></script>
+<script src="//g.alicdn.com/ku/app-upstatic/0.0.5/static/js/aftui.js"></script>
+<style>
+html,
+body,
+#canvas {
+	margin: 0;
+	padding: 0;
+	width: 100%; height: 100%;
+	overflow: hidden;
+}
+#canvas {position:absolute; top:0; bottom:0; width: 100%; display: none; background:rgba(0,0,0,.8);}
+#anim{position: absolute; top:50%; left: 0; right: 0; margin-top:-8.8933rem;}
+.close{width: 0.7267rem; height: 0.6867rem; display: none; background:url(//gw.alicdn.com/tfs/TB1RzwBRVXXXXbmXpXXXXXXXXXX-44-44.png) no-repeat; background-size: 0.5867rem auto; position: absolute; top:1.2rem; right: 0.6rem; opacity: 0; animation: closeFade 1s 1.5s forwards linear; -webkit-animation: closeFade 1s 1.5s forwards linear; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); outline: 0; z-index: 99999}
+@-webkit-keyframes closeFade   
+{
+    0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+.show{display: block!important;}
+</style>
+</head>
+<body data-noaplus>
+<script>with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx",id="beacon-aplus",src="//g.alicdn.com/alilog/mlog/aplus_o.js")</script>
+
+
+<script data-mt-variable="config"></script>
+<div id="canvas">
+    <div class="close"></div>
+    <div id="anim"></div>
+</div>
+<script>
+var showClose = true; //是否显示关闭icon
+var closeTime = 5800; //动画结束之后停留时间;
+var toPlayPage = false; //是否跳转播放页
+var setVid = 'XMjk1NzczNjcwOA=='; //指定跳转到第几集
+var setShowId = 'efbfbd22c6a40d3211ef'; //指定跳转到用户观看的历史记录
+var webLink = 'https://h5.m.youku.com//ju/omgoutsite.html?isWindVane=1&ykfrom=bpAnimate'; //跳转活动页地址
+var closeIcon = document.querySelector('.close');
+var setLogId = '315721';
+var setLogPageId = 'bpAnimate';
+var toHalfScreen = true; //config.halfScreen
+var adrVersion = 6120; // 版本号 中间是10位数
+var iosVersion = 6120; // 版本号 中间是10位数
+var isCheckVersioon = true; //开启版本检测
+if(showClose){
+    closeIcon.classList.add('show');
+}
+window.HollywoodConfig = {
+    actid: '315721', // 活动id，必填，埋点相关
+    actpage: 'bpAnimate', // 页面id，必填，埋点相关
+}
+var imgGroups = [
+    {'img':'//gw.alicdn.com/tfs/TB1ftkVlh6I8KJjy0FgXXXXzVXa-427-120.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1fdkVlh6I8KJjy0FgXXXXzVXa-291-47.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1wu7UlnnI8KJjy0FfXXcdoVXa-605-89.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1Vo7Ulb_I8KJjy1XaXXbsxpXa-74-80.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1nfAallTH8KJjy0FiXXcRsXXa-184-68.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1FwMflhrI8KJjy0FpXXb5hVXa-103-106.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1NwMflhrI8KJjy0FpXXb5hVXa-285-185.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1O3MflhrI8KJjy0FpXXb5hVXa-387-251.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1Rab1lm_I8KJjy0FoXXaFnVXa-494-581.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1RGb1lm_I8KJjy0FoXXaFnVXa-574-567.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1Ee7UlnnI8KJjy0FfXXcdoVXa-515-291.png'},
+    {'img':'//gw.alicdn.com/tfs/TB1V.Y0lcrI8KJjy0FhXXbfnpXa-526-239.png'}
+]
+</script>
+<script>
+var animationData, dataA, dataB;
+dataA={
+    "v": "5.1.1",
+    "fr": 25,
+    "ip": 0,
+    "op": 201,
+    "w": 750,
+    "h": 1334,
+    "nm": "yingtianxia_output",
+    "ddd": 0,
+    "assets": [
+        {
+            "id": "image_0",
+            "w": 427,
+            "h": 120,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1ftkVlh6I8KJjy0FgXXXXzVXa-427-120.png"
+        },
+        {
+            "id": "image_1",
+            "w": 291,
+            "h": 47,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1fdkVlh6I8KJjy0FgXXXXzVXa-291-47.png"
+        },
+        {
+            "id": "image_2",
+            "w": 605,
+            "h": 89,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1wu7UlnnI8KJjy0FfXXcdoVXa-605-89.png"
+        },
+        {
+            "id": "image_3",
+            "w": 74,
+            "h": 80,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1Vo7Ulb_I8KJjy1XaXXbsxpXa-74-80.png"
+        },
+        {
+            "id": "image_4",
+            "w": 184,
+            "h": 68,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1nfAallTH8KJjy0FiXXcRsXXa-184-68.png"
+        },
+        {
+            "id": "image_5",
+            "w": 103,
+            "h": 106,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1FwMflhrI8KJjy0FpXXb5hVXa-103-106.png"
+        },
+        {
+            "id": "image_6",
+            "w": 285,
+            "h": 185,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1NwMflhrI8KJjy0FpXXb5hVXa-285-185.png"
+        },
+        {
+            "id": "image_7",
+            "w": 387,
+            "h": 251,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1O3MflhrI8KJjy0FpXXb5hVXa-387-251.png"
+        },
+        {
+            "id": "image_8",
+            "w": 494,
+            "h": 581,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1Rab1lm_I8KJjy0FoXXaFnVXa-494-581.png"
+        },
+        {
+            "id": "image_9",
+            "w": 574,
+            "h": 567,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1RGb1lm_I8KJjy0FoXXaFnVXa-574-567.png"
+        },
+        {
+            "id": "image_10",
+            "w": 515,
+            "h": 291,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1Ee7UlnnI8KJjy0FfXXcdoVXa-515-291.png"
+        },
+        {
+            "id": "image_11",
+            "w": 526,
+            "h": 239,
+            "u": "//gw.alicdn.com/tfs/",
+            "p": "TB1V.Y0lcrI8KJjy0FhXXbfnpXa-526-239.png"
+        }
+    ],
+    "layers": [
+        {
+            "ddd": 0,
+            "ind": 1,
+            "ty": 3,
+            "nm": "button controller",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        375,
+                        972.5,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.667,
+                                    0.667,
+                                    0.667
+                                ],
+                                "y": [
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.333,
+                                    0.333,
+                                    0.333
+                                ],
+                                "y": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                            ],
+                            "t": 35,
+                            "s": [
+                                100,
+                                100,
+                                100
+                            ],
+                            "e": [
+                                106,
+                                106,
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.667,
+                                    0.667,
+                                    0.667
+                                ],
+                                "y": [
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.333,
+                                    0.333,
+                                    0.333
+                                ],
+                                "y": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                            ],
+                            "t": 45,
+                            "s": [
+                                106,
+                                106,
+                                100
+                            ],
+                            "e": [
+                                100,
+                                100,
+                                100
+                            ]
+                        },
+                        {
+                            "t": 55
+                        }
+                    ],
+                    "ix": 6,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                }
+            },
+            "ao": 0,
+            "ip": 35,
+            "op": 195,
+            "st": 22,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 2,
+            "ty": 2,
+            "nm": "按钮",
+            "parent": 1,
+            "refId": "image_0",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 35,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.84
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.244
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p84_1_0p244_0"
+                            ],
+                            "t": 45,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        -4,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        213.5,
+                        60,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2,
+                                    0.2,
+                                    0.2
+                                ],
+                                "y": [
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001,
+                                    0.001,
+                                    0.001
+                                ],
+                                "y": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0",
+                                "0p2_1_0p001_0",
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 35,
+                            "s": [
+                                90,
+                                90,
+                                100
+                            ],
+                            "e": [
+                                100,
+                                100,
+                                100
+                            ]
+                        },
+                        {
+                            "t": 45
+                        }
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 35,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 3,
+            "ty": 2,
+            "nm": "助力冰冰 2",
+            "refId": "image_1",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 11,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 26,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        374.5,
+                        734.5,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        145.5,
+                        23.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 11,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 4,
+            "ty": 3,
+            "nm": "text controller",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        375.5,
+                        817.5,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.5,
+                                    0.5,
+                                    0.667
+                                ],
+                                "y": [
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0,
+                                    0,
+                                    0.333
+                                ],
+                                "y": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p5_1_0_0",
+                                "0p5_1_0_0",
+                                "0p667_1_0p333_0"
+                            ],
+                            "t": 5,
+                            "s": [
+                                400,
+                                400,
+                                100
+                            ],
+                            "e": [
+                                90,
+                                90,
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.667,
+                                    0.667,
+                                    0.667
+                                ],
+                                "y": [
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.333,
+                                    0.333,
+                                    0.333
+                                ],
+                                "y": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                            ],
+                            "t": 11,
+                            "s": [
+                                90,
+                                90,
+                                100
+                            ],
+                            "e": [
+                                102,
+                                102,
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.667,
+                                    0.667,
+                                    0.667
+                                ],
+                                "y": [
+                                    1,
+                                    1,
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.333,
+                                    0.333,
+                                    0.333
+                                ],
+                                "y": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                            ],
+                            "t": 17,
+                            "s": [
+                                102,
+                                102,
+                                100
+                            ],
+                            "e": [
+                                100,
+                                100,
+                                100
+                            ]
+                        },
+                        {
+                            "t": 23
+                        }
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 5,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 5,
+            "ty": 2,
+            "nm": "1000现金",
+            "parent": 4,
+            "refId": "image_2",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 5,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 11,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        302.5,
+                        44.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 5,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 6,
+            "ty": 3,
+            "nm": "89",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.4,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p4_1_0p001_0",
+                            "t": 7,
+                            "s": [
+                                476,
+                                807,
+                                0
+                            ],
+                            "e": [
+                                797.5,
+                                678.5,
+                                0
+                            ],
+                            "to": [
+                                96.0833358764648,
+                                -64.75,
+                                0
+                            ],
+                            "ti": [
+                                -129.08332824707,
+                                20.75,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 17
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 7,
+            "op": 18,
+            "st": -2,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 7,
+            "ty": 2,
+            "nm": "88",
+            "parent": 6,
+            "refId": "image_3",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -75,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        37,
+                        40,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 7,
+            "op": 18,
+            "st": -2,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 8,
+            "ty": 3,
+            "nm": "87",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.4,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p4_1_0p001_0",
+                            "t": 9,
+                            "s": [
+                                463,
+                                815,
+                                0
+                            ],
+                            "e": [
+                                789.5,
+                                598.5,
+                                0
+                            ],
+                            "to": [
+                                59.0833320617676,
+                                -80.75,
+                                0
+                            ],
+                            "ti": [
+                                -113.083335876465,
+                                30.75,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 19
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 9,
+            "op": 20,
+            "st": 0,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 9,
+            "ty": 2,
+            "nm": "86",
+            "parent": 8,
+            "refId": "image_3",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -74,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        37,
+                        40,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 9,
+            "op": 20,
+            "st": 0,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 10,
+            "ty": 3,
+            "nm": "91",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.4,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p4_1_0p001_0",
+                            "t": 10,
+                            "s": [
+                                325,
+                                818,
+                                0
+                            ],
+                            "e": [
+                                -54.5,
+                                625.5,
+                                0
+                            ],
+                            "to": [
+                                -79.9166641235352,
+                                -90.75,
+                                0
+                            ],
+                            "ti": [
+                                109.916664123535,
+                                11.75,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 20
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 21,
+            "st": 1,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 11,
+            "ty": 2,
+            "nm": "90",
+            "parent": 10,
+            "refId": "image_3",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -28,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        37,
+                        40,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 21,
+            "st": 1,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 12,
+            "ty": 3,
+            "nm": "95",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.4,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p4_1_0p001_0",
+                            "t": 11,
+                            "s": [
+                                483,
+                                840,
+                                0
+                            ],
+                            "e": [
+                                792.5,
+                                949.5,
+                                0
+                            ],
+                            "to": [
+                                78.0833358764648,
+                                12.25,
+                                0
+                            ],
+                            "ti": [
+                                -83.0833358764648,
+                                -45.25,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 21
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 11,
+            "op": 22,
+            "st": 2,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 13,
+            "ty": 2,
+            "nm": "94",
+            "parent": 12,
+            "refId": "image_3",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -26,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        37,
+                        40,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 11,
+            "op": 22,
+            "st": 2,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 14,
+            "ty": 3,
+            "nm": "93",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.4,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p4_1_0p001_0",
+                            "t": 11,
+                            "s": [
+                                191,
+                                848,
+                                0
+                            ],
+                            "e": [
+                                -61.5,
+                                959.5,
+                                0
+                            ],
+                            "to": [
+                                -84.9166641235352,
+                                12.25,
+                                0
+                            ],
+                            "ti": [
+                                77.9166641235352,
+                                -57.25,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 21
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 11,
+            "op": 22,
+            "st": 2,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 15,
+            "ty": 2,
+            "nm": "92",
+            "parent": 14,
+            "refId": "image_3",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -68,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        37,
+                        40,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 11,
+            "op": 22,
+            "st": 2,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 16,
+            "ty": 3,
+            "nm": "85",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.4,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p4_1_0p001_0",
+                            "t": 8,
+                            "s": [
+                                325,
+                                818,
+                                0
+                            ],
+                            "e": [
+                                -65.5,
+                                701.5,
+                                0
+                            ],
+                            "to": [
+                                -95.9166641235352,
+                                -64.75,
+                                0
+                            ],
+                            "ti": [
+                                109.916664123535,
+                                11.75,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 18
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 19,
+            "st": -1,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 17,
+            "ty": 2,
+            "nm": "84",
+            "parent": 16,
+            "refId": "image_3",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -28,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        37,
+                        40,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 19,
+            "st": -1,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 18,
+            "ty": 2,
+            "nm": "巴清传",
+            "refId": "image_4",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 20,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                90.196
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 40,
+                            "s": [
+                                90.196
+                            ],
+                            "e": [
+                                90
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                90
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.2,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p2_1_0p001_0",
+                            "t": 20,
+                            "s": [
+                                375,
+                                223,
+                                0
+                            ],
+                            "e": [
+                                375,
+                                203,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                -3.33333325386047,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                3.33333325386047,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 40
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        92,
+                        34,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 20,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 19,
+            "ty": 3,
+            "nm": "gold 5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0_0",
+                            "t": 8,
+                            "s": [
+                                604.5,
+                                815,
+                                0
+                            ],
+                            "e": [
+                                660.25,
+                                747.25,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                660.25,
+                                747.25,
+                                0
+                            ],
+                            "e": [
+                                656.25,
+                                752.25,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 19
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": 8,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 20,
+            "ty": 2,
+            "nm": "gold 5",
+            "parent": 19,
+            "refId": "image_5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 8,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                80
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p001_0"
+                            ],
+                            "t": 14,
+                            "s": [
+                                80
+                            ],
+                            "e": [
+                                80
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                80
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 19,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                8,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                1.33333337306976,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 34,
+                            "s": [
+                                0,
+                                8,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                1.33333337306976,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 54
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        51.5,
+                        53,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        35,
+                        35,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": -11,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 21,
+            "ty": 3,
+            "nm": "gold 4",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0_0",
+                            "t": 8,
+                            "s": [
+                                465.5,
+                                813,
+                                0
+                            ],
+                            "e": [
+                                619.5,
+                                661,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                619.5,
+                                661,
+                                0
+                            ],
+                            "e": [
+                                615.5,
+                                666,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 19
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": 8,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 22,
+            "ty": 2,
+            "nm": "gold 4",
+            "parent": 21,
+            "refId": "image_5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 8,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                80
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p001_0"
+                            ],
+                            "t": 14,
+                            "s": [
+                                80
+                            ],
+                            "e": [
+                                80
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                80
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 20,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -8,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                -1.33333337306976,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 34,
+                            "s": [
+                                0,
+                                -8,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                -1.33333337306976,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 54
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        51.5,
+                        53,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        54,
+                        54,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": -11,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 23,
+            "ty": 3,
+            "nm": "gold 1",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0_0",
+                            "t": 10,
+                            "s": [
+                                389.5,
+                                813,
+                                0
+                            ],
+                            "e": [
+                                410.5,
+                                637,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 16,
+                            "s": [
+                                410.5,
+                                637,
+                                0
+                            ],
+                            "e": [
+                                406.5,
+                                647,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 21
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": 8,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 24,
+            "ty": 2,
+            "nm": "gold 1",
+            "parent": 23,
+            "refId": "image_5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 16,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 16,
+                            "s": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -4,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                -0.66666668653488,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 36,
+                            "s": [
+                                0,
+                                -4,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                -0.66666668653488,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 56
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        51.5,
+                        53,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": -11,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 25,
+            "ty": 3,
+            "nm": "gold 2",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0_0",
+                            "t": 10,
+                            "s": [
+                                279.5,
+                                813,
+                                0
+                            ],
+                            "e": [
+                                175,
+                                702,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 16,
+                            "s": [
+                                175,
+                                702,
+                                0
+                            ],
+                            "e": [
+                                182.5,
+                                710,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 21
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": 8,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 26,
+            "ty": 2,
+            "nm": "gold 2",
+            "parent": 25,
+            "refId": "image_5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 16,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -51,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 16,
+                            "s": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -4,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                -0.66666668653488,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 36,
+                            "s": [
+                                0,
+                                -4,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                -0.66666668653488,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 56
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        51.5,
+                        53,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        76,
+                        76,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": -11,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 27,
+            "ty": 3,
+            "nm": "gold 6",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0_0",
+                            "t": 8,
+                            "s": [
+                                249.5,
+                                813,
+                                0
+                            ],
+                            "e": [
+                                87,
+                                642.5,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                87,
+                                642.5,
+                                0
+                            ],
+                            "e": [
+                                94.5,
+                                650.5,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 19
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": 8,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 28,
+            "ty": 2,
+            "nm": "gold 6",
+            "parent": 27,
+            "refId": "image_5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 8,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                60
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p001_0"
+                            ],
+                            "t": 14,
+                            "s": [
+                                60
+                            ],
+                            "e": [
+                                60
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                60
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -51,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                8,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                1.33333337306976,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 34,
+                            "s": [
+                                0,
+                                8,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                1.33333337306976,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 54
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        51.5,
+                        53,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        46,
+                        46,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": -11,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 29,
+            "ty": 3,
+            "nm": "gold 7",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0_0",
+                            "t": 8,
+                            "s": [
+                                329.5,
+                                813,
+                                0
+                            ],
+                            "e": [
+                                269.5,
+                                627.5,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                269.5,
+                                627.5,
+                                0
+                            ],
+                            "e": [
+                                272,
+                                635.5,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 19
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": 8,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 30,
+            "ty": 2,
+            "nm": "gold 7",
+            "parent": 29,
+            "refId": "image_5",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 8,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                75
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p001_0"
+                            ],
+                            "t": 14,
+                            "s": [
+                                75
+                            ],
+                            "e": [
+                                75
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                75
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": -40,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 14,
+                            "s": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                4,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0.66666668653488,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 34,
+                            "s": [
+                                0,
+                                4,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0.66666668653488,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 54
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        51.5,
+                        53,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        46,
+                        46,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 8,
+            "op": 195,
+            "st": -11,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 31,
+            "ty": 2,
+            "nm": "右2",
+            "refId": "image_6",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                70
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 25,
+                            "s": [
+                                70
+                            ],
+                            "e": [
+                                70
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                70
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.2,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p2_1_0p001_0",
+                            "t": 10,
+                            "s": [
+                                661.5,
+                                749.5,
+                                0
+                            ],
+                            "e": [
+                                641.5,
+                                749.5,
+                                0
+                            ],
+                            "to": [
+                                -3.33333325386047,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                3.33333325386047,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 25
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        142.5,
+                        92.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 32,
+            "ty": 2,
+            "nm": "左2",
+            "refId": "image_7",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                60
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 25,
+                            "s": [
+                                60
+                            ],
+                            "e": [
+                                60
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                60
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.2,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p2_1_0p001_0",
+                            "t": 10,
+                            "s": [
+                                67.5,
+                                684.5,
+                                0
+                            ],
+                            "e": [
+                                87.5,
+                                684.5,
+                                0
+                            ],
+                            "to": [
+                                3.33333325386047,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                -3.33333325386047,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 25
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        193.5,
+                        125.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 33,
+            "ty": 3,
+            "nm": "FBB",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.2,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p2_1_0p001_0",
+                            "t": 10,
+                            "s": [
+                                302,
+                                640.5,
+                                0
+                            ],
+                            "e": [
+                                262,
+                                640.5,
+                                0
+                            ],
+                            "to": [
+                                -6.66666650772095,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                6.66666650772095,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 25
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 194,
+            "st": 10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 34,
+            "ty": 2,
+            "nm": "范冰冰",
+            "parent": 33,
+            "refId": "image_8",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p001_0"
+                            ],
+                            "t": 20,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 187,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 193
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 25,
+                            "s": [
+                                0,
+                                -121,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -126,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                -0.83333331346512,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 45,
+                            "s": [
+                                0,
+                                -126,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -121,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                -0.83333331346512,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 65
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        247,
+                        290.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 194,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 35,
+            "ty": 3,
+            "nm": "GYX",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.2,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.001,
+                                "y": 0
+                            },
+                            "n": "0p2_1_0p001_0",
+                            "t": 10,
+                            "s": [
+                                424,
+                                640.5,
+                                0
+                            ],
+                            "e": [
+                                464,
+                                640.5,
+                                0
+                            ],
+                            "to": [
+                                6.66666650772095,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                -6.66666650772095,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 25
+                        }
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 194,
+            "st": 10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 36,
+            "ty": 2,
+            "nm": "高云翔",
+            "parent": 35,
+            "refId": "image_9",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p001_0"
+                            ],
+                            "t": 20,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 187,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 193
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 25,
+                            "s": [
+                                0,
+                                -114,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -109,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0.83333331346512,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": 0.667,
+                                "y": 1
+                            },
+                            "o": {
+                                "x": 0.333,
+                                "y": 0
+                            },
+                            "n": "0p667_1_0p333_0",
+                            "t": 45,
+                            "s": [
+                                0,
+                                -109,
+                                0
+                            ],
+                            "e": [
+                                0,
+                                -114,
+                                0
+                            ],
+                            "to": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "ti": [
+                                0,
+                                0.83333331346512,
+                                0
+                            ]
+                        },
+                        {
+                            "t": 65
+                        }
+                    ],
+                    "ix": 2,
+                    "x": "var $bm_rt;\n$bm_rt = loopOut('cycle', 0);"
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        287,
+                        283.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 194,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 37,
+            "ty": 2,
+            "nm": "右1",
+            "parent": 31,
+            "refId": "image_10",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                80
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 20,
+                            "s": [
+                                80
+                            ],
+                            "e": [
+                                80
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                80
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        170.5,
+                        -127.5,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        257.5,
+                        145.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 38,
+            "ty": 2,
+            "nm": "左1",
+            "parent": 32,
+            "refId": "image_11",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": {
+                                "x": [
+                                    0.2
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.001
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p2_1_0p001_0"
+                            ],
+                            "t": 10,
+                            "s": [
+                                0
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.833
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.167
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p833_1_0p167_0"
+                            ],
+                            "t": 20,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                100
+                            ]
+                        },
+                        {
+                            "i": {
+                                "x": [
+                                    0.999
+                                ],
+                                "y": [
+                                    1
+                                ]
+                            },
+                            "o": {
+                                "x": [
+                                    0.4
+                                ],
+                                "y": [
+                                    0
+                                ]
+                            },
+                            "n": [
+                                "0p999_1_0p4_0"
+                            ],
+                            "t": 188,
+                            "s": [
+                                100
+                            ],
+                            "e": [
+                                0
+                            ]
+                        },
+                        {
+                            "t": 194
+                        }
+                    ],
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        238,
+                        -103.5,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        263,
+                        119.5,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "ip": 10,
+            "op": 195,
+            "st": -10,
+            "bm": 0
+        }
+    ],
+    "markers": []
+}
+dataB={v:"4.6.9",fr:25,ip:0,op:200,w:750,h:1334,nm:"总",ddd:0,assets:[{id:"image_0",w:188,h:56,u:"//gw.alicdn.com/tfs/",p:"TB1tXzAm6uhSKJjSspjXXci8VXa-188-56.png"},{id:"image_1",w:515,h:93,u:"//gw.alicdn.com/tfs/",p:"TB1my9Zm6ihSKJjy0FiXXcuiFXa-515-93.png"},{id:"image_2",w:255,h:333,u:"//gw.alicdn.com/tfs/",p:"TB1j0fum6ihSKJjy0FlXXadEXXa-255-333.png"},{id:"image_3",w:464,h:140,u:"//gw.alicdn.com/tfs/",
+p:"TB1j5BnmvBNTKJjy0FdXXcPpVXa-464-140.png"},{id:"image_4",w:145,h:120,u:"//gw.alicdn.com/tfs/",p:"TB1.zeFm6ihSKJjy0FeXXbJtpXa-145-120.png"},{id:"image_5",w:373,h:780,u:"//gw.alicdn.com/tfs/",p:"TB1AjiFm6ihSKJjy0FeXXbJtpXa-373-780.png"},{id:"image_6",w:404,h:605,u:"//gw.alicdn.com/tfs/",p:"TB16yBnmvBNTKJjy0FdXXcPpVXa-404-605.png"},{id:"image_7",w:600,h:739,u:"//gw.alicdn.com/tfs/",p:"TB1X1QgmfNNTKJjSspkXXaeWFXa-600-739.png"},{id:"comp_0",layers:[{ddd:0,ind:1,ty:2,nm:"光@2x.png",cl:"png",refId:"image_0",ks:{o:{a:1,k:[{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:149,s:[100],e:[0]},{t:157}]},r:{a:0,k:0},p:{a:0,k:[300,639,0]},a:{a:0,k:[94,28,0]},s:{a:1,k:[{i:{x:[.667,.667,.667],y:[1,1,.667]},o:{x:[.167,.167,.167],y:[.167,.167,.167]},n:["0p667_1_0p167_0p167","0p667_1_0p167_0p167","0p667_0p667_0p167_0p167"],t:7,s:[0,0,100],e:[245,245,100]},{i:{x:[.667,.667,.667],y:[1,1,.667]},o:{x:[.333,.333,.333],y:[0,0,.333]},n:["0p667_1_0p333_0","0p667_1_0p333_0","0p667_0p667_0p333_0p333"],t:20,s:[245,245,100],e:[172,168.601,100]},{i:{x:[.667,.667,.667],y:[1.075,.738,.667]},o:{x:[.333,.333,.333],y:[-.482,-.307,.333]},n:["0p667_1p075_0p333_-0p482","0p667_0p738_0p333_-0p307","0p667_0p667_0p333_0p333"],t:50,s:[172,168.601,100],e:[193.705,159.053,100]},{i:{x:[.667,.667,.667],y:[.761,-2.381,.667]},o:{x:[.333,.333,.333],y:[.038,-.649,.333]},n:["0p667_0p761_0p333_0p038","0p667_-2p381_0p333_-0p649","0p667_0p667_0p333_0p333"],t:75,s:[193.705,159.053,100],e:[151.516,162.911,100]},{i:{x:[.667,.667,.667],y:[.141,1.035,.667]},o:{x:[.333,.333,.333],y:[-5.723,.322,.333]},n:["0p667_0p141_0p333_-5p723","0p667_1p035_0p333_0p322","0p667_0p667_0p333_0p333"],t:100,s:[151.516,162.911,100],e:[153.275,203.358,100]},{i:{x:[.667,.667,.667],y:[1.66,.675,.667]},o:{x:[.333,.333,.333],y:[.077,.039,.333]},n:["0p667_1p66_0p333_0p077","0p667_0p675_0p333_0p039","0p667_0p667_0p333_0p333"],t:125,s:[153.275,203.358,100],e:[172,168.601,100]},{t:149}]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:2,ty:2,nm:"集将军卡@2x.png",cl:"png",refId:"image_1",ks:{o:{a:1,k:[{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:19,s:[0],e:[100]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:32,s:[100],e:[100]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:149,s:[100],e:[0]},{t:156}]},r:{a:0,k:0},p:{a:0,k:[282,737.5,0]},a:{a:0,k:[257.5,46.5,0]},s:{a:0,k:[100,100,100]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:3,ty:2,nm:"将军在上@2x_1.png",cl:"png",refId:"image_2",ks:{o:{a:1,k:[{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:4,s:[0],e:[100]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:8,s:[100],e:[100]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:150,s:[100],e:[0]},{t:157}]},r:{a:0,k:0},p:{a:0,k:[304.5,564.5,0]},a:{a:0,k:[127.5,166.5,0]},s:{a:1,k:[{i:{x:[.833,.833,.833],y:[.833,.833,.833]},o:{x:[.579,.579,.333],y:[-.036,-.036,.333]},n:["0p833_0p833_0p579_-0p036","0p833_0p833_0p579_-0p036","0p833_0p833_0p333_0p333"],t:5,s:[124,124,100],e:[100,100,100]},{t:10}]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:4,ty:3,nm:"空 1",ks:{o:{a:0,k:0},r:{a:0,k:0},p:{a:0,k:[241,483.5,0]},a:{a:0,k:[0,0,0]},s:{a:0,k:[78,78,100]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:5,ty:2,nm:"按钮@2x.png",cl:"png",parent:4,td:1,refId:"image_3",ks:{o:{a:0,k:100},r:{a:0,k:0},p:{s:!0,x:{a:0,k:74.359},y:{a:0,k:441.5}},a:{a:0,k:[232,70,0]},s:{a:0,k:[128.205,128.205,100]}},ao:0,ip:72,op:212,st:72,bm:0,sr:1},{ddd:0,ind:6,ty:2,nm:"按钮@2x_2.png",cl:"png",tt:1,refId:"image_4",ks:{o:{a:0,k:80},r:{a:0,k:0},p:{s:!0,x:{a:1,k:[{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:84,s:[69],e:[558]},{t:111}]},y:{a:0,k:824.5}},a:{a:0,k:[72.5,60,0]},s:{a:0,k:[78,78,100]}},ao:0,ip:72,op:212,st:72,bm:0,sr:1},{ddd:0,ind:7,ty:2,nm:"按钮@2x.png",cl:"png",parent:4,td:1,refId:"image_3",ks:{o:{a:0,k:100},r:{a:0,k:0},p:{s:!0,x:{a:0,k:74.359},y:{a:0,k:441.5}},a:{a:0,k:[232,70,0]},s:{a:0,k:[128.205,128.205,100]}},ao:0,ip:0,op:72,st:0,bm:0,sr:1},{ddd:0,ind:8,ty:2,nm:"按钮@2x_2.png",cl:"png",tt:1,refId:"image_4",ks:{o:{a:0,k:80},r:{a:0,k:0},p:{s:!0,x:{a:1,k:[{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:25,s:[69],e:[558]},{t:52}]},y:{a:0,k:824.5}},a:{a:0,k:[72.5,60,0]},s:{a:0,k:[78,78,100]}},ao:0,ip:0,op:72,st:0,bm:0,sr:1},{ddd:0,ind:9,ty:2,nm:"按钮@2x.png",cl:"png",parent:4,refId:"image_3",ks:{o:{a:1,k:[{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:20,s:[0],e:[100]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:29,s:[100],e:[100]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:150,s:[100],e:[0]},{t:157}]},r:{a:0,k:0},p:{s:!0,x:{a:0,k:74.359},y:{a:1,k:[{i:{x:[.487],y:[1]},o:{x:[.046],y:[.192]},n:["0p487_1_0p046_0p192"],t:20,s:[501.5],e:[441.5]},{t:29}]}},a:{a:0,k:[232,70,0]},s:{a:0,k:[128.205,128.205,100]}},ao:0,ip:0,op:281,st:0,bm:0,sr:1},{ddd:0,ind:10,ty:2,nm:"盛一伦@2x.png",cl:"png",refId:"image_5",ks:{o:{a:0,k:100},r:{a:0,k:0},p:{s:!0,x:{a:1,k:[{i:{x:[.653],y:[1]},o:{x:[.029],y:[0]},n:["0p653_1_0p029_0"],t:2,s:[-190.5],e:[186.5]},{i:{x:[.653],y:[.653]},o:{x:[.167],y:[.167]},n:["0p653_0p653_0p167_0p167"],t:16,s:[186.5],e:[186.5]},{i:{x:[.833],y:[1]},o:{x:[.167],y:[0]},n:["0p833_1_0p167_0"],t:150,s:[186.5],e:[-190.5]},{t:157}]},y:{a:1,k:[{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:1,s:[398],e:[402.76]},{i:{x:[.667],y:[.968]},o:{x:[.333],y:[0]},n:["0p667_0p968_0p333_0"],t:18.5,s:[402.76],e:[391.469]},{i:{x:[.667],y:[1.027]},o:{x:[.333],y:[-.016]},n:["0p667_1p027_0p333_-0p016"],t:38,s:[391.469],e:[407.446]},{i:{x:[.667],y:[1.343]},o:{x:[.333],y:[.058]},n:["0p667_1p343_0p333_0p058"],t:63,s:[407.446],e:[400.588]},{i:{x:[.667],y:[.927]},o:{x:[.333],y:[.148]},n:["0p667_0p927_0p333_0p148"],t:88,s:[400.588],e:[397.695]},{i:{x:[.667],y:[1.092]},o:{x:[.333],y:[-.039]},n:["0p667_1p092_0p333_-0p039"],t:113,s:[397.695],e:[406.444]},{i:{x:[.667],y:[1.083]},o:{x:[.333],y:[-.019]},n:["0p667_1p083_0p333_-0p019"],t:138,s:[406.444],e:[410]},{t:150}]}},a:{a:0,k:[186.5,390,0]},s:{a:0,k:[100,100,100]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:11,ty:2,nm:"马思纯@2x.png",cl:"png",refId:"image_6",ks:{o:{a:0,k:100},r:{a:0,k:0},p:{s:!0,x:{a:1,k:[{i:{x:[.63],y:[1]},o:{x:[.23],y:[0]},n:["0p63_1_0p23_0"],t:2,s:[809],e:[398]},{i:{x:[.681],y:[.681]},o:{x:[.184],y:[.184]},n:["0p681_0p681_0p184_0p184"],t:17,s:[398],e:[398]},{i:{x:[.833],y:[1]},o:{x:[.167],y:[0]},n:["0p833_1_0p167_0"],t:150,s:[398],e:[809]},{t:157}]},y:{a:1,k:[{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:1,s:[457.5],e:[466.311]},{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:18.5,s:[466.311],e:[473.077]},{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:38,s:[473.077],e:[470.037]},{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:62.5,s:[470.037],e:[474.658]},{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:88,s:[474.658],e:[481.089]},{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:113,s:[481.089],e:[473.144]},{i:{x:[.667],y:[1]},o:{x:[.333],y:[0]},n:["0p667_1_0p333_0"],t:138,s:[473.144],e:[479.5]},{t:150}]}},a:{a:0,k:[202,302.5,0]},s:{a:0,k:[100,100,100]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:12,ty:2,nm:"背景@2x.png",cl:"png",refId:"image_7",ks:{o:{a:0,k:100},r:{a:0,k:0},p:{a:0,k:[300,492.5,0]},a:{a:0,k:[300,345.5,0]},s:{a:1,k:[{i:{x:[.564,.564,.667],y:[1,1,.667]},o:{x:[.124,.124,.333],y:[.179,.179,.333]},n:["0p564_1_0p124_0p179","0p564_1_0p124_0p179","0p667_0p667_0p333_0p333"],t:1,s:[0,0,100],e:[100,100,100]},{i:{x:[.564,.564,.667],y:[.564,.564,.667]},o:{x:[.167,.167,.167],y:[.167,.167,.167]},n:["0p564_0p564_0p167_0p167","0p564_0p564_0p167_0p167","0p667_0p667_0p167_0p167"],t:6,s:[100,100,100],e:[100,100,100]},{i:{x:[.833,.833,.833],y:[.833,.833,.833]},o:{x:[.167,.167,.167],y:[.167,.167,.167]},n:["0p833_0p833_0p167_0p167","0p833_0p833_0p167_0p167","0p833_0p833_0p167_0p167"],t:152,s:[100,100,100],e:[0,0,100]},{t:157}]}},ao:0,ip:0,op:375,st:0,bm:0,sr:1},{ddd:0,ind:13,ty:1,nm:"黑色 纯色 1",ks:{o:{a:1,k:[{i:{x:[.667],y:[1]},o:{x:[.167],y:[.167]},n:["0p667_1_0p167_0p167"],t:0,s:[0],e:[80]},{i:{x:[.667],y:[.667]},o:{x:[.167],y:[.167]},n:["0p667_0p667_0p167_0p167"],t:6,s:[80],e:[80]},{i:{x:[.833],y:[.833]},o:{x:[.167],y:[.167]},n:["0p833_0p833_0p167_0p167"],t:151,s:[80],e:[0]},{t:161}]},r:{a:0,k:0},p:{a:0,k:[300,533.5,0]},a:{a:0,k:[300,533.5,0]},s:{a:0,k:[100,100,100]}},ao:0,sw:600,sh:1067,sc:"#000000",ip:0,op:375,st:0,bm:0,sr:1}]}],layers:[{ddd:0,ind:1,ty:0,nm:"IMG_8255@2x",refId:"comp_0",ks:{o:{a:0,k:100},r:{a:0,k:0},p:{a:0,k:[375,667,0]},a:{a:0,k:[300,533.5,0]},s:{a:0,k:[125,125,100]}},ao:0,w:600,h:1067,ip:0,op:375,st:0,bm:0,sr:1}]}
+
+//设置50%概率显示不同的素材
+var hidePercent = Math.random() * 100;
+var showPercent = 50;
+var params = '';
+var showAB = false;
+if (showAB) {
+    if(hidePercent <= showPercent){
+        animationData = dataA;
+        params = 'data: dataA';
+    } else {
+        animationData = dataB;
+        params = 'data: dataB';
+    }
+} else {
+    animationData = dataA;
+}
+
+// function queryString() {
+//     // 查询url上的uuid字段
+//     var url = location.href;
+//     var urlParam = {};
+//     var mtid = null;
+//     if (url.indexOf('?') !== -1) {
+//         var str = url.substr(url.indexOf('?') + 1);
+//         var strs = (url.indexOf('#') > 1) ? str.split('#') : str.split('&');
+//         for (var i = 0; i < strs.length; i++) {
+//             urlParam[strs[i].split('=')[0]] = decodeURI(strs[i].split('=')[1]);
+//         }
+//         mtid = urlParam.mtid;
+//     }
+//     return mtid;
+// }
+
+</script>
+<script data-mt-inline src="dist/index.js"></script>
+</body>
+</html>

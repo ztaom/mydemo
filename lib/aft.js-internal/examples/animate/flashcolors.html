@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<script src="../../browser/polyfill.min.js"></script>
+<script src="../../browser/aft-lite.js"></script>
+<style>
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#rect {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+}
+</style>
+</head>
+<body>
+<div id="rect"></div>
+<script>
+    var animate = window.AFT.animate;
+    var rect = document.getElementById('rect');
+    var colors = [
+        'rgb(255, 0, 0)',
+        'rgb(255, 165, 0)',
+        'rgb(255, 255, 0)',
+        'rgb(0, 128, 0)',
+        'rgb(0, 0, 255)',
+        'rgb(75, 0, 130)',
+        'rgb(238, 130, 238)'
+    ];
+
+    var animation = animate(rect)
+    colors.slice(1).forEach(function(color) {
+        animation.to({
+                backgroundColor: color
+            })
+            .duration(600)
+            .easing('linear')
+            .next();
+    });
+
+    colors.reverse().slice(1).forEach(function(color) {
+        animation.to({
+                backgroundColor: color
+            })
+            .duration(600)
+            .easing('linear')
+            .next();
+    });
+
+    animation.play(Infinity);
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="yes" name=" apple-mobile-web-app-capable" />
+<title>Web Animate API (WAAPI)</title>
+<style>
+/*.dot {
+  animation: frames 2500ms ease-in-out 0ms infinite alternate forwards;
+}*/
+.dot{background: rgba(0,12,156,0.5); width:50px; height: 50px; position: absolute;}
+</style>
+</head>
+<body>
+<script>
+//Element.animate()
+document.body.animate(
+    [{'background': 'red'}, {'background': 'green'}, {'background': 'blue'}]
+    , 3000,iterations: Infinity);
+
+/*
+  var dot = document.querySelector('.dot');
+  var frames = [{transform: 'rotate(0deg) translate(80px)'},{transform: 'rotate(360deg) translate(80px)'}];
+  var timing = {
+    duration: 2500,         //ms
+    delay: 0,               //ms
+    iterations: Infinity,   //1, 2, 3 ... Infinity
+    direction: 'alternate', //'normal', 'reverse'等
+    easing: 'ease-in-out',  //'linear', 'ease-in'等
+    fill: 'forwards'       //'backwards', 'both', 'none', 'auto'
+  };
+  dot.animate(frames,timing);
+ */
+ //console.log(player.playState);
+</script>
+<div class="dot"></div>
+</body>
+</html>

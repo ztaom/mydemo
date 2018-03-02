@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Rainbow of color stops</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	drawGradients();
+}
+
+function drawGradients() {
+	var grad = ctx.createLinearGradient(10,0, 390,0); 
+	grad.addColorStop(0, 'red');
+	grad.addColorStop(1 / 6, 'orange');
+	grad.addColorStop(2 / 6, 'yellow');
+	grad.addColorStop(3 / 6, 'green');
+	grad.addColorStop(4 / 6, 'aqua');
+	grad.addColorStop(5 / 6, 'blue');
+	grad.addColorStop(6 / 6, 'purple');
+
+	ctx.fillStyle=grad;
+	ctx.fillRect(0,0, 400,75);
+	
+}
+
+</script>	
+	
+</head>
+<body onload="init()" style="background-color:#d9d9d9">
+<canvas id="can" height="200" width="400">
+</canvas>
+</body>
+</html>

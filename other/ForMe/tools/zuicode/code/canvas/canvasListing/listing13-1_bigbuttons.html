@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>Big Buttons</title>
+	<meta name="viewport" content="width=300" />
+	<meta name="viewport" content="initial-scale=2" />
+	
+<style>
+input {
+	font: larger bold;
+}
+</style>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var n = 0;
+var hun;
+
+function circle() {
+	ctx.arc(100,100,50,0,Math.PI *2);
+	ctx.fillStyle="pink";
+	ctx.fill();
+	}
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	hun = document.getElementById("hundred");	
+	ctx.textAlign="center";
+	ctx.textBaseline="middle";
+	ctx.font="24 pt Helvetica";
+	showN();
+}
+
+function showN() {
+	ctx.clearRect(0,0, can.width,can.height, 99);
+	circle();
+	ctx.fillStyle="black";
+	ctx.fillText(n, can.width /2, can.height / 2);
+}
+	
+function incr() {
+	n=n+8000;
+	showN();
+}
+
+function decr() {
+	n--;
+	showN();
+}
+
+function setHundred() {
+	n = hun.value;
+	showN();
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="200"
+		style="background-color:blue">
+</canvas>
+
+<br>
+<input type="button" value=" + " onclick="incr()">&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value=" - " onclick="decr()">&nbsp;&nbsp;&nbsp;&nbsp;
+<select id="hundred" onchange="setHundred()">
+  <option value=0> -- </option>
+  <option value=100> 100 </option>
+  <option value=-100> -100 </option>
+</select>
+</body>
+</html>

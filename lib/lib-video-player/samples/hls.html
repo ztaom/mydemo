@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>hls</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	<link href="./css/video.css" rel="stylesheet">
+	<script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js"></script>	
+	<script src="../node_modules/hls.js/dist/hls.js"></script>
+	<body>
+		<!-- LIVE SAMPLES -->
+		<div>
+			<h3>直播视频(非safari使用hls解码)</h3>
+			<video webkit-playsinline="webkit-playsinline" live id="J_Video_Player_Live" class="lib-video vjs-hidden" poster="//img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+	 			<source src="http://tbfliving.alicdn.com/mediaplatform/2899652515_1473658982904.m3u8" type="application/x-mpegURL">
+			</video>
+		</div>
+		<script src="../publish/video.js"></script>
+		<script>
+    var VideoPlayer = window['lib-video-player'];
+
+		var myPlayerLive = VideoPlayer('J_Video_Player_Live');
+
+		//window.libVideoPlayerDebug = true;
+
+		myPlayerLive.on('video:error', function(ev){
+			console.log('myPlayer:::video:error::' + JSON.stringify(ev));
+		})
+
+		 //  if(Hls.isSupported()) {
+		 //    var video = document.getElementById('video');
+		 //    var hls = new Hls();
+		 //    //hls.loadSource('http://www.streambox.fr/playlists/test_001/stream.m3u8');
+		 //    hls.loadSource('http://tbflive.alicdn.com/mediaplatform/72126688_1472623084082.m3u8?auth_key=1473227884-0-0-eed73909d953b8b7a6f55415f3108b92');
+		 //    hls.attachMedia(video);
+		 //    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+		 //      video.play();
+		 //  	});
+		 // }
+		</script>
+	</body>
+</head>
+</html>

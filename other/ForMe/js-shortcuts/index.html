@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="fix-ie6.css"/><![endif]-->
+    <title>JavaScript Shortcuts Library (jQuery plugin)</title>
+</head>
+<body>
+
+<div id="outer"><div id="content">
+
+<h1>JavaScript Shortcuts Library <small>(jQuery plugin)</small></h1>
+
+<div class="columns">
+<div id="col1">
+
+<h2>Usage</h2>
+
+<h3>Add a shortcut:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.add({
+    type: <span style='color:#2a00ff;'>'down'</span>,
+    mask: <span style='color:#2a00ff;'>'Ctrl+A'</span>,
+    handler: <span style='color:#7f0055; font-weight:bold;'>function</span>() {
+        debug(<span style='color:#2a00ff;'>'Ctrl+A'</span>);
+    }
+});</pre>
+
+<h3>Start reacting to shortcuts:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.start();</pre>
+
+<h3>Add a shortcut to &ldquo;another&rdquo; list:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.add({
+    type: <span style='color:#2a00ff;'>'hold'</span>,
+    mask: <span style='color:#2a00ff;'>'Shift+Up'</span>,
+    handler: <span style='color:#7f0055; font-weight:bold;'>function</span>() {
+        debug(<span style='color:#2a00ff;'>'Shift+Up'</span>);
+    },
+    list: <span style='color:#2a00ff;'>'another'</span>
+});</pre>
+
+<h3>Activate &ldquo;another&rdquo; list:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.start(<span style='color:#2a00ff;'>'another'</span>);</pre>
+
+<h3>Remove a shortcut:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.remove({
+    type: <span style='color:#2a00ff;'>'hold'</span>,
+    mask: <span style='color:#2a00ff;'>'Shift+Up'</span>,
+    list: <span style='color:#2a00ff;'>'another'</span>
+});</pre>
+
+<h3>Stop (unbind event handlers):</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.stop();</pre>
+
+</div>
+
+<div id="col2">
+
+<h2>Features</h2>
+
+<h3>Event types</h3>
+
+<ul>
+<li><strong>down</strong> &mdash; On key down (default value).</li>
+<li><strong>up</strong> &mdash; On key up.</li>
+<li><strong>hold</strong> &mdash; On pressing and holding down the key. The handler will be called immediately after pressing the key and then repeatedly while the key is held down.</li>
+</ul>
+
+<h3>Supported keys</h3>
+
+<ul>
+<li>Modifiers: <em>Ctrl, Shift, Alt</em></li>
+<li>Numbers: <em>0&mdash;9</em></li>
+<li>Letters: <em>A&mdash;Z (case-insensitive)</em></li>
+<li>Special: <em>Backspace, Tab, Enter, Pause, CapsLock, Esc, Space, PageUp, PageDown, End, Home, Left, Up, Right, Down, Insert, Delete, F1&mdash;F12, ? (Question Mark), Minus, Plus</em></li>
+</ul>
+
+<h3>Multiple key combinations and multiple lists:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.add({
+    type: <span style='color:#2a00ff;'>'hold'</span>,
+    mask: <span style='color:#2a00ff;'>'Shift+Up,Shift+Down'</span>,
+    handler: <span style='color:#7f0055; font-weight:bold;'>function</span>() {
+        doSomething();
+    },
+    list: <span style='color:#2a00ff;'>'first,second'</span>
+});</pre>
+
+<h3>Chaining:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.add({
+    type: <span style='color:#2a00ff;'>'down'</span>,
+    mask: <span style='color:#2a00ff;'>'Ctrl+A'</span>,
+    handler: <span style='color:#7f0055; font-weight:bold;'>function</span>() {
+        debug(<span style='color:#2a00ff; '>'Ctrl+A'</span>);
+    }
+}).start();</pre>
+
+<h3>Enable/disable shortcuts in input fields and textareas:</h3>
+
+<pre style='color:#000000;background:#ffffff;'>$.Shortcuts.add({
+    type: <span style='color:#2a00ff;'>'down'</span>,
+    mask: <span style='color:#2a00ff;'>'Ctrl+S'</span>,
+    enableInInput: <span style='color:#7f0055; font-weight:bold;'>true</span>,
+    handler: <span style='color:#7f0055; font-weight:bold;'>function</span>() {
+        debug(<span style='color:#2a00ff;'>'Ctrl+S'</span>);
+    }
+});</pre>
+
+</div>
+
+<div id="col3">
+
+<h2>Download</h2>
+
+<ul>
+<li><a href="jquery.shortcuts.js">jquery.shortcuts.js</a> (8.14 KB, source)</li>
+<li><a href="jquery.shortcuts.min.js">jquery.shortcuts.min.js</a> (2.62 KB, minified)</li>
+</ul>
+
+<h2>Test example</h2>
+
+<div class="list corners active">
+    <p>&ldquo;default&rdquo; list:</p>
+    <ul><li>Ctrl+A (down)</li><li>Minus (down)</li><li>Plus (down)</li></ul>
+    <form><input type="hidden" name="list" value="default"/><input type="button" value="Activate"/></form>
+</div>
+
+<div class="list corners">
+    <p>&ldquo;another&rdquo; list:</p>
+    <ul><li>Delete (down)</li><li>Shift+B (up)</li><li>Shift+Up (hold)</li></ul>
+    <form><input type="hidden" name="list" value="another"/><input type="button" value="Activate"/></form>
+</div>
+
+<p id="debug"><em>Debug output:</em> </p>
+
+</div>
+<div class="clear"></div>
+</div>
+
+</div></div>
+
+<script type="text/javascript" src="http://y0.ifengimg.com/base/jQuery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery.shortcuts.min.js"></script>
+
+<script type="text/javascript">
+var debug = function(msg) {
+    var node = document.getElementById('debug');
+    node.innerHTML += msg + ' ';
+};
+
+$('.list input[type=button]').click(function() {
+    var name = $(this).closest('form').find('input[name=list]').val();
+    $.Shortcuts.start(name);
+    $('.list').removeClass('active');
+    $(this).closest('.list').addClass('active');
+    $(this).blur();
+});
+
+$.Shortcuts.add({
+    type: 'down',
+    mask: 'Ctrl+A',
+    handler: function() {
+        debug('Ctrl+A');
+    }
+});
+
+$.Shortcuts.add({
+    type: 'down',
+    mask: 'Minus',
+    handler: function() {
+        debug('-');
+    }
+});
+
+$.Shortcuts.add({
+    type: 'down',
+    mask: 'Plus',
+    handler: function() {
+        debug('+');
+    }
+});
+
+$.Shortcuts.add({
+    type: 'down',
+    mask: 'Delete',
+    handler: function() {
+        debug('Delete');
+    },
+    list: 'another'
+});
+
+$.Shortcuts.add({
+    type: 'up',
+    mask: 'Shift+B',
+    handler: function() {
+        debug('Shift+B');
+    },
+    list: 'another'
+});
+
+$.Shortcuts.add({
+    type: 'hold',
+    mask: 'Shift+Up',
+    handler: function() {
+        debug('Shift+Up');
+    },
+    list: 'another'
+});
+
+$.Shortcuts.start();
+</script>
+
+</body>
+</html>

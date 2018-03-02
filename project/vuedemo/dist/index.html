@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>vue demo</title>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="site" content="">
+    <meta name="data-spm" content="">
+    <link rel="apple-touch-icon" href="" />
+    <link rel="apple-touch-icon-precomposed" href="" />
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="bookmark" href="" type="image/x-icon"/>
+    <script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js,lib-windvane/2.1.8/windvane.js,lib-env/1.9.9/env.js"></script>
+    <script>
+        // window.WindVane.call('WVPopLayer', 'display', {});
+    </script>
+    <style>
+        #dianzan{position: absolute; top:300px; right: 20px; width: 100px; text-align: center;}
+        .dzanimate{position: relative;}
+        .dzanimate div{width: 48px; height: 48px; border-radius:100%; display: none; position: absolute; bottom:-10px; background-repeat: no-repeat; background-size: 25px auto; background-position: center center; left: 50%; margin-left:-24px;}
+        .dzanimate div.a1{background-image:url(//img.alicdn.com/tfs/TB1lml1QFXXXXX0XVXXXXXXXXXX-24-24.svg);}
+        .dzanimate div.a2{background-image:url(//img.alicdn.com/tfs/TB1WMpWQFXXXXaxXVXXXXXXXXXX-25-24.svg);}
+        .dzanimate div.a3{background-image:url(//img.alicdn.com/tfs/TB1U7xIQFXXXXb7aXXXXXXXXXXX-25-24.svg);}
+        .dzanimate div.a4{background-image:url(//img.alicdn.com/tfs/TB1N_KtQFXXXXapXXXXXXXXXXXX-25-24.svg);}
+        .dzanimate div.animate{animation: zanimate 2s forwards; display: block;}
+        .dzbtn{background:#eee;}
+        .dzbtn span{display: inline-block; background:#333; width: 20px; height: 20px; border-radius:100%;}
+
+        @keyframes zanimate{
+            0% {
+                transform: translateY(0);
+                opacity: 1
+            }
+            100% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+    </style>
+    </head>
+<body data-noaplus>
+    <div id='dianzan'>
+        <div class="dzbtn">赞<em id='dznum'></em><span></span></div>
+        <div class="dzanimate"></div>
+    </div>
+<script>
+var DZ = document.querySelector('.dzanimate');
+document.querySelector('.dzbtn').addEventListener('touchend', function(e){
+    var dzNum = 0;
+    var i = Math.floor( Math.random()*4+1 )
+    var div = document.createElement("div");
+    div.setAttribute('class', `a${i} animate`)
+    DZ.appendChild(div)
+    if(DZ.childNodes.length>100){
+        DZ.innerHTML=''
+    }
+
+    dzNum = dzNum+1
+    document.querySelector('#dznum').innerText = `${dzNum}`;
+})
+</script>
+</body>
+</html>

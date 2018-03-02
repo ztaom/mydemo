@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="data-spm" content="a2h0f">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>择天记</title>
+<script src="http://g.alicdn.com/mtb/lib-windvane/2.1.4/windvane.js"></script>
+
+<style>
+html {-webkit-text-size-adjust: none;}
+body {width:100%; height: 100%; font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial; line-height: 1.5; -webkit-text-size-adjust: 100%; -webkit-user-select: none; user-select: none; overflow: hidden;}
+a, img {-webkit-tap-highlight-color: rgba(0, 0, 0, 0); outline: 0;border: 0;}
+body, p {margin: 0; padding: 0; vertical-align: baseline; }
+/*
+0.1rem = 2px
+*/
+#wrapper {margin: 0 auto;overflow: hidden; position: relative; bottom: 0; left: 0; top: 0; width: 100%; height: 100%; background:#333;}
+.hide{display: none!important;}
+.show{display: block!important;}
+
+
+
+.title, .close{position: absolute;background-repeat: no-repeat;}
+/*.title{background-image:url(img/title.png); background-size: 10.55rem auto; width: 10.55rem; height: 11.975rem; top:2.45rem; left: 4.85rem; z-index: 0; transform-origin: center bottom;animation: antitle 5.24s 0.48s forwards; opacity: 0}
+*/
+/*@keyframes antitle{
+    0% {opacity: 0; transform: scale(.2, .2);}
+    7% {opacity: 1; transform: scale(.9, .9);}
+    100% {opacity: 1; transform: scale(1, 1);}
+}*/
+
+.close{background-image:url(img/close.png); background-size: 1.05rem auto; width: 1.05rem; height: 1.1rem; top:0.65rem; right: 0.5rem; z-index: 9}
+
+#animatecontainer{width: 100%; height: 100%; top:0; bottom:0; }
+</style>
+<script src="js/aft.browser.js"></script>
+</head>
+<body data-spm="8263585">
+<script type="text/javascript" id="beacon-aplus" src="//g.alicdn.com/alilog/mlog/aplus_o.js" exparams="clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx" async></script>
+
+<div id="wrapper" class="show">
+    <div id="animatecontainer">
+        <!-- <div class="title"></div> -->
+    </div>
+    <div class="close" id="close"></div>
+</div>
+<script>
+var canvasElement = document.getElementById('animatecontainer');
+var aft = new AFT(canvasElement, '2d');
+var scene = aft.createScene();
+aft.engine.setSize(750);
+
+
+//动画开始
+
+var luhan = aft.createElement('rectangle', 577, 1247, {
+    style:{
+        'background-image': 'url(img/luhan.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[343 - aft.viewportWidth / 2, -864]
+});
+
+var rwmask = aft.createElement('rectangle', 750, 1221, {
+    style:{
+        'background-image': 'url(img/rwmask.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[375 - aft.viewportWidth / 2, -780]
+});
+
+
+var xingkong = aft.createElement('rectangle', 1500, 532, {
+    style:{
+        'background-image': 'url(img/xingkong.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[-110 - aft.viewportWidth / 2, -1100]
+});
+
+var date = aft.createElement('rectangle', 206, 70, {
+    style:{
+        'background-image': 'url(img/date.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[241 - aft.viewportWidth / 2, -892]
+});
+
+var kanluhan = aft.createElement('rectangle', 218, 70, {
+    style:{
+        'background-image': 'url(img/klh.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[472 - aft.viewportWidth / 2, -892]
+});
+
+var dujia = aft.createElement('rectangle', 134, 87, {
+    style:{
+        'background-image': 'url(img/dujia.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[560 - aft.viewportWidth / 2, -800.5]
+});
+
+
+var xingLeft = aft.createElement('rectangle', 216, 220, {
+    style:{
+        'background-image': 'url(img/xing_left.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[88 - aft.viewportWidth / 2, -720]
+});
+
+var xingRight = aft.createElement('rectangle', 286, 298, {
+    style:{
+        'background-image': 'url(img/xing_right.png)',
+        'background-size':'100% auto',
+        'opacity': '0'
+    },
+    position:[704 - aft.viewportWidth / 2, -583]
+});
+
+
+scene.add(luhan, rwmask, xingkong, date, kanluhan, dujia, xingLeft, xingRight);
+
+var timeline = aft.createTimeline();
+
+var luhanEffect = aft.createEffect()
+    luhanEffect.delay(660)
+               .css('opacity', 0)
+               .scale(.9, .9)
+               .moveY(-80)
+               .then()
+                   .moveY(0)
+                   .css('opacity', 1)
+                   .scale(.9, .9)
+                   .duration(920)
+                   .then()
+                       .moveY(0)
+                       .scale(1, 1)
+                       .duration(3440)
+                       .end()
+
+var luhanAnimation = aft.createAnimation(luhan, luhanEffect);
+
+var rwmaskEffect = aft.createEffect()
+    rwmaskEffect.delay(880)
+                .css('opacity', 0)
+                .scale(1, 1)
+                .moveY(-145)
+                .then()
+                    .moveY(0)
+                    .moveX(0)
+                    .css('opacity', 1)
+                    .scale(1, 1)
+                    .duration(800)
+                    .then()
+                        .moveY(30)
+                        .moveX(10)
+                        .scale(1.05, 1.05)
+                        .duration(3980)
+                        .end()
+
+var rwmaskAnimation = aft.createAnimation(rwmask, rwmaskEffect);
+
+var xingkongEffect = aft.createEffect()
+    xingkongEffect.delay(880)
+                  .css('opacity', 0)
+                  .moveX(0)
+                  .then()
+                    .css('opacity', 1)
+                    .then()
+                        .moveX(425)
+                        .css('opacity', 1)
+                        .duration(4780)
+                        .end()
+
+var xingkongAnimation = aft.createAnimation(xingkong, xingkongEffect);
+
+var dateEffect = aft.createEffect()
+    dateEffect.delay(1380)
+              .css('opacity', 0)
+              .moveY(-80)
+              .then()
+                  .css('opacity', 1)
+                  .moveY(0)
+                  .duration(320)
+                  .then()
+                      .moveY(0)
+                      .duration(5000)
+                      .end()
+
+var dateAnimation = aft.createAnimation(date, dateEffect);
+
+var kanluhanEffect = aft.createEffect()
+    kanluhanEffect.delay(1500)
+              .css('opacity', 0)
+              .moveY(-80)
+              .then()
+                  .css('opacity', 1)
+                  .moveY(0)
+                  .duration(320)
+                  .then()
+                      .moveY(0)
+                      .duration(5000)
+                      .end()
+
+var kanluhanAnimation = aft.createAnimation(kanluhan, kanluhanEffect);
+
+var dujiaEffect = aft.createEffect()
+    dujiaEffect.delay(1820)
+               .css('opacity', 0)
+               .scale(6, 6)
+               .then()
+                   .css('opacity', 1)
+                   .then()
+                       .scale(.9, .9)
+                       .duration(240)
+                       .then()
+                           .scale(1, 1)
+                           .duration(40)
+                           .then()
+                               .scale(1.05, 1.05)
+                               .duration(40)
+                               .then()
+                                  .scale(1, 1)
+                                  .duration(40)
+                                  .then()
+                                      .scale(1, 1)
+                                      .duration(5000)
+                                      .end()
+
+var dujiaAnimation = aft.createAnimation(dujia, dujiaEffect); 
+
+var xingLeftEffect = aft.createEffect()
+    xingLeftEffect.delay(2180)
+              .css('opacity', 0)
+              .moveY(-250)
+              .moveX(100)
+              .scale(1, 1)
+              .then()
+                  .css('opacity', .8)
+                  .moveY(0)
+                  .moveX(0)
+                  .scale(1.1, 1.1)
+                  .duration(3060)
+                  .end()
+
+var xingLeftAnimation = aft.createAnimation(xingLeft, xingLeftEffect);
+
+var xingRightEffect = aft.createEffect()
+    xingRightEffect.delay(2180)
+              .css('opacity', 0)
+              .moveY(-350)
+              .moveX(-112)
+              .scale(1, 1)
+              .then()
+                  .css('opacity', .8)
+                  .moveY(0)
+                  .moveX(0)
+                  .scale(1.1, 1.1)
+                  .duration(3060)
+                  .end()
+
+var xingRightAnimation = aft.createAnimation(xingRight, xingRightEffect);
+
+
+timeline.add([luhanAnimation, rwmaskAnimation, xingkongAnimation, dateAnimation, kanluhanAnimation, dujiaAnimation, xingLeftAnimation, xingRightAnimation]);
+
+
+aft.play(scene, [timeline]);
+
+
+//动画结束
+
+
+
+    var wrapDom = document.getElementById('wrapper');
+    var close = document.getElementById('close');
+    var btn = document.getElementById('btn');
+    var popWrap = document.getElementById('popwrap');
+    var popCont = document.getElementById('popcont');
+    var popClose = document.getElementById('popclose');
+    var image = document.createElement('img');
+    var randomNum = 1;
+
+    (function (doc, win) {
+        window.WindVane.call('WVPopLayer', 'increaseReadTimes', {}, function (s) {
+            //成功增加打开次数
+        }, function (e) {
+            //打开失败
+        });
+        var docEl = doc.documentElement;
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var clientWidth = docEl.clientWidth;
+        var clientHeight = docEl.clientHeight;
+
+        if(clientWidth > 0.78 * clientHeight){
+            clientWidth = 0.78 * clientHeight;
+        }
+
+        wrapDom.style.width = clientWidth + 'px';
+        wrapDom.style.height = clientHeight + 'px';
+        var recalc = function () {
+            if (!clientWidth) return;
+            docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+    function randomInteger(low, high){
+        return low + Math.floor(Math.random() * (high - low));
+    }
+
+    function start() {
+        wrapDom.classList.add('show');
+
+        close.addEventListener('touchend',function(event){
+            event.preventDefault();
+            wrapDom.classList.remove('show');
+            window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+                //关闭成功
+            }, function (e) {
+                //关闭失败
+            });
+        },false);
+        
+        btn.addEventListener('touchend', function() {
+            randomNum = randomInteger(1, 4);
+            image.src = 'img/pop' + randomNum + '.png';
+            popWrap.style.display = 'block';
+            popCont.appendChild(image); 
+        });
+
+        popClose.addEventListener('touchend', function() {
+            popWrap.style.display = 'none';
+        });
+
+        
+        var hideTimer = setTimeout(function(){
+            wrapDom.classList.remove('show');
+            clearTimeout(hideTimer);
+            window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+                //关闭成功
+            }, function (e) {
+                //关闭失败
+            });
+        },4700);
+
+        
+        
+    }
+
+
+</script>
+</body>
+</html>

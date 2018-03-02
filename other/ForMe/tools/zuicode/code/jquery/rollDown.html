@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title></title>
+<link rel="icon" href="../../img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="../../css/common.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<style>
+.messagewrap{overflow:hidden;position:relative;width:500px;height:300px}
+li{height:50px;}
+.bottomcover{width:500px;height:45px;position:absolute;bottom:0;left:0; pointer-events:none;background:url(halftransp.png) left bottom no-repeat;}
+
+#scrollDiv{width:300px;height:100px;line-height:25px;border:#ccc 1px solid;overflow:hidden}   
+#scrollDiv li{height:25px;padding-left:10px;}   
+</style>
+</head>
+<body>
+<div id="subcont">
+<div class="messagewrap">
+	<ul>
+		<li>ssssssssss</li>
+		<li>ssssssssss</li>
+		<li>ssssssssss</li>
+		<li>ssssssssss</li>
+		<li>ssssssssss</li>
+		<li>ssssssssss</li>
+		<li>ssssssssss</li>
+	</ul>
+</div>
+<script>
+$(function(){
+    msgmove();
+    $(".messagewrap ul").hover(function(){
+        $(this).attr("name","hovered"); //鼠标经过设置ul的name值为"hovered"
+    },function(){
+        $(this).removeAttr("name");
+    });
+});
+    function msgmove(){ 
+        var isIE=!!window.ActiveXObject;
+        var isIE6=isIE&&!window.XMLHttpRequest;
+        if($(".messagewrap ul").attr("name") != "hovered"){
+        //判断ul的name属性是否为"hovered"，决定下面代码块是否运行，以实现鼠标经过暂停滚动。
+            var height = $(".messagewrap li:last").height();
+            if(isIE6){
+            //判断IE6，jQuery的animate动画和opacity透明在一起使用在IE6中会出现中文重影现象，
+            //所以在ie6中实行透明的禁用。
+                $(".messagewrap li:last").css({"height":0});
+            }else{
+                $(".messagewrap li:last").css({"opacity":0,"height":0});
+                //列表最后的li透明和高度设置为0 }
+                $(".messagewrap li:first").before($(".messagewrap li:last"));
+                //把列表最后的li提升到顶部，实现有限列表项无限循环滚动显示
+                $(".messagewrap li:first").animate({"height":height},300);
+                //列表顶部的li高度逐渐变高以把下面的li推下去 if(!isIE6){
+                $(".messagewrap li:first").animate({"opacity":"1"},300);
+                //在非IE6浏览器中设置透明淡入效果
+        }
+    }
+    setTimeout("msgmove()",1000);
+    //设置5秒滚动一次
+}
+</script>
+<div id="scrollDiv">  
+  <ol class="list">  
+    <li>这是公告标题的第一行</li>  
+    <li>这是公告标题的第二行</li>  
+    <li>这是公告标题的第三行</li>  
+    <li>这是公告标题的第四行</li>  
+    <li>这是公告标题的第五行</li>  
+    <li>这是公告标题的第六行</li>  
+    <li>这是公告标题的第七行</li>  
+    <li>这是公告标题的第八行</li>  
+  </ol>  
+</div> 
+<script type="text/javascript">  
+function AutoScroll(obj){   
+        $(obj).find(".list:first").animate({   
+                marginTop:"-25px"   
+        },1000,function(){   
+                $(this).css({marginTop:"0px"}).find("li:first").appendTo(this);   
+        });   
+}   
+$(document).ready(function(){   
+setInterval('AutoScroll("#scrollDiv")',1000)   
+});   
+</script>
+<style type="text/css">
+.seamless { border:solid 1px #0a0; font-size:12px; overflow:hidden; width:500px; height:100px; margin:1em auto; }
+</style>
+<div class="seamless allowStop" delay="100">
+  <p>原理很简单，注册事件之后，立即将元素的innerHTML累加一次。<br>
+　　接着滚动开始，当滚动条到达元素的中间位置时：<br>
+　　不要在子元素上设置margin和padding，因为CSS对margin或padding的叠加机制，会导致滚动出现“跳跃”。稳妥的办法是套一个内联元素，然后再在里面设置margin或者padding！</p>
+<p>原理很简单，注册事件之后，立即将元素的innerHTML累加一次。<br>
+　　接着滚动开始，当滚动条到达元素的中间位置时：<br>
+　　不要在子元素上设置margin和padding，因为CSS对margin或padding的叠加机制，会导致滚动出现“跳跃”。稳妥的办法是套一个内联元素，然后再在里面设置margin或者padding！</p>
+</div>
+<script type="text/javascript">
+(function(c){
+    var obj=document.getElementsByTagName("div");
+    var _l=obj.length;
+    
+    var o;
+    for(var i=0;i<_l;i++){
+        o=obj[i];
+        var n2=o.clientHeight;
+        var n3=o.scrollHeight;
+        o.s=0;
+        if(o.className.indexOf(c)>=0){
+            if(n3<=n2){return false;}
+            var delay=parseInt(o.getAttribute("delay"),10);
+            if(isNaN(delay)){delay=100;}
+            if(o.className.indexOf("allowStop")>=0){
+                o.onmouseover=function(){this.Stop=true;}
+                o.onmouseout=function(){this.Stop=false;}
+            }
+            giveInterval(autoRun,delay,o);
+            //关键之处！！
+            o.innerHTML=o.innerHTML+o.innerHTML;
+            }
+            }
+            //注册函数
+            function giveInterval(funcName,time){
+                var args=[];
+                for(var i=2;i<arguments.length;i++){
+                    args.push(arguments[i]);
+                }
+            return window.setInterval(function(){
+                funcName.apply(this,args);},time);
+            }
+            function autoRun(o,s){
+                if(o.Stop==true){return false;}
+                var n1=o.scrollTop;
+                var n3=o.scrollHeight;
+                o.s++;
+                o.scrollTop=o.s;
+                if(n1>=n3/2){
+                    o.scrollTop=0;
+                    o.s=0;
+                }
+    }
+})('seamless')
+</script>
+</div>
+
+
+<script type="text/javascript" src="../../js/cont.js"></script>
+</body>
+</html>

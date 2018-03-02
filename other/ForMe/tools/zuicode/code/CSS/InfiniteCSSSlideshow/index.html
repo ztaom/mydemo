@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	
+	<title>Infinite CSS Slideshow</title>
+	
+	<link rel='stylesheet' href='css/style.css'>
+	
+	<style>
+    #tech-slideshow {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+    #tech-slideshow > div {
+        height: 200px;
+        width: 2526px;
+        background: url(images/collage.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        
+        -moz-transition:  opacity 0.5s ease-out; 
+           -o-transition: opacity 0.5s ease-out; 
+      -webkit-transition: opacity 0.5s ease-out; 
+          -ms-transition: opacity 0.5s ease-out; 
+    
+        /* Slow */
+        -webkit-animation: moveSlideshow 60s linear infinite;
+        -moz-animation:    moveSlideshow 60s linear infinite;
+        
+        -webkit-transform: translate3d(0,0,0); /* Performance */
+    
+    }
+    #tech-slideshow #tech-slideshow-1 {
+        /* Sprite */
+        background-position: 0 200px;
+        
+        /* Fast */
+        -webkit-animation: moveSlideshow 20s linear infinite;
+        -moz-animation:    moveSlideshow 20s linear infinite;
+    }
+    #tech-slideshow:hover #tech-slideshow-2 {
+        opacity: 0;
+    }
+    
+    @-webkit-keyframes moveSlideshow {
+        0%   { 
+            -webkit-transform: translateX(0); 
+            -moz-transform:    translateX(0); 
+            -ms-transform:     translateX(0); 
+            -o-transform:      translateX(0); 
+            transform:         translateX(0); 
+        }    
+        100% { 
+            -webkit-transform: translateX(-1684px); 
+            -moz-transform:    translateX(-1684px); 
+            -ms-transform:     translateX(-1684px); 
+            -o-transform:      translateX(-1684px); 
+            transform:         translateX(-1684px); 
+        }
+    }
+    @-moz-keyframes moveSlideshow {
+        0%   { 
+            -webkit-transform: translateX(0); 
+            -moz-transform:    translateX(0); 
+            -ms-transform:     translateX(0); 
+            -o-transform:      translateX(0); 
+            transform:         translateX(0); 
+        }    
+        100% { 
+            -webkit-transform: translateX(-1684px); 
+            -moz-transform:    translateX(-1684px); 
+            -ms-transform:     translateX(-1684px); 
+            -o-transform:      translateX(-1684px); 
+            transform:         translateX(-1684px); 
+        }
+    }
+	</style>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+	
+	  <h1>Infinite CSS Slideshow</h1>
+		
+		<div id="tech-slideshow">
+        <div id="tech-slideshow-1"></div>
+        <div id="tech-slideshow-2"></div>
+    </div>
+    
+    <p>AND it speeds up when you hover over it AND it goes color AND it's fluid width AND it has pretty good performance because it's using 2D transforms and tricking the browser into using the GPU by saying it's using 3D transforms. BUT it's kinda laggy on mobile still. Maybe the image is just too big.</p>
+	
+	</div>
+	<script type="text/javascript" src="../../../js/cont.js"></script>
+</body>
+
+</html>

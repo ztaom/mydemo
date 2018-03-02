@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Controls on Canvas</title>
+    <!-- fill iPhone screen with canvas -->
+    <meta name="viewport" content="width=200" />
+    <meta name="viewport" content="initial-scale=2" />
+<script type="text/javascript">
+ 
+var can;
+var ctx;
+var n = 0;
+var hun;
+ 
+function init() {
+    can = document.getElementById("can");
+    ctx = can.getContext("2d");
+    hun = document.getElementById("hundred");
+    showN();
+}
+ 
+function showN() {
+    // large, centered, bright green text
+    ctx.font="24pt Helvetica";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.fillStyle="rgb(64,255,64)";
+    ctx.clearRect(0,0, can.width,can.height);
+    // draw text at center, max length to fit on canvas
+    ctx.fillText(n, can.width /2, can.height / 2, can.width - 2);
+}
+ 
+function incr() {
+    n++;
+    showN();
+}
+ 
+function decr() {
+    n--;
+    showN();
+}
+ 
+function setHundred() {
+    n = hun.value;
+    showN();
+}
+</script>
+</head>
+ 
+<body onload="init()">
+ 
+<!-- give canvas rounded corners-->
+<canvas id="can" height="200" width="200"
+        style= "background-color:black;
+                border-radius: 25 px;">
+</canvas>
+ 
+<br>
+<!-- float inputs over canvas -->
+<div style="position:relative; top:-50; left:25">
+    <input type="button" value=" + " onclick="incr()">
+    <input type="button" value=" - " onclick="decr()">
+    <select id="hundred" onchange="setHundred()">
+      <option value=0> -- </option>
+      <option value=100> 100 </option>
+      <option value=-100> -100 </option>
+    </select>
+</div>
+</body>
+</html>

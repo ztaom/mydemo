@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Button Maker CSS3</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.slider.js"></script>
+<script type="text/javascript" src="jquery.dependClass.js"></script>
+<script type="text/javascript" src="jquery.miniColors.min.js"></script>
+<link rel="stylesheet" href="jquery.miniColors.css" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="jslider.css" type="text/css">
+<link rel="stylesheet" href="jslider.plastic.css" type="text/css">
+<link rel="stylesheet" href="jslider.round.plastic.css" type="text/css">
+
+</head>
+<body>
+<div id="left">
+  <div id="left_h">
+    <ul id="header_buttons">
+      <li class="Active">Normal</li>
+      <li class="NO" >Hover</li>
+      <li class="NO">Pressed</li>
+    </ul>
+  </div>
+  <ul id="left_ul">
+    <li> <abbr class="title">Font</abbr>
+      <ol>
+        <li>
+          <label>Family Name :</label>
+          <select id="font_name" style="width:160px">
+            <option>Arial, Helvetica, sans-serif</option>
+            <option>Verdana, Geneva, sans-serif</option>
+            <option>Georgia, "Times New Roman", Times, serif</option>
+            <option>"Courier New", Courier, monospace</option>
+            <option>Tahoma, Geneva, sans-serif</option>
+            <option>"Trebuchet MS", Arial, Helvetica, sans-serif</option>
+            <option>"Arial Black", Gadget, sans-serif</option>
+            <option>"Times New Roman", Times, serif</option>
+            <option>"Palatino Linotype", "Book Antiqua", Palatino, serif</option>
+            <option>"Lucida Sans Unicode", "Lucida Grande", sans-serif</option>
+            <option>"MS Serif", "New York", serif</option>
+            <option>"Lucida Console", Monaco, monospace</option>
+          </select>
+        </li>
+        <li>
+          <label>Color : </label>
+          <input type="text" id="font_color" size="4" value="#E5FFFF"/>
+        </li>
+        <li>
+          <label>Size : </label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="font_size" type="slider"  value="18" />
+          </span> </li>
+      </ol>
+    </li>
+    <li> <abbr class="title">Padding</abbr>
+      <ol>
+        <li>
+          <label>Left/Right :</label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="width" type="slider"  value="32" />
+          </span> </li>
+        <li>
+          <label>Up/Down :</label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="height" type="slider"  value="11" />
+          </span> </li>
+      </ol>
+    </li>
+    <li> <abbr class="title">Border</abbr>
+      <ol>
+        <li>
+          <label>Size :</label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="border_size" type="slider"  value="1" />
+          </span> </li>
+        <li>
+          <label>Type :</label>
+          <select id="border_style" >
+            <option>solid</option>
+            <option>dashed</option>
+            <option>dotted</option>
+            <option>double</option>
+            <option>groove</option>
+            <option>inset</option>
+            <option>outset</option>
+            <option>ridge</option>
+            <option>none</option>
+          </select>
+        </li>
+        <li>
+          <label>Border Color : </label>
+          <input type="text" id="border_color" size="2" value="#1f5c85"/>
+        </li>
+        <li>
+          <label>border radius : </label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="border_radius" type="slider"  value="11" />
+          </span> </li>
+        <li>
+          <table style="position:relative;width:68px; height:30px; border:#000 1px solid; margin-left:22px;">
+            <tr style="">
+              <td><input type="text" size="2" maxlength="2" class="s1" /></td>
+              <td style=""><input type="text" size="2"  maxlength="2" class="s2" /></td>
+            </tr>
+            <tr style="">
+              <td><input type="text" size="2"  maxlength="2" class="s3"/></td>
+              <td style=""><input type="text" size="2"  maxlength="2" class="s4"/></td>
+            </tr>
+          </table>
+        </li>
+      </ol>
+    </li>
+    <li> <abbr class="title">Background Color</abbr>
+      <ol>
+        <li>
+          <label>Color : </label>
+          <input type="text" id="back_start" size="4" value="#1d9aed"/>
+          &nbsp;→&nbsp;
+          <input type="text" id="back_end" size="4" value="#1f5c85"/>
+        </li>
+      </ol>
+    </li>
+    <li> <abbr class="title">Box Outside Shadow </abbr>
+      <ol>
+        <li>
+          <label>Color : </label>
+          <input type="text" id="outside_color" size="4" value="#bababa"/>
+        </li>
+        <li>
+          <label> x : </label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="out_shadow_x" type="slider"  value="0" />
+          </span></li>
+        <li>
+          <label> y : </label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="out_shadow_y" type="slider"  value="0" />
+          </span></li>
+        <li>
+          <label> Blur : </label>
+          <span style="display: inline-block; width: 200px; padding: 0 0 0 40px;">
+          <input id="out_shadow_blur" type="slider"  value="0" />
+          </span>
+      </ol>
+    </li>
+    <li> <abbr class="title">Transition - Opacity - Text Shadow -inner shadow</abbr>
+      <ol>
+        <li>
+          <label>To get more feature you need to purchase </label>
+        </li>
+      </ol>
+      <br />
+      <br />
+      <br />
+    </li>
+  </ul>
+</div>
+<div id="right">
+  <div id="right_c"> <a href="#"  class="button" />Button</a> <span></span> </div>
+</div>
+<script type="text/javascript"> 
+var s=0,width=[32,32,32],height=[11,11,11],border=[""],border_size=[1,1,1],border_type=["solid","solid","solid"],border_color=["#1f5c85","#1f5c85","#0a3857"],border_radius=[11,11,11],border_radius_style=[""],val1=[11,11,11],val2=[11,11,11],val3=[11,11,11],val4=[11,11,11],font_color=["#E5FFFF","#E5FFFF","#E5FFFF"],font_size=[18,18,18],font_name=["Arial, Helvetica, sans-serif","Arial, Helvetica, sans-serif","Arial, Helvetica, sans-serif"],background=[],back_start=["#1d9aed","#1f5c85","#0a3857"],back_end=
+["#1f5c85","#1f5c85","#0a3857"],box_shadow_out=[],outside_color=["#1f5c85","#1f5c85","#0a3857"],out_shadow_x=[0,0,0],out_shadow_y=[0,0,0],out_shadow_blur=[0,14,0],style=[],hover=1,press=1;
+$(document).ready(function(){changes();s=1;changes();s=2;changes();s=0;slides("width",0,100);slides("height",0,100);slides("border_size",0,50);slides("border_radius",0,50);slides("font_size",0,50);slides("out_shadow_x",-20,20);slides("out_shadow_y",-20,20);slides("out_shadow_blur",-20,20);color("#","font_color");color("#","border_color");color("#","back_start");color("#","back_end");color("#","outside_color");$(".title").click(function(){$(this).parent().find("ol").slideToggle()});$("#header_buttons li").click(function(){$("#header_buttons li").removeClass().addClass("NO");
+$(this).removeClass().addClass("Active")});$("#border_style").live("change",function(){border_type[s]=$(this).val();border_type[s]=="none"&&$("#border_size").slider("value",0);changes()});$("#font_name").live("change",function(){font_name[s]=$(this).val();changes()});$(".s1,.s2,.s3,.s4").live("keyup",function(){val1[s]=$(".s1").val();val2[s]=$(".s2").val();val3[s]=$(".s3").val();val4[s]=$(".s4").val();changes()});$("#header_buttons li").eq(0).click(function(){s=0;make_slide_color_change()});$("#header_buttons li").eq(1).click(function(){s=
+1;make_slide_color_change()});$("#header_buttons li").eq(2).click(function(){s=2;make_slide_color_change()});$("#right").hover(function(){s==0&&($("#right_c").css("border","none"),$("#right_c span").hide());$(".button").mouseover(function(){s==0&&$(".button").attr("style",style[1]+transition_style)});$(".button").mouseleave(function(){s==0&&$(".button").attr("style",style[0]+transition_style)});s==0&&($("#right_c").css("border","none"),$("#right_c span").hide());$(".button").mousedown(function(){s==
+0&&$(".button").attr("style",style[2]+transition_style)});$(".button").mouseup(function(){s==0&&(hover==1?$(".button").attr("style",style[1]+transition_style):$(".button").attr("style",style[0]+transition_style))})},function(){s==0&&($(".button").attr("style",style[0]),$("#right_c").css({"border-bottom":"#999 1px solid"}),$("#right_c span").show())})});
+function changes(){border_size[s]==0?(border_type[s]="none",$("#border_style").attr("value","none"),border[s]="none"):border[s]=border_type[s]+" "+border_size[s]+"px "+border_color[s];border_type[s]=="none"&&(border[s]="none");val1[s]==val2[s]&&val2[s]==val3[s]&&val3[s]==val4[s]?($(".s1,.s2,.s3,.s4").val(border_radius[s]),border_radius_style[s]=border_radius[s]==0?"":"-webkit-border-radius:"+border_radius[s]+"px; -moz-border-radius:"+border_radius[s]+"px; border-radius: "+border_radius[s]+"px;"):
+border_radius_style[s]="-webkit-border-radius:"+val1[s]+"px "+val2[s]+"px "+val4[s]+"px "+val3[s]+"px; border-radius: "+val1[s]+"px "+val2[s]+"px "+val4[s]+"px "+val3[s]+"px; -moz-border-radius-topleft:"+val1[s]+"px; -moz-border-radius-topright:"+val2[s]+"px; -moz-border-radius-bottomleft:"+val3[s]+"px; -moz-border-radius-bottomright:"+val4[s]+"px; ";background[s]=back_start[s]==back_end[s]?"background:"+back_start[s]+";":"background-color:"+back_start[s]+";background-image: -moz-linear-gradient(top, "+
+back_start[s]+" 0%, "+back_end[s]+" 100%);background-image: -webkit-linear-gradient(top, "+back_start[s]+" 0%, "+back_end[s]+" 100%);background-image: -o-linear-gradient(top, "+back_start[s]+" 0%, "+back_end[s]+" 100%);background-image: -ms-linear-gradient(top, "+back_start[s]+" 0% ,"+back_end[s]+" 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='"+back_end[s]+"', endColorstr='"+back_end[s]+"',GradientType=0 ); background-image: linear-gradient(top, "+back_start[s]+" 0% ,"+
+back_end[s]+" 100%); ";box_shadow_out[s]=out_shadow_x[s]==0&&out_shadow_y[s]==0&&out_shadow_blur[s]==0?"":"-webkit-box-shadow:"+out_shadow_x[s]+"px "+out_shadow_y[s]+"px "+out_shadow_blur[s]+"px "+outside_color[s]+";  -moz-box-shadow: "+out_shadow_x[s]+"px "+out_shadow_y[s]+"px "+out_shadow_blur[s]+"px "+outside_color[s]+";  box-shadow:"+out_shadow_x[s]+"px "+out_shadow_y[s]+"px "+out_shadow_blur[s]+"px "+outside_color[s]+"; ";transition_style=" -webkit-transition: all 0.4s ease-in-out;-moz-transition:   all 0.4s ease-in-out;-o-transition:   all 0.4s ease-in-out;transition:   all 0.4s ease-in-out;";
+style[s]="padding:"+height[s]+"px "+width[s]+"px; border:"+border[s]+"; "+border_radius_style[s]+" font:"+font_size[s]+"px "+font_name[s]+"; font-weight:bold;color:"+font_color[s]+";"+background[s]+""+box_shadow_out[s]+"";$(".button").attr("style",style[s]);$("#right_c").width($(".button").outerWidth()).height($(".button").outerHeight()+20);$("#right_c span").html("&nbsp;"+$(".button").outerWidth()+" px&nbsp;").css({"margin-left":Number($(".button").outerWidth())/2-23+"px"})}
+function slides(c,d,b){$("#"+c).slider({from:d,to:b,step:1,dimension:"&nbsp;px",skin:"plastic",onstatechange:function(a){switch(c){case "border_size":a!=0&&border_type[s]=="none"&&(border_type[s]="solid",$("#border_style").attr("value","solid"));border_size[s]=a;break;case "width":width[s]=a;break;case "height":height[s]=a;break;case "border_radius":border_radius[s]=a;val1[s]=val2[s]=val3[s]=val4[s]=border_radius[s];break;case "font_size":font_size[s]=a;break;case "out_shadow_x":out_shadow_x[s]=a;
+break;case "out_shadow_y":out_shadow_y[s]=a;break;case "out_shadow_blur":out_shadow_blur[s]=a}changes()}})}function color(c,d){$(c+d).miniColors({change:function(b){switch(d){case "font_color":font_color[s]=b;break;case "border_color":border_color[s]=b;break;case "back_start":back_start[s]=b;break;case "back_end":back_end[s]=b;break;case "outside_color":outside_color[s]=b}changes()}})}
+function make_slide_color_change(){$("#width").slider("value",width[s]);$("#height").slider("value",height[s]);$("#border_size").slider("value",border_size[s]);val1[s]==val2[s]&&val2[s]==val3[s]&&val3[s]==val4[s]?$("#border_radius").slider("value",border_radius[s]):($(".s1").val(val1[s]),$(".s2").val(val2[s]),$(".s3").val(val3[s]),$(".s4").val(val4[s]));$("#font_size").slider("value",font_size[s]);$("#out_shadow_x").slider("value",out_shadow_x[s]);$("#out_shadow_y").slider("value",out_shadow_y[s]);
+$("#out_shadow_blur").slider("value",out_shadow_blur[s]);$("#font_color").miniColors("value",font_color[s]);$("#border_color").miniColors("value",border_color[s]);$("#back_start").miniColors("value",back_start[s]);$("#back_end").miniColors("value",back_end[s]);$("#outside_color").miniColors("value",outside_color[s]);$("#in_color").miniColors("value",in_color[s]);$("#font_shadow").miniColors("value",font_shadow[s]);$("#font_name").val(font_name[s]);$("#border_style").val(border_type[s]);return!1};
+</script>
+</body>
+</html>

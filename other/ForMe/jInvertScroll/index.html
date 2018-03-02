@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>3D展示</title>
+<link rel="stylesheet" href="css/example.css" />
+</head>
+<body>
+<div class="bg scroll">
+    <img src="images/bg1.jpg" alt="" width='7000' height="790">
+</div>
+<div class="horizon scroll"></div>
+<div class="middle scroll"></div>
+<div class="front scroll"></div>
+    
+<script type="text/javascript" src="libs/jquery.min.js"></script>
+<script type="text/javascript" src="dist/js/jquery.jInvertScroll.js"></script>
+<script type="text/javascript">
+(function($) {
+    $.jInvertScroll(['.scroll'],// an array containing the selector(s) for the elements you want to animate
+    {
+        height: 6000,// optional: define the height the user can scroll, otherwise the overall length will be taken as scrollable height
+        onScroll: function(percent) {//optional: callback function that will be called when the user scrolls down, useful for animating other things on the page
+            console.log(percent);
+        }
+    });
+}(jQuery));
+</script>
+</body>
+</html>

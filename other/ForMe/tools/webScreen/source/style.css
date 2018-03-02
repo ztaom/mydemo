@@ -1,0 +1,584 @@
+@font-face {
+	font-family: Nevis;
+	src: url('nevis.ttf');
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #f2f2f2;
+
+}
+
+/***** DEVICES CSS *****/
+
+#sqCurPos {
+	position: absolute;
+	width: 200px;
+	margin: 15px;
+	font: 10px "Courier", Arial;
+	background: url('sqruler.png') no-repeat 5px 3px;
+	z-index: 99;
+}
+#sqHrPos, #sqVrPos {
+	position: relative;
+	top: 0px;
+	left: 30px;
+}	
+
+
+.sqCord {
+	position: absolute;
+}
+
+
+
+
+/***** RULER CSS *****/
+
+#sqAppFrame {
+	position: relative;
+	top: 40px;
+	width: 2560px;
+	height: 1450px;
+	padding: 0;
+	margin: 0;
+	background: #f2f2f2 url('grid.png');
+	cursor: crosshair;
+}
+
+/** Horizontal **/
+
+#sqHrRuler {
+	position: absolute;
+	width: 2560px;
+	height: 30px;
+	border-top: 1px #aaa dotted;
+	z-index: 1001;
+}
+#sqHrRuler.fixed {
+	position: fixed;
+	top: 40px;
+} 
+#sqHrRuler .px {
+	float: left;
+	width: 9px;
+	height: 7px;
+	border-right: 1px #888 dotted;
+	text-align: center;
+}
+#sqHrRuler .PX {
+	float: left;
+	width: 9px;
+	height: 12px;
+	border-right: 1px red dotted;
+}
+#sqHrRuler span {
+	display: block;
+	position: relative;
+	top: 9px;
+	font-size: 10px;
+}
+#sqHrGuide {
+	position: absolute;
+	width: 100%;
+	border-bottom: 1px dotted red;
+	z-index: 99;
+}
+.ui-resizable-helper-Hr { 
+	border: 0;
+	border-bottom: 1px dotted red; 
+}
+
+/** Vertical **/
+
+#sqVrRuler {
+	position: absolute;
+	top: 0;
+	width: 40px;
+	height: 1450px;
+	border-left: 1px #aaa dotted;
+	z-index: 1001;
+}
+#sqVrRuler.fixed {
+	position: fixed;
+	top: 40px;
+} 
+#sqVrRuler .px {
+	width: 7px;
+	height: 9px;
+	border-bottom: 1px #888 dotted;
+	text-align: center;
+}
+#sqVrRuler .PX {
+	width: 12px;
+	height: 9px;
+	border-bottom: 1px red dotted;
+}
+#sqVrRuler span {
+	display: block;
+	position: relative;
+	top: 0px;
+	left: 16px;
+	font-size: 10px;
+}
+#sqVrGuide {
+	position: absolute; 
+	height: 100%;
+	border-right: 1px dotted red;
+	z-index: 99;
+}
+.ui-resizable-helper-Vr { 
+	border: 0;
+	border-right: 1px dotted red; 
+}
+
+
+/****/
+
+#sqSourceWindow {
+	width: 320px;
+	height: 480px;
+	background: #fff;
+	position: relative;
+	overflow-X: hidden;
+	overflow-Y: hidden;
+	z-index: 1000;
+}
+#sqSourceWindow.trueview {
+	z-index: 1002;
+}
+#sqSourceWindow.shadow-e {
+	-moz-box-shadow: 5px -3px 10px #d6d6d6;
+	-webkit-box-shadow: 5px -3px 10px #d6d6d6;
+	box-shadow: 5px -3px 10px #d6d6d6;
+}
+#sqSourceWindow.shadow-s {
+	-moz-box-shadow: -3px 5px 10px #d6d6d6;
+	-webkit-box-shadow: -3px 5px 10px #d6d6d6;
+	box-shadow: -3px 5px 10px #d6d6d6;	
+}
+#sqBrowserChrome {
+	position: absolute;
+	width: 100%;
+	height: 100%;	
+}
+#sqSource {
+	display: none;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	position: relative;
+	z-index: 1000;
+	overflow-X: hidden;
+	overflow-Y: hidden;	
+}
+#sqOverlay {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.7;
+	z-index: 9;
+}
+#sqLoader {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #fff url('sqloader.gif') center center no-repeat;
+}
+#sqError {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('sqError.png') center center no-repeat;
+}
+#sqIntro {
+	height: 100%;
+	padding: 60px;
+	position: relative;
+	z-index: 999;
+	cursor: default;
+
+}
+
+.sqHeading {
+	font: 400 28px/40px "Nevis", Sans-Serif;
+	color: #666;
+	margin: 0 0 30px 0;
+	text-transform: uppercase;
+	text-align: center;
+
+}
+.sqSubHeading {
+	font: 400 12px/24px "Calibri", Sans-Serif;
+	color: #666;
+	padding: 15px 0;
+	margin: 0 0 40px 0;
+	border-top: 1px #ccc dotted;
+	border-bottom: 1px #ccc dotted;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+
+}
+
+#sqAdSlot {
+	position: fixed;
+	right: 20px;
+	top: 115px;
+	z-index: 999;
+}
+
+#sqFrameControls {
+	position: absolute;
+	z-index: 999;
+	margin: 15px 0 0 -170px;
+}
+#sqFrameControls.shift {
+	margin: 15px 0 0 -80px;
+}
+#sqTrueView {
+	background: url('sqTrueView.png') 0 -1px no-repeat;
+}
+#sqTrueView.trueview {
+	background: url('sqTrueView.png') 0 -17px no-repeat;
+}
+#sqReload {
+	background: url('sqreload.png') no-repeat;
+}
+#sqTrueView, #sqReload {
+	padding-left: 20px;
+	color: #000;
+	margin-right: 10px;
+}
+
+
+#sqUrlForm {
+	position: absolute;
+	left: 155px;
+	top: 7px;
+	width: 400px;	
+}
+#sqUrlForm .input-prepend {
+	float: left;
+}
+#sqUrlForm .add-on {
+	font-size: 10px;
+	padding: 3px 5px;
+}
+#sqUrlForm .sqInput {
+	float: left;
+	padding: 3px;
+	-moz-border-radius-topright: 0;
+	-moz-border-radius-bottomright: 0;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+#sqUrlForm .btn {
+	float: left;
+	position: relative;
+	top: -5px;
+	left: -2px;
+	padding: 3px 6px;
+	-moz-border-radius-topleft: 0;
+	-moz-border-radius-bottomleft: 0;
+	-webkit-border-top-left-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	
+}
+
+
+#sqAllTriggerSave {
+	padding: 3px 5px;
+	margin: 7px 0 0 10px;
+}
+#sqTriggerSave, #sqModalSave, #sqSaver {
+	display: none;
+}
+#sqShortUrl {
+	margin-top: 10px;
+}
+#sqShortUrl input.span2 {
+width: 170px;
+}
+
+ul.sqSocialShare {
+	width: 500px;
+	padding: 10px 0;
+	margin-left: 0;
+}
+ul.sqSocialShare li {
+	float: left;
+	margin-right: 10px;
+	list-style: none;
+}
+
+.sqTotalQueries {
+	float: left;
+	font: 10px "Courier", Arial;
+	margin-top: 10px;
+}
+
+.icon-logo {
+	width: 16px;
+	height: 16px;
+	background: url('icon-logo.png');
+}
+.icon-mobile {
+	width: 16px;
+	height: 16px;
+	background: url('icon-mobile.png');
+}
+.icon-tablet {
+	width: 16px;
+	height: 16px;
+	background: url('icon-tablet.png');
+}
+
+
+/** MISC **/
+
+li.sqAdjust {
+	margin-left:340px;
+}
+.sqrightborder {
+	-moz-border-radius-topright: 0;
+	-moz-border-radius-bottomright: 0;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.sqleftborder {
+	-moz-border-radius-topleft: 0;
+	-moz-border-radius-bottomleft: 0;
+	-webkit-border-top-left-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.sqGap {
+	margin: 14px 0 15px 0;
+	border-bottom: 1px #ccc dashed;
+}
+.addthis_toolbox {
+	position: relative;
+	top: 10px;
+	right: 5px;
+	margin-right: 12px;
+}
+.twitter-follow-button {
+	position: relative;
+	top: 10px;
+	right: 5px;
+}
+
+
+/** bootstrap override **/
+
+.container {
+	width: 100%;
+	margin: 0;
+}
+.pull-right {
+	padding-right: 7px;
+}
+p {
+	font: 11px/18px "Arial", Sans-Serif;
+	color: #666;
+	text-align: left;
+	-moz-border-radius-bottomleft: 
+}
+.modal-body {
+	padding: 20px;
+}
+.dropdown-menu span {
+	padding: 6px 15px;
+	background: #f8f8f8;
+	margin:0;
+	display:block;
+	font-weight: bold;
+}
+.dropdown-menu a {
+	padding: 5px 15px;
+}
+.dropdown-menu .divider {
+	margin: 0; 
+	border:0;
+}
+
+
+/** ----------------  UPDATE -----------------  **/
+
+
+.ui-resizable-e { width: 20px; right: -20px; }
+.ui-resizable-s { height: 20px; bottom: -20px; }
+
+#sqResizeE {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('resize-e.png') right center no-repeat;
+	z-index: 2000;
+}
+#sqResizeS {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('resize-s.png') bottom center no-repeat;
+	z-index: 2000;
+}
+#sqAnnouncement {
+	display: block;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	padding: 5px 10px 0 10px;
+	background: #ff8a00;
+	z-index: 2000;	
+}
+#sqAnnouncement p {
+	position: relative;
+	top: 1px;
+	color: #fff;
+	font-family: Georgia,"Times New Roman";
+	font-size: 12px;
+    	font-style: italic;
+    	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+#sqAnnouncement a {
+	color: yellow;
+}
+#sqAnnClose {
+	position: absolute;
+	top: 7px;
+	right: 30px;
+	font-size: 11px;
+	right: 30px;
+	color: #fff;
+}
+#sqAnnClose:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.navbar-fixed-top.Ann {
+	top: 0;
+}
+#sqAppFrame.Ann {
+	top: 40px;
+}
+
+body .one .bsa_it_ad { background: #fff; border: 1px #ccc solid; font-family: inherit; padding: 10px 10px 30px 10px; margin: 0; text-align: left; width: 130px;}
+body .one .bsa_it_ad:hover img { -moz-box-shadow: 0 0 3px #000; -webkit-box-shadow: 0 0 3px #000; box-shadow: 0 0 3px #000; }
+body .one .bsa_it_ad .bsa_it_i { display: block; padding: 0; float: none; margin: 0 0 5px; }
+body .one .bsa_it_ad .bsa_it_i img { padding: 0; border: none; }
+body .one .bsa_it_ad .bsa_it_t { padding: 6px 0; }
+body .one .bsa_it_ad .bsa_it_d { padding: 0; font-size: 12px; color: #777; }
+body .one .bsa_it_p { display: none; }
+body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; margin: -26px 10px 10px 10px; text-align: right; position:relative; z-index: 999 }
+
+/** ----------------  DEVICE / SCREEN - SPECIFIC STYLES -----------------  **/
+
+
+/** MOBILE **/
+
+/** iPhone **/
+#sqSource.iphone.trueview { width: 320px; height: 416px; margin-top: 20px }
+#sqSource.iphone.trueview.landscape { width: 480px; height: 268px; margin-top: 20px }
+#sqBrowserChrome.iphone.trueview { background: transparent url('iPhonePortrait.png') 0 0 no-repeat }
+#sqBrowserChrome.iphone.trueview.landscape { background: transparent url('iPhoneLandscape.png') 0 0 no-repeat }
+
+/** Galexy Note **/
+#sqSource.note.trueview { width: 800px; height: 1073px; margin-top: 207px }
+#sqSource.note.trueview.landscape { width: 1280px; height: 593px; margin-top: 207px }
+#sqBrowserChrome.note.trueview { background: transparent url('NotePortrait.png') 0 0 no-repeat }
+#sqBrowserChrome.note.trueview.landscape { background: transparent url('NoteLandscape.png') 0 0 no-repeat }
+
+/** Galexy SII **/
+#sqSource.s2.trueview { width: 480px; height: 762px; margin-top: 38px }
+#sqSource.s2.trueview.landscape { width: 800px; height: 442px; margin-top: 38px }
+#sqBrowserChrome.s2.trueview { background: transparent url('S2Portrait.png') 0 0 no-repeat }
+#sqBrowserChrome.s2.trueview.landscape { background: transparent url('S2Landscape.png') 0 0 no-repeat }
+
+
+/** TABLET **/
+
+/** iPad **/
+#sqSource.ipad.trueview { width: 768px; height: 928px; margin-top: 96px }
+#sqSource.ipad.trueview.landscape { width: 1024px; height: 672px; margin-top: 96px }
+#sqBrowserChrome.ipad.trueview { background: transparent url('iPadPortrait.png') 0 0 no-repeat }
+#sqBrowserChrome.ipad.trueview.landscape { background: transparent url('iPadLandscape.png') 0 0 no-repeat }
+
+/** Galexy Tab 10 **/
+#sqSource.tab10.trueview { width: 800px; height: 1176px; margin-top: 56px }
+#sqSource.tab10.trueview.landscape { width: 1280px; height: 696px; margin-top: 56px }
+#sqBrowserChrome.tab10.trueview { background: transparent url('Tab10Portrait.png') 0 0 no-repeat }
+#sqBrowserChrome.tab10.trueview.landscape { background: transparent url('Tab10Landscape.png') 0 0 no-repeat }
+
+/** Motorola Xoom **/
+#sqSource.xoom.trueview { width: 800px; height: 1176px; margin-top: 56px }
+#sqSource.xoom.trueview.landscape { width: 1280px; height: 696px; margin-top: 56px }
+#sqBrowserChrome.xoom.trueview { background: transparent url('XoomPortrait.png') 0 0 no-repeat }
+#sqBrowserChrome.xoom.trueview.landscape { background: transparent url('XoomLandscape.png') 0 0 no-repeat }
+
+
+
+
+/** MEDIA QUERIES **/
+
+@media only screen and (min-width: 768px) and (max-width: 1220px)                             { 
+
+	.navbar .nav.pull-right {
+		display: none;
+	}
+	.dropdown-menu {
+		height: 310px;
+		width: 180px;
+		overflow-y: auto;
+	}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px)                             { 
+
+	#sqCurrentDevice {
+		display: none;
+	}
+
+}
+
+
+
+/** MOBILE PORTRAIT : 320px **/
+
+@media only screen and (max-width: 767px)                             { 
+
+	.navbar .nav.pull-right {
+		display: none;
+	}
+
+}
+
+
+
+
+/** MOBILE WIDE / LANDSCAPE : 480px **/
+
+@media only screen and (min-width: 480px) and (max-width: 767px)                             { 
+
+	.navbar .nav.pull-right {
+		display: none;
+	}
+
+}

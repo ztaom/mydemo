@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>Pop-up Canvas</title>
+	<meta name=”viewport” content=”width=device-width, initial-scale=1″ />
+
+<style>
+canvas {
+	background-image:url('assets/cork.png');
+	border: 10px inset brown;
+	position:absolute;
+	top: -225;
+	left: 200;
+	-webkit-transition-property: top, opacity;
+	-webkit-transition-duration: 1s, 1.5s;
+}
+
+.can-hide {
+	top: -225;
+	opacity: 0;
+}
+
+.can-pop {
+	top: 120;
+	opacity:1;
+}
+
+</style>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var x = 25;
+var y = 25;
+var xdir = 1;
+var ydir = 1;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	var grad = ctx.createLinearGradient(0,10, 0,190); 
+	grad.addColorStop(0, 'brown');
+	grad.addColorStop(1, 'red');
+	ctx.fillStyle=grad;
+	animate();
+}
+
+function animate() {
+	x = x + xdir ;
+	if (x > 375) xdir = -1;
+	if (x < 25) xdir = 1;	
+	y = y + ydir ;
+	if (y > 175) ydir = -1;
+	if (y < 25) ydir = 1;
+	ctx.clearRect(0,0, 400,200);
+	ctx.beginPath();
+	ctx.arc(x,y, 25, 0,2 * Math.PI);
+	ctx.closePath();
+	ctx.fill();
+	setTimeout("animate()", 25);
+}
+	
+
+function pop() {
+	can.className="can-pop";
+}
+
+function unpop() {
+	can.className="can-hide";
+}
+
+</script>
+</head>
+
+<body onload="init()" onmouseup="unpop()">
+
+<canvas class="can-hide" id="can" height="200" width="400">
+</canvas>
+
+<h1>
+	Click and hold to view:
+<h1>
+<h1 onmousedown="pop()" ontouchstart="pop()" onclick="void()">
+	&nbsp;[x] Bulletin Board
+</h1>
+
+</body>
+</html>

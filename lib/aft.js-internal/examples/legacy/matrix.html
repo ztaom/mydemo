@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<script src="../../browser/polyfill.min.js"></script>
+<script src="../../browser/aft.js"></script>
+<script src="../stats.js"></script>
+<script src="../util.js"></script>
+<style>
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+</style>
+</head>
+<body>
+<script>
+    var AFT = window.AFT.Legacy;
+    var isCanvas = util.addSwitch();
+    var canvasElement = util.addCanvasElement(isCanvas);
+
+    var aft = new AFT(canvasElement);
+    aft.setClearColor('#000');
+    aft.setSize(750);
+
+    window.addEventListener('resize', function() {
+        aft.resize();
+    });
+
+    var scene = aft.createScene();
+
+    var hCount = parseInt((aft.viewportWidth + 20) / 60);
+    var vCount = parseInt((aft.viewportHeight + 20) / 60);
+    var hGap = (aft.viewportWidth + 20 - hCount * 60) / 2;
+    var vGap = (aft.viewportHeight + 20 - vCount * 60) / 2;
+
+    for (let i = 0; i < hCount; i++) {
+        for (let j = 0; j < vCount; j++) {
+            var rect = aft.createElement('rectangle', 40, 40);
+            rect.style.set('background-color', '#fff');
+            rect.style.set('opacity', 0);
+            rect.position.set(
+                -aft.viewportWidth / 2 + hGap + i * 60 + rect.width / 2,
+                aft.viewportHeight / 2 - vGap - j * 60 - rect.height / 2
+            );
+            scene.add(rect); 
+        }
+    }
+
+    var timelines = [];
+    var rotateEffect = aft.createEffect();
+    rotateEffect.rotateZ(0)
+                .then()
+                .rotateZ(360)
+                .duration(1000)
+                .ease('linear')
+                .loop(Infinity)
+                .direction('normal')
+                .end();
+
+    var fadeInEffect = aft.createEffect();
+    fadeInEffect.css({
+                    opacity: 0
+                })
+                .then()
+                .css({
+                    opacity: 1
+                })
+                .duration(1000)
+                .ease('ease-in')
+                .mode('forward')
+                .end();
+
+    var fadeOutEffect = aft.createEffect();
+    fadeOutEffect.css({
+                    opacity: 1
+                })
+                .then()
+                .css({
+                    opacity: 0
+                })
+                .duration(1000)
+                .ease('ease-out')
+                .mode('forward')
+                .end();
+
+    scene.children.forEach(child => {
+        var rotateAnimation = aft.createAnimation(child, rotateEffect);
+        var fadeInAnimation = aft.createAnimation(child, fadeInEffect);
+        var fadeOutAnimation = aft.createAnimation(child, fadeOutEffect);
+
+        fadeOutAnimation.on('finish', function() {
+            scene.remove(child);
+        });
+
+        var timeline = aft.createTimeline();
+        timeline
+            .add(fadeInAnimation, {
+                playAt: 16 * timelines.length
+            })
+            .add(fadeOutAnimation, {
+                playAt: 5000 + (16 * timelines.length)
+            })
+            .add(rotateAnimation, {
+                playAt: () => fadeInAnimation.finished,
+                stopAt: () => fadeOutAnimation.finished 
+            });
+
+        timelines.push(timeline);
+    });
+
+    var updateStats = util.addStats();
+    aft.play(scene, timelines)
+        .on('play', function() {
+            updateStats();
+        });
+</script>
+</body>
+</html>

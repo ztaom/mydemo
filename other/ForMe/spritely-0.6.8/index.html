@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>jQuery.spritely</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="GaryShue" />
+<style>
+#bird {
+	background: transparent url(bird-forward-back.png) 0 0 no-repeat;
+	position: absolute;
+	top: 150px;
+	left: 65px;
+	width: 180px;
+	height: 123px;
+	z-index: 2000;
+	cursor: pointer;
+}
+#dance {
+	background: transparent url(dance.png) 0 0 no-repeat;
+	position: absolute;
+	top: 250px;
+	left: 0;
+	width:170px;
+	height:170px;
+	z-index: 2000;
+	cursor: pointer;
+}
+.hi {
+    width: 170px;
+    height: 173px;
+    background-image: url(dance.png);
+    
+    -webkit-animation: play 4s steps(1) infinite;
+       -moz-animation: play 4s steps(1) infinite;
+        -ms-animation: play 4s steps(1) infinite;
+         -o-animation: play 4s steps(1) infinite;
+            animation: play 4s steps(1) infinite;
+}
+
+@-webkit-keyframes play {
+   0% { background-position: 0px 0px; }
+  7% { background-position: -170px 0px; }
+  14% { background-position: -340px 0px; }
+  21% { background-position: -510px 0px; }
+  28% { background-position: -680px 0px; }
+  35% { background-position: -850px 0px; }
+  42% { background-position: -1020px 0px;}
+  49% { background-position: 0px -177px; }
+  56% { background-position: -170px -177px;}
+  63% { background-position: -340px -177px;}
+  70% { background-position: -510px -177px;}
+  77% { background-position: -680px -177px;}
+  84% { background-position: -850px -177px;}
+  100% { background-position: -1020px -177px;}
+}
+</style>
+<script src="http://y0.ifengimg.com/base/jQuery/jquery-1.9.1.min.js"></script>
+
+
+</head>
+<body>
+<div id="bird"></div>
+<div id="dance"></div>
+<div class="hi"></div>
+<script src="jquery.spritely.js"></script>
+<script>
+
+(function($) {
+	$(document).ready(function() {
+		$('#bird')
+			.sprite({fps: 9, no_of_frames:3})
+			.spRandom({top: 50, bottom: 200, left: 300, right: 320})
+			.isDraggable()
+			.activeOnClick()
+			.active();
+		$('#dance')
+			.sprite({fps: 3, no_of_frames:7})
+			.spRandom({top: 250, bottom: 250, left: 0, right: 0})
+			.isDraggable()
+			.activeOnClick()
+			.active();
+	});
+})(jQuery);
+	
+</script>
+</body>
+
+</html>

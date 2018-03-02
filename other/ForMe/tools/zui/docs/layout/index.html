@@ -1,0 +1,365 @@
+<style>
+.layout {overflow:hidden;}
+.layout .column, .layout .unit { background:#68bbed; height:40px; line-height:40px; text-align:center; color:#fff; margin-bottom:10px; text-shadow:1px 0 1px black; }
+.layout .main .column, .layout .lastUnit { background:#274c60 }
+</style>
+<div class="entry-title">
+  <h1>ZUI规范指南&mdash;&mdash;布局结构</h1>
+</div>
+<div class="entry">
+  <div class="content-title">
+    <h3>布局结构</h3>
+  </div>
+  <h3 class="f-16 mb-10">1、页面整体宽度</span></h3>
+  <div class="w0 mb-10 bg-Brightblue bl-dashed"><span class="p-10 block">w0 = 100%宽度为百分百</span></div>
+  
+  <pre class="brush:c-sharp;">
+    <div class="w0">w0 = 100%宽度为百分百</div>
+  </pre>
+  
+  <div class="w1 mb-10 bg-Brightblue bl-dashed"><span class="p-10 block">w1 = 974px</span></div>
+  
+  <pre class="brush:c-sharp;">
+    <div class="w1">w1 = 974px宽度为百分百</div>
+  </pre>
+  
+  <div class="w2 mb-10 bg-Brightblue bl-dashed"><span class="p-10 block">w2 = 960px</span></div>
+  
+  <pre class="brush:c-sharp;">
+    <div class="w1">w2 = 960px宽度为百分百</div>
+  </pre>
+  
+  <div class="layout">
+    <h3 class="f-16 mb-10 pt-10">2、网格布局<span class="fw-n f-13 pl-10">侧边固定，主区域自适应整体宽度</span></h3>
+    <div class="grid-0 clearfix">
+      <div class="main">
+        <section class="column">main column grid-0 aside width:80px;</section>
+      </div>
+      <aside class="column">aside</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-0">
+      <div class="main">
+        <section class="column">main column grid-0 aside width:80px;</section>
+      </div>
+      <aside class="column">aside</aside>
+    </div>
+    </pre>
+    
+    <div class="grid-1 clearfix">
+      <div class="main">
+        <section class="column">main column grid-1 aside width:160px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    
+    <pre class="brush:c-sharp">
+    <div class="grid-1">
+      <div class="main">
+        <section class="column">main column grid-1 aside width:160px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    
+    <div class="grid-2 clearfix">
+      <div class="main">
+        <section class="column">main column grid-2 aside width:180px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-2">
+      <div class="main">
+        <section class="column">main column grid-2 aside width:180px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-3 clearfix">
+      <div class="main">
+        <section class="column">main column grid-3 aside width:200px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-3">
+      <div class="main">
+        <section class="column">main column grid-3 aside width:200px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-4 clearfix">
+      <div class="main">
+        <section class="column">main column grid-4 aside width:240px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-4">
+      <div class="main">
+        <section class="column">main column grid-4 aside width:240px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-5 clearfix">
+      <div class="main">
+        <section class="column">main column grid-5 aside width:300px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-5">
+      <div class="main">
+        <section class="column">main column grid-5 aside width:300px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-6 clearfix">
+      <div class="main">
+        <section class="column">main column grid-6 aside width:160px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-6">
+      <div class="main">
+        <section class="column">main column grid-6 aside width:160px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-7 clearfix">
+      <div class="main">
+        <section class="column">main column grid-7 aside width:180px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-7">
+      <div class="main">
+        <section class="column">main column grid-7 aside width:180px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-8 clearfix">
+      <div class="main">
+        <section class="column">main column grid-8 aside width:200px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-8">
+      <div class="main">
+        <section class="column">main column grid-8 aside width:200px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-9 clearfix">
+      <div class="main">
+        <section class="column">main column grid-9 aside width:240px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-9">
+      <div class="main">
+        <section class="column">main column grid-9 aside width:240px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <div class="grid-10 clearfix">
+      <div class="main">
+        <section class="column">main column grid-10 aside width:300px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    <pre class="brush:c-sharp">
+    <div class="grid-10">
+      <div class="main">
+        <section class="column">main column grid-10 aside width:300px;</section>
+      </div>
+      <aside class="column">aside column</aside>
+    </div>
+    </pre>
+    <h3 class="f-16 mb-10 pt-10 clear">3、百分比布局<span class="fw-n f-13 pl-10">采用百分比来控制区块</span></h3>
+    <section>
+      <div class="unit size1of2">1/2</div>
+      <div class="unit size1of2 lastUnit">1/2</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section>
+      <div class="unit size1of2">1/2</div>
+      <div class="unit size1of2 lastUnit">1/2</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of3">1/3</div>
+      <div class="unit size2of3 lastUnit">2/3</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of3">1/3</div>
+      <div class="unit size2of3 lastUnit">2/3</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of3">1/3</div>
+      <div class="unit size1of3 bg-blue">1/3</div>
+      <div class="unit size1of3 lastUnit">1/3</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of3">1/3</div>
+      <div class="unit size1of3 bg-blue">1/3</div>
+      <div class="unit size1of3 lastUnit">1/3</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of4">1/4</div>
+      <div class="unit size3of4 lastUnit">3/4</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of4">1/4</div>
+      <div class="unit size3of4 lastUnit">3/4</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of4">1/4</div>
+      <div class="unit size1of4 bg-274c60">1/4</div>
+      <div class="unit size1of4">1/4</div>
+      <div class="unit size1of4 lastUnit">1/4</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of4">1/4</div>
+      <div class="unit size1of4 bg-274c60">1/4</div>
+      <div class="unit size1of4">1/4</div>
+      <div class="unit size1of4 lastUnit">1/4</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of5">1/5</div>
+      <div class="unit size4of5 lastUnit">4/5</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of5">1/5</div>
+      <div class="unit size4of5 lastUnit">4/5</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size2of5">2/5</div>
+      <div class="unit size3of5 lastUnit">3/5</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size2of5">2/5</div>
+      <div class="unit size3of5 lastUnit">3/5</div>
+    </section>
+    </pre>
+    
+    <section class="clear mb-10">
+      <div class="unit size1of6">1/6</div>
+      <div class="unit size5of6 lastUnit">5/6</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of6">1/6</div>
+      <div class="unit size5of6 lastUnit">5/6</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of8">1/8</div>
+      <div class="unit size7of8 lastUnit">7/8</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of8">1/8</div>
+      <div class="unit size7of8 lastUnit">7/8</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size3of8">3/8</div>
+      <div class="unit size5of8 lastUnit">5/8</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size3of8">3/8</div>
+      <div class="unit size5of8 lastUnit">5/8</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of12">1/12</div>
+      <div class="unit size11of12 lastUnit">11/12</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of12">1/12</div>
+      <div class="unit size11of12 lastUnit">11/12</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size5of12">5/12</div>
+      <div class="unit size7of12 lastUnit">7/12</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size5of12">5/12</div>
+      <div class="unit size7of12 lastUnit">7/12</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size1of24">1/24</div>
+      <div class="unit size23of24 lastUnit">23/24</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size1of24">1/24</div>
+      <div class="unit size23of24 lastUnit">23/24</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size5of24">5/24</div>
+      <div class="unit size19of24 lastUnit">19/24</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size5of24">5/24</div>
+      <div class="unit size19of24 lastUnit">19/24</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size7of24">7/24</div>
+      <div class="unit size17of24 lastUnit">17/24</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size7of24">7/24</div>
+      <div class="unit size17of24 lastUnit">17/24</div>
+    </section>
+    </pre>
+    <section class="clear mb-10">
+      <div class="unit size11of24">11/24</div>
+      <div class="unit size13of24 lastUnit">13/24</div>
+    </section>
+    <pre class="brush:c-sharp">
+    <section class="clear mb-10">
+      <div class="unit size11of24">11/24</div>
+      <div class="unit size13of24 lastUnit">13/24</div>
+    </section>
+    </pre>
+  </div>
+  
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

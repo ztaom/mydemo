@@ -1,0 +1,95 @@
+a { cursor:pointer; color:navy; text-decoration:underline }
+form.recover { display:none }
+#header { position:relative }
+#modal .close-modal { height:28px; width:28px; position:absolute; top:-8px; right:-12px; cursor:pointer }
+#modal_background { display:none; position:absolute; top:0; left:0; background:black; z-index:10006; height:100%; width:100%; opacity:.7; -moz-opacity:.7; -webkit-opacity:.7; -moz-opacity:.7; filter:alpha(opacity=70) }
+#modal form { color:#444 }
+#modal form .access { margin:8px 0 }
+#modal form .access label { padding:5px }
+#modal form label>span { width:80px; display:inline-block; font-weight:bold }
+#modal form #update-password-fields label>span { width:130px }
+#modal form #update-password-fields input { width:220px }
+.green_btn { padding:5px 20px; background:green url(img/button_bg.png) repeat-x top left; color:white; border-radius:5px; margin-left:5px; font-size:100%; text-decoration:none; border:0; cursor:pointer }
+.green_btn:active { background:green }
+.graph-thumb-title { font-size:16px; color:black }
+#share-dialog .share-button { background:black url(img/button_bg.png); text-decoration:none; line-height:23px; display:block; padding-left:5px; padding-bottom:5px; border-radius:5px; width:180px; margin-bottom:10px; color:white }
+#share-dialog .share-button img { position:relative; height:23px; width:23px; top:5px }
+#share-dialog .share-button.facebook { background-color:#5e77aa; border:1px solid #5e77aa; font-size:14px }
+#share-dialog .share-button.twitter { background-color:#56a4ba; border:1px solid #56a4ba; font-size:14px }
+#share-dialog .share-button.permalink { color:black; background-color:#eee; border:1px solid #aaa }
+.no-touch #share-dialog .share-button:hover { border:1px solid #222 }
+#share-dialog .share-button:active { box-shadow:none; background-image:none }
+#modal form input#permalink { width:368px; outline:none; font-size:120%; padding:10px; border:1px solid #aaa; border-radius:5px; margin-top:12px; display:none; font-size:13px }
+#save_graph_btn { font-size:110%; padding:8px 20px; border:1px solid transparent; margin:6px 0 }
+.no-touch #save_graph_btn:hover { border:1px solid #666 }
+#modal .big-link { display:block; width:185px; font-size:90%; color:navy; text-decoration:none; float:left; padding-bottom:1em }
+#modal .big-link>div { font-size:140%; margin-bottom:4px }
+.no-touch #modal .big-link>div:hover { text-decoration:underline }
+#top_login_forms { position:absolute; top:100%; right:0; width:350px; text-align:left; text-shadow:none; z-index:10006; background:transparent; color:#222; font-size:80% }
+.form_content { padding:0 10px 0 10px }
+.form_content_interior label { cursor:pointer }
+#settings a, #help a { color:navy }
+.sidebar_content a.green_btn { color:white }
+.form_holder h3 { margin:0 -10px 12px; padding:5px 10px; font-size:110%; background:#aaa; background:url(img/button_bg.png) repeat-x scroll left top #444; color:#EEE; font-size:15px; text-shadow:0 -1px 0 black }
+#modal p { color:#666 }
+#modal .error { display:none; margin:8px 0; padding:2px 0 2px 4px; border-left:1px solid #D33 }
+#modal form .input { border:1px solid #ccc; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; padding:5px!important; outline:none; box-shadow:0 1px 3px rgba(0, 0, 0, 0.1) inset; -moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1) inset; -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1) inset }
+#modal form .input:focus { border:1px solid rgba(62, 168, 236, 0.8) }
+#modal form a { color:navy }
+.section_title.progress { background:white url(img/ajax-loader.gif) no-repeat center right }
+.only_logged_in .logout_btn { float:right; position:relative; top:5px; left:-5px }
+.modal_section { display:none }
+#modal form input[type=text], #modal form input[type=email], #modal form input[type=password], #modal form textarea { padding:2px; font:inherit; margin-top:4px; margin-bottom:12px; width:275px }
+#modal form #graph-description { width:353px; font:inherit; margin-bottom:10px }
+#graph-title { width:270px }
+.register_prompt { padding:0 10px; color:#666; display:block }
+.register_prompt p { padding-bottom:12px }
+.logged_in .register_prompt { display:none }
+.register_prompt .green_btn { font-size:110% }
+#modal { display:none; position:absolute; left:50%; top:10%; font-size:80%; width:400px; z-index:10006; margin-left:-243px; background:white; padding:15px 40px 40px; border:3px solid #888; box-shadow:0 1px 10px #444; -moz-box-shadow:0 1px 10px #444; -webkit-box-shadow:0 1px 10px #444; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px }
+@media screen and (max-device-width:480px) {
+body #modal {
+width:60%;
+padding:5% 10% 10%;
+margin-left:-40%
+}
+body #unsupported-browser {
+background:white
+}
+}
+#modal h3 { color:black; font-size:190%; font-weight:normal; margin:15px 20px 15px 0 }
+#modal div.errors { border-left:solid 2px red; background:#fcc; margin-top:10px; padding-left:10px; line-height:25px }
+.social_buttons { position:absolute; top:2px; left:279px; display:block; height:25px; text-align:right }
+#top_links a { font-size:80%; line-height:20px; color:#ccc }
+#user_name { font-weight:bold }
+.edit_account_btn { cursor:pointer }
+.progress_indicator { height:16px; width:16px; display:inline-block; background:transparent }
+.progress_indicator.progress { background:transparent url(img/ajax-loader.gif) no-repeat center right }
+.progress_indicator.success { background:transparent url(img/tick.png) no-repeat center right }
+#passive_share span { font-style:italic; font-size:85%; color:#666; margin-bottom:10px; width:200px; display:block; float:left }
+#passive_share .disabled_share { background:#ccc; clear:both; cursor:default; border-color:white; display:block; border-radius:5px 5px 5px 5px; color:white!important }
+.sign_in { padding:0 15px 5px 10px; display:inline-block; border:1px solid #aaa; border-radius:5px; background:#fff; background:-moz-linear-gradient(top, rgba(255, 255, 255, 1) 0, rgba(234, 234, 234, 1) 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(234, 234, 234, 1))); background:-webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0, rgba(234, 234, 234, 1) 100%); background:-o-linear-gradient(top, rgba(255, 255, 255, 1) 0, rgba(234, 234, 234, 1) 100%); background:-ms-linear-gradient(top, rgba(255, 255, 255, 1) 0, rgba(234, 234, 234, 1) 100%); background:linear-gradient(top, rgba(255, 255, 255, 1) 0, rgba(234, 234, 234, 1) 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd', GradientType=0);
+color:black; text-decoration:none; font-size:16px; line-height:32px; margin:8px 0 13px; color:#444; cursor:pointer }
+.sign_in img { position:relative; top:10px; margin-top:-5px }
+.no-touch .sign_in:hover { border-color:#000 }
+.sign_in:active { filter:none; background:#f0f0f0 }
+#modal .comment { position:relative; font-style:italic; color:#888 }
+#modal form .comment { width:327px }
+#modal .description { font-style:italic; color:#888; margin-left:85px; position:relative; top:-10px; line-height:1em; font-size:11px; width:300px }
+.help { clear:both; font-size:14px; padding:1em; background-color:#eee; border-radius:1em }
+.help button { font-weight:bold; font-size:18px; background-color:red; color:white; border-radius:10px; padding:5px 12px 5px 12px }
+.help span { font-size:18px; font-weight:bold }
+#share-dialog .graph-thumb { float:right; width:150px; padding:5px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px }
+#share-dialog .thumb-wrap { margin:4px 0; border:1px solid #ccc; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; height:125px; width:125px }
+#share-dialog .full-img-link { color:navy; font-size:85%; text-decoration:none }
+#share-dialog .close-link { text-align:center; clear:both }
+.picker.modal-dialog-bg { z-index:99999!important }
+.picker.modal-dialog { z-index:100000!important }
+#top_identity .drop_down { color:black; background-color:white; border:solid 1px #aaa; border-bottom:none }
+#logout_options { position:absolute; top:100%; z-index:10002; background:white; right:0; width:200px; display:none; border:1px solid #aaa; border-top:none; font-size:90%; color:black; list-style-type:none; padding:0; margin:0 }
+#logout_options li { padding:0 }
+#logout_options a { padding:9px 13px; text-decoration:none; display:block; color:black }
+.no-touch #logout_options a:hover { background:#eee }
+#menu_hider { position:absolute; top:0; left:0; width:100%; height:100%; display:none; z-index:10001 }
+#unsupported-browser { background:white url('img/frown.png') no-repeat right top }
+.edmodo-animated-thumb { position:absolute; z-index:10000000; width:48px; height:48px; left:50%; top:50%; margin-left:-24px; padding:10px; border-radius:5px; background:#fff; border:1px solid #ddd }

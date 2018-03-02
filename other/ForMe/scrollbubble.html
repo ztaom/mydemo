@@ -1,0 +1,74 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+
+<style>body {
+     font: 12px/1.5 Helvetica, sans-serif;   
+}
+
+p {
+    margin-right: 30px;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 1;
+    color: rgb(200, 200, 200);
+}
+
+#scrollbubble {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 20px;
+    z-index: 500;
+    padding: 3px 8px;
+    background-color: #000;
+    color: #FFF;
+    border-radius: 3px;
+}
+
+#scrollbubble:after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    height: 0;
+    width: 0;
+    margin-top: -4px;
+    border: 4px solid transparent;
+    border-left-color: #000;
+}</style></head><body>
+<div id="scrollbubble"></div>
+
+<div style="height: 2000px">
+    <p>Scroll<br />down<br />↓</p>
+</div>
+
+<script src="jquery.min.1.11.0.js"></script>
+<script>var scrollTimer = null;
+
+$(window).scroll(function() {
+   var viewportHeight = $(this).height(),
+       scrollbarHeight = viewportHeight / $(document).height() * viewportHeight,
+       progress = $(this).scrollTop() / ($(document).height() - viewportHeight),
+       distance = progress * (viewportHeight - scrollbarHeight) + scrollbarHeight / 2 - $('#scrollbubble').height() / 2
+       ;
+ 
+    $('#scrollbubble')
+        .css('top', distance)
+        .text('Progress (' + Math.round(progress * 100) + '%)')
+        .fadeIn(100)  
+    ;
+
+    // Fade out the annotation after 1 second of no scrolling.
+    if (scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+    }
+    scrollTimer = setTimeout(function() {
+        $('#scrollbubble').fadeOut();
+    }, 500);
+});//@ sourceURL=pen.js
+</script>
+</body></html>

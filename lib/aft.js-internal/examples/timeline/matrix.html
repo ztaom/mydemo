@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<script src="../../browser/polyfill.min.js"></script>
+<script src="../../browser/aft-lite.js"></script>
+<script src="../stats.js"></script>
+<script src="../util.js"></script>
+<style>
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+body > div {
+    width: 100%;
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body > div > div {
+    width: 5%;
+    height: 12px;
+    opacity: 0;
+    background-color: #fff;
+}
+
+</style>
+</head>
+<body>
+<script>
+    var AFT = window.AFT;
+    var timeline = AFT.createTimeline();
+    var fadeInEffect = AFT.createEffect();
+    fadeInEffect
+        .to({
+            scaleX: 2,
+            scaleY: 2
+        })
+        .next()
+        .to({
+            opacity: 1,
+            scaleX: 1,
+            scaleY: 1
+        })
+        .duration(1000)
+        .easing('ease-in');
+
+    var fadeOutEffect = AFT.createEffect();
+    fadeOutEffect.to({
+            opacity: 0,
+            scaleX: 2,
+            scaleY: 2
+        })
+        .duration(1000)
+        .easing('ease-out');
+
+    var ceilList = [];
+    var col = 10;
+    var row = 10;
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < row; i++) {
+        var rowEl = document.createElement('div');
+        for (var j = 0; j < col; j++) {
+            var index = i * col + j;
+            var ceilEl = document.createElement('div');
+            ceilList.push(ceilEl);
+            rowEl.appendChild(ceilEl);
+        }
+        fragment.appendChild(rowEl);
+    }
+    document.body.appendChild(fragment);
+
+    ceilList.forEach(function(ceilEl, index) {
+        var animationFadeIn = AFT.createAnimation(ceilEl, fadeInEffect);
+        timeline.add(animationFadeIn, {
+            playAt: index * 50
+        });
+
+        var animationFadeOut = AFT.createAnimation(ceilEl, fadeOutEffect);
+        timeline.add(animationFadeOut, {
+            playAt: function() {
+                if (animationFadeIn.finished) {
+                    var animationFadeInOption = timeline.get(animationFadeIn);
+                    return animationFadeInOption.finishAt + col * row * 50 + index * 50
+                }
+            }
+        });
+    })
+
+    var updateStats = util.addStats();
+
+    timeline.on('play', function() {
+        updateStats();
+    }).on('end', function() {
+        timeline.stop();
+    }).play();
+</script>
+</body>
+</html>

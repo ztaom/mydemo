@@ -1,0 +1,133 @@
+/*
+ * poplayer使用
+ * 全局定义活动id参数，*.setActId('demo')
+ * 活动曝光，poplayer显示时候添加曝光， *.goldlog('exposure')
+ * 每一个行为位置处参数，*.goldlog('clickbtn')
+ *
+ * 输出 actId=demo&posId=clickbtn2&exparam={"utdid":"V2v/Wf7t++kDAPdJYv4gB8YV", userid":503799856}&param={"canyu":1}
+ *
+ */
+import Polyfill from '@ali/lib-es6polyfill';
+import mtop from '@ali/lib-mtop'
+
+const _logStr = '/yt/ykpoplayer.ykpoplayer.poplayer';
+const _checkStr = 'H1509201138';
+const action = 'CLK';
+let utdid;
+let userid;
+export let actId='';
+
+function sendlog(src, errorcallback) {
+  let id = "youku-uniplayer-stat";
+  if(src.indexOf("http:") < 0 && src.indexOf("https:") < 0){
+     src = "https:" + src;
+  }
+  let fr = document.createElement('img');
+  if (errorcallback) {
+    fr.addEventListener('error', errorcallback, false);
+  }
+  document.getElementsByTagName("body")[0].append(fr);
+  fr.src = src + '&r_=' + Math.floor(Math.random() * 10000);
+  fr.id = id;
+}
+
+//windvane获取设备id  utdid
+export let getUtdid = window.WindVane.call('DYKBaseJSBridge', 'getDeviceInfo', {}, function(e) {
+    utdid=e.utdid
+    // alert('success:'+JSON.stringify(e.utdid));
+}, function(e) {
+    // alert('请引入windvane.js')
+    // alert('failure:'+JSON.stringify(e));
+});
+
+//获取用户id
+lib.mtop.config.prefix = 'acs';
+lib.mtop.config.subDomain = '';
+lib.mtop.config.mainDomain = 'youku.com';
+let params = {}
+
+function getUserid() {
+    return new Promise((resolve, reject) => {
+        let promise = lib.mtop.request({
+            //通用参数
+            api: 'mtop.com.youku.aplatform.weakGet',
+            ecode: 0,
+            dataType:"jsonp",
+            v: '1.0',
+            appKey: '23536927',
+            isSec: 0,
+            data:{
+                bizType:'tool.isLogin',
+                bizParam: JSON.stringify(params)
+            }
+            
+        });
+
+        promise.then(data => {
+            userid=data.data.userid;
+            // alert(JSON.stringify('userid:'+userid));
+            resolve(data.data.userid);
+        },data => {
+        	// alert(JSON.stringify(data));
+            resolve();
+        });
+    });
+}
+
+
+const ready = new Promise((resolve, reject) => {
+    if(userid){
+        resolve();
+    }else{
+        getUserid().then(()=>{
+        	// alert(JSON.stringify('ready userid:'+userid));
+            resolve();
+        });
+    }
+});
+
+
+/**
+ * 黄金令箭埋点统计方法 setActId('actid'), goldlog('posid', {'canyu':1})
+ * @param  {[type]} actId      所在页面标识码
+ * @param  {[type]} posId      所在位置标识码
+ * @param  {[type]} realTime   实时数据统计
+ * @param  {[type]} action     具体操作 CLK EXP SLD OTHER  默认用CLK
+ * @return {[type]}            [description]
+ */
+
+ export default {
+    setActId: function(id){
+        actId = id
+    },
+    goldlog: function (posId, param) {
+        let _str = "actId="+actId+"&posId="+posId;
+        //业务扩展参数
+        let exparam = {}
+        exparam.utdid = utdid
+        // exparam.userid = userid
+
+        ready.then(()=>{
+            if(userid){
+            	// alert('goldlog userid:'+userid);
+                exparam.userid = userid;
+            }
+
+            if(JSON.stringify(exparam)!=='{}'){
+                _str += '&exparam='+JSON.stringify(exparam);
+            }
+
+            //常用订阅参数{'canyu':1}
+            if(param){
+                _str += ("&param="+JSON.stringify(param));
+            }
+            try{
+                // alert(_str)
+                window.goldlog.record(_logStr,action,_str,_checkStr);
+            }catch(e){
+                let _logUrl = '//gm.mmstat.com/'+_logStr+'?'+_str;
+                sendlog(_logUrl);
+            }
+        });
+    }
+ }

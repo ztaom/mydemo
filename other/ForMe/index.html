@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>薛荣的后宫</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="GaryShue" />
+<style>
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, img, dl, dt, dd, ol, ul, li, form, label, sup, u, i, button,article,aside,figure,footer,header,hgroup,nav,section,input, button, textarea{ margin:0; padding:0; border:0; outline:0; vertical-align:baseline; font-size:100%; font-family:inherit; font-weight:inherit; font-style:normal;}
+fieldset, img { border:0; }
+li { list-style:none; }
+:focus { outline: 0; }
+a img { border: none; }
+em{font-style:normal; font-weight: bold;}
+
+/* html5初始化 */
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,main{display:block;}
+
+html{background-image: url(images/04.jpg); background-repeat: no-repeat; background-size: 100%;}
+body {font-family:'微软雅黑', Helvetica; color:#333; font-size:16px;}
+
+a:link, a:visited, a:active { text-decoration:none; color: #333;}
+a:hover { color:#ff0000; text-decoration:none;}
+nav{}
+nav a{display: block; width: 198px; height: 198px; border:1px solid #fff; background: rgba(0,255,1,0.2);border-radius:0 100px 0 100px;-moz-border-radius:0 100px 0 100px;-webkit-border-radius:0 100px 0 100px;color:#fff; box-shadow: 0 0 2px 2px rgba(0,0,0,0.1); position: fixed; left:50%; top:50%; line-height: 200px; text-align: center;}
+nav a:hover{text-decoration: none; color: #333;box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.2)}
+nav a span{display: block; font-size: 30px;text-shadow:0 0 2px rgba(255,255,255,1);}
+nav a#templ{margin:-200px 0 0 -200px;}
+
+nav a#widgets{transform:rotate(90deg);-webkit-transform:rotate(90deg);margin:-200px 0 0 0px;}
+nav a#widgets span{transform:rotate(270deg);-webkit-transform:rotate(270deg);}
+nav a#games{transform:rotate(-90deg);-webkit-transform:rotate(-90deg);margin:0px 0 0 -200px;}
+nav a#games span{transform:rotate(90deg);-webkit-transform:rotate(90deg);}
+nav a#articles{margin:0px 0 0 0px;}
+nav p ,.botmenu{position: fixed; bottom:10px; right: 0;}
+nav p a,.botmenu a{width: auto;height: auto; border: none; background: none!important; border-radius:0;-moz-border-radius:0;-webkit-border-radius:0; position: static; line-height: 1.5;box-shadow: none!important; margin:0 10px; display: inline-block; margin: 0px 10px;}
+nav p a span{font-size: 20px;}
+nav p a:hover,.botmenu a:hover{box-shadow: none!important}
+.botmenu{right:auto;left: 0px;}
+.botmenu a{margin:0 10px;}
+
+.box {position:absolute; left:0; top:0; z-index:999; overflow:hidden; background: #fff;}
+.box .close{cursor: pointer; position: absolute; right:10px; top:5px; color: #333;}
+.box ol{padding:0 50px; overflow-y:auto; height: 90%}
+.box ol li{list-style-type:decimal-leading-zero; margin-left:60px; font-size: 26px; padding:10px 0; float: left; width: 40%; height: 70px;}
+.box ol li h3{padding-bottom:5px;}
+.box ol li a{color: blue}
+.box ol li p{font-size: 16px;}
+
+.box ol li a {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+
+    -webkit-perspective: 300px;
+       -moz-perspective: 300px;
+        -ms-perspective: 300px;
+            perspective: 300px;
+
+    -webkit-perspective-origin: 50% 50%;
+       -moz-perspective-origin: 50% 50%;
+        -ms-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+}
+.box ol li>a{display: none}
+.box ol li a:hover {
+    background: none;
+    text-shadow: none;
+}
+.box ol li a span {
+    display: block;
+    position: relative;
+    padding: 0 2px;
+    pointer-events: none;
+
+    -webkit-transition: all 600ms ease;
+       -moz-transition: all 400ms ease;
+        -ms-transition: all 400ms ease;
+            transition: all 400ms ease;
+    
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+        -ms-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+.box ol li a:hover span {
+    background: rgba(190,190,20,.9);
+
+    -webkit-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
+       -moz-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
+        -ms-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
+            transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
+}
+.box ol li a span:after {
+    content: attr(data-title);
+
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 2px;
+    white-space: nowrap;
+
+    color: white;
+    background: #a533fd; 
+
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+        -ms-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+
+    -webkit-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+       -moz-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+        -ms-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+            transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+}
+
+.holder {padding:10px 10px 0;}
+.holder a {font-size: 12px;cursor: pointer;margi: 0 5px;color: #333;}
+.holder a:hover {background-color: #222; color: n#fff;}
+.holder a.jp-previous { margin-right: 15px; }
+.holder a.jp-next { margin-left: 15px; }
+.holder a.jp-current, a.jp-current:hover {color: #FF4242;font-weight: bold;}
+.holder a.jp-disabled, a.jp-disabled:hover {color: #666;}
+.holder a.jp-current, a.jp-current:hover,.holder a.jp-disabled, a.jp-disabled:hover {cursor: default;
+  background: none;}
+.holder span { margin: 0 5px; }
+.holder a {font-size: 12px;cursor: pointer;margin: 0 5px;color: #333;}
+.holder a:hover {background-color: #222;color: #fff;}
+.holder a.jp-previous { margin-right: 15px; }
+.holder a.jp-next { margin-left: 15px; }
+.holder a.jp-current, a.jp-current:hover {color: #FF4242;font-weight: bold;}
+.holder a.jp-disabled, a.jp-disabled:hover {color: #bbb;}
+.holder a.jp-current, a.jp-current:hover,
+.holder a.jp-disabled, a.jp-disabled:hover {cursor: default;background: none;}
+.holder span { margin: 0 5px; }
+
+.pace {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 25px;
+  border: 2px solid #29d;
+  background-color: #fff;
+}
+
+.pace .pace-progress {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+
+  -webkit-transition: width 1s ease-in-out 1s linear;
+  -moz-transition: width 1s ease-in-out 1s linear;
+  -ms-transition: width 1s ease-in-out 1s linear;
+  -o-transition: width 1s ease-in-out 1s linear;
+  transition: width 1s ease-in-out 1s linear;
+
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+  max-width: 190px;
+  position: fixed;
+  z-index: 2000;
+  display: block;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  height: 15px;
+  font-size: 12px;
+  background: #29d;
+  color: #29d;
+  line-height: 60px;
+  font-weight: bold;
+  font-family:  Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.pace .pace-progress:after {
+  content: attr(data-progress-text);
+  display: inline-block;
+}
+
+.pace.pace-inactive {
+  display: none;
+}
+
+#masker{display: block; position: fixed; top:0px; bottom:0px; left: 0px; width: 100%; z-index: 999; background:#fff;}
+.pace {z-index: 9999;}
+</style>
+
+
+<script src="pace/pace.js"></script>
+<script>
+  Pace.on('hide', function(){
+    document.getElementById('masker').style.display='none';
+  });
+</script>
+</head>
+<body>
+<div id="masker"></div>
+  <!--[if gt IE 9]>
+  <div style="position:fixed; left:0; top:0; bottom:0px; z-index:9999; overflow:hidden; background:#fff; width:100%;height:100%">
+    <p style="text-align:center; position:fixed; top:45%; width:100%;font-size:30px; line-height:1.5"><a href="http://www.google.com/intl/zh-CN/chrome/">抱歉!您的浏览器实在是太out了！<br>请点击更新以获得更好的体验！</a></p>
+  </div>
+  <![endif]-->
+  <nav>
+    <a href="javascript:void(0)" id="templ"><span>网页模板</span></a><!-- 秋天 黄色-->
+    <a href="javascript:void(0)" id="widgets"><span>组件</span></a><!--  夏天 深绿-->
+    <a href="javascript:void(0)" id="games"><span>游戏</span></a><!-- 春天 绿色-->
+    <a href="javascript:void(0)" id="articles"><span>文章分享</span></a><!-- 冬天 乳白-->
+    <p><a href="javascript:void(0)" id="tools"><span>工具</span></a></p>
+  </nav>
+  <div class="botmenu"><a href="doc/index.html" target="_blank" id="doc"><span>文档</span></a></div>
+  <section class="box" id="templ_box">
+    <!--网页模板-->
+    <i class="close">关闭</i>
+    <div class="holder templ_holder"></div>
+    <ol id="templ_itemContainer">
+      <li>
+        <h3><a href="header-footer.html" target="_blank"><span data-title="滚动动画显示header和footer">滚动动画显示header和footer</span></a></h3>
+        <p>滚动鼠标动画切换header，content和footer，不兼容ie...<a href="header-footer.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="fullPage/index.html" target="_blank"><span data-title="fullPage">fullPage</span></a></h3>
+        <p>满屏页面动态切换展示...<a href="fullPage/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="jInvertScroll/index.html" target="_blank"><span data-title="模拟3D电影页面滚动展示">模拟3D电影页面滚动展示</span></a></h3>
+        <p>横向滚动页面，三张背景图组合模拟3D电影效果...<a href="jInvertScroll/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="control-role/index.html" target="_blank"><span data-title="控制角色访问页面">控制角色访问页面</span></a></h3>
+        <p>游戏的形式，通过键盘或鼠标操作页面中的角色来访问内容...<a href="control-role/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="onepage-scroll/demo/index.html" target="_blank"><span data-title="单页面滚动切换页面效果">单页面滚动切换页面效果</span></a></h3>
+        <p>由jquery开发的滚动鼠标切换页面效果...<a href="onepage-scroll/demo/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="CSS3PageTransitions/index.html" target="_blank"><span data-title="CSS3页面过渡显示效果">CSS3页面过渡显示效果</span></a></h3>
+        <p>点击页面链接过渡切换页面效果...<a href="CSS3PageTransitions/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="PageTransitions/index.html" target="_blank"><span data-title="Page Transitions">Page Transitions</span></a></h3>
+        <p>Page Transitions 页面显示切换效果...<a href="PageTransitions/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="SplitLayout/index.html" target="_blank"><span data-title="Split Layout">Split Layout</span></a></h3>
+        <p>Split Layout大页面展示效果...<a href="SplitLayout/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="picture-show/index.html" target="_blank"><span data-title="图片产品展示（拖动，滚动）">图片产品展示（拖动，滚动）</span></a></h3>
+        <p>图片产品展示的网站，滚动切换显示整屏，拖动切换查看不同的图片...<a href="picture-show/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="drag-slide-page/index.html" target="_blank"><span data-title="图片产品展示（拖动，滚动）">拖动切换页面展示</span></a></h3>
+        <p>鼠标点击拖动页面切换查看其他内容，只适合高级浏览器...<a href="drag-slide-page/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+
+      <li>
+        <h3><a href="githubpage/index.html" target="_blank"><span data-title="github page">github page</span></a></h3>
+        <p>模板来自于github pages，滚动向下动画显示每个模块...<a href="githubpage/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+
+      <li>
+        <h3><a href="http://kt.playnetwork.co.kr/promotion/nexonopen.nhn" target="_blank"><span data-title="韩国游戏站">韩国游戏站</span></a></h3>
+        <p>韩国游戏站...<a href="http://kt.playnetwork.co.kr/promotion/nexonopen.nhn" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="http://support-cn.samsung.com/campaign/CTV/UHD/index2014.html?cid=cn_banner_ifeng_201404ctvuhdapr_20140408_ctv_cmt_pre_p_30ifwz" target="_blank"><span data-title="三星电视介绍页">三星电视介绍页</span></a></h3>
+        <p>三星电视介绍页...<a href="http://support-cn.samsung.com/campaign/CTV/UHD/index2014.html?cid=cn_banner_ifeng_201404ctvuhdapr_20140408_ctv_cmt_pre_p_30ifwz" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+    </ol>
+  </section>
+  <section class="box" class="box" id="widgets_box">
+    <!--组件-->
+    <i class="close">关闭</i>
+    <div class="holder widgets_holder"></div>
+    <ol id="widgets_itemContainer">
+      <li>
+        <h3><a href="browsers-CSS-properties.html" target="_blank"><span data-title="不同浏览器支持CSS属性">不同浏览器支持CSS属性</span></a></h3>
+        <p>不同浏览器打开该页面能完整的显示出该浏览器对css属性的支持...<a href="browsers-CSS-properties.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="circular-menu.html" target="_blank"><span data-title="CSS3圆菜单">CSS3圆菜单</span></a></h3>
+        <p>点击页面中的圆，动画弹出的菜单效果，只支持高级浏览器...<a href="circular-menu.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="colourful-sliding-nav.html" target="_blank"><span data-title="CSS3侧边平滑菜单">CSS3侧边平滑菜单</span></a></h3>
+        <p>只支持高级浏览器...<a href="colourful-sliding-nav.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="delanimate.html" target="_blank"><span data-title="CSS3列表删除动画">CSS3列表删除动画</span></a></h3>
+        <p>列表点击删除，滑动提示是否确认删除...<a href="delanimate.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="Fireworks.html" target="_blank"><span data-title="HTML5烟花效果">HTML5烟花效果</span></a></h3>
+        <p>该烟花效果是用HTML5 Canvas开发的，目前还不能应用于实际...<a href="Fireworks.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="landscape.html" target="_blank"><span data-title="CSS3图画">CSS3图画</span></a></h3>
+        <p>页面是用css3绘制的风景效果...<a href="landscape.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="off-canvas-partial-touch.html" target="_blank"><span data-title="点击或触摸展开左侧隐藏菜单">点击或触摸展开左侧隐藏菜单</span></a></h3>
+        <p>点击页面左上角或触摸滑动页面可以展开左侧隐藏的菜单...<a href="off-canvas-partial-touch.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="scrollbubble.html" target="_blank"><span data-title="滚动条旁边显示滚动的百分比">滚动条旁边显示滚动的百分比</span></a></h3>
+        <p>滚动鼠标显示滚动的百分比...<a href="scrollbubble.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="scrolling-stop.html" target="_blank"><span data-title="判断鼠标滚动是否停止">判断鼠标滚动是否停止</span></a></h3>
+        <p>开始滚动和停止滚动都会给出提示...<a href="scrolling-stop.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="touch-keyboard-content-slide.html" target="_blank"><span data-title="触摸、点击和键盘方向键控制滑动">触摸、点击和键盘方向键控制滑动</span></a></h3>
+        <p>用触摸、点击或键盘方向键控制轮播内容...<a href="touch-keyboard-content-slide.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="touch-lab-icon.html" target="_blank"><span data-title="触摸手指图片">触摸手指图片</span></a></h3>
+        <p>提供各种触摸效果的手指图片...<a href="touch-lab-icon.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="CaptionHoverEffects/index.html" target="_blank"><span data-title="图片hover效果">图片hover效果</span></a></h3>
+        <p>鼠标移动到图片上，各种不同显示图片标题的效果...<a href="CaptionHoverEffects/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="fixed-sticky-master/index.html" target="_blank"><span data-title="滚动到指定位置，导航或通栏随屏滚动">滚动到指定位置，导航或通栏随屏滚动</span></a></h3>
+        <p>当页面滚动到指定的位置，导航或通栏就固定在最上面或最下面...<a href="fixed-sticky-master/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="interactive-menu-css3-jquery/index.html" target="_blank"><span data-title="点击图片填充整个区域效果">点击图片填充整个区域效果</span></a></h3>
+        <p>点击盒子里面的图片，弹窗填充整个盒子显示所有内容...<a href="interactive-menu-css3-jquery/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="spritely-0.6.8/index.html" target="_blank"><span data-title="jQuery.spritely创建角色动画和背景动画">jQuery.spritely创建角色动画和背景动画</span></a></h3>
+        <p>jQuery.spritely is for creating dynamic character and background animation in pure HTML and JavaScript...<a href="spritely-0.6.8/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="animations/index.html" target="_blank"><span data-title="CSS3动画种类">CSS3动画种类</span></a></h3>
+        <p>页面中展示了目前CSS制作的动画效果种类...<a href="animations/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="progress.js/index.html" target="_blank"><span data-title="页面和图片加载loading效果">页面和图片加载loading效果</span></a></h3>
+        <p>progress.js是用于页面或图片加载loading的效果...<a href="progress.js/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="pace/index.html" target="_blank"><span data-title="loading效果">loading效果</span></a></h3>
+        <p>progress.loading效果...<a href="pace/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="lightGallery/example/index.html" target="_blank"><span data-title="jquery画廊插件">jquery画廊插件</span></a></h3>
+        <p>jquery画廊插件，响应设计，触摸切换Chrome, Safari, Firefox, Opera, IE7+, IOS, Android, windows phone...<a href="lightGallery/examples/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="js-shortcuts/index.html" target="_blank"><span data-title="jquery快捷键">jquery快捷键</span></a></h3>
+        <p>jquery快捷键，控制键盘的事件...<a href="js-shortcuts/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="slide-like-keynote.html" target="_blank"><span data-title="拖动排序">拖动排序</span></a></h3>
+        <p>拖动排序...<a href="slide-like-keynote.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="css3-flex-grow.html" target="_blank"><span data-title="css3 flex-grow响应式布局">css3 flex-grow响应式布局</span></a></h3>
+        <p>css3 flex-grow响应式布局...<a href="css3-flex-grow.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+
+      <li>
+        <h3><a href="cloud/index.html" target="_blank"><span data-title="css3流动的云">css3流动的云</span></a></h3>
+        <p>css3流动的云...<a href="cloud/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+
+      <li>
+        <h3><a href="canvas/" target="_blank"><span data-title="HTML5 canvas技术和物理引擎">HTML5 canvas技术和物理引擎</span></a></h3>
+        <p>HTML5 canvas技术和物理引擎...<a href="canvas/" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li> 
+    </ol>
+  </section>
+  <section class="box" id="games_box">
+    <!--游戏-->
+    <i class="close">关闭</i>
+    <div class="holder games_holder"></div>
+    <ol id="games_itemContainer">
+      <li>
+        <h3><a href="games/2048/index.html"><span data-title="game2048">game2048</span></a></h3>
+        <p>game2048，由（http://gabrielecirulli.github.io/2048/）开发...<a href="games/2048/index.html"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+    </ol>
+  </section>
+  <section class="box" id="articles_box">
+    <!--文章分享-->
+    <i class="close">关闭</i>
+    <div class="holder articles_holder"></div>
+    <ol id="articles_itemContainer">
+      <li>
+        <h3><a href="http://cnblogs.com/wayou/p/goodui.html" target="_blank"><span data-title="好的用户界面设计的一些技巧">好的用户界面设计的一些技巧</span></a></h3>
+        <p>主要介绍设计中的一些布局结构...<a href="http://cnblogs.com/wayou/p/goodui.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="http://www.zcool.com.cn/article/ZNjUzODg=.html" target="_blank"><span data-title="界面设计之尺寸">界面设计之尺寸</span></a></h3>
+        <p>页面设计的尺寸介绍，只作为参考...<a href="http://www.zcool.com.cn/article/ZNjUzODg=.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="http://alloyteam.github.io/Spirit/" target="_blank"><span data-title="腾讯移动web解决方案">腾讯移动web解决方案</span></a></h3>
+        <p>该Spirit主要由5个部分组成：<a href="http://alloyteam.github.io/Spirit/modules/Standard/index.html" target="_blank">移动Web开发规范</a>、<a href="http://alloyteam.github.io/Spirit/modules/JM/index.html" target="_blank">JM</a>、<a href="http://alloyteam.github.io/Spirit/modules/JMUI/index.html" target="_blank">JMUI</a>、<a href="http://alloyteam.github.io/Spirit/modules/Mobug/" target="_blank">Mobug</a>、<a href="https://github.com/AlloyTeam/Mars" target="_blank">Mars</a>...<a href="http://alloyteam.github.io/Spirit/" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="http://alloyteam.github.io/AlloyStick/" target="_blank"><span data-title="AlloyStick HTML5骨骼动画">AlloyStick HTML5骨骼动画</span></a></h3>
+        <p>AlloyStick 是一款专为HTML5开发的2D骨骼动画引擎，可以用于HTML5动画开发、HTML5游戏开发...<a href="http://alloyteam.github.io/AlloyStick/" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="https://www.qianduan.net/high-performance-css3-animations/" target="_blank"><span data-title="高性能 CSS3 动画">高性能 CSS3 动画</span></a></h3>
+        <p>高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度...<a href="https://www.qianduan.net/high-performance-css3-animations/" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="https://segmentfault.com/a/1190000000490328" target="_blank"><span data-title="高性能 CSS3 动画">前端性能优化（CSS动画篇）</span></a></h3>
+        <p>现代浏览器在使用CSS3动画时，以下四种情形绘制的效率较高，分别是：* 改变位置* 改变大小
+* 旋转* 改变透明度...<a href="https://segmentfault.com/a/1190000000490328" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="html5head.html" target="_blank"><span data-title="移动前端不得不了解的html5 head 头标签">移动前端不得不了解的html5 head 头标签</span></a></h3>
+        <p>移动前端不得不了解的html5 head总结<a href="html5head.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="mFrontEnd.html" target="_blank"><span data-title="移动Web开发技巧汇总">移动Web开发技巧汇总</span></a></h3>
+        <p>移动Web开发技巧汇总<a href="mFrontEnd.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      
+    </ol>
+  </section>
+  <section class="box" id="tools_box">
+    <!--工具-->
+    <i class="close">关闭</i>
+    <div class="holder tools_holder"></div>
+    <ol id="tools_itemContainer">
+      <li>
+        <h3><a href="tools/ButtonMakerCSS3/index.html" target="_blank"><span data-title="制作CSS3按钮">制作CSS3按钮</span></a></h3>
+        <p>可视化生成CSS3按钮...<a href="tools/ButtonMakerCSS3/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="tools/calculator/index.html" target="_blank"><span data-title="网页版计算器">网页版计算器</span></a></h3>
+        <p>在输入框中输入help，然后回车可以查看帮助文档...<a href="tools/calculator/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="tools/GraphingCalculator/index.html" target="_blank"><span data-title="图像显示公式结果">图像显示公式结果</span></a></h3>
+        <p>输入公式，右侧自动显示绘制图画...<a href="tools/GraphingCalculator/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="tools/dataurl/index.html" target="_blank"><span data-title="图片dataurl生成器">图片dataurl生成器</span></a></h3>
+        <p>生成图片的dataurl...<a href="tools/dataurl/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="tools/gridLayout/index.html" target="_blank"><span data-title="简单布局绘制工具">简单布局绘制工具</span></a></h3>
+        <p>通过这个工具可以简单布局网页或其他页面的结构...<a href="tools/gridLayout/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="tools/javascriptFormat/index.html" target="_blank"><span data-title="JavaScript格式化工具">JavaScript格式化工具</span></a></h3>
+        <p>把源码copy到输入框中，格式化可以还原压缩过的js文件...<a href="tools/javascriptFormat/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="/nobuilder/index.html" target="_blank"><span data-title="我的UI库">我的UI库</span></a></h3>
+        <p>之前自己设计总结的UI库...<a href="tools/nobuilder/index.html" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="https://tinypng.com/" target="_blank"><span data-title="tinypng在线图片质量无损压缩">tinypng在线图片质量无损压缩</span></a></h3>
+        <p>图片质量无损压缩...<a href="https://tinypng.com/" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+      <li>
+        <h3><a href="https://docs.webplatform.org/wiki/css/properties/transform" target="_blank"><span data-title="css属性介绍">css属性介绍</span></a></h3>
+        <p>css属性介绍 webplatform...<a href="https://docs.webplatform.org/wiki/css/properties/transform" target="_blank"><span data-title="[查看]">[查看]</span></a></p>
+      </li>
+    </ol>
+  </section>
+
+
+
+  <script src="jquery.min.2.1.0.js"></script>
+  <script>
+  $(function(){
+    var $navA=$('nav a'),$box=$('.box');
+    var navAFirstBg,navASecondBg,navAThreeBg,navAFourBg;
+    var pageWidth = $(window).width(),pageHeight = $(window).height();
+    $navA.each(function(index){
+      var r=Math.round(Math.random()*254),g=Math.round(Math.random()*254),b=Math.round(Math.random()*254),a=Math.random();
+      $navA.eq(index).css('background','rgba('+r+','+g+','+b+','+a+')');
+      //$box.eq(index).css('background','rgba('+r+','+g+','+b+','+'0.5)');
+      $box.css({width:pageWidth,height:pageHeight,left:-pageWidth,display:'block'});
+      $navA.eq(index).click(function(){
+        $navA.hide();
+        $box.eq(index).animate({
+          left: 0
+        }, 200);
+      });
+      $('.box .close').click(function(){
+        $navA.fadeIn();
+       $box.eq(index).animate({
+          left: -pageWidth
+        }, 200);
+      })
+      //$('.box ol').height(pageHeight);
+      $(window).resize(function(){
+        pageWidth = $(window).width(),pageHeight = $(window).height();
+        $box.css({width:pageWidth,height:pageHeight,left:-pageWidth,});
+        $navA.fadeIn();
+      })
+
+    })
+
+  })
+  </script>
+  <script src="jPages.js"></script>
+  <script>
+
+    $("div.templ_holder").jPages({
+      containerID  : "templ_itemContainer",
+      perPage      : 16,
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 5,
+      endRange     : 1
+    });
+    $("div.widgets_holder").jPages({
+      containerID  : "widgets_itemContainer",
+      perPage      : 16,
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 5,
+      endRange     : 1
+    });
+    $("div.games_holder").jPages({
+      containerID  : "games_itemContainer",
+      perPage      : 16,
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 5,
+      endRange     : 1
+    });
+    $("div.articles_holder").jPages({
+      containerID  : "articles_itemContainer",
+      perPage      : 16,
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 5,
+      endRange     : 1
+    });
+    $("div.tools_holder").jPages({
+      containerID  : "tools_itemContainer",
+      perPage      : 16,
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 5,
+      endRange     : 1
+    });
+ 
+  </script>
+<script src="device.js"></script>
+<script>
+if (device.type === "mobile") {
+  console.log('mobile')
+} else if (device.type === "pad") {
+  console.log('pad')
+} else if (device.type === "pc") {
+  console.log('pc')
+} else {
+  console.log('other')
+}
+</script>
+
+</body>
+</html>

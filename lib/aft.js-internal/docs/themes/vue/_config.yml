@@ -1,0 +1,4 @@
+site_description: "AFT是动画流（Animation Flow）开发工具库（Tools）的缩写，它可以轻松的让一个JS对象或HTML元素动起来，也可以借助时间轴的功能来管理复杂的动画设计。并且通过编写插件，可以同时支持市面上众多的渲染引擎，例如Hilojs、Three.js等"
+root_domain: aft.alibaba-inc.com
+aft_version: 0.3.10
+aft_npm: "@ali/aft.js"

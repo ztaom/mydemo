@@ -1,0 +1,125 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+
+<style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2ca27;
+  font-family: 'Roboto Slab', serif;
+  font-size: 62.5%;
+}
+
+.container {
+  width: 1050px;
+  margin: 50px auto;
+  font-size: 1.2em;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  line-height: 1.8;
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 3em;
+}
+
+.blocks {
+  overflow: hidden;
+  margin-left: -2%;
+  background: #edc10e;
+}
+
+.blocks > * {
+  float: left;
+  margin-left: 2%;
+  padding: 10px;
+}
+.blocks > *:nth-child(even) {
+  background: #e3b90d;
+}
+
+.blocks_4up > * {
+  width: 23%;
+}
+</style></head><body>
+<div class="container">
+  <h1 class="title">Do you know your browsers CSS properties? (I didn't)</h1>
+  <p>These are all the CSS properties that are supported by your browser. I wasn't even aware that many of these existed!</p>
+  <ul class="blocks blocks_4up"></ul>
+</div>
+<script src="jquery.min.1.11.0.js"></script>
+<script>
+var supportedCSS = document.body.style;
+console.log(supportedCSS);
+var i = 0;
+for(prop in supportedCSS) {
+  i++;
+  $('.blocks').append('<li>' + i + ') ' + prop + '</li>')
+}
+</script>
+</body></html>

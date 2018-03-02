@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>Composition Modes</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.clearRect(0,0,can.width,can.height);
+	ctx.save();
+	ctx.fillStyle="aqua";
+	ctx.fillRect(0,0, can.width -50, can.height / 2 + 10);
+	
+	var grad = ctx.createLinearGradient(0,190, 0,10); 
+	grad.addColorStop(0, 'blue');
+	grad.addColorStop(1, 'rgba(0,0,0,0)');
+	ctx.fillStyle=grad;
+	ctx.fillRect(450,0, 30,200);
+		
+	ctx.fillStyle="blue";
+	ctx.font="48 pt Helvetica";
+	ctx.textAlign="center";
+	ctx.textBaseline="middle";
+	ctx.fillText("Destination", can.width / 2, can.height / 2);
+	ctx.fillStyle="red";
+	ctx.textBaseline="top";
+	ctx.font="64 pt Helvetica";
+	var mode=document.getElementById("mode").value;
+	ctx.globalCompositeOperation=mode;
+	ctx.fillText("Source", can.width / 2, can.height / 2 - 30);
+	
+	var grad = ctx.createLinearGradient(0,10, 0,190); 
+	grad.addColorStop(0, 'red');
+	grad.addColorStop(1, 'rgba(0,0,0,0)');
+	ctx.fillStyle=grad;
+	ctx.fillRect(465,0, 30,200);
+	
+	ctx.restore();
+}
+
+
+</script>
+	
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="500">
+</canvas>
+<br>
+<select id="mode" onchange="init()" style="font:18 pt Helvetica">
+  <option value="source-over">source-over</option>
+  <option value="source-atop">source-atop</option>
+  <option value="source-in">source-in</option>
+  <option value="source-out">source-out</option>
+  <option value="destination-over">destination-over</option>
+  <option value="destination-atop">destination-atop</option>
+  <option value="destination-in">destination-in</option>
+  <option value="destination-out">destination-out</option>
+  <option value="lighter">lighter</option>
+  <option value="copy">copy</option>
+  <option value="xor">xor</option>
+</select>
+
+
+
+</body>
+</html>

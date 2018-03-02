@@ -1,0 +1,723 @@
+ <div class="entry-title">
+  <h1>ZUI规范指南——HTML5属性</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>HTML5属性</h3></div>
+  <h5 class="fw-b mb-10">HTML 5 （详细介绍可查看<a href="http://www.w3school.com.cn/html5/index.asp">http://www.w3school.com.cn/html5/index.asp</a>）</h5>
+  <p>通过制定如何处理所有 HTML 元素以及如何从错误中恢复的精确规则，HTML 5 改进了互操作性，并减少了开发成本。</p>
+  <p>HTML 5 中的新特性包括了嵌入音频、视频和图形的功能，客户端数据存储，以及交互式文档。</p>
+  <p>HTML 5 还包含了新的元素，比如：&lt;nav&gt;, &lt;header&gt;, &lt;footer&gt; 以及 &lt;figure&gt; 等等。</p>
+  <p>HTML 5 工作组包括：AOL, Apple, Google, IBM, Microsoft, Mozilla, Nokia, Opera, 以及数百个其他的供应商。</p>
+  <p>注释：HTML 5 还没有成为 W3C 正式的推荐标准。</p>
+  <h5 class="fw-b mb-10 mt-10">HTML 标签（按字母顺序排列的标签列表）</h5>
+  <ul class="pl-10">
+    <li><em>4</em>: 指示在 HTML 4.01 中定义了该元素</li>
+    <li><em>5</em>: 指示在 HTML 5 中定义了该元素</li>
+  </ul>
+  <div class="bl-solid p-10 mt-10">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <th>标签</th>
+        <th>描述</th>
+        <th>4</th>
+        <th>5</th>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_comment.asp">&lt;!--...--&gt;</a></td>
+        <td>定义注释。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_doctype.asp">&lt;!DOCTYPE&gt;</a> </td>
+        <td>定义文档类型。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_a.asp">&lt;a&gt;</a></td>
+        <td>定义超链接。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_abbr.asp">&lt;abbr&gt;</a></td>
+        <td>定义缩写。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_acronym.asp">&lt;acronym&gt;</a></td>
+        <td>HTML 5 中不支持。定义首字母缩写。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_address.asp">&lt;address&gt;</a></td>
+        <td>定义地址元素。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_applet.asp">&lt;applet&gt;</a></td>
+        <td>HTML 5 中不支持。定义 applet。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_area.asp">&lt;area&gt;</a></td>
+        <td>定义图像映射中的区域。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_article.asp">&lt;article&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 article。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_aside.asp">&lt;aside&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义页面内容之外的内容。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_audio.asp">&lt;audio&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义声音内容。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_b.asp">&lt;b&gt;</a></td>
+        <td>定义粗体文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_base.asp">&lt;base&gt;</a></td>
+        <td>定义页面中所有链接的基准 URL。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_basefont.asp">&lt;basefont&gt;</a></td>
+        <td>HTML 5 中不支持。请使用 CSS 代替。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_bdo.asp">&lt;bdo&gt;</a></td>
+        <td>定义文本显示的方向。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_big.asp">&lt;big&gt;</a></td>
+        <td>HTML 5 中不支持。定义大号文本。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_blockquote.asp">&lt;blockquote&gt;</a></td>
+        <td>定义长的引用。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_body.asp">&lt;body&gt;</a></td>
+        <td>定义 body 元素。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_br.asp">&lt;br&gt;</a></td>
+        <td>插入换行符。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_button.asp">&lt;button&gt;</a></td>
+        <td>定义按钮。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_canvas.asp">&lt;canvas&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义图形。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_caption.asp">&lt;caption&gt;</a></td>
+        <td>定义表格标题。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_center.asp">&lt;center&gt;</a></td>
+        <td>HTML 5 中不支持。定义居中的文本。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;cite&gt;</a></td>
+        <td>定义引用。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;code&gt;</a></td>
+        <td>定义计算机代码文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_col.asp">&lt;col&gt;</a></td>
+        <td>定义表格列的属性。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_colgroup.asp">&lt;colgroup&gt;</a></td>
+        <td>定义表格列的分组。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_command.asp">&lt;command&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义命令按钮。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_datalist.asp">&lt;datalist&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义下拉列表。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_dd.asp">&lt;dd&gt;</a></td>
+        <td>定义定义的描述。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_del.asp">&lt;del&gt;</a></td>
+        <td>定义删除文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_details.asp">&lt;details&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义元素的细节。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;dfn&gt;</a></td>
+        <td>定义定义项目。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_dir.asp">&lt;dir&gt;</a></td>
+        <td>HTML 5 中不支持。定义目录列表。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_div.asp">&lt;div&gt;</a></td>
+        <td>定义文档中的一个部分。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_dl.asp">&lt;dl&gt;</a></td>
+        <td>定义定义列表。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_dt.asp">&lt;dt&gt;</a></td>
+        <td>定义定义的项目。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;em&gt;</a></td>
+        <td>定义强调文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_embed.asp">&lt;embed&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义外部交互内容或插件。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_fieldset.asp">&lt;fieldset&gt;</a></td>
+        <td>定义 fieldset。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_figcaption.asp">&lt;figcaption&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 figure 元素的标题。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_figure.asp">&lt;figure&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义媒介内容的分组，以及它们的标题。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_font.asp">&lt;font&gt;</a></td>
+        <td>HTML 5 中不支持。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_footer.asp">&lt;footer&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 section 或 page 的页脚。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_form.asp">&lt;form&gt;</a></td>
+        <td>定义表单。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_frame.asp">&lt;frame&gt;</a></td>
+        <td>HTML 5 中不支持。定义子窗口（框架）。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_frameset.asp">&lt;frameset&gt;</a></td>
+        <td>HTML 5 中不支持。定义框架的集。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_hn.asp">&lt;h1&gt; to &lt;h6&gt;</a></td>
+        <td>定义标题 1 到标题 6。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_head.asp">&lt;head&gt;</a></td>
+        <td>定义关于文档的信息。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_header.asp">&lt;header&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 section 或 page 的页眉。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_hgroup.asp">&lt;hgroup&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义有关文档中的 section 的信息。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_hr.asp">&lt;hr&gt;</a></td>
+        <td>定义水平线。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_html.asp">&lt;html&gt;</a></td>
+        <td>定义 html 文档。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_i.asp">&lt;i&gt;</a></td>
+        <td>定义斜体文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_iframe.asp">&lt;iframe&gt;</a></td>
+        <td>定义行内的子窗口（框架）。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_img.asp">&lt;img&gt;</a></td>
+        <td>定义图像。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_input.asp">&lt;input&gt;</a></td>
+        <td>定义输入域。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_ins.asp">&lt;ins&gt;</a></td>
+        <td>定义插入文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_keygen.asp">&lt;keygen&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义生成密钥。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>&lt;isindex&gt;</td>
+        <td>HTML 5 中不支持。定义单行的输入域。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;kbd&gt;</a></td>
+        <td>定义键盘文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_label.asp">&lt;label&gt;</a></td>
+        <td>定义表单控件的标注。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_legend.asp">&lt;legend&gt;</a></td>
+        <td>定义 fieldset 中的标题。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_li.asp">&lt;li&gt;</a></td>
+        <td>定义列表的项目。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_link.asp">&lt;link&gt;</a></td>
+        <td>定义资源引用。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_map.asp">&lt;map&gt;</a></td>
+        <td>定义图像映射。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_mark.asp">&lt;mark&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义有记号的文本。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_menu.asp">&lt;menu&gt;</a></td>
+        <td>定义菜单列表。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_meta.asp">&lt;meta&gt;</a></td>
+        <td>定义元信息。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_meter.asp">&lt;meter&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义预定义范围内的度量。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_nav.asp">&lt;nav&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义导航链接。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_noframes.asp">&lt;noframes&gt;</a></td>
+        <td>HTML 5 中不支持。定义 noframe 部分。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_noscript.asp">&lt;noscript&gt;</a></td>
+        <td>定义 noscript 部分。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_object.asp">&lt;object&gt;</a></td>
+        <td>定义嵌入对象。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_ol.asp">&lt;ol&gt;</a></td>
+        <td>定义有序列表。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_optgroup.asp">&lt;optgroup&gt;</a></td>
+        <td>定义选项组。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_option.asp">&lt;option&gt;</a></td>
+        <td>定义下拉列表中的选项。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_output.asp">&lt;output&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义输出的一些类型。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_p.asp">&lt;p&gt;</a></td>
+        <td>定义段落。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_param.asp">&lt;param&gt;</a></td>
+        <td>为对象定义参数。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_pre.asp">&lt;pre&gt;</a></td>
+        <td>定义预格式化文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_progress.asp">&lt;progress&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义任何类型的任务的进度。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_q.asp">&lt;q&gt;</a></td>
+        <td>定义短的引用。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_rp.asp">&lt;rp&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义若浏览器不支持 ruby 元素显示的内容。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_rt.asp">&lt;rt&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 ruby 注释的解释。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_ruby.asp">&lt;ruby&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 ruby 注释。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_s.asp">&lt;s&gt;</a></td>
+        <td>HTML 5 中不支持。定义加删除线的文本。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;samp&gt;</a></td>
+        <td>定义样本计算机代码。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_script.asp">&lt;script&gt;</a></td>
+        <td>定义脚本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_section.asp">&lt;section&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 section。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_select.asp">&lt;select&gt;</a></td>
+        <td>定义可选列表。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_small.asp">&lt;small&gt;</a></td>
+        <td>定义小号文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_source.asp">&lt;source&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义媒介源。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_span.asp">&lt;span&gt;</a></td>
+        <td>定义文档中的 section。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_strike.asp">&lt;strike&gt;</a></td>
+        <td>HTML 5 中不支持。定义加删除线的文本。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;strong&gt;</a></td>
+        <td>定义强调文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_style.asp">&lt;style&gt;</a></td>
+        <td>定义样式定义。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_sup_sub.asp">&lt;sub&gt;</a></td>
+        <td>定义下标文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_summary.asp">&lt;summary&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义 details 元素的标题。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_sup_sub.asp">&lt;sup&gt;</a></td>
+        <td>定义上标文本。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_table.asp">&lt;table&gt;</a></td>
+        <td>定义表格。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_tbody.asp">&lt;tbody&gt;</a></td>
+        <td>定义表格的主体。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_td.asp">&lt;td&gt;</a></td>
+        <td>定义表格单元。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_textarea.asp">&lt;textarea&gt;</a></td>
+        <td>定义 textarea。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_tfoot.asp">&lt;tfoot&gt;</a></td>
+        <td>定义表格的脚注。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_th.asp">&lt;th&gt;</a></td>
+        <td>定义表头。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_thead.asp">&lt;thead&gt;</a></td>
+        <td>定义表头。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_time.asp">&lt;time&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义日期/时间。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_title.asp">&lt;title&gt;</a></td>
+        <td>定义文档的标题。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_tr.asp">&lt;tr&gt;</a></td>
+        <td>定义表格行。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_tt.asp">&lt;tt&gt;</a></td>
+        <td>HTML 5 中不支持。定义打字机文本。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_u.asp">&lt;u&gt;</a></td>
+        <td>HTML 5 中不支持。定义下划线文本。</td>
+        <td>4</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_ul.asp">&lt;ul&gt;</a></td>
+        <td>定义无序列表。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_phrase_elements.asp">&lt;var&gt;</a></td>
+        <td>定义变量。</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3school.com.cn/html5/html5_video.asp">&lt;video&gt;</a><span class="red pl-10">new</span></td>
+        <td>定义视频。</td>
+        <td> </td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>&lt;xmp&gt;</td>
+        <td>HTML 5 中不支持。定义预格式文本。</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

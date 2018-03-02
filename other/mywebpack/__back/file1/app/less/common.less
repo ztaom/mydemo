@@ -1,0 +1,326 @@
+/* by xuerong */
+
+/* reset 重设浏览器的默认样式 */
+/*-webkit-text-size-adjust禁止文本缩放*/
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%; background: #000;}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, img, ol, ul, li, form, label,i, article,aside,footer,header,nav,section,menu{ margin:0; padding:0; border:0; outline:0; vertical-align:baseline; font-family:inherit; font-weight:inherit; font-style:normal; }
+img { border:0; }
+li { list-style:none; }
+a img { border: none; }
+em{font-style:normal; font-weight: bold;}
+
+/* html5初始化 */
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+
+/* variable */
+@images: "../img"; /* @{images} URLs*/
+@color:#333;
+@colorhover:red;
+
+
+body {font-family:"Microsoft YaHei", Arial, Helvetica, Tahoma; color:@color; font-size:14px;}
+
+/* 常用基础样式 */
+a:link, a:visited, a:active { text-decoration:none; color: @color;}
+a:hover { color:@colorhover; text-decoration:none;outline-width: 0;}
+
+/* 清楚浮动 */
+.clearfix{
+	display: block;
+	&:after {clear:both; display:block; visibility:hidden; overflow:hidden; height:0!important; line-height:0; content:".";}
+	*html & { height: 1%}
+}
+.clearfac { overflow: hidden; zoom: 1; }
+.clear { clear:both; }
+
+.masker{background:rgba(0,0,0,0.7); position: fixed; bottom:0px; top:0px; left: 0px; width: 100%; z-index: 999;text-align: center;}
+
+
+
+/*webkit表单元素的默认外观怎么重置*/
+.formappearance(){-webkit-appearance: none; outline: none}
+
+.bradius(@topleft; @topright; @botleft; @botright){
+	-webkit-border-radius:@arguments;
+	-moz-border-radius:@arguments;
+	border-radius:@arguments;
+}
+
+.txtwrap(){
+	text-wrap: wrap;
+	white-space: -moz-pre-wrap;
+	white-space:pre-wrap;
+	word-wrap:break-word;
+}
+
+.bshadow (@x:0; @y:0; @blur:1px; @color:rgba(0,0,0,0.5)){
+	-webkit-box-shadow:@arguments;
+	-moz-box-shadow:@arguments;
+	box-shadow: @arguments;
+}
+
+
+.btn{
+	display: inline-block;
+	&_gray{};
+	&_normal{};
+}
+
+
+
+
+.colorlink(){/*加（）后不会输出*/
+	color: red
+}
+
+.fl(){
+	float: left;
+}
+.thing0{.fl}/*  outputs:.div{float:left;};  */
+
+
+.fr{
+	float: right;
+}
+.thing1{/* .outputs:.fr,.thing1{float:right;};  */
+	&:extend(.fr);
+}
+
+
+.a,#b{color: red}
+.thing2{.a()!important}
+.thing3{#b()}
+
+
+/* 基准为phone6 750×1334 rem = px / 基准值*/
+.px2rem(@name, @px){ 
+    @{name}: @px / 75 * 1rem; 
+}
+
+/* 控制任何屏幕下字体打下一样 */
+.px2px(@name, @px){ 
+    @{name}: round(@px / 2) * 1px; 
+    [data-dpr="2"] & { 
+        @{name}: @px * 1px; 
+    } 
+    /*for mx3*/ 
+    [data-dpr="2.5"] & { 
+        @{name}: round(@px * 2.5 / 2) * 1px; 
+    } 
+    /*for 小米note */ 
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 / 2) * 1px; 
+    } 
+    [data-dpr="3"] & {
+        @{name}: round(@px / 2 * 3) * 1px 
+    } 
+    /*for 三星note4 */ 
+    [data-dpr="4"] & { 
+        @{name}: @px * 2px; 
+    } 
+}
+
+/* */
+
+.box{.px2rem(width, 100); .px2px(font-size, 32); .px2rem(width, 600); .px2rem(height, 800); background:data-uri('@{images}/test.png');}
+
+@n_color:#e8e8e8;
+.hdlh(){
+	height:49px;
+	line-height: 49px;
+}
+
+#header{
+	background: #fff;
+	border-bottom:1px solid @n_color;
+	position: fixed;
+	top:0px;
+	left: 230px;
+	width: 100%;
+	z-index: 1;
+	.hdlh();
+	#nav{}
+}
+
+
+
+
+#aside{
+	@width:208px;
+	@pl:22px;
+	border-right:1px solid @n_color;
+	width: 230px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	overflow: hidden;
+	position: fixed;
+	left: 0px;
+	top:0; 
+	background: #fff;
+	z-index: 99999;
+	bottom:0px;
+	.inner{
+		padding:15px;
+		h3{
+			font-size:16px;
+			font-weight: bold;
+			border-bottom:1px solid @n_color;
+			padding-bottom: 8px; 
+			margin-bottom: 8px;
+		}
+	}
+	
+	h2{ 
+		font-size:26px; 
+		font-weight: bold;
+		color: #777;
+		background: #fff;
+		width: @width;
+		padding-left: @pl;
+		position: relative;
+		z-index: 1;
+		opacity: 1;
+		transition:opacity 1s;
+		border-bottom:1px solid @n_color;
+		.hdlh();
+		&:hover{
+			opacity:0;
+			transition:opacity 1s;
+		}
+	}
+
+	p.forme{
+		width: @width;
+		padding-left: @pl;
+		font-size: 18px; 
+		position: absolute;
+		background: #fff;
+		border-bottom:1px solid @n_color;
+		.hdlh();
+		top:0px;
+		left: 0px;
+		z-index: 0;
+	}
+	.sdbox{
+		line-height: 1.8;
+		font-size: 12px;
+		margin-bottom: 20px; 
+	}
+}
+
+#main{
+	padding-left:230px;
+	position: relative;
+	#menu{
+		height: 40px;
+		border-bottom:1px solid #e8e8e8;
+		background: #fff;
+		position: fixed; 
+		top:50px;
+		left: 0;
+		right:0px;
+		padding-left: 230px;
+		z-index: 10;
+		text-align: center;
+		line-height: 40px;
+		a{margin: 0px 10px;}
+	}
+
+	#content{
+		padding:15px;
+		position: relative;
+		min-height: 1000px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 部分android系统中元素被点击时产生的边框怎么去掉
+a,button,input,textarea{
+    -webkit-tap-highlight-color: rgba(0,0,0,0;)
+    -webkit-user-modify:read-write-plaintext-only; 
+}
+
+ webkit表单输入框placeholder的颜色值能改变么
+input::-webkit-input-placeholder{color:#AAAAAA;}
+input:focus::-webkit-input-placeholder{color:#EEEEEE;}
+
+移动端禁止选中内容
+-webkit-user-select: none;
+-moz-user-select: none; 
+-ms-user-select: none; 
+
+//竖屏时使用的样式
+@media all and (orientation:portrait) {
+    ...
+}
+
+//横屏时使用的样式
+@media all and (orientation:landscape) {
+    ...
+}
+
+手机拍照和上传图片
+<!-- 选择照片 -->
+<input type=file accept="image/*">
+<!-- 选择视频 -->
+<input type=file accept="video/*">
+
+设计高性能CSS3动画的几个要素
+尽可能地使用合成属性transform和opacity来设计CSS3动画，
+不使用position的left和top来定位
+利用translate3D开启GPU加速
+.css {
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
+ */

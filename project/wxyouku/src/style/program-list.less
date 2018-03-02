@@ -1,0 +1,126 @@
+// 选集
+.program-layer {
+  margin: 40rpx 0;
+  position: relative;
+  overflow: hidden;
+
+  .program-title {
+    margin-left: 18rpx;
+    height:36rpx;
+  }
+  // 剧集
+  .program-tv {
+    overflow: auto;
+    margin: 40rpx 18rpx 0 18rpx;
+    width:714rpx;
+    box-sizing: border-box;
+  }
+  .program-item-tv {
+    display: inline-block;
+    width: 104rpx;
+    height: 104rpx;
+    margin: 0 18rpx 0 0;
+    line-height: 96rpx;
+    position: relative;
+    background-color: #F5F5F5;
+    border-radius: 8rpx;
+  }
+  .item-tv-title {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+  }
+  .item-tv-title.active {
+    color:#2692ff;
+  }
+
+  // 电影
+  .program-movie {
+    position: relative;
+    overflow: auto;
+    width:100%;
+    box-sizing: border-box;
+    margin: 40rpx 0 0 0;
+  }
+  .program-item-movie {
+    display: inline-block;
+    width: 264rpx;
+    margin-right: 6rpx;
+    position: relative;
+  }
+  .program-movie-image {
+    width: 100%;
+    height: 148rpx;
+  }
+  .program-movie .waist{
+    color: #333;
+    margin: 10rpx 18rpx 0 18rpx;
+  }
+
+  .program-movie .waist.active{
+    color: #2692ff;
+  }
+  .item-movie-title {
+    font-size: 28rpx;
+    line-height: 34rpx;
+    height: 70rpx;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+  .v-num {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    padding-left: 12rpx;
+    color: #999;
+  }
+  .program-movie .waist.active .v-num {
+    color:#89C4FF;
+  }
+  .program-movie .waist.active .yuan{
+    border: 2rpx solid #89C4FF;
+  }
+  .item-movie-playicon{
+    width:23rpx;
+    height:23rpx;
+    vertical-align:middle;
+  }
+  .yuan{
+    width: 20rpx;
+    height: 20rpx;
+    border: 2rpx solid #999;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align:middle;
+  }
+
+  .iconEn{
+    color:#fff;
+    position: absolute;
+    top:0;
+    right:0;
+    display: inline-block;
+    width:32rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    text-align: center;
+    font-size:18rpx;
+  }
+  .newIconEn{
+      background: #f82a19;
+  }
+  .payIconEn{
+    background:#ff9313;
+    font-size: 16rpx;
+  }
+  .trailerIconEn{
+    background: #3692ff;
+  }
+}

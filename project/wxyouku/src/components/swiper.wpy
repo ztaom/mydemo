@@ -1,0 +1,85 @@
+<style lang="less">
+.swiper{
+  position:relative; height:350rpx;
+  .swiperitem{
+    .slide-image{display:block; width:100%;}
+  }
+  .swipertitle{text-align:center; font-size:32rpx; color:#fff; width:100%; display:block; position:absolute; bottom:50rpx; left:0; z-index:2}
+}
+.gradientbg{background: linear-gradient(-180deg, rgba(0,0,0,0.2) 14%, rgba(0,0,0,0.5) 99%); height:90rpx; width:100%; position:absolute; bottom:0; z-index:1}
+</style>
+<template>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" class="swiper">
+    <repeat for="{{swiperList}}" item="item" index="index">
+      <swiper-item>
+        <view class="swiperitem" @tap="jumpToPlay('{{item.action.extra.value}}', '{{item.title}}', '{{item.img}}', '{{item.action.type}}', '{{item.action.extra.videoId}}')" hidden="{{ hideItem }}">
+          <image src="{{item.img}}" class="slide-image" mode="widthFix"/>
+          <text class="swipertitle">{{item.title}}</text>
+          <view class="gradientbg"></view>
+        </view>
+      </swiper-item>
+    </repeat>
+  </swiper>
+</template>
+<script>
+  import wepy from 'wepy'
+  import mixin from '../mixins'
+  export default class swiper extends wepy.component {
+    props = {
+      getSwiperList: {
+        type: Object,
+        default: null,
+        twoWay: true
+      }
+    }
+
+    mixins = [mixin]
+
+    data = {
+      indicatorDots: true,
+      autoplay: false,
+      interval: 5000,
+      duration: 1000,
+      indicatorColor: `rgba(255, 255, 255, 0.14)`,
+      indicatorActiveColor: `rgba(255, 255, 255, 0.8)`,
+      swiperList: null,
+      setTitle: null,
+      hideItem: false
+    }
+
+    methods = {
+      jumpToPlay(...args) {
+        let vid = args[0]
+        let title = args[1]
+        let img = args[2]
+        if (args[3] === 'JUMP_TO_PLAY_LIST') {
+          vid = args[4]
+        }
+        wepy.navigateTo({
+          url: `../../play/play?videoId=${vid}&title=${title}&image=${img}`
+        })
+      }
+    }
+    _filter(newValue) {
+      let _newList = [];
+      for (let key in newValue) {
+        // console.log(newValue[key])
+        if (newValue[key].action.type !== 'JUMP_TO_URL') {
+          _newList.push(newValue[key]);
+        }
+      }
+      return _newList;
+    }
+    watch = {
+      getSwiperList (newValue, oldValue) {
+        let afterFilterValue = this._filter(newValue)
+        this.swiperList = afterFilterValue
+        this.$apply()
+      }
+    }
+
+    onLoad () {
+      // console.log(this.escape2Html('&lt;谈判官&gt;黄子韬对杨幂动情 死缠烂打阻挠约会'))
+    }
+  }
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title>ZUI——前端开发源码库</title>
+<link rel="icon" href="../../img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="../../css/common.css" />
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+
+<style>
+.ext-item { position: relative; width: 240px; overflow: hidden; border: 1px solid #ccc; }
+.ext-item { height: 200px; }
+.ext-item a { text-decoration: none; color: #000; }
+.ext-item-billboard,
+.ext-item-detail { padding: 10px; height: 180px; }
+.ext-item-billboard { margin-top: 0; background: #fff; }
+.ext-item-billboard h3 { font-size: 13px; font-weight: bold; color: #262626; font-family: "Open Sans", arial, sans-serif; }
+.ext-item-detail { background: #ececec; }
+.ext-item-billboard { margin-top: 0; background: #fff; /* add animations! */
+-webkit-transition-property: margin-top;  -webkit-transition-duration: .5s;
+-moz-transition-property: margin-top;  -moz-transition-duration: .5s;
+-o-transition-property: margin-top;  -o-transition-duration: .5s;
+-ms-transition-property: margin-top;  -ms-transition-duration: .5s;
+}
+/* animate on hover */
+.ext-itemCss:hover .ext-item-billboard { margin-top: -200px; }
+</style>
+</head>
+<body>
+<div id="subcont">
+<h1 class="bl_solid_bottom mb_10 f_18 pb_5">Extension Effect</h1>
+<div class="ext-item"> <a href="" class="ext-itemCss">
+  <div class="ext-item-billboard">
+    <img src="../../img/abirds.jpg" />
+    <h3>Angry Birds</h3>
+  </div>
+  <div class="ext-item-detail">
+    <p>There's more detail about the item inside this DIV!</p>
+  </div>
+  </a>
+</div>
+<textarea class="code" style="height:680px;" readonly="true">
+$(function(){
+sdsd
+})
+.ext-item { position: relative; width: 240px; overflow: hidden; border: 1px solid #ccc; }
+.ext-item { height: 200px; }
+.ext-item a { text-decoration: none; color: #000; }
+.ext-item-billboard,
+.ext-item-detail { padding: 10px; height: 180px; }
+.ext-item-billboard { margin-top: 0; background: #fff; }
+.ext-item-billboard h3 { font-size: 13px; font-weight: bold; color: #262626; font-family: "Open Sans", arial, sans-serif; }
+.ext-item-detail { background: #ececec; }
+.ext-item-billboard { margin-top: 0; background: #fff; /* add animations! */
+-webkit-transition-property: margin-top;  -webkit-transition-duration: .5s;
+-moz-transition-property: margin-top;  -moz-transition-duration: .5s;
+-o-transition-property: margin-top;  -o-transition-duration: .5s;
+-ms-transition-property: margin-top;  -ms-transition-duration: .5s;
+}
+/* animate on hover */
+.ext-itemCss:hover .ext-item-billboard { margin-top: -200px; }
+
+<div class="ext-item">
+  <a href="/angry-birds" class="ext-itemCss">
+    <div class="ext-item-billboard">
+      <img src="img/abirds.jpg" />
+      <h3>Angry Birds</h3>
+    </div>
+    <div class="ext-item-detail">
+      <p>There's more detail about the item inside this DIV!</p>
+    </div>
+  </a>
+</div>
+</textarea>
+</div>
+<script type="text/javascript" src="../../js/cont.js"></script>
+
+</body>
+</html>

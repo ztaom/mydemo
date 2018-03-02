@@ -1,0 +1,83 @@
+{
+  "name": "starry",
+  "productName": "STARRY",
+  "version": "0.0.1",
+  "description": "hudong develop tools collection",
+  "private": true,
+  "main": "app/main.js",
+  "scripts": {
+    "compile": "webpack --config webpack.config.js",
+    "watch": "npm run compile -- --watch",
+    "app": "electron ./app/main.js --debug",
+    "test": "mocha && standard",
+    "pack": "electron-builder"
+  },
+  "build": {
+    "appId": "com.electron.hudong.starry",
+    "copyright": "Copyright © year ${author}",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "publish": null
+  },
+  "repository": "https://github.com/electron/electron-api-demos",
+  "keywords": [
+    "Electron",
+    "API",
+    "demo"
+  ],
+  "author": "Starry Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "8.5.2",
+    "@types/webpack": "^3.0.7",
+    "awesome-typescript-loader": "^3.2.3",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^6.0.0",
+    "check-for-leaks": "^1.2.0",
+    "css-loader": "0.23.0",
+    "custom-tslint-formatters": "^2.1.1",
+    "devtron": "^1.3.0",
+    "electron": "^1.7.9",
+    "electron-builder": "^19.50.0",
+    "electron-winstaller": "^2.2.0",
+    "husky": "^0.14.3",
+    "mocha": "^3.1.0",
+    "node-sass": "4.3.0",
+    "npm-run-all": "^4.0.2",
+    "request": "^2.70.0",
+    "rimraf": "^2.5.2",
+    "sass-loader": "4.1.1",
+    "signcode": "^0.5.0",
+    "spectron": "~3.6.0",
+    "standard": "^8.2.0",
+    "style-loader": "0.13.0",
+    "tslint": "^5.6.0",
+    "tslint-loader": "^3.5.3",
+    "tslint-microsoft-contrib": "^5.0.1",
+    "typescript": "^2.6.2",
+    "webpack": "^3.5.2"
+  },
+  "dependencies": {
+    "@types/fs-promise": "^1.0.3",
+    "babel-polyfill": "~6.13.0",
+    "electron-settings": "^3.0.7",
+    "electron-shortcut-normalizer": "^1.0.0",
+    "glob": "^7.1.0",
+    "highlight.js": "^9.3.0",
+    "ts-node": "^4.0.2"
+  },
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  }
+}

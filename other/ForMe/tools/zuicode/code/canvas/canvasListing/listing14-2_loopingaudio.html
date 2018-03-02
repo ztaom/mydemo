@@ -1,0 +1,129 @@
+<html>
+<head>
+	<title>Happy Holidays</title>
+	<!-- Fill the iOS screen /-->
+	<meta name="viewport" content="width=600" />
+	
+<style>
+
+canvas {
+	position:absolute; top:10; left:10;
+	border-radius: 25;
+}
+
+audio {
+	position:absolute; top:307; left:160;
+}	
+
+</style>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var flake ;
+var x = [];
+var y = [];
+var xIncr = [];
+var yIncr = [];
+var rot = 0;
+var grad;
+var rainbow;
+var audio;
+
+function init() {
+	flake = document.getElementById("flake");
+	audio = document.getElementById("audio");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+		// create blue background gradient
+	grad = ctx.createLinearGradient(0,can.height, 0,0);
+	grad.addColorStop(0, 'rgb(20,20,128)');
+	grad.addColorStop(1, 'rgb(140,140,255)');
+		// create rainbow gradient for letters
+	rainbow = ctx.createLinearGradient(20,0, can.width - 20,0); 
+	rainbow.addColorStop(0, 'red');
+	rainbow.addColorStop(1 / 6, 'orange');
+	rainbow.addColorStop(2 / 6, 'yellow');
+	rainbow.addColorStop(3 / 6, 'green');
+	rainbow.addColorStop(4 / 6, 'aqua');
+	rainbow.addColorStop(5 / 6, 'blue');
+	rainbow.addColorStop(6 / 6, 'purple');
+		// set font properties
+	ctx.font="140 pt Papyrus bold italic";
+	ctx.textAlign="center";
+	ctx.textBaseline = "bottom";
+		// create snowflakes above screen
+		// drifting slowly down and randomly left or right
+	for (i=1;i<=16;i++) {
+		x[i] = Math.random() * can.width;
+		y[i] = Math.random() * can.height / -2;
+		yIncr[i] = Math.max(Math.random() * .4, 0.15);
+		xIncr[i] = Math.random() * 0.3 - 0.15;
+	}
+		// add listener function to loop on end
+	audio.addEventListener("ended", loop, false);
+		// set animation on perpetual loop
+	setInterval("animate()", 30);
+}
+
+function loop() {
+	audio.play();
+}
+
+function animate() {
+	model();
+	draw();
+}
+
+function model() {
+		// increment flakes x and y coords
+	for (i=1;i<=16;i++) {
+		y[i] = y[i] + yIncr[i];
+		x[i] = x[i] + xIncr[i];
+		// if off bottom, give new x coord and start above top
+		if (y[i] > can.height + 45) {
+			y[i] = -45;
+			x[i] = Math.random() * can.width;
+		yIncr[i] = Math.max(Math.random() * .4, 0.15);
+		}
+	}
+}
+
+function draw() {
+		// draw background
+	ctx.fillStyle = grad;
+	ctx.fillRect(0,0,can.width,can.height);
+		// rotate flakes as they fall
+	rot=rot + 0.005;
+		// draw flakes offset so they rotate around center
+	for (i=1;i<=16;i++) {
+		ctx.save();
+		ctx.translate(x[i],y[i]);
+		ctx.rotate(rot);
+		ctx.drawImage(flake, -37, -43);
+		ctx.restore();
+	}
+		// draw word with black and white borders for depth
+	ctx.fillStyle = 'black';
+	ctx.fillText("Peace", can.width / 2 -2, can.height + 2);
+	ctx.fillStyle = 'white';
+	ctx.fillText("Peace", can.width / 2 + 2, can.height - 2);
+	ctx.fillStyle = rainbow;
+	ctx.fillText("Peace", can.width / 2, can.height );
+}	
+
+</script>
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="300" width="500">
+</canvas>
+<br>
+<audio src="assets/peace.mp4" controls id="audio">
+</audio>
+<img id="flake" src="assets/flake.png" style="display:none">
+
+</body>
+</html>

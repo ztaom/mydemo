@@ -1,0 +1,48 @@
+ <div class="entry-title">
+  <h1>ZUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title">
+    <h3>输入区限制字数<span class="feature">(charcount)</span></h3>
+  </div>
+  <textarea cols="90" rows="4" name="user.resume" id="resume" tabindex="6" class="charcount"></textarea>
+  <div class="hidden" id="ajaxResponse"></div>
+  <div class="loadingbar hidden" id="loadingbar">&nbsp;</div>
+  <script src="js/charcount.js"></script> 
+  <script>$(function() {$(".charcount").maxlength({maxCharacters:180, slider: false});});</script> 
+  <script>
+$(function(){
+	var ajaxFormOpts = {clearForm:false, target:'#ajaxResponse', success: function(){$('#ajaxResponse').modal();}};
+	$('form.ajaxForm').submit(function(){
+		$("#loadingbar").show();
+		if($(this).valid()){ $(this).ajaxSubmit(ajaxFormOpts);}	
+		$('#ajaxResponse').hide();$("#loadingbar").hide();
+		return false;
+	});
+
+});
+</script>
+  <pre class="brush:c-sharp;">
+&lt;textarea cols="90" rows="4" name="user.resume" id="resume" tabindex="6" class="charcount"&gt;&lt;/textarea&gt;
+<div class="hidden" id="ajaxResponse"></div>
+<div class="loadingbar hidden" id="loadingbar">&nbsp;</div>
+&lt;script src="js/charcount.js"&gt;&lt;/script&gt;
+&lt;script&gt;$(function() {$(".charcount").maxlength({maxCharacters:180, slider: false});});&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+	var ajaxFormOpts = {clearForm:false, target:'#ajaxResponse', success: function(){$('#ajaxResponse').modal();}};
+	$('form.ajaxForm').submit(function(){
+		$("#loadingbar").show();
+		if($(this).valid()){ $(this).ajaxSubmit(ajaxFormOpts);}	
+		$('#ajaxResponse').hide();$("#loadingbar").hide();
+		return false;
+	});
+
+});
+&lt;/script&gt;
+  </pre>
+</div>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script>

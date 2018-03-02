@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>alu测试</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<script data-mt-inline src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js,lib-windvane/2.1.8/windvane.js"></script>
+</head>
+<body>
+  <div>123</div>
+<script>
+var substr = 'vivo';
+var userAgent = navigator.userAgent;
+var androidVersion = userAgent.indexOf("Android 5.1");
+console.log(userAgent)
+window.WindVane.call('WVNativeDetector', 'getModelInfo', {}, function(e){
+  if (e.platform) {
+      alert(e.platform.toLocaleLowerCase())
+      if(new RegExp(substr).test(e.platform.toLocaleLowerCase()) && androidVersion > 0) {
+        window.WindVane.call('WVPopLayer', 'close', {});
+      }
+  }
+})
+</script>
+</body>
+</html>

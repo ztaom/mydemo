@@ -1,0 +1,77 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<style>body {
+  text-align:center;
+  font-family:georgia, serif;
+  width:500px;
+  margin:auto;
+  -ms-content-zooming:none;
+}
+
+h1 {
+  font-weight:normal;
+}
+
+.box {
+  display:inline-block;
+  margin:5px;
+}
+
+.caption {
+  font-size:12px;
+}
+
+.content {
+  width:100px;
+  height:100px;
+  background:black;
+}
+
+.selected,
+.hover:hover,
+.active:active { background:green; }</style></head><body>
+<h1>Mouse/Touch Input Test</h1>
+<script src="jquery.min.1.11.0.js"></script>
+<script>// Test boxes
+
+box('click').on('click', toggle);
+box('dblclick').on('dblclick', toggle);
+box(':hover').addClass('hover');
+box(':active').addClass('active');
+box('contextmenu').on('contextmenu', toggle);
+box('mouseenter').on('mouseenter', set).on('mouseleave', reset);
+box('mouseover').on('mouseover', set).on('mouseout', reset);
+box('mousemove').on('mousemove', set).on('mouseout', reset);
+box('mousedown').on('mousedown', set).on('mouseup', reset);
+box('touchstart').on('touchstart', set).on('touchend', reset);
+box('touchmove').on('touchmove', set).on('touchend', reset);
+box('MSPointerDown').on('MSPointerDown', set).on('MSPointerUp', reset);
+box('MSPointerOver').on('MSPointerOver', set).on('MSPointerOut', reset);
+box('MSPointerMove').on('MSPointerMove', set).on('MSPointerOut', reset);
+box('MSPointerHover').on('MSPointerHover', set).on('MSPointerOut', reset);
+
+if (window.navigator.msPointerEnabled) {
+  box('Combined')
+    .on('MSPointerDown', set)
+    .on('MSPointerUp', reset);
+} else {
+  box('Combined')
+    .on('touchstart', function(e) { e.preventDefault(); set(); })
+    .on('touchend', function(e) { e.preventDefault(); reset(); })
+    .on('mousedown', set)
+    .on('mouseup', reset)
+}
+
+// Functions
+
+function set(e) { $(this).addClass('selected'); }
+function reset() { $(this).removeClass('selected'); }
+function toggle() { $(this).toggleClass('selected'); };
+
+function box(caption) {
+  return $('<div class="box"><div class="content"></div><div class="caption">' + caption + '</div></div>').appendTo('body').find('.content');
+}//@ sourceURL=pen.js
+</script>
+</body></html>

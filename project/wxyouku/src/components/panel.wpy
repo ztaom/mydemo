@@ -1,0 +1,15 @@
+<style lang="less">
+.title{font-size:52rpx; line-height: 32rpx; font-weight:700; color:#909090; padding-left:20rpx; margin-top:40rpx; margin-bottom:30rpx; background:url(https://gw.alicdn.com/tfs/TB14wQHXAyWBuNjy0FpXXassXXa-28-28.png) no-repeat 18rpx 8rpx; background-size:28rpx 28rpx; background-position-y: 0rpx; padding-left: 64rpx; color:#000; font-size:32rpx;}
+</style>
+<template>
+  <view class="panel">
+    <slot name="title"></slot>
+    <slot></slot>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Panel extends wepy.component {
+  }
+</script>

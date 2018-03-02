@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Shadow Hardness</title>
+	
+<script type="text/javascript">
+
+
+function init() {
+	var can = document.getElementById("can");
+	var ctx = can.getContext("2d");
+	var w = 50;
+	var h = 50;
+	ctx.fillColor="black";
+	ctx.font="12 pt Helvetica";
+	ctx.fillText("Alpha:     0.9            0.75            0.5            0.25",0,25)
+	ctx.fillText("Blur :        0               1                  5               10",0,45)
+	ctx.font="24 pt Helvetica";
+	ctx.fillText("Shadows can be hard or soft.",0,130)
+	ctx.fillStyle="blue";
+	ctx.shadowOffsetX = 10;
+	ctx.shadowOffsetY = 20;
+	ctx.shadowColor="rgba(128,128,128, .9)";
+	ctx.fillRect (50,50, w,h);
+	ctx.shadowColor="rgba(128,128,128, .75)";
+	ctx.shadowBlur=1;
+	ctx.fillRect (125,50, w,h);
+	ctx.shadowColor="rgba(128,128,128, .5)";
+	ctx.shadowBlur=5;
+	ctx.fillRect (200,50, w,h);
+	ctx.shadowColor="rgba(128,128,128, .25)";
+	ctx.shadowBlur=10;
+	ctx.fillRect (275,50, w,h);
+}
+
+
+</script>	
+	
+</head>
+<body onload="init()">
+<img id="ball" src="soccerball1.png" style="display:none">
+<canvas id="can" height="200" width="500" >
+</canvas>
+</body>
+</html>

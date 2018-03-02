@@ -1,0 +1,617 @@
+@pxtorem: 2*37.5rem;
+.center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+#app{margin: 0 auto; width: 750/@pxtorem; position: relative;}
+.pic{display: block; width: 100%;}
+.showdot{white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden;}
+
+.btn{
+	height: 72/@pxtorem; border-radius:36/@pxtorem; text-align: center; line-height: normal;
+	span{ color: #fff; font-size: 30/@pxtorem; padding-top: 14/@pxtorem; display: inline-block;}
+}
+
+.titlebar{
+    background:#fff; height: 100/@pxtorem; border-bottom:1px solid #aaaaaa; position: relative;
+    h3{color: #000; font-size: 32/@pxtorem; line-height: 100/@pxtorem; padding-left: 22/@pxtorem; font-weight: bold;}
+    .close{width: 36/@pxtorem; height: 36/@pxtorem; background:url(../img/tbclose.png) no-repeat center center; background-size: 30/@pxtorem auto; position: absolute; right: 22/@pxtorem; top:50%; margin-top:-18/@pxtorem;}
+}
+
+/*定义滚动条*/
+.scrollbar{overflow-y: scroll; border-right: 2px solid #a0997a}
+.scrollbar::-webkit-scrollbar {width: 4px;}
+.scrollbar::-webkit-scrollbar-track{background-color: #a0997a;}
+.scrollbar::-webkit-scrollbar-thumb{border-radius: 4px; background-color: #5d5d5d;}
+
+.tag_sort,.tag_rule,.tag_myawards{position: absolute; background:rgba(0,0,0,0.41); border-radius:4/@pxtorem; padding:8/@pxtorem 10/@pxtorem; top:8/@pxtorem; font-size: 24/@pxtorem;}
+.tag_sort{left: 12/@pxtorem;}
+.tag_myawards,.tag_rule{right:12/@pxtorem;}
+.tag_myawards,.tag_sort {
+    img{width: 28/@pxtorem; height: 32/@pxtorem; vertical-align:bottom; margin-right: 6/@pxtorem;}
+}
+
+/*开始游戏*/
+.startgame{
+    position: relative; padding-top: 55/@pxtorem;
+    .slogin{}
+    .sloginwrap{text-align: center;}
+    .prizetips{text-align: center;background:rgba(0,0,0,0.41); border-radius:4/@pxtorem; padding:8/@pxtorem 10/@pxtorem; display: inline-block; margin:6/@pxtorem auto; width: 320/@pxtorem; overflow: hidden; height:50/@pxtorem; box-sizing: border-box;
+        /*中奖播报*/
+        .scrollalt{
+            width:320/@pxtorem; overflow:hidden; position:relative;
+            .scorll_move{white-space:nowrap;overflow:hidden;
+                span{display:inline-block; animation:marquee 300s linear 1s infinite;}
+            }
+            @keyframes marquee{
+                0%{transform:translateX(0);}
+                to{transform:translateX(-100%);}
+            }
+        }
+    }
+    .btnarea{
+        .startbtn{width: 153px; height: 51px; margin:0 auto; background-repeat: no-repeat; background-size: auto 51px; animation:Astartbtn 1s steps(2, end) 0.5s infinite;}
+        @keyframes Astartbtn{
+            0%   {background-position-x: 0;}
+            100% {background-position-x: -306px;}
+        }
+        .cantget{width: 306/@pxtorem; height: 102/@pxtorem; margin:0 auto;}
+    }
+    .gamecoin{text-align: center; margin:10/@pxtorem auto;}
+}
+.boxwrap{
+    position: relative;
+    .boxinner{display: flex; flex-flow: row wrap; align-items:center; justify-content: center;}
+    .tag_rule{top:-58/@pxtorem; right: 26/@pxtorem;}
+    .item{width: 155/@pxtorem; height: 184/@pxtorem; margin:0 15/@pxtorem; background: url(../img/box_bg_1.png) no-repeat; background-size: 151/@pxtorem; font-size:24/@pxtorem; position: relative;
+        .state{text-align: center; height: 34/@pxtorem;}
+        .countdown{
+            width:154/@pxtorem; height: 39/@pxtorem; background:url(../img/count_bg.png) no-repeat; background-size: 152/@pxtorem auto; position: absolute; top:-2/@pxtorem;
+            .timeicon{width: 39/@pxtorem; height: 39/@pxtorem; position: absolute; top:0; left: 0}
+            span{color: #000; padding-left: 30/@pxtorem; padding-top: 2/@pxtorem; display: inline-block;}
+        }
+    }
+    .arrow{display: none;}
+    .canopen{
+        background-image: url(../img/box_bg_2.png);
+        .state{color: #000;}
+    }
+    .box{width: 124/@pxtorem; margin:0 auto; padding-top: 10/@pxtorem;}
+    .blank{
+        background:none;
+        .state{display: none;}
+        .box{width: 151/@pxtorem; padding:0;}
+    }
+
+    .current{
+        z-index: 101;
+        .arrow{width: 65/@pxtorem; height: 48/@pxtorem; background:url(../img/box_arrow.png) no-repeat center 0; background-size: 63/@pxtorem auto; position: absolute; top:-62/@pxtorem; left: 50%; margin-left: -32/@pxtorem; display: block;}
+    }
+    .ob_msk{z-index: 99}
+    .viewbox_pop{
+        position: absolute; top:-412/@pxtorem; z-index: 100; width: 750/@pxtorem; height: 373/@pxtorem; left: 50%; margin-left: -375/@pxtorem;
+        .popbg{background:url(../img/box_bg.png) no-repeat; background-size: 750/@pxtorem auto;}
+        .box{width: 248/@pxtorem; height: 218/@pxtorem; position: absolute; top:-176/@pxtorem; left: 50%; margin-left: -124/@pxtorem; animation: boxBounce 0.6s linear forwards;}
+        .inner{
+            width: 615/@pxtorem; height: 373/@pxtorem; margin:0 auto; position: relative;
+            .boxname{font-size: 46/@pxtorem; font-weight: bold; text-align: center; padding-top: 52/@pxtorem; color: #000}
+            .detail{
+                padding-top: 4/@pxtorem;
+                .hongbao{width: 508/@pxtorem; margin:0 auto;}
+                .countdownwrap{
+                    width: 507/@pxtorem; height: 113/@pxtorem; margin: 0 auto; position: relative;text-align: left; overflow:hidden;
+                    .js_btn{width: 507/@pxtorem; height: 90/@pxtorem; position: absolute; top:50%; margin-top: -45/@pxtorem;}
+                    .countd{
+                        padding:14/@pxtorem;
+                        h3{font-size: 24/@pxtorem; margin-bottom: 8/@pxtorem;}
+                        p{
+                            img{width: 39/@pxtorem; height: 39/@pxtorem; vertical-align: text-bottom; margin-right: 6/@pxtorem;}
+                            span{font-size: 32/@pxtorem; font-weight: bold;}
+                        }
+                    }
+                }
+                .countd{display: none;}
+                .jsing{
+                    background:rgba(20, 46, 17, .5);
+                    .js_btn{display: none;}
+                    .countd{
+                        padding-top: 35/@pxtorem; display: block;
+                        h3{font-size: 32/@pxtorem; margin-bottom: 0; display: inline-block;}
+                        p{
+                            display: inline-block; letter-spacing: 4px;
+                        }
+                        .lightmask{background:url(//gw.alicdn.com/tfs/TB1zP3PfY_I8KJjy1XaXXbsxpXa-115-102.png) no-repeat; background-size: auto 113/@pxtorem; width: 115/@pxtorem; height: 113/@pxtorem; position: absolute; top:0; animation: lightMask 1s linear infinite; opacity: 0.5}
+                    }
+                }
+                .otherjstips{
+                    background:rgba(20, 46, 17, .2); width: 507/@pxtorem; height: 113/@pxtorem; line-height: 113/@pxtorem; margin: 0 auto; font-size: 36/@pxtorem; color: #d50000; text-align: center;
+                }
+            }
+        }
+    }
+}
+
+/*开奖弹窗*/
+.openbox_pop{
+    position: absolute; top:50/@pxtorem;width: 100%; z-index: 99999;
+    .box{width: 354/@pxtorem; height: 350/@pxtorem; margin:0 auto;animation: boxBounce 0.6s linear forwards;}
+    .popbg{}
+    .inner{
+        text-align: center;
+        .text{
+            padding-bottom: 38/@pxtorem;
+            h3{font-size: 48/@pxtorem; font-weight: bold; color: #f75400; margin-bottom: 4/@pxtorem;}
+            .proptips{
+                font-size: 33/@pxtorem; background: #013b4b; letter-spacing: 4px; border-radius:8/@pxtorem; width: 246/@pxtorem; margin:0 auto; padding:2/@pxtorem 0;
+                em{
+                    color: #ffc41d;
+                }
+            }
+            .hongbaotips{
+                color: #ff7200; font-size: 36/@pxtorem;
+                em{color: #ffd800; font-size: 63/@pxtorem;}
+            }
+        }
+        .postkj{
+            font-size: 24/@pxtorem; padding-bottom: 25/@pxtorem;
+            em{}
+        }
+        .confirm{width: 258/@pxtorem; margin:0 auto;}
+    }
+}
+/*游戏*/
+.gamewrap{
+    position: relative; padding-top: 2/@pxtorem;
+    .select_generals{
+        .picbg{}
+        .generals{
+            display: flex; flex-flow: row wrap; align-items:center; justify-content: center; position: relative; position: absolute; top:275/@pxtorem; width: 712/@pxtorem; left:50%; margin-left: -360/@pxtorem;
+            .item{width: 226/@pxtorem; height: 504/@pxtorem;}
+            .item:last-child{margin-left: -6/@pxtorem;}
+            .generalpic{animation: selectGeneral .4s steps(2, end); animation-iteration-count:3; background-repeat: no-repeat; background-size: auto 504/@pxtorem; width: 226/@pxtorem; height: 504/@pxtorem;}
+            .hand{position: absolute; width: 118/@pxtorem; height: 136/@pxtorem; left: 50%; top:50%; margin:48/@pxtorem 0 0 -19/@pxtorem; animation: scaleHand 0.6s linear infinite;}
+            .gmask, .firstmask{position: absolute; z-index: 10; background:rgba(0,0,0,0); position: absolute; top:0; left:0; right: 0; bottom: 0;}
+        }
+    }
+    .playgame{
+        background:url(../img/pkbg.png) no-repeat; background-size: 750/@pxtorem auto; width: 750/@pxtorem; height: 800/@pxtorem; margin-top:6/@pxtorem; position: relative; padding-bottom: 6/@pxtorem;
+        .pkbar{
+            height: 100/@pxtorem; position: relative; z-index: 9;
+            .avatar{width: 94/@pxtorem; height: 86/@pxtorem; position: absolute; z-index: 11;}
+            .countdown{position: absolute; text-align: center; width: 146/@pxtorem; top:58/@pxtorem; left: 50%; margin-left: -73/@pxtorem; font-size: 24/@pxtorem; background:#00a2ff; padding-top: 2/@pxtorem;}
+            .prograssbar{
+                position: absolute; z-index: 10; top:28/@pxtorem; width: 228/@pxtorem;
+                .prograss{
+                    .p_t{height: 9/@pxtorem;}
+                    .p_b{height: 13/@pxtorem;}
+                }
+            }
+        }
+        .leftbar{
+            .avatar{left: 10/@pxtorem; top:7/@pxtorem;}
+            .prograssbar{
+                left: 95/@pxtorem;
+                .prograss{
+                    .p_t{background: #00d2ff}
+                    .p_b{background: #00aeff;}
+                }
+            }
+        }
+        .rightbar{
+            .avatar{right: 10/@pxtorem; top:7/@pxtorem;}
+            .prograssbar{
+                right: 95/@pxtorem;
+                .prograss{
+                    right: 0; position: absolute;
+                    .p_t{background: #ff2d00}
+                    .p_b{background: #ea0000;}
+                }
+            }
+        }
+        .cq{position: absolute; bottom:24/@pxtorem; width: 710/@pxtorem; left: 50%; margin-left: -355/@pxtorem; z-index: 9999;}
+        .roles{width: 210/@pxtorem; height: 300/@pxtorem; position: absolute; bottom:0; left: 17/@pxtorem; animation: ZFbounce .4s steps(2, end) infinite; z-index: 10000;background-repeat: no-repeat; background-size: auto 300/@pxtorem;}
+        .gameview{
+            position: relative; width: 698/@pxtorem; height: 718/@pxtorem; margin:0 auto; top:-42/@pxtorem; overflow: hidden; z-index: 8;
+            .icon{
+                width: 140/@pxtorem; height: 140/@pxtorem; position: absolute; top:-140/@pxtorem;
+                animation-name:foodSlide;
+                animation-duration:2.5s;
+                animation-timing-function:linear;
+                animation-delay:1s;
+                animation-fill-mode:forwards;
+            }
+            .a_1{left: -20/@pxtorem;}
+            .a_2{left: 55/@pxtorem;}
+            .a_3{left: 155/@pxtorem;}
+            .a_4{left: 280/@pxtorem;}
+            .a_5{left: 382/@pxtorem;}
+            .a_6{left: 470/@pxtorem;}
+            .a_7{left: 584/@pxtorem;}
+            .clickicon{animation-play-state:paused;}
+            .bomb{animation: bomb .3s steps(2, end) forwards; width: 216/@pxtorem; height: 216/@pxtorem; background:url(../img/bomb_1.png) no-repeat; background-size: auto 216/@pxtorem; opacity: 0; position: absolute; z-index: 0; left: 50%; top:50%; margin:-108/@pxtorem 0 0 -108/@pxtorem; display: block!important;}
+            .score{position: absolute; right: 0; top:0; font-size: 38/@pxtorem; color: #fff; display: block!important; animation: score .4s linear forwards;}
+        }
+        /*点击提示*/
+        .anitips {
+            width: 526/@pxtorem; height: 116/@pxtorem; position: absolute; top:50%; left: 50%; margin-left: -263/@pxtorem; margin-top:-58/@pxtorem; animation: fideOut 2s linear forwards;
+            .pktipstxt{background:url(../img/pktipstxt.png) no-repeat; background-size: 457/@pxtorem auto; width: 457/@pxtorem; height: 116/@pxtorem; line-height: 116/@pxtorem; margin:0 auto; font-size: 40/@pxtorem; box-sizing: border-box; padding-left: 20/@pxtorem}
+        }
+
+        /*道具*/
+        .prop{
+            position: absolute; top:112/@pxtorem; left: 25/@pxtorem; overflow: hidden;z-index: 100;
+            .slide{
+                background:rgba(0, 211, 255, 0.21); padding:6/@pxtorem 10/@pxtorem; border-radius:0 10/@pxtorem 10/@pxtorem 0; animation: slideLeft 3s linear forwards;
+                em{color: #ffc41d; font-size: 30/@pxtorem; margin-left: 3px;}
+            }
+        }
+    }
+}
+
+@keyframes foodSlide {
+    0%{transform:translateY(0);}
+    to{transform:translateY(866/@pxtorem);}
+}
+@keyframes bomb {
+    0%   {background-position-x: 0; opacity: 1}
+    100% {background-position-x: -434/@pxtorem; opacity: 0.5}
+}
+@keyframes score {
+    0%   {opacity: 1}
+    80%  {opacity: 1}
+    100% {opacity: 0}
+}
+/* 执行0.6 */
+@keyframes scaleHand{
+    0%   {transform: scale(1);}
+    50% {transform: scale(0.8);}
+    100% {transform: scale(1);}
+}
+/*人物执行动画 0.4 循环2次*/
+@keyframes selectGeneral{
+    0%   {background-position-x: 0;}
+    100% {background-position-x: -452/@pxtorem;}
+}
+/* 0.4 张飞弹跳动画 */
+@keyframes ZFbounce{
+    0%   {background-position-x: 0;}
+    100% {background-position-x: -420/@pxtorem;}
+}
+
+/* fideout */
+@keyframes fideOut{
+    0%   {opacity: 1;}
+    80%  {opacity: 1;}
+    99%  {opacity: 0;}
+    100% {opacity: 0; display: none;}
+}
+/* boxBounce */
+@keyframes boxBounce{
+    0%    {transform: translateY(86/@pxtorem) scale(1); z-index: -1}
+    25%   {transform: translateY(-120/@pxtorem) scale(0.6);}
+    50%   {transform: translateY(-300/@pxtorem) scale(1.2);}
+    90%   {transform: translateY(20/@pxtorem) scale(1);}
+    100%  {transform: translateY(0/@pxtorem) scale(1);}
+}
+
+/*slideLeft*/
+@keyframes slideLeft{
+    0%    {transform: translateX(-100%);}
+    10%   {transform: translateX(0);}
+    90%   {transform: translateX(0);}
+    100%  {transform: translateX(-100%);}
+}
+
+/*扫光*/
+@keyframes lightMask{
+    0%    {transform: translateX(-115/@pxtorem);}
+    100%  {transform: translateX(622/@pxtorem);}
+}
+
+
+.paihang{
+    background:url(../img/sort_bg.png) no-repeat; background-size: 750/@pxtorem; height: 634/@pxtorem; padding-top: 137/@pxtorem; padding-right: 1px; position: relative;
+    .col_1{width: 136/@pxtorem; text-align: center;}
+    .col_2{width: 378/@pxtorem; display: flex; flex-flow: row wrap; align-items:center; justify-content: left;}
+    .col_3{text-align: center; flex:auto;}
+    .inner{
+        width: 675/@pxtorem; height: 504/@pxtorem; margin:0 auto; color: #271420; font-size: 32/@pxtorem; box-sizing: border-box; position: relative;
+        .hd, .bd{border-right: 3px solid #a0997a}
+        .hd, .item{display: flex; flex-flow: row wrap; align-items:left; justify-content: left;}
+        .item{
+            height: 95/@pxtorem; line-height: 95/@pxtorem; margin-bottom: 8/@pxtorem; background: #dddddd;
+        }
+        .item{
+            p.nickname{&:extend(.showdot); display: inline-block; margin-left: 22/@pxtorem; width: 260/@pxtorem;}
+            .avatar{
+                width: 67/@pxtorem; height: 67/@pxtorem; display: inline-block;
+                .pic{border-radius: 100%;}
+            }
+            .f_icon, .s_icon, .t_icon{background:url(../img/sort_num.png) no-repeat; background-size: 50/@pxtorem auto; width: 50/@pxtorem; height: 72/@pxtorem; display: inline-block; vertical-align: middle;}
+            .f_icon{background-position: 0 0}
+            .s_icon{background-position: 0 -74/@pxtorem}
+            .t_icon{background-position: 0 bottom}
+        }
+        .hd {
+            .col_1{width: 236/@pxtorem;}
+            .col_2{align-items:center; justify-content: center; width: 278/@pxtorem}
+        }
+        .first{background:#ddeaff;}
+        .second{background:#ddeaff;}
+        .three{background:#ddeaff;}
+        .hd{
+            background: #bcb590; height: 70/@pxtorem; line-height: 70/@pxtorem;
+            .col_2{text-align: center;}
+        }
+        .bd{
+            padding-bottom: 10/@pxtorem;
+        }
+        .mysort{
+            position: absolute; bottom:0; width: 100%; box-sizing: border-box; border-top:2px solid #251626;
+            .item{background: #266edc; border-top: #3c7de0; color: #fff; margin-bottom:0; height: 86/@pxtorem; line-height: 86/@pxtorem}
+            .pm{
+                padding-left: 20/@pxtorem; font-size: 28/@pxtorem; 
+                em{color: #fde056; font-size: 42/@pxtorem;}
+            }
+            .righthand{
+                position: absolute; right: 30/@pxtorem; padding-top: 20/@pxtorem;
+                .pic{width: 164/@pxtorem;}
+                /*.getprize{width: 244/@pxtorem; height: 56/@pxtorem; padding-top: 14/@pxtorem;}
+                .sb{
+                    line-height: normal; font-size: 24/@pxtorem; color: #bdcdf1; display: flex; flex-flow: column wrap; align-content: space-around;
+                    span{
+                        background:#3c7de0; display: block; height: 44/@pxtorem; text-align: center; font-size: 30/@pxtorem; color: #fff; border-radius:22/@pxtorem; margin-bottom: 2/@pxtorem; margin-top:6/@pxtorem;
+                    }
+                }*/
+                .firstplay{
+                    span{display: none;}
+                    p{line-height: 86/@pxtorem;}
+                }
+            }
+            .opentips{
+                position: absolute; right: 30/@pxtorem; font-size: 28/@pxtorem; padding-top: 4/@pxtorem; 
+                em{}
+            }
+        }
+    }
+    .scrollbar{height: 414/@pxtorem; padding-bottom: 90/@pxtorem;}
+    .btnarea{
+        position: absolute; width: 100%; text-align: center; bottom:0/@pxtorem;
+        .backbtn,.openprizebtn{display: inline-block; margin:0 15/@pxtorem;}
+        .backbtn{
+            .pic{width: 258/@pxtorem;}
+        }
+        .openprizebtn{
+            .pic{width: 350/@pxtorem;}
+        }
+    }
+}
+
+
+/*站外*/
+.videowrap{
+    position: relative; z-index: 1;
+    .video{height: 422/@pxtorem; background:#fff;}
+}
+.browsershare, .weixinshare{
+    background:rgba(0,0,0,0.85); position: fixed; z-index: 1000000;width: 100%; height: 100%; top:0; bottom:0;
+}
+.browsershare{
+    .pic{position: absolute; bottom:0;}
+}
+.getbattle{
+    position: relative;
+    .text{
+         text-align: center; position: absolute; width: 100%; top:1010/@pxtorem;
+        .battletips{color: #f7e1be; font-size: 36/@pxtorem; margin-bottom: 15/@pxtorem; display: none}
+        .getbattlebtn{}
+    }
+    .sharedoc{
+        position: absolute; width: 100%; top:265/@pxtorem; display: flex; left: 84/@pxtorem;
+        .item{
+            color: #fff; width: 204/@pxtorem;
+            span{font-size: 40/@pxtorem; width: 72/@pxtorem; text-align: center; display: inline-block; line-height: 1.7}
+            img{width: 120/@pxtorem; height: 73/@pxtorem; display: inline-block; vertical-align: top;}
+        }
+    }
+}
+.adrblank{background:rgba(0,0,0,0); display: none!important;}
+
+/*弹窗*/
+.masker{background:rgba(0,0,0,0.9); position: fixed; width: 100%; height: 100%; top:0; bottom:0; z-index: 99999;}
+.pop{
+	position: absolute; z-index: 100000;
+	.close{width: 56/@pxtorem; height: 56/@pxtorem; position: absolute; top:-80/@pxtorem; right:0;}
+    .ads{
+        height: 53/@pxtorem; padding-top: 4/@pxtorem; position: absolute; width: 100%; bottom:148/@pxtorem;
+        img{display: block; height: 53/@pxtorem; margin:0 auto;}
+    }
+    .gamebanner{
+        width: 380/@pxtorem; height: 100/@pxtorem; position: absolute; bottom:0/@pxtorem; left:50%; margin-left: -190/@pxtorem;
+    }
+    .confirm_btn{width: 318/@pxtorem; margin:0 auto; display: block;}
+}
+.p_ok{
+    top:56/@pxtorem; width: 750/@pxtorem;
+    .popbg{background:url(//gw.alicdn.com/tfs/TB1y1Ergr_I8KJjy1XaXXbsxpXa-750-556.png) no-repeat; background-size: 750/@pxtorem auto;}
+    .inner{
+        width: 557/@pxtorem; height: 675/@pxtorem; margin:0 auto; padding-top: 230/@pxtorem; position: relative; box-sizing: border-box;
+        .bd{
+            text-align: center; color: #000000; font-weight: bold; line-height: 1.3;
+            .p_t{font-size: 66/@pxtorem; color: #f75400; -webkit-text-stroke: 0.5px black; font-weight: bold; margin-bottom: 10/@pxtorem}
+            .getbox{
+                font-size: 40/@pxtorem; color: #000; font-weight: bold;
+                em{font-size: 48/@pxtorem; color: #f75400; font-weight: bold;}
+            }
+            .getscore, .exceed, .sortup{
+                font-size: 32/@pxtorem;
+                em{color: #f75400; font-size: 40/@pxtorem}
+            }
+            .text, .outtext{
+                color: #000000; font-size: 29/@pxtorem; -webkit-text-stroke: 0;
+                em{color: #f75400; font-size: 38/@pxtorem;}
+            }
+        }
+
+        .ft{font-size: 0; text-align: center; position: absolute; bottom:0; width: 100%;}
+        .btn_replay, .btn_share, .btn_out{width: 258/@pxtorem; display: inline-block; margin:0 10/@pxtorem;}
+    }
+    .box{width: 248/@pxtorem; height: 218/@pxtorem; position: absolute; top:-0/@pxtorem; left: 50%; margin-left: -124/@pxtorem;animation: boxBounce 0.6s linear forwards;}
+}
+
+.p_fail{
+    background:url(//gw.alicdn.com/tfs/TB1rQ7bgv6H8KJjy0FjXXaXepXa-750-556.png) no-repeat; background-size: 750/@pxtorem auto; top:56/@pxtorem; width: 750/@pxtorem;
+    .inner{
+        width: 557/@pxtorem; height: 675/@pxtorem; margin:0 auto; padding-top: 260/@pxtorem; position: relative; box-sizing: border-box;
+        .bd{
+            text-align: center; color: #000000;
+            .p_t{font-size: 66/@pxtorem; color: #ffffff; font-weight: bold;-webkit-text-stroke: 0.5px black; margin-bottom: 20/@pxtorem;}
+            .text{
+                color: #f75400; font-size: 42/@pxtorem; font-weight: bold;
+                .outtext{
+                    color: #000000; font-size: 29/@pxtorem; -webkit-text-stroke: 0;
+                    em{color: #f75400; font-size: 38/@pxtorem;}
+                }
+            }
+        }
+
+        .ft{font-size: 0; text-align: center; position: absolute; bottom:0; width: 100%;}
+        .btn_replay, .btn_share, .btn_out{
+            display: inline-block; margin:0 10/@pxtorem; width: 258/@pxtorem;
+        }
+    }
+}
+
+.p_fail_nobox{
+    background-image:url(//gw.alicdn.com/tfs/TB1sKErgr_I8KJjy1XaXXbsxpXa-750-556.png);
+    .bd{
+        padding-top: 50/@pxtorem;
+        .text{
+            color: #ffc600; font-size: 45/@pxtorem; font-weight: bold;
+            em{font-size: 56/@pxtorem;}
+            .outtext{
+                color: #000000; font-size: 37/@pxtorem; -webkit-text-stroke: 0;
+            }
+        }
+    }
+
+}
+
+
+
+.p_rule{
+    background:url(//gw.alicdn.com/tfs/TB19zYUgsrI8KJjy0FhXXbfnpXa-750-670.png) no-repeat; background-size: 750/@pxtorem auto; top:56/@pxtorem; width: 750/@pxtorem;
+    .inner{
+        width: 655/@pxtorem; height: 672/@pxtorem; padding:18/@pxtorem 0; box-sizing: border-box; margin:0 auto; position: relative; box-sizing: border-box;
+        .bd{
+            color: #271420; font-size: 30/@pxtorem; height: 634/@pxtorem; overflow: hidden; padding:0; box-sizing: border-box;
+            .p_t{font-size: 42/@pxtorem; margin-bottom: 18/@pxtorem; text-align: center; padding-top: 15/@pxtorem;}
+        }
+        .ft{height: 64/@pxtorem; border-right: 18/@pxtorem solid #a0997a; position: relative;}
+        .confirm_btn{width: 54/@pxtorem; height: 54/@pxtorem; position: absolute; background:url(../img/close_2.png) no-repeat center center; background-size: 51/@pxtorem auto; top:30/@pxtorem; right: 25/@pxtorem}
+    }
+    .scrollbar{
+        height: 630/@pxtorem;
+        .textwrap{border-right: 3px solid #a0997a; padding:0 25/@pxtorem; line-height: 1.5; text-align: left;}
+    }
+}
+
+.p_net, .p_normal{
+    width: 559/@pxtorem; height: 410/@pxtorem; background:url(//gw.alicdn.com/tfs/TB1D4z4gBTH8KJjy0FiXXcRsXXa-557-408.png) no-repeat; background-size: 557/@pxtorem auto; top:130/@pxtorem; left: 50%; margin-left: -275/@pxtorem;
+    .bd{
+        height: 325/@pxtorem; padding-top: 130/@pxtorem; box-sizing: border-box; position: relative; height: 525/@pxtorem;
+        .txt{
+            color: #f75400;font-weight: bold; font-size: 46/@pxtorem; text-align: center;
+            span{color: #000; font-size: 30/@pxtorem; text-align: center; display: block;}
+        }
+    }
+    .gamebanner{ bottom:148/@pxtorem;}
+    .ft{font-size: 0; text-align: center; position: absolute; bottom:-133/@pxtorem; width: 100%;}
+    .confirm_btn{width: 318/@pxtorem; margin:0 auto; display: block;}
+}
+
+.p_login{
+    background-image:url(//gw.alicdn.com/tfs/TB1Dhz4gBTH8KJjy0FiXXcRsXXa-557-408.png);
+    .bd{
+        display: flex; justify-content: center; align-items: center; padding-top: 0; height: 385/@pxtorem;
+        .ads{bottom:0; left: 0}
+        .gamebanner{bottom:0;}
+    }
+}
+
+/*.p_banner{
+    .bd{
+        height: 355/@pxtorem; padding-top:100/@pxtorem;
+    }
+}*/
+.p_task{
+    width: 750/@pxtorem; top:102/@pxtorem;
+    .top{
+        height: 124/@pxtorem;background:url(../img/task_top.png) repeat-y; background-size: 750/@pxtorem auto; position: relative;
+        h3{height: 42/@pxtorem; padding-top:25/@pxtorem; margin-bottom: 8/@pxtorem}
+        p{ text-align: center; color: #f1ebc9; font-size: 24/@pxtorem;}
+        span.close{width: 32/@pxtorem; height: 32/@pxtorem; background:url(../img/close.png) no-repeat; background-size: 32/@pxtorem auto; position: absolute; right: 97/@pxtorem; top:40/@pxtorem; display: block;}
+    }
+    .inner{
+        background:url(../img/task_bd.png) repeat-y; background-size: 750/@pxtorem auto;
+        .bd{
+            width: 525/@pxtorem; margin:0 auto; overflow: hidden;
+            .item{
+                height: 114/@pxtorem; margin: 7/@pxtorem 0; overflow: hidden; position: relative;
+                .task_btn{width: 181/@pxtorem; position: absolute; right: 9/@pxtorem; height: 90/@pxtorem; top:50%; margin-top:-45/@pxtorem;}
+                .txt{
+                    padding:10/@pxtorem;
+                    h3{font-size: 24/@pxtorem; margin-bottom: 8/@pxtorem;}
+                    p{
+                        font-size: 30/@pxtorem;
+                        img{width: 39/@pxtorem; height: 39/@pxtorem; vertical-align: text-top; margin-right: 6/@pxtorem;}
+                        em{font-size: 34/@pxtorem; font-weight: bold; color: #ffb414; padding-right: 4/@pxtorem;}
+                    }
+                }
+                .countdown{
+                    position: absolute; top:0; right: 22/@pxtorem; font-size: 30/@pxtorem; top:30/@pxtorem;
+                    img{width: 39/@pxtorem; height: 39/@pxtorem; vertical-align: text-top; margin-right: 6/@pxtorem;}
+                    em{font-size: 34/@pxtorem; font-weight: bold; color: #ffb414; padding-right: 4/@pxtorem;}
+                }
+            }
+
+            .kj_item{background:rgba(34,34,34,.5);}
+            .fx_item{background:rgba(60,3,19,.5);}
+            .star_item{background:rgba(3,15,60,.5);}
+
+        }
+    }
+    .bot{
+        height: 102/@pxtorem;background:url(../img/task_bot.png) repeat-y; background-size: 750/@pxtorem auto; position: relative;
+        .ads{bottom:26/@pxtorem;}
+    }
+}
+
+.p_alt{
+    width: 750/@pxtorem; top:300/@pxtorem; animation: fideOut 4s linear forwards;
+    .top{
+        height: 17/@pxtorem;background:url(../img/alt_top.png) no-repeat; background-size: 750/@pxtorem auto;
+    }
+    .inner{
+        background:url(../img/alt_bg.png) repeat-y; background-size: 750/@pxtorem auto;
+        .bd{
+            width: 374/@pxtorem; margin:0 auto; overflow: hidden;text-align: center; font-size: 40/@pxtorem;
+        }
+    }
+    .bot{height: 18/@pxtorem;background:url(../img/alt_bot.png) no-repeat; background-size: 750/@pxtorem auto;}
+}
+
+
+
+

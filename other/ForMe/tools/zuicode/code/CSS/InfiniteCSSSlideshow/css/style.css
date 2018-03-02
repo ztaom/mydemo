@@ -1,0 +1,49 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { 
+  margin: 0; 
+  padding: 0; 
+}
+body { 
+  font: 14px Georgia, serif; 
+}
+
+h1 {
+  font: 36px Georgia, Serif;
+  text-align: center;
+  padding: 40px;
+}
+p {
+  font: 12px Georgia, Serif;
+  text-align: center;
+  padding: 40px;
+}
+
+#page-wrap { 
+  width: 60%;
+  max-width: 842px; 
+  margin: 100px auto;
+  position: relative;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#page-wrap:before, #page-wrap:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,100), rgba(255,255,255,0));
+}
+#page-wrap:before {
+  left: 0;
+}
+#page-wrap:after {
+  right: 0;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,100));
+}

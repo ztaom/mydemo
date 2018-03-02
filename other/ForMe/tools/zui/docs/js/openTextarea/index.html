@@ -1,0 +1,80 @@
+<!--$Id: index.html,v 1.1 2011/05/18 08:02:42 xuerong Exp $ -->
+<style>
+.ratyinput textarea {width:350px; height:19px;line-height:19px;border:1px solid #bdc7d8;background:#fff;padding:0 2px;overflow:hidden; font-size:12px; color:gray;}
+.ratyinput .focus {border:1px solid #5D74A2;height:50px;overflow:hidden;overflow-y:auto; color:#333;}
+</style>
+<div class="entry-title">
+  <h1>DUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title"><h3>点击输入框展开<span class="feature">(textarea)</span></h3></div>
+  <div class="clear search-bar ratyinput">
+      <form class="" method="post" action=""> 
+        <textarea name="textarea" class="textlimit block" cols="60" rows="1" title="请输入您的简短评论">请输入您的简短评论</textarea>
+        <button class="btn-blue-small mt-5 hidden" type="submit">提交</button>
+      </form>
+    </div>
+  <script type="text/javascript">
+$(function(){
+	function maxLimit(){
+		var num=$(this).val().substr(0,140);
+		$(this).val(num);
+		$(this).next().children("span").text($(this).val().length+"/140");
+	};
+	$(".textlimit").keyup(maxLimit);
+	$(".textlimit").focus(function(){
+		$(this).addClass("focus").next().show();
+		if($(this).val() == $(this).attr("title")){
+			$(this).val("");
+		}
+	});
+	$(".textlimit").blur(function(){
+		if($(this).val().length > 0){
+			$(this).addClass("focus").next().show();
+		}else{
+			$(this).removeClass("focus").next().hide();
+		}
+		if($(this).val() == ""){
+			$(this).val($(this).attr("title"));
+		}
+	});
+});
+</script>
+  <pre class="brush:c-sharp;">
+  <div class="clear search-bar ratyinput">
+      <form class="" method="post" action=""> 
+        <textarea name="textarea" class="textlimit block" cols="60" rows="1" title="请输入您的简短评论">请输入您的简短评论</textarea>
+        <button class="btn-blue-small mt-5 hidden" type="submit">提交</button>
+      </form>
+    </div>
+  &lt;script type="text/javascript"&gt;
+$(function(){
+	function maxLimit(){
+		var num=$(this).val().substr(0,140);
+		$(this).val(num);
+		$(this).next().children("span").text($(this).val().length+"/140");
+	};
+	$(".textlimit").keyup(maxLimit);
+	$(".textlimit").focus(function(){
+		$(this).addClass("focus").next().show();
+		if($(this).val() == $(this).attr("title")){
+			$(this).val("");
+		}
+	});
+	$(".textlimit").blur(function(){
+		if($(this).val().length > 0){
+			$(this).addClass("focus").next().show();
+		}else{
+			$(this).removeClass("focus").next().hide();
+		}
+		if($(this).val() == ""){
+			$(this).val($(this).attr("title"));
+		}
+	});
+});
+&lt;/script&gt;
+  </pre>
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script>
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script>

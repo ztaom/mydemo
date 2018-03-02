@@ -1,0 +1,317 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+
+<style>#content {
+  display: block;
+  overflow: hidden;
+  width: 504px;
+  margin: 0px auto;
+  padding: 20px;
+}
+.cell {
+  display: block;
+  position: relative;
+  float: left;
+  width: 70px;
+  height: 70px;
+  box-sizing: border-box;
+  margin: 1px;
+  background-color: #E0E0E0;
+  -webkit-transition: all ease-in-out 0.2s;
+}
+.cell:after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  box-shadow: 0 0 0 30px transparent;
+  -webkit-transition: all ease-in-out 0.2s;
+}
+.cell.red.active {
+  background-color: #ff4444;
+}
+.cell.red.active:after {
+  box-shadow: 0 0 0 0px #ff4444;
+}
+.cell.red.active.selected {
+  background-color: #ff1111;
+}
+.cell.red.active.selected:after {
+  box-shadow: 0 0 0 3px #ff1111;
+}
+.cell.blue.active {
+  background-color: #33b5e5;
+}
+.cell.blue.active:after {
+  box-shadow: 0 0 0 0px #33b5e5;
+}
+.cell.blue.active.selected {
+  background-color: #1a9bcb;
+}
+.cell.blue.active.selected:after {
+  box-shadow: 0 0 0 3px #1a9bcb;
+}
+.cell.green.active {
+  background-color: #99cc00;
+}
+.cell.green.active:after {
+  box-shadow: 0 0 0 0px #99cc00;
+}
+.cell.green.active.selected {
+  background-color: #739900;
+}
+.cell.green.active.selected:after {
+  box-shadow: 0 0 0 3px #739900;
+}
+.cell.yellow.active {
+  background-color: #ffbb33;
+}
+.cell.yellow.active:after {
+  box-shadow: 0 0 0 0px #ffbb33;
+}
+.cell.yellow.active.selected {
+  background-color: #ffaa00;
+}
+.cell.yellow.active.selected:after {
+  box-shadow: 0 0 0 3px #ffaa00;
+}
+.cell.purple.active {
+  background-color: #aa66cc;
+}
+.cell.purple.active:after {
+  box-shadow: 0 0 0 0px #aa66cc;
+}
+.cell.purple.active.selected {
+  background-color: #9540bf;
+}
+.cell.purple.active.selected:after {
+  box-shadow: 0 0 0 3px #9540bf;
+}
+</style></head><body>
+<button id='addRandomCells'>add random</button>
+<button id='clearCells'>clear</button>
+<label>
+  score:
+  <span id='score'></span>
+</label>
+<div id='content'>
+  <div class='c1 cell r1'></div>
+  <div class='c2 cell r1'></div>
+  <div class='c3 cell r1'></div>
+  <div class='c4 cell r1'></div>
+  <div class='c5 cell r1'></div>
+  <div class='c6 cell r1'></div>
+  <div class='c7 cell r1'></div>
+  <div class='c1 cell r2'></div>
+  <div class='c2 cell r2'></div>
+  <div class='c3 cell r2'></div>
+  <div class='c4 cell r2'></div>
+  <div class='c5 cell r2'></div>
+  <div class='c6 cell r2'></div>
+  <div class='c7 cell r2'></div>
+  <div class='c1 cell r3'></div>
+  <div class='c2 cell r3'></div>
+  <div class='c3 cell r3'></div>
+  <div class='c4 cell r3'></div>
+  <div class='c5 cell r3'></div>
+  <div class='c6 cell r3'></div>
+  <div class='c7 cell r3'></div>
+  <div class='c1 cell r4'></div>
+  <div class='c2 cell r4'></div>
+  <div class='c3 cell r4'></div>
+  <div class='c4 cell r4'></div>
+  <div class='c5 cell r4'></div>
+  <div class='c6 cell r4'></div>
+  <div class='c7 cell r4'></div>
+  <div class='c1 cell r5'></div>
+  <div class='c2 cell r5'></div>
+  <div class='c3 cell r5'></div>
+  <div class='c4 cell r5'></div>
+  <div class='c5 cell r5'></div>
+  <div class='c6 cell r5'></div>
+  <div class='c7 cell r5'></div>
+  <div class='c1 cell r6'></div>
+  <div class='c2 cell r6'></div>
+  <div class='c3 cell r6'></div>
+  <div class='c4 cell r6'></div>
+  <div class='c5 cell r6'></div>
+  <div class='c6 cell r6'></div>
+  <div class='c7 cell r6'></div>
+  <div class='c1 cell r7'></div>
+  <div class='c2 cell r7'></div>
+  <div class='c3 cell r7'></div>
+  <div class='c4 cell r7'></div>
+  <div class='c5 cell r7'></div>
+  <div class='c6 cell r7'></div>
+  <div class='c7 cell r7'></div>
+</div>
+<script src="../jquery.min.1.11.0.js"></script>
+<script>/* CONSTS */
+var rowLength = $('.cell.r1').length;
+var colors = ['red','blue','green','yellow','purple'];
+
+/* HELPERS */
+function getRandomInt(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getCellByCoords(x,y){
+  return $('.cell.r'+x+'.c'+y);
+}
+
+var getColorById = function(id){
+  return colors[id];
+};
+
+var getCellColor = function($cell){
+  var cellColor = {'color': '', 'index': -1};
+  colors.forEach(function(color, id){
+    if($cell.hasClass(color)){
+      cellColor = {'color': color, 'index': id};
+      return;
+    }
+  });
+  return cellColor;
+};
+
+
+/* GAME LOGIC */
+var _score;
+var scoreLabel = $('#score');
+var score = function(value){
+  if(value!=null){
+    _score = value;
+    scoreLabel.text(_score);
+  }else{
+    return _score;
+  }
+};
+
+var checkCombos = function(){
+  
+  var comboFound = false;
+  for(var row=1; row<=rowLength; row++){
+    var stackRow = [];
+    var stackCol = [];
+   
+    
+    for(var col=1; col<=rowLength; col++){
+            
+      var pushComboStack = function(stack, $cell){
+        
+        var cellIsActive = $cell.hasClass('active');
+        var stackIsEmpty = (stack.length == 0);
+        var prevItemSameColor = cellIsActive && (stackIsEmpty 
+        || getCellColor(stack[stack.length-1]).color ==
+            getCellColor($cell).color);
+        
+        if(cellIsActive && !prevItemSameColor){
+          stack.length = 0;
+          stack.push($cell);
+        } else if(cellIsActive && prevItemSameColor){
+          stack.push($cell);
+        }else{
+          stack.length = 0;
+        }
+      };
+      
+      pushComboStack(stackRow, getCellByCoords(row,col));
+      pushComboStack(stackCol, getCellByCoords(col,row));
+      
+      
+      var checkComboStack = function(stack){
+        if(stack.length > 3){
+          
+          stack.forEach(function($cell){
+            setTimeout(function(){
+            $cell.removeClass('active')
+            .removeClass(getCellColor($cell).color);
+              score(score()+1);
+            },300);
+          });
+          return true;
+        }
+        return false;
+      };
+      
+      comboFound |= checkComboStack(stackRow) || checkComboStack(stackCol);
+    }
+    
+  }
+  
+  return comboFound;
+};
+
+
+var selectCell = function(){
+  
+  var self = $(this);
+  if(self.hasClass('active')){//select cell
+    if(self.hasClass('selected')){//unselect
+      self.removeClass('selected');
+    }else{//select current
+      $('.cell.selected').removeClass('selected');
+      self.addClass('selected');
+    }
+  }else{ //move cell
+    var $old = $('.cell.active.selected');
+    if($old.length > 0){
+      var oldColor = getCellColor($old);
+      
+      $old.removeClass('active selected')
+      .removeClass(oldColor.color);
+      self.addClass('active').addClass(oldColor.color);
+      
+      var combosFound = checkCombos();
+      console.log(combosFound);
+      if(combosFound==false){
+        setTimeout(function(){addRandomCells(3);},300);
+      }     
+      
+    }
+  }
+};
+
+
+var addRandomCells = function(count){
+  count = count || 1;
+  for(i=0; i<count; i++){
+    var freeCells = $('.cell:not(.active)');
+    if(freeCells.length<1){
+      console.log('gameover');
+      return;
+    }
+    
+    var cellIndex = getRandomInt(0, freeCells.length-1);
+    
+    var randomColor = getRandomInt(0, colors.length-1);
+    $(freeCells[cellIndex]).addClass('active')
+    .addClass(colors[randomColor]);
+    
+  }
+  setTimeout(checkCombos, 300);
+};
+
+var clearCells = function(){
+  var allCells = $('.cell');
+  allCells.removeClass('active selected');
+  colors.forEach(function(color, index){
+    allCells.removeClass(color);
+  }); 
+  
+  score(0);
+};
+
+
+$('#addRandomCells').on('click', function(){addRandomCells(2);});
+$('#clearCells').on('click', clearCells);
+$('#content').on('click','.cell', selectCell);
+
+score(0);
+addRandomCells(10);//@ sourceURL=pen.js
+</script>
+</body></html>

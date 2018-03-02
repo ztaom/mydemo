@@ -1,0 +1,444 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW"> 
+<head profile="http://gmpg.org/xfn/11"> 
+<meta http-equiv="content-Type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="imagetoolbar" content="no" /> 
+<meta name="robots" content="noodp" /> 
+<title>jQuery Simple iPhone Slide v0.75</title> 
+<link rel="stylesheet" media="screen" type="text/css" href="./styles/base.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="./styles/main.css" />
+
+<link type="text/css" rel="stylesheet" href="./syntaxhighlighter/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="./syntaxhighlighter/styles/shThemeFadeToGrey.css"/>
+</head>
+<body>
+<div id="container">
+	<h1>jQuery Simple iPhone-Slide plugin</h1>
+
+   	<h2>Configuration</h2>
+	<div>
+	<pre class="brush: js">$('#album').iphoneSlide({
+	// Page items handler, default: the first child of the $('album').
+	handler: undefined,
+	// Pages handler, default: the children of the handler.
+	pageHandler : undefined,
+	// Drag area handler, default: full page area.
+	slideHandler : undefined,
+	// You can define an element to handle this event(default: click) slide to next page.
+	nextPageHandler : '.nextPage',
+	// You can define an element to handle this event(default: click) slide to previous page.
+	prevPageHandler : '.prevPage',
+	// The friction of slide page.
+	friction : 0.325,
+	// When drag&drop page, the point length must be larger than this value which event will be fire.
+	sensitivity : 20,
+	// Slow down the page shift speed(ms).
+	extrashift : 500,
+	// If drag&drop over this time(ms), there will always slide 1 page.
+	touchduring : 800,
+	// Direction of slide, there are three directions you can choose(horizontal, vertical and matrix).
+	direction : 'horizontal',
+	// Max slide page.
+	maxShiftPage : 5,
+	// It's only for dynamic page(s).
+	pageshowfilter : false,
+	// Support jquery easing plugin, via http://gsgd.co.uk/sandbox/jquery/easing/
+    easing: "swing",
+    // Turn on/off default animate effect "bounce".
+    bounce: true,
+	autoPlay: false,
+	cancelAutoPlayOnResize: true,
+    autoCreatePager: false,
+	pager: {
+		pagerType: "dot",
+        selectorName: ".banner_pager",
+        childrenOnClass: "on",
+		slideToAnimated: true
+	},
+	autoPlayTime: 3000,
+	// When slide page completed, fire this.
+	onShiftComplete : function(elem, page) {
+		// this is parent of the handler.
+		// elem is nowPage's page item.
+		// page is "nowPage".
+	}
+});</pre>	
+	</div>
+	
+	<h2>jQuery</h2>
+	<div>
+	<pre class="brush: js">$('#album').iphoneSlide({
+	handler: "#paging",
+	pageHandler: ".page",
+    autoPlay: true,
+    autoCreatePager: true
+});</pre>
+	</div>
+	
+	<h2>Style</h2>
+	<div>
+		<pre class="brush: css">
+    #album, .album {
+        position: relative;
+		width: 450px;
+		height: 450px;
+		overflow: hidden;
+		margin: 0 auto;
+		border: 2px solid #ffffff;
+		background-color: #000000;
+	}
+
+	#paging, .paging {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 450px;
+		height: 450px;
+	}
+
+	#paging div.page, .paging div {
+		float: left;
+		width: 440px;
+		height: 440px;
+		margin: 4px;
+		border: 1px solid #666666;
+		background-color: #efefef;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		color: #000000;
+		text-align: center;
+		font-size: 0.85em;
+		display: none;
+		cursor: pointer;
+	}</pre>
+	</div>
+	<h2>HTML</h2>
+	<div>
+		<pre class="brush: html">
+	&lt;div id="album"&gt;
+		&lt;div id="paging"&gt;
+			&lt;div class="page single" style="background-image: url(./images/08.jpg);"&gt;&lt;/div&gt;
+			&lt;div class="page single" style="background-image: url(./images/09.jpg);"&gt;&lt;/div&gt;
+			&lt;div class="page single" style="background-image: url(./images/10.jpg);"&gt;&lt;/div&gt;
+			&lt;div class="page single" style="background-image: url(./images/11.jpg);"&gt;&lt;/div&gt;
+			&lt;div class="page single" style="background-image: url(./images/12.jpg);"&gt;&lt;/div&gt;
+			&lt;div class="page single" style="background-image: url(./images/13.jpg);"&gt;&lt;/div&gt;
+			&lt;div class="page single" style="background-image: url(./images/14.jpg);"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</pre>
+	</div>
+	
+	<h2>DEMO, Default: "Horizontal-slide", with different size pages.</h2>
+	<div>
+		<div id="album" class="album">
+			<div class="paging">
+				<div class="page single p1" style="background-image: url(./images/08.jpg);"></div>
+				<div class="page single p2" style="background-image: url(./images/09.jpg);"></div>
+				<div class="page single p3" style="background-image: url(./images/10.jpg);"></div>
+				<div class="page single p4" style="background-image: url(./images/11.jpg);"></div>
+				<div class="page single p5" style="background-image: url(./images/12.jpg);"></div>
+				<div class="page single p6" style="background-image: url(./images/13.jpg);"></div>
+				<div class="page single p7" style="background-image: url(./images/14.jpg);"></div>
+				<div class="page single p8" style="background-image: url(./images/15.jpg);"></div>
+				<div class="page single p9" style="background-image: url(./images/16.jpg);"></div>
+			</div>
+		</div>
+	</div>
+	
+	<h2>Element data in jQuery</h2>
+	<div>
+	<pre class="brush: js">
+// worksapce Data Object, DO NOT MODIFY if you don't know what you do.
+var workspaceData = $("#album").data("workData"); 
+// Total pages you have, DO NOT MODIFY if you don't know what you do.
+var totalPage = parseInt(workspaceData.totalPages);
+// Use for "matrix-slide", DO NOT MODIFY if you don't know what you do.
+var matrixSqrt = parseInt(workspaceData.matrixRow);
+// Use for "matrix-slide", DO NOT MODIFY if you don't know what you do.
+var matrixColumn = parseInt(worksapceData.matrixColumn);
+// Default "now page" where you are, DO NOT MODIFY if you don't know what you do.
+var nowPage = parseInt(workspaceData.nowPage);
+// The plugin setup completed or not, DO NOT MODIFY if you don't know what you do.
+var initIphoneSlide = workspaceData.initIphoneSlide;
+// Total width with all the pages, DO NOT MODIFY if you don't know what you do.
+var pagesOuterWidth = parseInt(workspaceData.pagesOuterWidth);
+// Total height with all the pages, DO NOT MODIFY if you don't know what you do.
+var pagesOuterHeight = parseInt(workspaceData.pagesOuterHeight);</pre>
+	</div>
+
+	<h2>DEMO - Vertical-Slide</h2>
+	<div>
+	<pre class="brush: js">$('#album').iphoneSlide({
+	handler: "#paging",
+	pageHandler: ".page",
+	direction: "vertical"
+});</pre>
+		<div id="album3" class="album">
+			<div class="paging">
+				<div class="page single" style="background-image: url(./images/08.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/09.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/10.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/11.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/12.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/13.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/14.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/15.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/16.jpg);"></div>
+			</div>
+		</div>
+	</div>
+	
+	<h2>DEMO - Matrix-Slide</h2>
+	<div>
+	<pre class="brush: js">$('#album').iphoneSlide({
+	handler: "#paging",
+	pageHandler: ".page",
+	direction: "matrix"
+});</pre>
+		<div id="album2" class="album">
+			<div class="paging">
+				<div class="page single" style="background-image: url(./images/08.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/09.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/10.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/11.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/12.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/13.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/14.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/15.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/16.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/17.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/18.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/19.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/20.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/21.jpg);"></div>
+			</div>
+		</div>
+	</div>
+	<h2>HOWTO - Slide to page</h2>
+    <pre class="brush: js">
+$('#album').iphoneSlide(
+    'jqipslide2page',
+    3, // Slide to page,
+    true // Sliding animate, default: true
+);</pre>
+
+	<h2>DEMO, Slide to page</h2>
+	<div>
+		<div id="album4" class="album">
+			<div class="paging">
+				<div class="page single" style="background-image: url(./images/08.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/09.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/10.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/11.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/12.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/13.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/14.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/15.jpg);"></div>
+				<div class="page single" style="background-image: url(./images/16.jpg);"></div>
+			</div>
+		</div>
+		<div class="button">
+            <button id="prevPage">Prev</button>
+            <button id="slidetopage4">Slide to page 3</button>
+            <button id="nextPage">Next</button>
+        </div>
+	</div>
+	
+	<h2>HOWTO - dynamic add pages</h2>
+    <pre class="brush: js">
+$('#album').iphoneSlide(
+    'jqipblank2page',
+    "blank page", // Your page.
+    true, // Jump to your page.
+    function() { return false; } // Callback function.
+);
+// Singal page.
+$('#album').iphoneSlide('jqipblank2page',"blank page");
+// Multi pages.
+$('#album').iphoneSlide('jqipblank2page', ["blank page 1", "blank page 2"]);</pre>
+	<h2>DEMO, add 3 blank pages</h2>
+	<div id="album5" class="album">
+		<div class="paging">
+			<div class="page single" style="background-image: url(./images/08.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/09.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/10.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/11.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/12.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/13.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/14.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/15.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/16.jpg);"></div>
+		</div>
+	</div>
+	<div class="button"><button id="addpages">Add 3 blank pages</button></div>
+	
+	<h2>HOWTO - Infinite sliding pages</h2>
+<pre class="brush: js">$('#album').iphoneSlide({
+	maxShiftPage : 4,
+	handler: ".paging",
+	pageHandler: ".page",
+ 	onShiftComplete: function(elem, page) {
+        var centerPage = 4, handler = $(elem).parent(), 
+            workspace = handler.parent(), ahead, behind,
+            workData = workspace.data("workData");
+
+        if(page!=centerPage) {
+            for(var i=1; i&lt;=Math.abs(centerPage-page); i++) {
+                ahead = handler.children(':first');
+                behind = handler.children(':last');
+                
+                if(centerPage-page&gt;0) {
+                    ahead.before(behind);
+                } else if(centerPage-page<0) {
+                    behind.after(ahead);
+                }
+            }
+            var __shift = ($(elem).width() + (workspace.outerWidth() - $(elem).width())/2+1)*(1-centerPage);
+            handler.css('left', __shift);
+            workspace.data("workData", $.extend({}, workData, {'nowPage': centerPage}));
+        }
+    }
+});
+</pre>
+	
+	<h2>DEMO, infinite sliding pages</h2>
+	<div id="album6" class="album">
+		<div class="paging">
+			<div class="page single" style="background-image: url(./images/08.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/09.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/10.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/11.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/12.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/13.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/14.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/15.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/16.jpg);"></div>
+		</div>
+	</div>
+	<h2>UPDATE - jQuery Easing plugin support.</h2>
+	<pre class="brush: html">&lt;script type="text/javascript" src="./scripts/jquery-1.6.4.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="./scripts/jquery.easing.1.3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="./scripts/jquery.iphone-slide.min.js"&gt;&lt;/script&gt;</pre>
+	
+	<pre class="brush: js">$('#album').iphoneSlide({
+	handler: "#paging",
+	pageHandler: ".page",
+	direction: "matrix",
+	easing: "easeOutBounce"
+});</pre>
+
+	<h2>DEMO, jQuery Easing plugin, use "easeOutBounce" effect.</h2>
+	<div id="album7" class="album">
+		<div class="paging">
+			<div class="page single" style="background-image: url(./images/08.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/09.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/10.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/11.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/12.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/13.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/14.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/15.jpg);"></div>
+			<div class="page single" style="background-image: url(./images/16.jpg);"></div>
+		</div>
+	</div>
+
+    <h2>Do more you can!</h2>
+</div>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="./scripts/jquery.easing.1.3.min.js"></script>
+<script type="text/javascript" src="./scripts/jquery.iphone-slide.js"></script>
+</head>
+
+<script type="text/javascript">
+//<![CDDA[
+$(document).ready(function() {
+	SyntaxHighlighter.config.clipboardSwf = './syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.all();
+
+	$('#album').iphoneSlide({
+		handler: ".paging",
+		pageHandler: ".page",
+        autoPlay: true,
+        autoCreatePager: true,
+        onShiftComplete: function(elem, page) {
+        }
+	});
+	$('#album5').iphoneSlide({
+		handler: ".paging",
+		pageHandler: ".page",
+        onShiftComplete: function(elem, page) {
+        }
+	});
+
+    $('#album4').iphoneSlide({
+		handler: ".paging",
+		pageHandler: ".page",
+        nextPageHandler: "#nextPage",
+        prevPageHandler: "#prevPage",
+        easing: "easeOutBounce",
+        onShiftComplete: function(elem, page) {
+        }
+    });
+	
+	$('#album2').iphoneSlide({
+		handler: ".paging",
+		pageHandler: ".page",
+		direction: "matrix"
+	});
+	
+	$('#album3').iphoneSlide({
+		handler: ".paging",
+		pageHandler: ".page",
+		direction: "vertical"
+	});
+
+	$('#album6').iphoneSlide({
+		maxShiftPage : 4,
+		handler: ".paging",
+		pageHandler: ".page",
+		onShiftComplete: function(elem, page) {
+			var centerPage = 4, handler = $(elem).parent(), 
+                workspace = handler.parent(), ahead, behind,
+                workData = workspace.data("workData");
+
+			if(page!=centerPage) {
+				for(var i=1; i<=Math.abs(centerPage-page); i++) {
+					ahead = handler.children(':first');
+					behind = handler.children(':last');
+					
+					if(centerPage-page>0) {
+						ahead.before(behind);
+					} else if(centerPage-page<0) {
+						behind.after(ahead);
+					}
+				}
+                var __shift = ($(elem).width() + (workspace.outerWidth() - $(elem).width())/2+1)*(1-centerPage);
+				handler.css('left', __shift);
+                workspace.data("workData", $.extend({}, workData, {'nowPage': centerPage}));
+			}
+		}
+	});
+	$('#album7').iphoneSlide({
+		handler: ".paging",
+		pageHandler: ".page",
+		direction: "matrix",
+		easing: "easeOutBounce"
+	});
+    $('#slidetopage4').click(function() {
+        $('#album4').iphoneSlide('jqipslide2page', 3, false);
+    });
+    $('#addpages').click(function() {
+        $('#album5').iphoneSlide('jqipblank2page', ["blank page","blank page","blank page"]);
+    });
+});
+//]]>
+</script>
+<script type="text/javascript" src="../../../js/cont.js"></script>
+</body> 
+</html>

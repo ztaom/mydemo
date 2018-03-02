@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!--[if lte IE 9]><html lang="en" class="lt-ie8"> <![endif]-->
+<head>
+<title>JQuery lightSlider</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<style>
+li{list-style: none;}
+</style>
+<link rel="stylesheet" href="css/lightSlider.css" />
+<body>
+<div id="site">
+    <div class="nav-over"></div>
+    <div class="hero">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Image Gallery</h2>
+                    <div class="clearfix" style="max-width:474px;">
+                        <ul id="lightSlider" class="gallery list-unstyled cS-hidden">
+                            <li data-thumb="thumb/cS-1.jpg"> <a href="#">
+                                <img src="cS-1.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-2.jpg"> <a href="#">
+                                <img src="cS-2.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-3.jpg"> <a href="#">
+                                <img src="cS-3.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-4.jpg"> <a href="#">
+                                <img src="cS-4.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-5.jpg"> <a href="#">
+                                <img src="cS-5.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-6.jpg"> <a href="#">
+                                <img src="cS-6.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-7.jpg"> <a href="#">
+                                <img src="cS-7.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-8.jpg"> <a href="#">
+                                <img src="cS-8.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-9.jpg"> <a href="#">
+                                <img src="cS-9.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-10.jpg"> <a href="#">
+                                <img src="cS-10.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-11.jpg"> <a href="#">
+                                <img src="cS-11.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-12.jpg"> <a href="#">
+                                <img src="cS-12.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-13.jpg"> <a href="#">
+                                <img src="cS-13.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-14.jpg"> <a href="#">
+                                <img src="cS-14.jpg" />
+                                </a> </li>
+                            <li data-thumb="thumb/cS-15.jpg"> <a href="#">
+                                <img src="cS-15.jpg" />
+                                </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1">
+                    <h2>Content Slider</h2>
+                    <div class="clearfix" style="max-width:400px;">
+                        <ul id="content-slider" class="list-unstyled clearfix cSdemo" >
+                            <li>
+                                <div class="center">
+                                    <h3>First Slide</h3>
+                                    <p>Lorem ipsum Nisi irure id nulla proident Duis eiusmod qui ad magna cillum amet commodo laborum cillum in ut dolor voluptate nostrud ex reprehenderit anim nulla commodo tempor et anim qui velit voluptate adipisicing in velit Duis dolor aute.</p>
+                                </div>
+                                <span class="h100"></span>
+                            </li>
+                            <li>
+                                <div class="center">
+                                    <h3>Second Slide</h3>
+                                    <p>Lorem ipsum Do dolor sit Ut consectetur aliquip et mollit sunt proident mollit culpa fugiat voluptate officia sint in reprehenderit cillum esse veniam labore cillum irure cillum Excepteur ad esse non eiusmod aute.</p>
+                                </div>
+                                <span class="h100"></span>
+                            </li>
+                            <li>
+                                <div class="center">
+                                    <h3>Third Slide</h3>
+                                    <p>Lorem ipsum Commodo id anim dolor do aliquip eiusmod quis sed et nisi exercitation nulla quis eiusmod enim ad laborum sed minim sunt irure cupidatat consequat aute do Ut.</p>
+                                </div>
+                                <span class="h100"></span>
+                            </li>
+                            <li>
+                                <div class="center">
+                                    <h3>Fourth Slide</h3>
+                                    <p>Lorem ipsum Id sit labore consectetur in incididunt sit ut mollit cupidatat sint anim reprehenderit labore laboris sed laboris sed elit consequat ea ad veniam in mollit eu sunt reprehenderit amet eu officia nisi minim esse sunt ut aliqua veniam ut.</p>
+                                </div>
+                                <span class="h100"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/jquery.lightSlider.js"></script>
+<script type="text/javascript">
+	var site = $('#site');
+    
+    $(document).ready(function() {
+        window.prettyPrint && prettyPrint()
+        $('#lightSlider').lightSlider({
+            gallery:true,
+            minSlide:1,
+            maxSlide:1,
+            auto:true,
+            onSliderLoad: function() {
+                $('#lightSlider').removeClass('cS-hidden');
+            }     
+        });
+        $('#content-slider').lightSlider({
+            minSlide:1,
+            maxSlide:1,
+            keyPress:false,
+            controls:false,
+            onSliderLoad: function() {
+                $('#content-slider').removeClass('cS-hidden');
+            } 
+        })
+        var clk = true;
+        $('.btn-navbar').on('click',function(){
+            if(site.hasClass('translate')){
+                clk = false;    
+                site.removeClass('translate');  
+                setTimeout(function(){
+                    $("#mast-head").css('display','none');  
+                    clk = true;
+                },700);
+            }else if(clk){
+                $("#mast-head").css('display','block'); 
+                site.addClass('translate');     
+            }
+        });
+        $('#site').on('touchmove', function(e) {
+            if($(this).hasClass('translate')){
+                e.preventDefault();
+            }
+        });
+        $('#site > .nav-over').on('click touchstart',function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            clk = false;
+            site.removeClass('translate');  
+            setTimeout(function(){
+                $("#mast-head").css('display','none');  
+                clk = true;
+            },700); 
+        })
+        $(window).on("resize orientationchange", function(){
+            if($(window).width() > 767){
+                $("#mast-head").css('display','block'); 
+                site.removeClass('translate');
+            }else if(!site.hasClass('translate')){
+                $("#mast-head").css('display','none');      
+            }
+        });
+    });
+</script>
+</body>
+</html>

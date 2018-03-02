@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title>test</title>
+    <script src="//g.alicdn.com/mtb/lib-flexible/0.3.2/flexible.js"></script>
+</head>
+<body>
+<div id="video" style="width: 300px; height: 200px;"></div>
+    <link rel="stylesheet" href='//g.alicdn.com/ku/h5phoneplayer/1.2.9/css/h5phoneplayer.min.css'>
+    <script src='//g.alicdn.com/ku/h5phoneplayer/1.2.9/js/h5phoneplayer.min.js'></script>
+    <script>
+    var config = {
+        videoId: 'XMzA4MDcxODM3Ng', //视频id【必传】
+        ccode: '0501', //渠道id 【必传】
+        'client_id': 'f7c2b04eea94f042', //优酷视频云创建应用的client_id，用于去广告
+        control: {
+            laguange: '', //默认使用的语言类型
+            hd: 'mp4hd', //默认使用的码率
+            autoplay: false //可选，默认不自动播放，非优酷app内部，慎用，可能会不支持【可选】
+        }
+    };
+    var uiconfig = {
+        hidetitle: true, //是否隐藏标题
+        hidelogo: true
+    };
+    window.YKPlayer.Player('video', config, uiconfig);
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>index.html</title>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="description" content="">
+    <meta name="title" content="">
+  <link rel="stylesheet" href='https://g.alicdn.com/ku/h5phoneplayer/1.2.9/css/h5phoneplayer.min.css'>
+ 
+  </head>
+  <body>
+    
+    <div id="app"></div>
+    <div id="video" style="width: 300px; height: 200px;"></div>
+    <!-- built files will be auto injected -->
+
+
+    
+     <script src='https://g.alicdn.com/ku/h5phoneplayer/1.2.9/js/h5phoneplayer.min.js'></script>
+    <script>
+        var config = {
+            videoId: 'XMzA4MDcxODM3Ng', //视频id【必传】
+            ccode: '0501', //渠道id 【必传】
+            'client_id': 'f7c2b04eea94f042', //优酷视频云创建应用的client_id，用于去广告
+            control: {
+                laguange: '', //默认使用的语言类型
+                hd: 'mp4hd', //默认使用的码率
+                autoplay: false //可选，默认不自动播放，非优酷app内部，慎用，可能会不支持【可选】
+            }
+        };
+        var uiconfig = {
+            hidetitle: true, //是否隐藏标题
+            hidelogo: true
+        };
+        window.YKPlayer.Player('video', config, uiconfig);
+        </script>
+
+
+
+  </body>
+</html>

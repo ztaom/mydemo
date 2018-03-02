@@ -1,0 +1,35 @@
+/* by xuerong */
+
+/* reset 重设浏览器的默认样式 */
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%; background: #fff;}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, em, img, ol, ul, li, form, label,i, article,aside,footer,header,nav,section{ margin:0; padding:0; border:0; outline:0; vertical-align:baseline; font-size:100%; font-family:inherit; font-weight:inherit; font-style:normal; }
+fieldset, img { border:0; }
+li{list-style: none}
+a img { border: none; }
+em{font-style:normal; font-weight: bold;}
+
+/* html5初始化 */
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+.txt_input{-webkit-appearance: none; outline: none}
+
+body {font-family:"微软雅黑", Arial, Helvetica, Tahoma; color:#333; font-size:62.5%;}
+
+/* 常用基础样式 */
+a:link, a:visited, a:active { text-decoration:none; color: #333;}
+a:hover { color:#333; text-decoration:none;}
+
+/* 清楚浮动 */
+.clearfix:after {clear:both; display:block; visibility:hidden; overflow:hidden; height:0!important; line-height:0; content:".";}
+.clearfac { overflow: hidden; zoom: 1;}
+.clearfix { display: inline-block}
+.clearfix { display: block}
+*html .clearfix { height: 1%}
+.clear { clear:both;}
+
+.bold{font-weight: bold;}
+
+h2{text-align: center; padding:20px 0; font-size: 4vw;}
+.article{font-size: 2em; line-height: 1.8; padding:20px; width: 60%;margin:0 auto;}
+
+.link{background: rgba(0,100,100,0.5); padding:3px 20px; display: inline-block;margin:10px; color: #fff!important}
+.link:hover{background: rgba(0,24,13,0.7);}

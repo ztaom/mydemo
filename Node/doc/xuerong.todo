@@ -1,0 +1,168 @@
+sublime PlainTasks
+
+//                          _oo0oo_
+//                         088888880
+//                         88" . "88
+//                         (| -_- |)
+//                         0\  =  /0
+//                       ___/'---'\___
+//                     .' \\|     |// '.
+//                    / \\|||  :  |||// \
+//                   / -||||| -:- |||||- \
+//                  |   | \\\  -  /// |   |
+//                  | \_|  ''\---/''  |_/ |
+//                  \  .-\__  '-'  __/-.  /
+//                ___'. .'  /--.--\  '. .'___
+//             ."" '<  '.___\_<|>_/___.'  >' "".
+//            | | :  '- \'.;'\ _ /';.'/ -'  : | |
+//            \  \ '_.   \_ __\ /__ _/   ._' /  /
+//        ====='-.____'.___ \_____/ ___.'____.-'=====
+//                          '=---='
+//
+//        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//                 佛祖保佑        永无BUG
+//
+//        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+÷常用操作
+ ☐ 关闭80端口：sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+ ☐ 开启80端口：sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+ 80path：/Library/WebServer/Documents
+ 编辑hosts：vim /etc/hosts
+
+4506571601@sohu.com 
+4506571602@sohu.com
+4506571603@sohu.com
+4506571604@sohu.com
+4506571605@sohu.com 
+4506571606@sohu.com
+4506571607@sohu.com
+4506571608@sohu.com
+4506571609@sohu.com
+4506571610@sohu.com
+4506571611@sohu.com  
+4506571612@sohu.com
+4506571613@sohu.com
+4506571614@sohu.com
+4506571615@sohu.com
+4506571616@sohu.com
+4506571617@sohu.com
+45065716018@sohu.com
+45065716019@sohu.com
+45065716020@sohu.com
+密码6个1
+
+÷开发工具
+ ☐ 素材管理工具Iconjar（mac） http://geticonjar.com/ 免费
+ ☐ API文档浏览器及代码片段管理工具Dash Mac App Store下载 免费
+ ☐ 用于实现远程支持、远程访问、远程管理、家庭办公及在线协作和会议功能的软件 TeamViewer 个人使用免费
+ ☐ 工具武装的前端开发工程师http://www.html-js.com/article/jsdig-gongjuwuzhuangdiqianduankaifagongchengshi%203661
+
+
+÷git info https://git-scm.com/book/zh/v2/Git-基础-获取-Git-仓库
+ ☐ username:xuerong
+ ☐ email:xuerong@youku.com
+ ☐ SSH公钥:$ ssh-keygen -> $ cat ~/.ssh/id_rsa.pub 查询ssh_gen $ cd ~/.ssh -> $ ls
+
+ ☐ git clone 从git服务器拉取代码
+ ☐ git config 配置开发者用户名和邮箱
+ ☐ git branch 创建、重命名、查看、删除项目分支，通过git做项目开发时，一般都是在开发分支中进行，开发完成后合并分支到主干。
+ ☐ git checkout 切换分支
+ ☐ git status 查看文件变动状态
+ ☐ git add 添加文件变动到暂存区
+ ☐ git commit 提交文件变动到版本库
+ ☐ git push 将本地的代码改动推送到服务器
+ ☐ git pull 将服务器上的最新代码拉取到本地
+ ☐ git log 查看版本提交记录
+ ☐ git tag 为项目标记里程碑
+ ☐ .gitignore 设置哪些内容不需要推送到服务器
+ 
+.taskarea .item:nth-child(3){display:none}
+
+.weinre 手机端检测工具
+
+÷管理账号
+ ☐ http://mcenter.youku.com/mcenter/ tangguiyao  4&tgy1245
+ ✔ 10.10.72.94 h5.youku.com  username:h5,password:123456 @done (17-01-22 18:02)
+
+÷Secure CRT 操作
+ ☐ 打开  显示内容>Macos>secureCRT
+ ☐ 进入目录 cd /home/h5/www    注：进入文件夹可以tab一下查看文件夹下有什么内容然后再继续
+ ☐ 上传文件 单个上传文件命令 rz -y    同步svn  ，将文件更新到svn之后再CRT里面sudo svn up更新svn的文件到测试服务器
+
+阿里cdn图片压缩 http://gw.alicdn.com/mt/LB1X0UsRXXXXXafaXXXXXXXXXXX-1000-1331.png_300x300
+
+÷webpack
+☐ 常用操作
+   mkdir ****  创建文件夹
+   npm install webpack --save  安装webpack
+   npm install webpack-dev-server --save
+   npm install babel-core
+   npm install babel-loader
+   npm install babel-preset-react
+   npm install babel-preset-es2015
+   touch webpack.config.js
+   touch *** 创建文件
+
+
+÷poplayer 问题
+ ☐ android测试用本地ip
+   "uri":"com.youku.HomePageEntry"
+ ☐  ios 
+   "uri": "HomeViewController"
+ ☐ 终端控制台
+   输入MTopWVPlugin扫描查看console
+
+
+ios poplayer上线需要在地址后追加参数  _wvUseWKWebView=YES  poplayer切换uc内核：popUc=1  强制切到windvane：popWV=1
+
+÷专利
+ ✘ 视频大小自动调节 @cancelled (16-11-15 10:51)
+ ✘ icon图形样式化 @cancelled (16-11-15 10:51)
+ ☐ 视频可以在任意页面下跳转
+ ✘ 长按视频，出现交互按钮 上下集切换，调整声音大小，选集 @cancelled (16-12-05 16:47)
+ ☐ 语音控制播放
+
+÷提交信息
+ ☐ @done
+WIRELESS-59179 修改页面信息
+/svn/h5_frontend/trunk/extension/js/extension.js
+http://static.youku.com/h5/html/extension/extension.html?category=360pinzhuan1
+
+
+h5炫酷页面
+http://www.epub360.com/v2/manage/book/v1zvoi/#page/page_daf08533da5ef4c1
+光影 年终总结 http://game.qq.com/act/a20160917fbh/index.html
+小游戏 测测你的专属冠军DNA http://c.botuu.com/juhuasuan/201608champion/friend.aspx
+奥运 http://promo.moji.com/mojiaoyun/aoyunday01/index.html
+七夕约会  http://www.recachina.com/qixi/index.html
+vr地图 http://98786edfa71c.ih5.cn/idea/znKagak?vxparm=/vxid_1/senderid_27f3269955104f62&source=undefined&suid=A1E93C5D-2859-46E7-AF1D-ED60970A71E3&sl=0
+点球大赛http://bb5ecf9e126c.ih5.cn/idea/qMF0Jzh?vxparm=/vxid_1/senderid_27f650205a96129d&source=odVsFjzB12SgSp5NrbM5pv9mLdNw&suid=193656BA-2C2B-43BE-8486-782F8FADD8DC&sl=0
+吃豆豆 http://bb5ecf9e126c.ih5.cn/idea/N3EETq1?vxparm=/vxid_1/senderid_27f650205a96129d&source=odVsFjzB12SgSp5NrbM5pv9mLdNw&suid=193656BA-2C2B-43BE-8486-782F8FADD8DC&sl=0#p1
+
+
+
+
+花名
+阿虏 alu
+“阿虏”是《美食的俘虏》动画片美食四天王之一，他心地善良且尊重生命，热血并积极向上，为实现目标不断努力和磨练自己，终成为最强者
+
+÷ctrl+space or alt+/ 展开任务列表
+ ☐ 新建任务:command+i or command+enter
+ ☐ 任务完成:command+d or click bullet
+ ☐ 任务取消:ctrl+c
+ ☐ 任务归档(archive) command+shift+a @started(16-08-01 17:29)
+
+÷Completion rules (ctrl+space or alt+/ to see list of them):
+ ☐ type t, press tab — it’ll become @today — this one is highlighted differently than other tags;
+ ☐ c, tab — @critical;
+ ☐ h, tab — @high;
+ ☐ l, tab — @low;
+ ☐ s, tab — @started — press tab again and current date will be inserted, when you’ll complete or cancel a task with such tag, you’ll know how many time has passed since start;
+ ☐ tg, tab, tab work in the same manner as s, but inserts @toggle(current date) — so you can pause and resume to get more correct result when done/cancel; each toggle tag is either pause or resume depending on its place in sequence;
+ ☐ cr, tab, tab — @created(current date) (⌘ + shift + enter creates a new task with this tag);
+ ☐ d, tab — @due( ) 到期
+
+
+

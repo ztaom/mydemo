@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>弹幕DEMO</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.css" />
+<link href="../src/css/video.css" rel="stylesheet">
+<script src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js"></script>
+<script src="//g.alicdn.com/mtb/??lib-httpurl/1.3.2/httpurl.js"></script>
+<style>
+  body, html {margin: 0; padding:0;}
+  .lib-video {width: 100%; height: 400px}
+  button{width: 100px; height: 40px}
+  h3{font-size: 20px; line-height: 30px}
+</style>
+</head>
+<body>
+  <!-- LIVE SAMPLES -->
+  <div>
+    <video webkit-playsinline="webkit-playsinline" autoplay="" live id="J_Video_Player_Live" class="lib-video vjs-hidden" poster="https://img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+      <source src="http://tbflive.alicdn.com/mediaplatform/479966771_1469012375524.m3u8?auth_key=1469617175-0-0-74ed81a36a0ffb29dd58402d4173fb2a" type="application/x-mpegURL">     
+    </video>
+  </div>
+
+  <script src="../publish/video.js"></script>
+  <script>
+    var url = new lib.httpurl(location.href);
+    var m3u8Path = url.params.path;
+
+    if(m3u8Path){
+      document.querySelectorAll('source')[0].src = m3u8Path;
+    }
+
+    var VideoPlayer = window['lib-video-player'];
+
+    var myPlayer = VideoPlayer('J_Video_Player_Live', {
+      danmakuPlayerList : [{
+            //从何时开始
+            time:0,
+            //经过的时间
+            duration:4292,
+            //舞台偏移的高度
+            top:'0.1rem',
+            //弹幕文字大小
+            size:'0.4rem',
+            //弹幕颜色
+            color:'#fff',
+            backgroundColor : 'rgba(255, 0, 0, 0.6)',
+            //内容
+            text:'内容内容内容内容内容'
+        },{
+            time:100,
+            duration:6192,
+            top:90,
+            size:'0.4rem',
+            color:'green',
+            text:'内容内容内容内容内容内容内容',
+        },{
+            time:130,
+            duration:4192,
+            top:130,
+            size:'18px',
+            color:'red',
+            text:'内容内容内容内容。。。。',
+        },{
+            time:1000,
+            duration:6992,
+            top:250,
+            size:'0.4rem',
+            color:'blue',
+            text:'哈哈哈哈',
+        },{
+            time:3000,
+            duration:6992,
+            top:250,
+            size:14,
+            color:'blue',
+            text:'哈哈哈哈哈哈哈哈哈哈哈哈...',
+        }]
+    });
+
+    //window.libVideoPlayerDebug = true;
+
+    myPlayer.on('video:error', function(ev){
+      console.log('myPlayer:::video:error::' + JSON.stringify(ev));
+    })
+
+    myPlayer.on('video:play', function(){
+      console.log('myPlayer:::video:play::');
+    })
+  </script>
+</body>
+</html>

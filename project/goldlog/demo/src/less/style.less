@@ -1,0 +1,21 @@
+@pxtorem: 2*37.5rem;
+@images: '../img';
+
+/*&:extend(.center); &:extend()方法是继承center的值 */
+.box{
+    &:extend(.center);
+    width: 200/@pxtorem;
+    p{color: red;}
+}
+
+.demo{
+	width: 100%; height: 200/@pxtorem; background:#eee;
+}
+
+.wrap{width: 100%; background:#fff; height: 100%; position: absolute; top:0; bottom:0; left: 0; right: 0;}
+ul{padding:30px; overflow:hidden;}
+li{margin-bottom:30px;}
+.btn{background:#eee; padding:10px 10px;}
+li p{color: #666; padding: 10px 0 0 20px;}
+h3{font-size: 20px; padding:20px 0 0 20px;}
+p.ps{line-height: 1.6; font-size: 12px; padding:10px 20px; color: #666;}

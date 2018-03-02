@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>css px demo</title>
+  <meta name="viewport" content="width=750,initial-scale=0.48,maximum-scale=0.48,minimum-scale=0.48,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <link rel="stylesheet" type="text/css" href="../src/cssrem/video.css">
+  <style type="text/css">
+    html,
+    body{
+      height: 100%;
+    }
+  </style>
+  <style>
+    body, html {margin: 0; padding:0;}
+    .lib-video {width: 100%; height: 400px}
+    button{width: 100px; height: 40px}
+    h3{font-size: 20px; line-height: 30px}
+  </style>
+
+</head>
+<body>
+
+  <div>
+<div>shmshm</div>
+    <video initial-scale="0.48" webkit-playsinline="webkit-playsinline" id="J_Video_Player" src="//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/34341521.mp4" class="lib-video vjs-hidden" poster="//img.alicdn.com/bao/uploaded/TB1oJg8LpXXXXb.XFXXXXXXXXXX.jpg">
+      <source src="//cloud.video.taobao.com/play/u/2675628091/p/1/e/6/t/1/34341521.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script src="../build/bundle/bundle.js"></script>
+  <script>
+    var VideoPlayer = lib.videoPlayer;
+
+    var myPlayer = VideoPlayer('J_Video_Player',{
+     'custom-controls': 'true'
+    });
+
+    myPlayer.on('video:ended', function(){
+      console.log('ended');
+    })
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>Animated ball with gradient fill</title>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var ball;
+var x;
+var y;
+var xVec;
+var yVec;
+var direc = 1;
+var rot = 0;
+var gravity = 1;
+var left=75;
+var right=525;
+var bottom=325;
+var interval ;
+var twoPi = Math.PI * 2;
+var grad ;
+
+function init() {
+	ball = document.getElementById("ball");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.strokeStyle="black";
+	ctx.moveTo(0,bottom + 75);
+	ctx.lineTo(600,bottom+ 75);
+	ctx.lineTo(600,0)
+	ctx.stroke();
+	x = 98;
+	y = 75;
+	xVec=5.5;
+	yVec=0;
+	gravity = 1;
+	makeGradient();
+	interval = setInterval("animate()",50);
+}
+
+function makeGradient() {
+	grad = ctx.createRadialGradient(0,0,10,0,0,75); 
+	grad.addColorStop(0, 'rgba(255,255,255,0.8)');
+	grad.addColorStop(1, 'rgba(0,50,255,0.3)');
+}
+
+function animate() {
+	rot = rot + .1 * direc;
+	x = x + xVec;
+	yVec = yVec + gravity;
+	y = y + yVec;
+	bounceIf();
+	draw();
+}
+
+function bounceIf() {
+	if (y >= bottom) {
+		y = bottom ;
+		yVec = -1 * yVec - gravity	
+	}
+	if (x >= right || x <= left) {
+		xVec = -1 * xVec;
+		direc = -1 * direc ;
+	}
+}
+
+function draw() {
+	ctx.save();
+	ctx.clearRect(0,0,can.width -1 ,can.height -1);
+	ctx.translate(x,y);
+	ctx.rotate(rot);
+	ctx.drawImage(ball, -75, -75);
+	ctx.fillStyle = grad;	
+	ctx.beginPath();
+	ctx.arc(0,0,73, 0, twoPi);
+	ctx.closePath;
+	ctx.fill();
+	ctx.restore();
+}
+
+</script>	
+	
+</head>
+<body onload="init()" style="background-color:#d9d3b9">
+<h2>Animation can pass over text</h2>
+<img id="ball" src="assets/soccerball1.png" style="display:none">
+<canvas id="can" height="400" width="600" style="position:relative;top:-50">
+</canvas>
+</body>
+</html>

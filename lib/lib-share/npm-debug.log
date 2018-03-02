@@ -1,0 +1,148 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/bin/npm-cli.js',
+1 verbose cli   '--cache=/Users/lixuemin/.tnpm',
+1 verbose cli   '--tmp=/Users/lixuemin/.tnpm_tmp',
+1 verbose cli   '--no-proxy',
+1 verbose cli   '--disturl=https://tnpm-hz.oss-cn-hangzhou.aliyuncs.com/dist/node',
+1 verbose cli   '--userconfig=/Users/lixuemin/.tnpmrc',
+1 verbose cli   '--registry=http://registry.npm.alibaba-inc.com',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/lixuemin/Documents/demo/ku/lib-share/lib-share',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/lixuemin/.tnpm correctMkdir not in flight; initializing
+10 info lifecycle @ali/lib-shareh5@0.0.6~prepublish: @ali/lib-shareh5@0.0.6
+11 silly lifecycle @ali/lib-shareh5@0.0.6~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package.tgz',
+12 verbose tar pack   '/Users/lixuemin/Documents/demo/ku/lib-share/lib-share' ]
+13 verbose tarball /Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package.tgz
+14 verbose folder /Users/lixuemin/Documents/demo/ku/lib-share/lib-share
+15 verbose addLocalTarball adding from inside cache /Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package.tgz
+16 verbose correctMkdir /Users/lixuemin/.tnpm correctMkdir not in flight; initializing
+17 silly cache afterAdd @ali/lib-shareh5@0.0.6
+18 verbose afterAdd /Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/lixuemin/.tnpm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package/package.json written
+21 silly publish { name: '@ali/lib-shareh5',
+21 silly publish   version: '0.0.6',
+21 silly publish   description: 'H5站外分享库，支持微信和钉钉 by youku',
+21 silly publish   main: 'dist/index.js',
+21 silly publish   scripts:
+21 silly publish    { dev: 'npm run dev:dist',
+21 silly publish      'dev:dist': 'rollup -c rollup.config.dist.js -w',
+21 silly publish      'dev:browser': 'rollup -c rollup.config.browser.js -w',
+21 silly publish      build: 'npm run build:dist && npm run build:browser',
+21 silly publish      'build:dist': 'rollup -c rollup.config.dist.js',
+21 silly publish      'build:browser': 'rollup -c rollup.config.browser.js',
+21 silly publish      'build:multi': 'node ./build.js',
+21 silly publish      serve: 'serve ./ -p 3000',
+21 silly publish      test: 'mocha --compilers js:babel-core/register test/spec.js' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'http://gitlab.alibaba-inc.com/ku/lib-share.git' },
+21 silly publish   publishConfig: { registry: 'http://registry.npm.alibaba-inc.com' },
+21 silly publish   keywords: [ 'util' ],
+21 silly publish   author: { name: '紫瀚' },
+21 silly publish   license: 'ISC',
+21 silly publish   devDependencies:
+21 silly publish    { '@ali/lib-mtop': '^2.4.0',
+21 silly publish      async: '^2.5.0',
+21 silly publish      'babel-core': '^6.25.0',
+21 silly publish      'babel-eslint': '^7.2.3',
+21 silly publish      'babel-plugin-external-helpers': '^6.22.0',
+21 silly publish      'babel-plugin-transform-es2015-classes': '^6.24.1',
+21 silly publish      'babel-plugin-transform-es2015-computed-properties': '^6.24.1',
+21 silly publish      'babel-preset-env': '^1.6.0',
+21 silly publish      'babel-preset-es2015': '^6.24.1',
+21 silly publish      chai: '^4.1.0',
+21 silly publish      eslint: '^4.3.0',
+21 silly publish      'eslint-plugin-html': '^3.2.0',
+21 silly publish      metalsmith: '^2.3.0',
+21 silly publish      mocha: '^3.4.2',
+21 silly publish      rollup: '^0.45.2',
+21 silly publish      'rollup-plugin-babel': '^2.7.1',
+21 silly publish      'rollup-plugin-commonjs': '^8.1.0',
+21 silly publish      'rollup-plugin-eslint': '^4.0.0',
+21 silly publish      'rollup-plugin-node-resolve': '^3.0.0',
+21 silly publish      'rollup-plugin-uglify': '^2.0.1',
+21 silly publish      'rollup-plugin-vue': '^2.4.1',
+21 silly publish      'rollup-watch': '^4.3.1',
+21 silly publish      serve: '^6.0.6',
+21 silly publish      should: '^11.2.1',
+21 silly publish      vue: '^2.4.2' },
+21 silly publish   engines: { node: '>= 6.9.0', npm: '>= 3.0.0' },
+21 silly publish   dependencies: { '@ali/browser-detect': '^1.0.5' },
+21 silly publish   readme: '## lib-share\n\n## H5站外微信、钉钉分享说明\n\n\n\n### 首先，加载组件之前必须引入微信或者钉钉对应的apk\n    var ua = window.navigator.userAgent.toLowerCase();\n    if (/micromessenger/.test(ua)) {\n        document.write(\'<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js" ><\\/script>\');\n    }\n    if (/dingtalk/.test(ua)) {\n        document.write(\'<script src="//g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js" ><\\/script>\');\n    }\n    \n### 其次组件调用方式有两种\n\n#### import引入，首先安装，tnpm install @ali/lib-shareh5 --save\n    \n    import share from \'@ali/lib-shareh5\';\n    share({\n        title: \'\', //对话框标题\n        timelineTitle: \'\', //微信朋友圈显示标题\n        desc: \'\', //对话框分享描述\n        link: \'\', //分享链接\n        shareImage: \'\' //图片地址必须加https或http\n    });\n\n注释:以上所有参数均为选填，其中title、timelineTitle和desc默认为页面标题，link默认页面url，shareImage默认为优酷logo图。\n\n#### cnd地址引入，组件中含有mtop请求，所以需要引入mtop库\n    <script src="//g.alicdn.com/mtb/lib-mtop/2.3.15/mtop.js"></script>\n    <script src="//g.alicdn.com/mtb/lib-promise/3.1.3/polyfillB.js"></script>\n    <script src="https://g.alicdn.com/ku/lib-share/0.0.5/lib-share.js" ></script>\n    window.shareH5(); //参数同上\n\n## 帮助\n- 开发遇到问题可以联系 @山兔\n\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '9980e12790758ecce7ec2648bcacae1b7db393f7',
+21 silly publish   _id: '@ali/lib-shareh5@0.0.6',
+21 silly publish   _shasum: '10001439aad246a03650517ffb4bfa1ffababe9a',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig { registry: 'http://registry.npm.alibaba-inc.com' }
+23 silly mapToRegistry name @ali/lib-shareh5
+24 silly mapToRegistry scope (from package name) @ali
+25 verbose mapToRegistry no registry URL found in name for scope @ali
+26 silly mapToRegistry using default registry
+27 silly mapToRegistry registry http://registry.npm.alibaba-inc.com
+28 silly mapToRegistry data Result {
+28 silly mapToRegistry   raw: '@ali/lib-shareh5',
+28 silly mapToRegistry   scope: '@ali',
+28 silly mapToRegistry   escapedName: '@ali%2flib-shareh5',
+28 silly mapToRegistry   name: '@ali/lib-shareh5',
+28 silly mapToRegistry   rawSpec: '',
+28 silly mapToRegistry   spec: 'latest',
+28 silly mapToRegistry   type: 'tag' }
+29 silly mapToRegistry uri http://registry.npm.alibaba-inc.com/@ali%2flib-shareh5
+30 verbose publish registryBase http://registry.npm.alibaba-inc.com/
+31 silly publish uploading /Users/lixuemin/.tnpm/@ali/lib-shareh5/0.0.6/package.tgz
+32 verbose request uri http://registry.npm.alibaba-inc.com/@ali%2flib-shareh5
+33 verbose request sending authorization for write operation
+34 info attempt registry request try #1 at 5:47:58 PM
+35 verbose request id cab8b13e4549076c
+36 http request PUT http://registry.npm.alibaba-inc.com/@ali%2flib-shareh5
+37 http 403 http://registry.npm.alibaba-inc.com/@ali%2flib-shareh5
+38 verbose headers { server: 'Tengine',
+38 verbose headers   date: 'Wed, 29 Nov 2017 09:47:58 GMT',
+38 verbose headers   'content-type': 'application/json; charset=utf-8',
+38 verbose headers   'content-length': '74',
+38 verbose headers   connection: 'keep-alive',
+38 verbose headers   'x-current-requests': '1',
+38 verbose headers   vary: 'Origin',
+38 verbose headers   'x-readtime': '205' }
+39 verbose request invalidating /Users/lixuemin/.tnpm/registry.npm.alibaba-inc.com/_40ali_252flib-shareh5 on PUT
+40 error publish Failed PUT 403
+41 verbose stack Error: forbidden cannot modify pre-existing version: 0.0.6: @ali/lib-shareh5
+41 verbose stack     at makeError (/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/node_modules/npm-registry-client/lib/request.js:302:12)
+41 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/node_modules/npm-registry-client/lib/request.js:290:14)
+41 verbose stack     at Request._callback (/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/node_modules/npm-registry-client/lib/request.js:210:14)
+41 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/node_modules/request/request.js:187:22)
+41 verbose stack     at emitTwo (events.js:106:13)
+41 verbose stack     at Request.emit (events.js:191:7)
+41 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/node_modules/request/request.js:1048:10)
+41 verbose stack     at emitOne (events.js:96:13)
+41 verbose stack     at Request.emit (events.js:188:7)
+41 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/node_modules/request/request.js:969:12)
+42 verbose statusCode 403
+43 verbose pkgid @ali/lib-shareh5
+44 verbose cwd /Users/lixuemin/Documents/demo/ku/lib-share/lib-share
+45 error Darwin 15.6.0
+46 error argv "/usr/local/bin/node" "/usr/local/lib/node_modules/tnpm/node_modules/_npm@3.10.10@npm/bin/npm-cli.js" "--cache=/Users/lixuemin/.tnpm" "--tmp=/Users/lixuemin/.tnpm_tmp" "--no-proxy" "--disturl=https://tnpm-hz.oss-cn-hangzhou.aliyuncs.com/dist/node" "--userconfig=/Users/lixuemin/.tnpmrc" "--registry=http://registry.npm.alibaba-inc.com" "publish"
+47 error node v6.11.2
+48 error npm  v3.10.10
+49 error code E403
+50 error forbidden cannot modify pre-existing version: 0.0.6: @ali/lib-shareh5
+51 error If you need help, you may report this error at:
+51 error     <https://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]

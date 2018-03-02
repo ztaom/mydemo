@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title>Poplayer test</title>
+    <script>
+        var totalTime = 0;
+        var timer;
+        if (timer == undefined) {
+            timer = setInterval(function () {
+                totalTime++;
+            }, 10);
+        }
+    </script>
+    <style>
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #555;
+            font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+        }
+
+        .clickIn {
+            width: 100%;
+            height: 12rem;
+            background-color: rgba(255, 0, 0, 0.3);
+            font-size: 24px;
+            text-shadow: 2px 2px #fff;
+            color: #05ad3d;
+            border: 2px solid #05ad3d;
+        }
+
+        .clickOut {
+            width: 100%;
+            height: 12rem;
+            background-color: rgba(255, 0, 0, 0.6);
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .skipToYK, .skipToAli, .closeBtn, .loginBtn {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: #05ad3d;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+        }
+    </style>
+    <script src="http://g.alicdn.com/mtb/lib-windvane/2.1.8/windvane.js"></script>
+    <script>
+        window.WindVane.call('WVPopLayer', 'display', {});
+    </script>
+</head>
+<body onload="loadFun()">
+<div class="wrapper">
+    <h5>我是poplayer测试页面</h5>
+    <div id="clickIn" class="clickIn">可透传区域</div>
+    <div id="clickOut" class="clickOut">不可透传区域<br/><br/><br/>加载时间:<span id="showTime"></span>0ms</div>
+    <div>
+        <button id="skipToYK" class="skipToYK">跳转至优酷按钮</button>
+    </div>
+    <div>
+        <button id="skipToAli" class="skipToAli">跳转至阿里云按钮</button>
+    </div>
+    <div>
+        <button id="closeBtn" class="closeBtn">关闭poplayer按钮</button>
+    </div>
+    <div>
+        <button id="loginBtn" class="loginBtn">登录按钮</button>
+    </div>
+</div>
+<script>
+    function loadFun() {
+        var clickIn = document.getElementById('clickIn');
+        var clickOut = document.getElementById('clickOut');
+        var closeBtn = document.getElementById('closeBtn');
+        var skipToYK = document.getElementById('skipToYK');
+        var skipToAli = document.getElementById('skipToAli');
+        var showTime = document.getElementById('showTime');
+        var loginBtn = document.getElementById('loginBtn');
+
+        window.WindVane.call('WVPopLayer', 'info', {}, function (s) {
+            window.alert('在poplayer中,返回值为:' + JSON.stringify(s));
+        }, function (e) {
+            window.alert('不在poplayer中,返回值为:' + JSON.stringify(e));
+        });
+
+        window.WindVane.call('WVPopLayer', 'setModalThreshold', {
+            modalThreshold: 0.7, // 点透率0-1，越大越难点透
+        }, function (s) {
+            //成功设置点透率
+        }, function (e) {
+            window.alert('设置透明度失败,错误:' + JSON.stringify(e));
+        });
+
+        window.WindVane.call('WVPopLayer', 'increaseReadTimes', {}, function (s) {
+            //成功增加打开次数
+        }, function (e) {
+            window.alert('increaseReadTimes fail,Error:' + JSON.stringify(e));
+        });
+
+        clickIn.onclick = function () {
+            window.alert('点击可穿透区域');
+        };
+
+        clickOut.onclick = function () {
+            window.alert('点击不可透传区域');
+        };
+
+        closeBtn.onclick = function () {
+            window.WindVane.call('WVPopLayer', 'close', {}, function (s) {
+                //关闭成功  ????????????????????????????????????该回调在何时执行
+            }, function (e) {
+                window.alert('关闭poplayer失败,错误:' + e);
+            });
+        };
+
+        skipToYK.onclick = function () {
+            window.WindVane.call('WVPopLayer', 'navToUrl', {
+                'url': 'http://www.youku.com/'
+            }, function (s) {
+                //跳转成功  ????????????????????????????????????该回调在何时执行
+            }, function (e) {
+                window.alert('跳转失败,错误:' + JSON.stringify(e));
+            });
+        };
+
+        skipToAli.onclick = function () {
+            window.WindVane.call('WVPopLayer', 'navToUrl', {
+                'url': 'https://m.aliyun.com'
+            }, function (s) {
+                //跳转成功
+            }, function (e) {
+                window.alert('跳转失败,错误:' + JSON.stringify(e));
+            });
+        };
+
+        loginBtn.onclick = function () {
+            window.WindVane.call("WVLoginJSBridge", "showLoginView", "", function (e) {
+                alert('登录成功:'+JSON.stringify(e));
+            }, function (e) {
+                alert('登录失败:'+JSON.stringify(e));
+            });
+        }
+
+        clearInterval(timer);
+        showTime.innerHTML = totalTime;
+
+    }
+</script>
+</body>
+</html>

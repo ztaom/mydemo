@@ -1,0 +1,3 @@
+..\resource\js\ifeng.js
+..\resource\js\swipe.js
+..\resource\js\slider.js

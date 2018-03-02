@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Adding shadows</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+var png;
+var jpg;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	cWide = can.width;
+	cHi = can.height;
+	cMid = cWide / 2;
+	png = document.getElementById("png");
+	jpg = document.getElementById("jpg");
+	ctx.shadowColor = 'rgba(128,128,128, 0.5)'
+	ctx.shadowOffsetX = 5;
+	ctx.shadowOffsetY = 5;
+	drawLines();
+	drawRect();
+	drawSprites();
+	drawText();
+}
+
+function drawLines() {
+	ctx.strokeStyle="black";
+	ctx.beginPath();
+	ctx.moveTo(0,cMid);
+	ctx.lineTo(cWide, cMid);
+	ctx.moveTo(cMid,0);
+	ctx.lineTo(cMid,cHi);
+	ctx.stroke();
+}
+
+function drawRect() {
+	ctx.fillStyle="blue";
+	ctx.fillRect(0,0, 50,50);
+}
+
+function drawSprites() {
+	ctx.drawImage(png,20 , cMid - 50);
+	ctx.drawImage(jpg,170, cMid - 50);
+}
+
+function drawText() {
+	ctx.fillStyle = "black";
+	ctx.font="12 pt Helvetica";
+	ctx.fillText("Shadows on rectangle, lines, png, and jpg", 1, 250, 299);
+}
+
+</script>
+	
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="300" width="300">
+</canvas>
+
+<img id= "png" src="assets/lem.png" style="display:none">
+<img id= "jpg" src="assets/lem.jpg" style="display:none">
+
+</body>
+</html>

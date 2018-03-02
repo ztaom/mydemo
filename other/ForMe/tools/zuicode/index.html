@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title>ZUI——前端开发源码库</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="css/common.css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/html5.js"></script>
+<style>
+.homemod {background:#eee; border:1px solid #fefefe; -moz-box-shadow:0 0 2px rgba(0,0,0,0.5);-webkit-box-shadow:0 0 2px rgba(0,0,0,0.5);box-shadow:0 0 2px rgba(0,0,0,0.5); padding:15px 10px; width:500px; margin:100px auto 0;}
+#iframepage {margin-top:30px;}
+</style>
+</head>
+<body>
+<header id="header"></header>
+<div class="grid_l_220">
+  <aside id="aside" class="column"></aside>
+  <section class="main">
+    <section class="column">
+      <article class="content">
+        <iframe id="iframepage" scrolling="no" src="" width="100%" height="100%" style="border:none; display:none" onLoad="iFrameHeight()"></iframe>
+        <div class="homemod">
+          <h3 class="f_16 mb_10">ZUI——前端代码库</h3>
+          <div class="message msg_tips mb_10"><p class="msg_cont f_12">当你访问这个网站的时候，如果所提供的源码对你有帮组，请你点击一下广告，广告费用来继续扩展网站资源，十分感谢！</p></div>
+          <p class="lh-160">本站主要整理外部资源以及自己开发的源码库，包括HTML、CSS、JavaScript、Jquery，意在于节省前端开发者的开发时间，遵循拿来即用的思想。</p>
+        </div>
+      </article>
+    </section>
+  </section>
+</div>
+<script>
+$(function(){
+  $("#header").html("正在加载...");
+  $("#header").load("./header.html");
+  $("#aside").html("<div class='loading'>正在加载...</div>");
+  $("#aside").load("./aside.html");
+})
+</script>
+<script> 
+$(function(){
+	$("#iframepage").load(function() {
+		var height = $(this).contents().height() + 500; 
+		$(this).height(height); 
+	})
+})
+</script> 
+</body>
+</html>

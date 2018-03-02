@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>Pixel Manipulation</title>
+<script type="text/javascript">
+	var can;
+	var ctx;
+	var pixData;
+	var pixels;
+	var red = [];
+	var green = [];
+	var blue = [];
+	var alpha = [];
+	
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	// fill screen with red, green, and blue stripes
+	ctx.fillStyle="red";
+	ctx.fillRect(0,0, can.width /3, can.height);	
+	ctx.fillStyle='rgb(0,255,0)';
+	ctx.fillRect(can.width / 3,0, can.width * 2/3, can.height);
+	ctx.fillStyle="blue";
+	ctx.fillRect(can.width* 2/ 3,0, can.width, can.height);	
+	// get pixel data for entire canvas
+	pixels=ctx.getImageData(0,0,can.width,can.height);
+	pixData=pixels.data;
+	// separate out red, green, blue, and alpha values
+	for (i=0;i<pixData.length;i=i+4) {
+		red[i/4]=pixData[i];
+		green[i/4]=pixData[i+1];
+		blue[i/4]=pixData[i+2];
+		alpha[i/4]=pixData[i+3];
+	}
+}
+
+function clearGreen() {
+	// check each pixel's RGB value
+	for (i=0;i<can.width * can.height;i++) {	
+		if (red[i]==0 && green[i]==255 && blue[i]==0)
+			// set alpha value for pixel to 0
+			pixData[i*4 +3]=0;
+	}
+ 	// blit modified image object to screen
+ 	ctx.putImageData(pixels,0,0);
+}
+
+function restoreGreen() {
+	for (i=0;i<can.width * can.height;i++) {	
+		if (red[i]==0 && green[i]==255 && blue[i]==0)
+			pixData[i*4 +3]=255;
+	}
+ 	pixels.data = pixData;
+ 	ctx.putImageData(pixels,0,0);
+}
+
+
+
+</script>
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="300">
+</canvas>
+
+<br>
+<input type="button" value="Clear Green" onClick="clearGreen()">
+<input type="button" value="Restore Green" onClick="restoreGreen()">
+
+</body>
+</html>

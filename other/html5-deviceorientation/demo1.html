@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HTML5 控制装置陀螺仪（三轴）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
+    <style type="text/css">
+      html,body,p,div{}
+    </style>
+    <script>
+      if(window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', function(event){
+          var a = document.getElementById('alpha'),
+              b = document.getElementById('beta'),
+              c = document.getElementById('gamma')
+
+          alpha = event.alpha;
+          beta = event.beta;
+          gamma = event.gamma;
+
+          a.innerHTML = Math.round(alpha); //手机水平旋转的值
+          b.innerHTML = Math.round(beta); //手机水平横向翻转的值
+          c.innerHTML = Math.round(gamma); //手机水平纵向翻转的值
+
+        }, false)
+      } else {
+        document.querySelector('body').innerHTML = '请使用chrome浏览器'
+      }
+
+    </script>
+  </head>
+  <body>
+    <p>要使用行动装置的陀螺仪，只需要监听deviceorientation的事件就可以，用法和click一样</p>
+    <pre>
+    window.addEventListener('deviceorientation', function(event) {
+      var alpha = event.alpha;
+      var beta = event.beta;
+      var gamma = event.gamma;
+    }, false);
+    </pre>
+    <p>deviceorienratation有三个API，分别是：alpha, beta和gamma</p>
+    <ul>
+      <li>
+        <h3>alpha</h3>
+        <p>行动装置水平放置时，绕Z轴旋转的角度，数值为0～360度</p>
+        <img src="alpha.jpg" width="100%">
+      </li>
+      <li>
+        <h3>beta</h3>
+        <p>行动装置水平放置时，绕X轴旋转的角度，数值为-90～90度</p>
+        <img src="beta.jpg">
+      </li>
+      <li>
+        <h3>gamma</h3>
+        <p>行动装置水平放置时，绕Z轴旋转的角度，数值为-180～180度</p>
+        <img src="gamma.jpg">
+      </li>
+    </ul>
+
+    <h3>demo</h3>
+    <p>
+      alpha:<span id="alpha"></span><br/>
+      beta:<span id="beta"></span><br/>
+      gamma:<span id="gamma"></span><br/>
+    </p>
+
+  </body>
+</html>

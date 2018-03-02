@@ -1,0 +1,145 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+
+
+<style>@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #34B9C2;
+  font-family: 'Open Sans';
+  font-size: 14px;
+}
+
+.main-nav {
+  background: #fff;
+  box-shadow: 0 0 5px #167c82;
+  float: left;
+  margin: 50px 0 50px 0;
+  width: 200px;
+}
+.main-nav a {
+  display: block;
+  margin: 0;
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+}
+.main-nav a:hover {
+  color: white;
+}
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav li > ul {
+  display: none;
+}
+.main-nav li > ul a {
+  background: white;
+  padding-left: 35px;
+}
+.main-nav li > ul a:after {
+  content: "";
+}
+.main-nav li > ul li {
+  border: 0 !important;
+}
+.main-nav li:nth-child(1) a {
+  border-left: 10px solid #db214c;
+}
+.main-nav li:nth-child(1) a:hover {
+  background: #db214c;
+  border-left: 10px solid #991735;
+}
+.main-nav li:nth-child(2) a {
+  border-left: 10px solid #fdba17;
+}
+.main-nav li:nth-child(2) a:hover {
+  background: #fdba17;
+  border-left: 10px solid #c68d02;
+}
+.main-nav li:nth-child(3) a {
+  border-left: 10px solid #4faa0d;
+}
+.main-nav li:nth-child(3) a:hover {
+  background: #4faa0d;
+  border-left: 10px solid #2e6308;
+}
+.main-nav li:nth-child(4) a {
+  border-left: 10px solid #06998f;
+}
+.main-nav li:nth-child(4) a:hover {
+  background: #06998f;
+  border-left: 10px solid #034f4a;
+}
+.main-nav li:nth-child(5) a {
+  border-left: 10px solid #a540e8;
+}
+.main-nav li:nth-child(5) a:hover {
+  background: #a540e8;
+  border-left: 10px solid #7f18c4;
+}
+.main-nav .parent:after,
+.main-nav .parent-expanded:after {
+  display: inline-block;
+  float: right;
+}
+.main-nav .parent:after {
+  content: "▼";
+}
+.main-nav .parent-expanded:after {
+  content: "▲";
+}
+</style></head><body>
+<nav class="main-nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a>
+      <ul>
+        <li><a href="#">The Company</a></li>
+        <li><a href="#">The People</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Portfolio</a>
+      <ul>
+        <li><a href="#">All Items</a></li>
+        <li><a href="#">Lastest Work</a></li>
+        <li><a href="#">Awards</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact</a>
+      <ul>
+        <li><a href="#">Map</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+</nav>
+<script src="jquery.min.1.11.0.js"></script>
+<script>var $link = $(".main-nav a");
+var $slide = $(".main-nav ul");
+
+$link.on('click', function() { 
+   var el = $(this);
+   el.next($slide)
+   .slideToggle();
+ });
+
+$link
+.closest($slide)
+.prev($link)
+.addClass("parent");
+
+$(".parent").on('click', function() { 
+   var el = $(this);
+   el.toggleClass("parent-expanded");
+});//@ sourceURL=pen.js
+</script>
+</body></html>

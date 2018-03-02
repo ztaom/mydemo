@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title></title>
+<link rel="icon" href="../../../img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="../../../css/common.css" />
+<script type="text/javascript" src="../../../js/jquery-1.7.2.min.js"></script>
+
+<style>
+.box-wrapper {
+    width: 30 % ;
+    height: 100px;
+    display: inline-block;
+    margin: 80px 0
+}
+.box-wrapper .box {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    background: #e44c45;-webkit-border-radius: 80px; -moz-border- adius: 80px; -ms-border-radius: 80px-o -border-radius: 80px;
+    border-radius: 80px;
+    border: 3px solid#c62e27
+}
+#box1 {
+    background: #e44c45
+}
+#box2 {
+    background: #ff746d
+}
+#box3 {
+    background: #ff9c95
+}
+#debug {
+    font-size: 11px;
+    color: #999
+}
+</style>
+</head>
+<body>
+<div id="subcont">
+<h1 class="bl_solid_bottom mb_10 f_18 pb_5">A lightweight plugin for kinetic-drag on mobiledesktop</h1>
+<div class='box-wrapper'>
+          <div class='box' id='box1'></div>
+        </div>
+        <div class='box-wrapper'>
+          <div class='box' id='box2'></div>
+        </div>
+        <div class='box-wrapper'>
+          <div class='box' id='box3'></div>
+        </div>
+
+<script>
+(function( $ ){
+  
+  $.fn.fitText = function( kompressor, options ) {
+      
+      var settings = {
+        'minFontSize' : Number.NEGATIVE_INFINITY,
+        'maxFontSize' : Number.POSITIVE_INFINITY
+      };
+  
+      return this.each(function(){
+        var $this = $(this);              // store the object
+        var compressor = kompressor || 1; // set the compressor
+        
+        if ( options ) { 
+          $.extend( settings, options );
+        }
+        
+        // Resizer() resizes items based on the object width divided by the compressor * 10
+        var resizer = function () {
+          $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+        };
+
+        // Call once to set.
+        resizer();
+        
+        // Call on resize. Opera debounces their resize by default. 
+        $(window).resize(resizer);
+        
+      });
+
+  };
+
+})( jQuery );
+$(document).ready(function() {
+
+    $("#title").fitText(0.8);
+
+    var options = {
+      debug:        true,
+      start:        start,
+      stop:         stop,
+      rest:         rest
+    }
+
+    $('#box1').pep( options );
+    $('#box2').pep( options );
+    $('#box3').pep( options );
+
+});
+
+function stop(event, obj){
+  // do something with event or obj
+  $('h1').text('easing...');
+}
+
+function start(event, obj){
+  // do something with event or obj
+  $('h1').text('dragging!');
+}
+
+function rest(event, obj){
+  $('h1').text('pep.jquery.js');
+}
+</script>
+</div>
+<script type="text/javascript" src="jquery.pep.js"></script>
+<script type="text/javascript" src="../../../js/cont.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<style lang="less">
+</style>
+<template>
+  <block class="navwrap">
+    <scroll-view scroll-x>
+      <view class="nav">
+        <repeat for="{{navList}}" item="item" key="index" index="index">
+          <navigator url="./list/list" open-type="navigate" class="item {{item.navClassCurrent}}" id="nav{{index}}" bindtap="selectNav({{index}})">
+            {{item.name}}
+          </navigator>
+        </repeat>
+      </view>
+    </scroll-view>
+  </block>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Navigation extends wepy.component {
+    // twoWay:true表示子组件向父组件传值
+
+    data = {
+      navList: [
+        {name: '推荐'},
+        {name: '剧集'},
+        {name: '电影'},
+        {name: '综艺'},
+        {name: '音乐'},
+        {name: '动漫'}
+      ],
+      navClassCurrent: ''
+    }
+
+    methods = {
+      // 选择栏目
+      selectNav(index, e) {
+        for (let i = 0; i < this.navList.length; i++) {
+          this.navList[i].navClassCurrent = ''
+        }
+        this.navList[index].navClassCurrent = 'current'
+        // if (index === 1) {
+        //   this.videoList = listData.juji
+        // } else {
+        //   this.videoList = listData.videoList
+        // }
+        // 设置标题
+        if (index > 0) {
+          wepy.setNavigationBarTitle({
+            title: this.navList[index].name
+          })
+        } else {
+          wepy.setNavigationBarTitle({
+            title: '优酷'
+          })
+        }
+      }
+    }
+
+    onLoad () {
+      // 导航首页添加默认高亮样式
+      this.navList[0].navClassCurrent = 'current'
+    }
+  }
+</script>

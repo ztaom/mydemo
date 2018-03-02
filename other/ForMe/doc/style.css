@@ -1,0 +1,9 @@
+html,body,h1,h2,h3,p,span,em,div,img,a{padding:0px; margin: 0px;}
+body{font-size:14px; font-family: "MicriSoft YaHei"}
+h1,h2,h3{font-size: 18px;margin-bottom:10px;}
+.content{padding:15px;}
+pre{padding:10px; line-height:1.5; font-size:12px; background: #eee; overflow: hidden; clear: both;margin:15px 0;}
+
+[class^='icon']{width: 20px; height: 20px;}
+.icon_1{background:#eee;}
+.icon_2{background:#333;}

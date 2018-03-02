@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>手动控制方向的无缝滚动</title>
+
+    <script src="http://y0.ifengimg.com/base/jQuery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="mhautoslider.js"></script>
+</head>
+<style>
+.comic-slider-view {clear:both;width: 1000px;overflow: hidden;z-index:1;}
+#ScrollArea{position:relative;z-index:2;width:912px;}
+
+#comic-slider{padding-top: 18px;}
+#comic-slider-inner{position: relative; overflow: hidden; width: 1000px;}
+
+.comic-slider-view{width:912px; margin: 0 auto;}
+
+
+#ScrollArea .item{width: 178px; height: 326px; float: left; display: block; position: relative;}
+
+#ScrollArea .item .pic{width: 160px; height:250px; position: relative;}
+#ScrollArea .item .pic{border:4px solid #b7b7b7; display: block;}
+#ScrollArea .item .pic:hover{border:4px solid #dd0055;}
+
+#ScrollArea .item .pic span{display: block; position: absolute; left: 0px; bottom:25px;width: 100%; background: url(http://y1.ifengimg.com/326d83b8d50a6146/2013/0306/alpha40.png) repeat; height:25px; line-height: 25px; color: #fff; text-indent: 9px;}
+#ScrollArea .item .pic .reading{position: absolute; bottom:-5px; right: 10px;}
+#ScrollArea .item .pic .reading img{display: block;}
+#ScrollArea .item h3{font-size: 16px; padding:10px 0 12px;}
+#ScrollArea .item p.tag{color:#929292;font-size: 12px;}
+
+#comic-slider .arrowbtn{background-image: url(hots_arrow.png); display: block; width: 35px; height: 250px;position: absolute; top:0; cursor: pointer; z-index: 10;}
+#comic-slider .prev{left:0px; background-position: -36px 0}
+#comic-slider .prev:hover{background-position: 0 0}
+#comic-slider .next{right: 0;background-position: -89px 0}
+#comic-slider .next:hover{background-position: right 0}
+</style>
+<body>
+    <div id="comic-slider">
+        <div id="comic-slider-inner">
+            <a id="Leftbtn" class="prev arrowbtn"></a>
+            <a id="Rightbtn" class="next arrowbtn"></a>
+            <div class="comic-slider-view">
+                <div id="ScrollArea">
+                  
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                    <div class="item">
+                      <div class="pic">
+                        <a href=""><img src="http://y3.ifengimg.com/a/2015_50/44b3012efb1fc45.jpg" alt="" width="160" height="250"><span>更新至00话</span></a>
+                        <a href="" class="reading" title="马上阅读"><img src="img/reading_icon.png" alt=""></a>
+                      </div>
+                      <h3>黑执事塞巴斯</h3>
+                      <p class="tag">漫画 啦啦啦</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+      </div>
+
+
+
+</body>
+
+</html>

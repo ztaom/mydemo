@@ -1,0 +1,38 @@
+<header>
+	<h1>{{sitetitle}}</h1>
+    <ul>
+        {{#possibletaglines}}
+    		<li>{{{.}}}</li>
+    	{{/possibletaglines}}
+    </ul>
+</header>
+{{#sections}}
+	<section>
+		{{#title}}<h2>{{{title}}}</h2>{{/title}}
+		{{#paragraphs}}
+			<p>{{{.}}}</p>
+		{{/paragraphs}}
+		{{#lists}}
+			<ul>
+				{{#items}}
+					<li>{{{.}}}</li>
+				{{/items}}
+			</ul>
+		{{/lists}}
+		{{#table}}
+			<table>
+				{{#keyvalues}}
+					<tr>
+						<th>{{{key}}}</th>
+						<td><a href="{{{value}}}">{{{value}}}</a></td>
+					</tr>
+				{{/keyvalues}}
+			</table>
+		{{/table}}
+	</section>
+{{/sections}}
+{{#footer}}
+	<footer>
+		<p>{{{footer}}}</p>
+	</footer>
+{{/footer}}

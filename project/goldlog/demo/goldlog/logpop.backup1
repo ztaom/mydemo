@@ -1,0 +1,73 @@
+function sendlog(src, errorcallback) {
+  let id = "youku-uniplayer-stat";
+  if(src.indexOf("http:") < 0 && src.indexOf("https:") < 0){
+  	 src = "https:" + src;
+  }
+  let fr = document.createElement('img');
+  if (errorcallback) {
+    fr.addEventListener('error', errorcallback, false);
+  }
+  document.getElementsByTagName("body")[0].append(fr);
+  fr.src = src + '&r_=' + Math.floor(Math.random() * 10000);
+  fr.id = id;
+}
+const _logStr = '/yt/ykpoplayer.ykpoplayer.poplayer';
+const _checkStr = 'H1509201138';
+const action = 'CLK';
+export let actId='';
+
+// window.logStorage = [];
+// function sendLogStorage(){
+// 	let _len = window.logStorage.length;
+// 	if(_len > 0){
+// 		for(let i = 0; i < _len; i++ ){
+// 			window.goldlog.record(_logStr,window.logStorage[i].action,window.logStorage[i].content, _checkStr);
+// 		}
+// 		window.logStorage = [];
+// 	}
+// }
+/**
+ * 黄金令箭埋点统计方法 goldlog('test', 'test', {'canyu':1, 'realTime':1})
+ * param里面canyu和realTime是可选参数，canyu表示参与率计算参数，realTime是实时统计参数
+ * @param  {[type]} actId 	   所在页面标识码
+ * @param  {[type]} posId      所在位置标识码
+ * @param  {[type]} realTime   实时数据统计
+ * @param  {[type]} action     具体操作 CLK EXP SLD OTHER  默认用CLK
+ * @return {[type]}            [description]
+ */
+
+ export default {
+ 	setActId: function(id){
+ 		actId = id
+ 	},
+ 	goldlog: function (posId,param) {
+		let _str = "actId="+actId+"&posId="+posId;//+'&exparam='+JSON.stringify({test1:1,test2:2})
+		// console.log(JSON.stringify())
+		if(param){
+			for(let key in param){
+				// let exparam = JSON.stringify("&"+key+"="+param[key])
+				// console.log(exparam)
+				// _str = exparam
+				_str += ("&"+key+"="+param[key]);
+				// console.log(_str)
+			}
+		}
+		// if(!action){
+		// 	action = 'CLK';
+		// }
+		if (window.goldlog && window.goldlog.record){
+			window.goldlog.record(_logStr,action,_str,_checkStr);
+			// sendLogStorage();
+		}
+		// else{
+		// 	logStorage.push({action:action,content:_str});
+		// }
+	    
+		try{
+			goldlog.record(_logStr, action, _str, _checkStr);
+		}catch(e){
+			let _logUrl = '//gm.mmstat.com/'+_logStr+'?'+_str;
+			sendlog(_logUrl);
+		}
+	}
+ }

@@ -1,0 +1,49 @@
+{
+  "name": "app-panorama_cube",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:fdilab/app-panorama_cube.git"
+  },
+  "author": "千承 <jinguo.bjg@alibaba-inc.com>",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "clear": "rm -rf app/dist",
+    "build-dev": "webpack --config build/webpack.dev.config.js",
+    "build-dist": "webpack --optimize-minimize --config build/webpack.dist.config.js",
+    "dev": "npm run clear && npm run build-dev -- --watch",
+    "release-dev": "npm run clear && npm run build-dev && npm run inline",
+    "release": "npm run clear && npm run build-dist"
+  },
+  "dependencies": {
+    "@ali/gulp-img-uploader": "^0.4.3",
+    "@ali/img4dpr-loader": "^0.1.1",
+    "gulp": "^3.9.1",
+    "three": "^0.87.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.1",
+    "babel-generator": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-runtime": "^6.11.6",
+    "core-js": "^2.4.1",
+    "css-loader": "^0.25.0",
+    "inline-source-cli": "^1.1.1",
+    "json-loader": "^0.5.4",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.1",
+    "postcss-px2rem": "^0.3.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.5.1",
+    "webpack-notifier": "^1.5.0"
+  },
+  "main": "./app/dist/index.js"
+}

@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>Animated Gradient with Sound Track</title>
+	<!-- Fill the iOS screen /-->
+	<meta name="viewport" content="width=400" />
+	
+<style>
+
+canvas {
+	position:absolute; top:10; left:10;
+	border-radius: 25;
+	border: 1 px solid #404040;
+}
+
+audio {
+	position: absolute;
+	top: 195;
+	left:60;
+}
+
+</style>
+	
+<script type="text/javascript">
+
+var can;
+var ctx;
+var audio;
+var angle = 0;
+var timer;
+
+function init() {
+	audio = document.getElementById("audio");
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	audio.addEventListener("playing", start, false);
+	audio.addEventListener("pause", stop, false);
+	audio.addEventListener("ended", stop, false);	
+}
+
+function start() {
+	drawGradient();
+}
+
+function stop() {
+	clearTimeout(timer);
+}
+
+function drawGradient() {
+		// create gradient that goes from ground to top of canvas
+	var grad = ctx.createLinearGradient(0,can.height, 0,0);
+	
+		// start gradient at black
+		grad.addColorStop(0, 'black');
+
+		// create rgb color value
+	var gAngle = angle + Math.PI / 2;
+	var bAngle = gAngle + Math.PI;
+	var r = parseInt(255 * Math.abs(Math.sin(angle)));
+	var g = parseInt(255 * Math.abs(Math.sin(gAngle)));
+	var b = parseInt(255 * Math.abs(Math.sin(bAngle)));
+	var sky = "rgb(" + r + "," + g + "," + b + ")";
+		
+		// add color stop with new rgb colors
+	grad.addColorStop(1, sky);
+	
+	ctx.save();
+	ctx.fillStyle=grad;
+	ctx.fillRect(0,0, can.width, can.height);
+	ctx.restore();
+	angle = angle + 0.1;
+	if (angle >= 6.2) 
+		angle = 0;
+	if (!document.querySelector("audio").paused)
+		timer = setTimeout("drawGradient()", 100);
+}
+
+</script>
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="300">
+</canvas>
+
+<audio id="audio" src="assets/myAudio.m4a" controls >
+</audio>
+</body>
+</html>

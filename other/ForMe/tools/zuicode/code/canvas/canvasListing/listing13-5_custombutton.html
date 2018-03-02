@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Custom Button</title>
+    <meta name="viewport" content="width=300" />
+    <meta name="viewport" content="initial-scale=2" />
+ 
+<style>
+.myButton {
+    position: relative;
+    top:-60;
+    left:10;
+    border: 4 px outset gray;
+    background-color: #C0C0C0 ;
+    width:100 px;
+    padding: 10 px;
+    text-align:center;
+    border-radius: 18 px;
+}
+ 
+.myButton.pressed {
+    border: 4 px inset dark gray;
+    background-color: #808080 ;
+}
+</style>
+ 
+<script type="text/javascript">
+var can;
+var ctx;
+var but1;
+// state variable tracks whether button is pressed
+var but1press;
+ 
+function init() {
+    but1 = document.getElementById("but1");
+    can = document.getElementById("can");
+    ctx = can.getContext("2d");
+    but1press = 0;
+}
+ 
+function press1() {
+    // change state variable
+    but1press = 1;
+    // change button style
+    but1.className="myButton pressed";
+    // do something on the canvas
+    ctx.fillStyle="#d9d3b8";
+    ctx.fillRect(0,0, can.width,can.height);
+}
+ 
+function release1() {
+    // if not pressed, do nothing
+    if (but1press) {
+        but1press = 0;
+        but1.className="myButton";
+        ctx.fillStyle="caa6d1";
+        ctx.fillRect(0,0, can.width,can.height);
+    }
+}
+ 
+</script>
+</head>
+ 
+<body onload="init()" onmouseup="release1()" ontouchcancel="release1()">
+ 
+<canvas id="can" height="200" width="300"
+</canvas>
+ 
+<div id="but1" class="myButton"
+        onmousedown="press1()" onmouseup="release1()"
+        ontouchstart="press1()" ontouchend="release1()">
+ Click Me
+</div>
+ 
+</body>
+</html>

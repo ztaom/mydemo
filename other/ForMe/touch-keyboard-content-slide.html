@@ -1,0 +1,261 @@
+
+<!DOCTYPE html><html class="">
+<head><meta charset="UTF-8">
+<script src="modernizr.js"></script>
+<style>body {
+  font-weight: 300;
+  color: #333;
+  background: #f5f6f7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+#slider-container {
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  -webkit-transition: opacity ease 0.4s;
+  -moz-transition: opacity ease 0.4s;
+  -ms-transition: opacity ease 0.4s;
+  -o-transition: opacity ease 0.4s;
+  transition: opacity ease 0.4s;
+}
+#slider-container.is-visible {
+  opacity: 1;
+}
+#slider-container .slider-images {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 380px;
+  -webkit-transition: all ease 0.4s;
+  -moz-transition: all ease 0.4s;
+  -ms-transition: all ease 0.4s;
+  -o-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+  width: 9999px;
+}
+#slider-container .slider-images li {
+  float: left;
+  width: 500px;
+  overflow: hidden;
+}
+#slider-container .slider-controls {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scale {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.next-slide {
+  float: right;
+}
+
+.prev-slide {
+  float: left;
+}
+</style></head><body>
+<div class="container">
+  
+<div id="slider-container">
+        <ul class="slider-images clearfix">
+          <li><img class="scale" src="http://dummyimage.com/500x200/000/fff.gif&text=Slide+1" alt=""></li>
+          <li><img class="scale" src="http://dummyimage.com/500x200/fff/000.gif&text=Slide+2" alt=""></li>
+          <li><img class="scale" src="http://dummyimage.com/500x200/000/fff.gif&text=Slide+3" alt=""></li>
+          <li><img class="scale" src="http://dummyimage.com/500x200/fff/000.gif&text=Slide+4" alt=""></li>
+        </ul>
+</div>
+  
+</div>
+<script src="jquery.min.1.11.0.js"></script>
+<script src="jquery.hammer.js"></script>
+<script>var slider = slider || {};
+(function($) {
+  $( document ).ready( function() {
+    
+    slider = {
+      mainContainer: $( '.container' ),
+      container: $( '#slider-container' ),
+      content: $( '.slider-images' ),
+      controls: null,
+      nextSlide: null,
+      prevSlide: null,
+      activeSlide: null,
+      totalSlides: null,
+      imageWidth: null,
+      distance: 0,
+      maxDistance: 0,
+      touchEvent: null,
+      moveTimer: null,
+      timerDelay: 7000, //time between auto-rotation of slides
+      win: $( window ),
+      canTransform3d: Modernizr.csstransforms3d,
+
+      init: function() {
+        //create our controls and other UI elements
+        slider.createUI();
+
+        //bind our events for clicks, swipes etc...
+        slider.bindUI();
+
+        // width of image - ^TODO: need to fix this to one statement
+        if( slider.win.width() > 960 ) {
+          slider.imageWidth = slider.container.width();
+        } else {
+          slider.imageWidth = slider.mainContainer.width();
+        }
+
+        // detect how many slides there are
+        slider.totalSlides = slider.container.find('img').length;
+
+        // set width of ul - ^TODO: this doesn't work correctly on smaller devices
+        //slider.content.css( 'width', slider.totalSlides * slider.imageWidth );
+
+        // set max distance - the minus 1 accounts for one slide always being visible
+        slider.maxDistance = -( slider.totalSlides - 1 ) * slider.imageWidth;
+
+        // when everything has loaded, show the slider
+        slider.win.load(function(){
+          slider.container.addClass( 'is-visible' );
+        });
+
+        //starts the auto-rotation
+        slider.moveTimer = slider.timer();
+      },
+
+      timer: function() {
+        return setInterval(function(){
+          slider.animate( 'next' );
+        }, slider.timerDelay);
+      },
+
+      createUI: function() {
+        slider.container.append( '<ul class=slider-controls />' );
+        slider.controls = $( '.slider-controls' );
+
+        slider.controls.append('<li><a class=next-slide href="#">Next</a></li>');
+        slider.controls.append('<li><a class=prev-slide href="#">Previous</a></li>');
+
+        slider.nextSlide = $( '.next-slide' );
+
+        // since we're starting on the first slide, we'll hide the previous button
+        slider.prevSlide = $( '.prev-slide' ).hide();
+
+        // ^TODO: Create pagination elements
+      },
+
+      bindUI: function() {
+        // Hammer.js for touch-based events
+        slider.touchEvent = new Hammer( document.getElementById('slider-container') );
+
+        slider.touchEvent.onswipe = function(e) {
+          switch( e.direction ) {
+            case 'left':
+              slider.animate( 'next' );
+            break;
+
+            case 'right':
+              slider.animate( 'previous' );
+            break;
+          }
+        }
+
+        // halt auto-rotation on hover and reset when mouse leaves the slider container
+        slider.container.hover(function(){
+          clearInterval( slider.moveTimer );
+        }, function() {
+          slider.moveTimer = slider.timer();
+        });
+
+        //keyboard controls
+        $( document ).keydown(function(e){
+          switch( e.keyCode ) {
+            case 37: //left arrow
+              slider.animate( 'previous' );
+            break;
+
+            case 39: //right arrow
+              slider.animate( 'next' );
+            break;
+          }
+        });
+
+        slider.nextSlide.on( 'click', function(e) {
+          slider.animate( 'next' );
+          e.preventDefault();
+        });
+
+        slider.prevSlide.on( 'click', function(e) {
+          slider.animate( 'previous' );
+          e.preventDefault();
+        });
+      },
+
+      animate: function( dir ) {
+
+        //stop auto-rotation
+        clearInterval( slider.moveTimer );
+
+        // set direction
+        if( dir === 'previous' && slider.distance != 0 ) {
+          slider.distance += slider.imageWidth;
+        } else if( dir === 'next' && slider.distance != slider.maxDistance ) {
+          slider.distance -= slider.imageWidth;
+        } else if( dir ==='next' && slider.distance === slider.maxDistance ) {
+          //more to compensate for swipe and keyboard presses
+          //if there isn't a slide ahead, we just move back to the first
+          slider.distance = 0;
+        } else if( dir === 'previous' && slider.distance === 0 ) {
+          //same as above, but in reverse - move to last slide
+          slider.distance = slider.maxDistance;
+        } else {
+          return;
+        }
+
+        // showing/hiding of controls relevant to slider position
+        if( slider.distance === 0 ) {
+          slider.prevSlide.hide();
+        } else {
+          slider.prevSlide.show();
+        }
+
+        if ( slider.distance === slider.maxDistance ) {
+          slider.nextSlide.hide();
+        } else {
+          slider.nextSlide.show();
+        }
+
+        // move the slider content with CSS if supported
+        if( slider.canTransform3d ) {
+          slider.content.css( 'transform', 'translate3d('+slider.distance+'px,0,0)' );
+        } else {
+          slider.content.stop().animate({
+            'margin-left': slider.distance
+          }, 200);
+        }
+
+        //reset the auto-rotation
+        slider.moveTimer = slider.timer();
+      },
+    };
+
+    slider.init();
+  });
+})( jQuery );//@ sourceURL=pen.js
+</script>
+</body></html>

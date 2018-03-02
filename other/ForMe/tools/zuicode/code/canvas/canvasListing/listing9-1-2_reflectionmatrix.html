@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Reflection Matrix</title>
+	
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	ctx.clearRect(0,0,can.width,can.height);
+	ctx.save();
+	ctx.fillStyle="blue";
+	ctx.font="48 pt Helvetica";
+	ctx.fillText("Reflection", 0,100);
+
+	ctx.setTransform(1,0,0,-1,0,0);
+	
+	ctx.scale(1,1.5);
+	var grad = ctx.createLinearGradient(0,-50, 0,-140); 
+	grad.addColorStop(0, 'blue');
+	grad.addColorStop(1, 'rgba(255,255,255,0)');
+	ctx.fillStyle=grad;
+	
+	ctx.fillText("Reflection", 0,-102 / 1.5);
+	ctx.restore();
+}
+
+</script>
+	
+</head>
+
+<body onload="init()">
+
+<canvas id="can" height="200" width="300">
+</canvas>
+<br>
+
+</body>
+</html>

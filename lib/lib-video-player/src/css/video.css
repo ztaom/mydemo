@@ -1,0 +1,521 @@
+html, body {
+  height: 100%;
+}
+.lib-video{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.lib-video video{
+  background: #000;
+  width: 100%;
+  height: 100%;
+}
+
+.vjs-hidden {
+  display: none !important; 
+}
+
+.vjs-opacity-hidden{
+  opacity : 0 !important;
+}
+
+.lib-video .interact-item{
+  display: flex;
+  width: 88px;
+  height: 40px;
+  background-image: url('//gw.alicdn.com/mt/TB1_qhcPVXXXXcNXpXXXXXXXXXX-88-40.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  margin-right: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.lib-video .vjs-big-play-button:before, .lib-video .vjs-control:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lib-video .vjs-big-play-button:before, .lib-video .vjs-control:before {
+  text-align: center; 
+}
+
+.vjs-body-fullscreen{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.vjs-body-fullscreen .lib-video.vjs-player-fullscreen{
+  position: fixed; 
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.vjs-body-fullscreen .lib-video.vjs-player-fullscreen-rotate{
+  position: fixed;
+  left: 100%;
+  top: 0;
+  z-index: 9999;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin:0 0;
+  transform-origin:0 0;
+}
+
+.vjs-body-fullscreen .vjs-android-bg-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background:#000;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.lib-video .vjs-control-bar {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-image: url('//gw.alicdn.com/mt/TB1xK4uPVXXXXcRXXXXXXXXXXXX-750-80.png');
+  background-size: cover;
+  transition: all .3s ease;
+  opacity : 1;
+  display: box;              /* OLD - Android 4.4- */
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  /* 09版 */
+  -webkit-box-orient: horizontal;
+  /* 12版 */
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  /* 09版 */
+  -webkit-box-pack: space-between;
+  /* 12版 */
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+
+  /* 09版 */
+  -webkit-box-align: center;
+  /* 12版 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+
+.vjs-button {
+  background: none;
+  border: none;
+  color: #fff;
+  outline: none;
+}
+
+
+.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 1s, opacity 1s;
+  -moz-transition: visibility 1s, opacity 1s;
+  -o-transition: visibility 1s, opacity 1s;
+  transition: visibility 1s, opacity 1s; }
+
+.vjs-audio.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+  opacity: 1;
+  visibility: visible; 
+}
+
+.lib-video .vjs-control {
+  outline: none;
+  position: relative;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 60px;
+  -webkit-box-flex: none;
+  -moz-box-flex: none;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none; 
+}
+.lib-video .vjs-control:before {
+}
+
+.lib-video .vjs-control:focus:before,
+.lib-video .vjs-control:hover:before,
+.lib-video .vjs-control:focus {
+  text-shadow: 0em 0em 1em white; 
+}
+
+.lib-video .vjs-control-text {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.vjs-no-flex .vjs-control {
+  display: table-cell;
+  vertical-align: middle; 
+}
+
+.vjs-icon-play, .lib-video .vjs-play-control {
+  left: 0;
+}
+
+.vjs-icon-play:before,.lib-video .vjs-play-control:before {
+  background-image: url('//gw.alicdn.com/mt/TB1..XoPVXXXXX2XpXXXXXXXXXX-60-60.png');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  content: '';
+}
+
+.vjs-icon-play-circle {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vjs-icon-play-circle:before {
+    content: '\f102'; 
+}
+
+.vjs-icon-pause:before, .lib-video .vjs-playing:before {
+  background-image: url('//gw.alicdn.com/mt/TB1gkQVPFXXXXcwXVXXXXXXXXXX-60-60.png');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  content: '';
+}
+
+.vjs-icon-fullscreen-enter, .lib-video .vjs-fullscreen-control, .lib-video {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; 
+}
+
+.vjs-icon-fullscreen-enter:before, .lib-video .vjs-fullscreen-control:before {
+  background-image: url('//gw.alicdn.com/mt/TB1pIhEPVXXXXayXXXXXXXXXXXX-60-60.png');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  content: '';
+}
+
+.vjs-icon-fullscreen-exit, .lib-video.vjs-player-fullscreen .vjs-fullscreen-control {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; 
+}
+.vjs-icon-fullscreen-exit:before, .lib-video.vjs-player-fullscreen .vjs-fullscreen-control:before {
+  background-image: url('//gw.alicdn.com/mt/TB1l9n5PVXXXXahXXXXXXXXXXXX-60-60.png');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  content: ''; 
+}
+
+.vjs-icon-fullscreen-exit:before, .lib-video.vjs-player-fullscreen-rotate .vjs-fullscreen-control:before {
+  background-image: url('//gw.alicdn.com/mt/TB1l9n5PVXXXXahXXXXXXXXXXXX-60-60.png');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  content: ''; 
+}
+
+.lib-video .vjs-control:focus:before,
+.lib-video .vjs-control:hover:before,
+.lib-video .vjs-control:focus {
+  text-shadow: 0em 0em 1em white; 
+}
+
+.lib-video .vjs-control-text {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; 
+}
+
+.vjs-no-flex .vjs-control {
+  display: table-cell;
+  vertical-align: middle; 
+}
+
+.vjs-center-container{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 136px;
+  height: 136px;
+  text-align: center;
+  margin: auto;
+  z-index: 2;
+}
+
+.vjs-center-container.loading .vjs-center-load{
+  opacity: 1;
+  display: inline-block;
+}
+
+.vjs-center-container.loading .vjs-center-start{
+  display: none;
+}
+
+.vjs-center-start {
+  width: 136px; 
+  height: 136px; 
+  background-image: url('http://gw.alicdn.com/mt/TB1exduPVXXXXcIXpXXXXXXXXXX-136-136.png'); 
+  background-size:contain; 
+  border: none;
+  background-repeat: no-repeat;
+}
+
+.vjs-center-load {
+  opacity: 0;
+  display: none;
+  border-radius:100%;
+  -webkit-animation-fill-mode:both;
+  animation-fill-mode:both;
+  border:1px solid #fff;
+  border-bottom-color:transparent;
+  width: 90px;
+  height: 90px;
+  background:transparent!important;
+  -webkit-animation:rotate .75s 0s linear infinite;
+  animation:rotate .75s 0s linear infinite
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg)
+  }
+  50% {
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg)
+  }
+  100% {
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg)
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg)
+  }
+  50% {
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg)
+  }
+  100% {
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg)
+  }
+}
+.vjs-mock-mask, .vjs-center-poster {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  background: #000;
+}
+
+.vjs-center-poster{
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items : center;
+  overflow: hidden;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.vjs-has-started .vjs-center-container, 
+.vjs-has-started .vjs-mock-mask,
+.vjs-has-started .vjs-center-poster {
+  display: none;
+}
+
+.vjs-flash {
+  width: 100%;
+  height: 100%;
+}
+
+/* progress */
+.progress-wrap {
+  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;         /* OLD - Firefox 19- */
+  width: 20%;               /* For old syntax, otherwise collapses. */
+  -webkit-flex: 1;          /* Chrome */
+  -ms-flex: 1;              /* IE 10 */
+  flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  overflow: hidden;
+}
+.vjs-progress-bar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  display: box;              /* OLD - Android 4.4- */
+
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  /* 09版 */
+  -webkit-box-orient: horizontal;
+  /* 12版 */
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  /* 09版 */
+  -webkit-box-pack: space-between;
+  /* 12版 */
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  
+  /* 09版 */
+  -webkit-box-align: center;
+  /* 12版 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+.vjs-progress-bar .current-time,
+.vjs-progress-bar .total-time {
+  color: #fff;
+  width: 64px;
+  line-height: 28px;
+  height: 28px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal !important;
+}
+.vjs-progress-bar .current-time em,
+.vjs-progress-bar .total-time em {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 22px;
+  font-weight: normal !important;
+  float: left;
+  color: #fff;
+  vertical-align: middle;
+}
+.vjs-progress-bar .progress-bar{
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;         /* OLD - Firefox 19- */
+  width: 20%;               /* For old syntax, otherwise collapses. */
+  -webkit-flex: 1;          /* Chrome */
+  -ms-flex: 1;              /* IE 10 */
+  flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.vjs-progress-bar .progress {
+  width: 0;
+  top: 0;
+  left: 0;
+  background: #FF5000;
+  position: absolute;
+  border-radius: 3px;
+  height: 3px;
+}
+.vjs-progress-bar .progress .control {
+  position: absolute;
+  background: 0 0;
+  right: 0;
+  top: 0;
+}
+.vjs-progress-bar .progress .control:after {
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  background: #fff;
+  top: -6px;
+  left: -8px;
+  width: 14px;
+  height: 14px;
+}
+.vjs-progress-bar .vjs-progress-tag{
+  width: 10px;
+  height: 10px;
+  top: -3px;
+  border-radius: 100%;
+  background: #fff;
+  position: absolute;
+}
+
+.vjs-danmaku-container {
+  position : absolute;
+  left: 0px;
+  top: 0px;
+  overflow:'hidden';
+  width: 100%;
+  height: 100%;
+}
+.vjs-danmaku-item {
+  transition: all 4s linear;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.vjs-danmaku-item p{
+  padding: 1px 4px 2px 4px;
+  vertical-align: middle;
+  border-radius: 4px;
+}

@@ -1,0 +1,88 @@
+/* 
+
+papers
+
+http://gridpapr.com 
+
+*/     
+
+* { margin: 0; padding: 0; border: 0;}
+html, body { height: 100%; }
+body { font: 12px/18px "Helvetica Neue", Helvetica, "Lucida Grande", Tahoma, sans; overflow-x: hidden;}
+a { color: #222; text-decoration: none; border-bottom: 1px dotted #222;}
+p { margin: 0 0 18px 0; }
+body { background: #fafafa url(bodyBg2.png); position: relative;}
+fieldset { padding: 9px;}
+
+.paper { background: white url(corner.png) right bottom no-repeat;  position: absolute; text-align: center; cursor: move; }
+	.paper:hover { background: url(corner1.png) right bottom no-repeat;}
+	.paper .body { overflow:hidden; outline: solid #666 1px;}
+	.paper .body.selected { outline: solid #F99 1px; background: url(corner2.png) right bottom no-repeat;}
+	.paper .body span { /*padding: 0 8px;*/}
+	.paper .resize { width: 18px; height: 18px;position: absolute; right:-9px; bottom: -9px; cursor: se-resize;}
+
+.menu { width: 223px; /*height: 480px;*/ overflow: hidden; background: #999;  	position: fixed; top: -9px; right: -9px; z-index: 9999; cursor: move;}
+
+	.menuInlay { background: white; width: 191px; /*height: 440px;*/ margin: 2px; padding: 14px 14px 5px 14px; overflow: hidden;}
+		ul { list-style: none;}
+		ul li { display: block; overflow: hidden; margin: 0 0 5px 0;}
+		ul li.double { margin: 0 0 10px 0;}
+	.menu a, .menu .paper { border: 1px solid #ccc; border-bottom: 1px solid #666; border-right: 1px solid #999; background: #e0eaf0; cursor: pointer; color: #555; display: block; float: left; margin: 0 4px 0 0; text-align: center; position: static; color: #444;}
+	.menu a { border-color:#e6eef3 #c7d0d6 #c7d0d6 #e6eef3; text-shadow: 0 1px #ffffff;}
+	.menu .paper { background: white;}
+/*	.menu a b { color: #333;}*/
+	.menu a:hover { color: #111;}
+/*	.menu a:hover b { color: #000;}*/
+
+.oneButton a { width: 188px; height: 35px; line-height: 35px; font-size: 18px;}
+.bigButtons a {  height: 35px;  line-height: 35px; font-size: 18px; padding: 0 8px;}
+.small a { height: 27px; font-size: 12px; line-height: 27px;}
+.blockTitle div { width: 188px; height: 35px; line-height: 35px; font-size: 12px;}
+.blockTitle input.text { border: none; width: 176px; height: 28px; padding: 2px 5px; }
+.fontSize a { margin: 0 7px 0 0; background: white;}
+.fontSize .f12 { width: 26px; height: 26px; line-height: 26px; font-size: 12px; }
+.fontSize .f18 { width: 35px; height: 35px; line-height: 35px; font-size: 18px; }
+.fontSize	.f27 { width: 45px; height: 44px; line-height: 42px; font-size: 27px; }
+.fontSize .f36 { width: 54px; height: 53px; line-height: 52px; font-size: 36px; margin:0;}
+#duplicateButton { width: 85px;}
+#deleteButton { background: #f63; border-color: #ff855c #e35a2d #e35a2d #ff855c; width: 65px;margin:0; text-shadow: 0 1px #ff9d7d;}
+#bringToFrontButton { width: 75px;}
+#sendToBackButton { width: 75px; margin: 0;}
+
+#saveButton { width: 188px; line-height: 35px; font-size: 18px;  background: #6e6; border-color: #85f185 #5bd45b #5bd45b #85f185; text-shadow: 0 1px #c3fac5;}
+.colors a { margin: 0 0 0 0; width: 17px; height: 16px; font-size: 16px; border-color: #666; border: 0;}
+.colors div { float: left;border: 1px solid #999;}
+/*.colors a#bgColor1 {  border: 1px solid #999; height: 14px; width: 14px; font-size; 14px}*/
+.borders { padding: 4px 1px;}
+.borders a {  width: 30px; height: 27px; top: 380px; left: 17px; line-height: 27px; font-size: 12px;   outline: 1px solid #666; margin: 0 7px 0 0; background: white; border: 0;}
+.borders a#borderWidth0 { outline-color: #ccc;}
+.borders a#borderWidth2 { outline-width: 2px; margin: 0 9px 0 0;}
+.borders a#borderWidth3 { outline-width: 3px; margin: 0 11px 0 0;}
+.borders a#borderWidth4 { outline-width: 4px; margin: 0;}
+.save { height: 36px;  text-align: center; margin: 0;}
+.save a { float: none; display: inline; border: none;}
+.saveControls { position: absolute; }
+#savedText { background:white;  width: 188px; height: 36px; line-height: 36px;}
+#returnText { height: 36px; line-height: 36px; }
+#returnText a { background: none;;}
+
+#textAlignLeft, #textAlignCenter, #textAlignRight { padding: 0 8px; width: 42px; background: white;}
+#textAlignLeft { text-align: left;}
+#textAlignRight { margin:0; text-align: right;}
+
+.f12 { font-size: 12px;}
+.f18 { font-size: 18px;}
+.f27 { font-size: 27px;}
+.f36 { font-size: 36px;}
+.f54 { font-size: 54px;}
+.f72 { font-size: 72px;}
+
+.menu img {position: absolute; left: 0px; top: 0px; }
+.menu{ border-radius: 9px; -moz-border-radius: 9px; -webkit-border-radius: 9px; } 
+.menuInlay,  #notice  {border:0; border-radius:7px; -moz-border-radius:7px; -webkit-border-radius: 7px;}
+.menu a{ border-radius:3px; -moz-border-radius:3px; -webkit-border-radius: 3px; }
+.square, .borders a, .colors a { border-radius:0; -moz-border-radius:0; -webkit-border-radius: 0; } 
+
+.notice { position: fixed; top: 0; left: 20%; width: 60%; text-align: center; }
+.notice #notice { background-color: yellow; padding: 6px 12px;  }
+.notice #notice a { font-weight: bold;}

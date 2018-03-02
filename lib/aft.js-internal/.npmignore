@@ -1,0 +1,13 @@
+coverage
+docs
+node_modules
+test
+build
+demo
+benchmark
+examples
+.babelrc
+.cise.yml
+.editorconfig
+.esdocrc
+.eslintrc

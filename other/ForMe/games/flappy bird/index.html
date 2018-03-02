@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>flappy bird</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="msapplication-tap-highlight" content="no"/>
+<style>
+html, * {
+  user-select: none;
+  overflow:hidden;
+}
+.fullscreen{
+  position:absolute;
+  top:0;
+  right:0;
+  background: rgba(0,0,0,.5);
+  padding:5px;
+  border:solid white 2px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.wrapper,.bg{
+  background:  #4ac3ce;
+  width:100%;
+  height:100%;
+  cursor:default;
+}
+.flash{
+  background:  #fff;
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  display:none;
+}
+.clouds{
+  position:absolute;
+  bottom:220px;
+  width:100%;
+  height:65px;
+  background-image: 
+    url( http://i.imgur.com/muPxV7u.jpg );
+}
+.buildings{
+  position:absolute;
+  bottom:55px;
+  width:100%;
+  height:165px;
+  background-image: 
+    url( http://i.imgur.com/eKk2wGa.jpg );
+}
+.floor{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:55px;
+  background-image: 
+    url( http://i.imgur.com/d6cKZAT.jpg );
+}
+.slide_animation{
+  animation: slide .3s linear infinite;
+}
+.bird{
+  position:absolute;
+  bottom:260px;
+  left:50px;
+  width:88px;
+  height:74px;
+  background-image: 
+    url(http://i.imgur.com/fJC1dix.gif);
+  background-repeat: no-repeat ;
+  animation: float 2s linear infinite;
+}
+.flapp_animation{
+  animation: flapp .7s linear;
+  animation-fill-mode: forwards;
+}
+.pipe_container{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.pipes{
+  position:absolute;
+  bottom:55px;
+  width:130px;
+  height:100%;
+}
+.pipe{
+  width:130px;
+  height:700px;
+  background-image:
+    url(http://i.imgur.com/wn22MTx.gif);
+  background-position: 130px 0;
+}
+.pipe.top{
+  background-position: 270px 0;
+}
+.pipe.bottom{
+}
+.gap{
+  height: 260px;
+}
+@keyframes slide {
+  to { background-position: -60px 0; }
+}
+@keyframes float {
+  0%  {transform: translate( 0px,   0px);}
+  30% {transform: translate( 0px, -20px);}
+  100%{transform: translate( 0px,   0px);}
+}
+@keyframes flapp {
+  0%  {transform:rotate(0deg);}
+  30% {transform:rotate(-40deg);}
+  100%{transform:rotate(90deg)}
+  /**
+  0%{background-position:0 0;}
+  32.9%{background-position:0 0;}
+  33%{background-position:0 -80px;}
+  65.9%{background-position:0 -80px;}
+  66%{background-position:0 -160px;}
+  99.9%{background-position:0 -160px;}
+  100%{background-position:0 0;}
+  /**/
+}
+.hud{
+  display:table;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+.click{
+  display:table-cell;
+  vertical-align:middle;
+  margin:auto;
+  width:100%;
+}
+.click:before{
+  content:"";
+  display:block;
+  vertical-align:middle;
+  margin:auto;
+  width: 340px;
+  height: 260px;
+  background-image:
+    url(http://i.imgur.com/wn22MTx.gif);
+  background-position: 
+    -470px 0px;
+}
+.intro{
+  width:100%;
+  height:100%;
+}
+.logo{
+  width: 470px;
+  height: 120px;
+  margin:10% auto;
+  background-image:
+    url(http://i.imgur.com/wn22MTx.gif);
+}
+.startBtn{
+  width: 260px;
+  height: 150px;
+  margin:auto;
+  margin-top:50px;
+  cursor:pointer;
+  background-image:
+    url(http://i.imgur.com/wn22MTx.gif);
+  background-position: 0px -130px;
+}
+</style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='bg'>
+    <div class='clouds'></div>
+    <div class='buildings'></div>
+    <div class='floor slide_animation'></div>
+  </div>
+  <div class='pipe_container'>
+    <div class='pipes'>
+      <div class='top pipe'></div>
+      <div class='gap target'></div>
+      <div class='bottom pipe'></div>
+    </div>
+  </div>
+  <div class='bird'></div>
+  <div class='hud'>
+    <div class='intro'>
+      <div class='logo'></div>
+      <div class='startBtn'></div>
+    </div>
+    <div class='click'></div>
+  </div>
+</div>
+<div class='flash'></div>
+<script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
+<script src="http://y0.ifengimg.com/base/jQuery/jquery-1.9.1.min.js"></script>
+<script>
+$().ready(onReady);
+function onReady(){
+  configGame();
+  bindings();
+  $('.click').fadeOut(0);
+  screen=0;
+}
+function configGame(){
+  if(typeof pipe_base === "undefined"){
+    pipe_base = $(".pipe_container").html();
+  }
+  $(".pipes").remove();
+  bird = $(".bird");
+  bird.attr('style','');
+  flash = $(".flash");
+  floor = 60;
+  flapStrenght = 7;
+  gravity = -15;
+  accelVariation = .2;
+  acceleration = 0;
+  bottom = parseInt(bird.css('bottom'));
+  space = 0
+  tick = 0;
+  points=0;
+  $('.floor').addClass("slide_animation");
+}
+function startGame(){
+  switch(screen){
+      case 0:
+        screen=1;
+        $('.intro').fadeOut(400, function(){
+          $('.click').fadeIn();
+        });
+      break;
+      case 1:
+      case 3:
+        screen=2;
+        if(!tick){
+          $('.intro').fadeOut()
+          $('.click').fadeOut();
+          configGame();
+          bird.attr('style','');
+          tick = setInterval(onTick,10);
+          $(".wrapper").click(flap);
+          flap();
+        }
+      break;
+      case 2:
+        //game
+      break;
+  }
+}
+function bindings(){
+  $(".fullscreen").click(toggleFullScreen);
+  $(".wrapper").click(startGame);
+}
+function onTick(){
+  acceleration -= accelVariation;
+  bottom += acceleration;
+  if(acceleration<gravity){
+    acceleration = gravity;
+  }
+  if(bottom<floor){
+    hit();
+  }
+  /**/
+  $(".pipe").each(function(){
+    if(collision(bird,$(this))){
+      hit();
+    }
+  })
+  $(".target").each(function(){
+    if(collision(bird,$(this))){
+      points++;
+      $(this).removeClass("target");
+      console.log(points);}
+  })
+  /**/
+  if(space==350){
+    space=0;
+    var p = $(pipe_base).clone();
+    var r = parseInt(100+Math.random()*150);
+    //p.children(".top").css('margin-top',-400-Math.random()*150);
+    p.children(".top").css({
+      'height':r,
+      'background-position':'270px '+(-(700-r))+'px'
+    });
+    p.css('left',$(window).width());
+    $(".pipe_container").append(p);
+  }
+  space++;
+  /**/
+  bird.css('bottom',bottom);
+  $('.pipes').css('left','-=1px');
+}
+function flap(){
+  if(bird.offset().top>0){
+    acceleration = flapStrenght;
+    bird[0].classList.remove("flapp_animation");
+    bird[0].offsetWidth = bird[0].offsetWidth;//MAGIC
+    bird[0].classList.add("flapp_animation");
+  }
+}
+function hit(){
+  $('.wrapper').unbind('click',flap);
+  flash.fadeIn(0).fadeOut(100);
+  $('.floor').removeClass("slide_animation");
+  bird.animate({bottom:floor});
+  clearInterval(tick);
+  tick = 0;
+  screen = 3;
+}
+function toggleFullScreen(){
+  var fullscreenElement = 
+      document.fullscreenElement || 
+      document.mozFullScreenElement ||
+      document.webkitFullscreenElement;
+  if(fullscreenElement){
+    exitFullscreen();
+  }else{
+    launchFullscreen(document.documentElement);
+  }
+}
+function launchFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+function exitFullscreen() {
+  if(document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if(document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if(document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
+}
+function collision($div1, $div2) {
+  var x1 = $div1.offset().left;
+  var y1 = $div1.offset().top;
+  var h1 = $div1.outerHeight(true);
+  var w1 = $div1.outerWidth(true);
+  var b1 = y1 + h1;
+  var r1 = x1 + w1;
+  var x2 = $div2.offset().left;
+  var y2 = $div2.offset().top;
+  var h2 = $div2.outerHeight(true);
+  var w2 = $div2.outerWidth(true);
+  var b2 = y2 + h2;
+  var r2 = x2 + w2;
+  //
+  if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+    return false;
+  }
+  return true;
+}
+</script>
+</body>
+</html>

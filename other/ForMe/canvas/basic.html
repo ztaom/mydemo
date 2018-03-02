@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>canvas 基础</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="GaryShue" />
+<link rel="stylesheet" href="style.css">
+<script src="../jquery.min.2.1.0.js"></script>
+</head>
+<body>
+  <h1>canvas 基础总结</h1>
+
+  <ol>
+    <li>
+      <h3>创建矩形(fillRect)</h3>
+      <canvas class="mycanvas" id="rect" width="300" height="150"></canvas>
+    </li>
+    <li>
+      <h3>创建线(moveTo lineTo)</h3>
+      <canvas class="mycanvas" id="line" width="300" height="150"></canvas>
+    </li>
+    <li>
+      <h3>创建圆(arc)</h3>
+      <canvas class="mycanvas" id="circle" width="300" height="150"></canvas>
+    </li>
+    <li>
+      <h3>创建文本(fillText)</h3>
+      <canvas class="mycanvas" id="text" width="300" height="150"></canvas>
+    </li>
+    <li>
+      <h3>插入图片(drawImage)</h3>
+      <canvas class="mycanvas" id="image" width="300" height="150"></canvas>
+    </li>
+  </ol>
+
+
+
+  <canvas style="position:fixed; top:100px; right:50px; background:#efefef" id="test" width="400" height="600"></canvas>
+  
+
+<script src="canvas.js?v2"></script>
+<script type="text/javascript">
+var drawRect = new Graph("#rect");
+drawRect.Rect("#ff0000",10,20,100,100);
+
+var drawLine = new Graph("#line");
+drawLine.Line(10,30,100,80);
+
+var drawCircle = new Graph("#circle");
+drawCircle.Circle(40,40,30,0,2*Math.PI);
+
+var drawText = new Graph("#text");
+drawText.Text("30px Arial","Hello World",10,50);
+</script>
+</body>
+</html>

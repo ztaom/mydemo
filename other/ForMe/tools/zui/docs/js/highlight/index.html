@@ -1,0 +1,216 @@
+<style>
+.highlight, .highlight-selected, .list-highlight { background:gold; }
+/* code */
+		
+			thead td { border-bottom: 1px solid #ccc !important; font-weight:bold; }
+code, pre { margin:10px 15px; font-family:"Courier New", Courier, monospace; font-size:11px; color:#3366FF; padding:5px; white-space:pre; }
+/* General table styling... */
+		
+			table { margin:15px; border-right: 1px dotted #ccc; border-bottom: 1px dotted #ccc; }
+tr td { border-top: 1px dotted #ccc; border-left: 1px dotted #ccc; }
+.no-border, .no-border tr, .no-border td { border:none; }
+/* specific row styling for the table-row table ... */
+		
+			.row-highlight { border:1px solid red !important; background:#ccc; }
+/* specific row styling for the lists ... */
+		
+			#list1 ul, #list1 li, #list2 ul, #list2 li { border:1px solid #fff; width:auto; }
+/* specific row styling for the - but NOT highlight related. Just to make the look pretty  ... */
+		
+			#list1 li, #list2 li { padding:2px; cursor:default; }
+.red { color:#f00; font-style:italic; }
+</style>
+<script type="text/javascript" src="http://www.ztaom.com/js/jquery.highlight.js"></script>
+<div class="entry-title">
+  <h1>ZUI规范指南——ZUI交互组件库</h1>
+</div>
+<div class="entry">
+  <div class="content-title">
+    <h3>滑动点击高亮显示效果<span class="feature">(highlight)</span></h3>
+  </div>
+  <h3 class="p-5">1、form</h3>
+  <form action="" method="post" id="create" name="parameters">
+    <ul class="controls">
+      <li class="p-5">
+        <label for="label" class="block">Text field</label>
+        <input name="single-line-" id="label" type="text" class="text" maxlength="" value="">
+      </li>
+      <li class="p-5">
+        <label for="multi-line" class="block">Text box</label>
+        <textarea name="controls[multi_line]" id="multi-line" class="textarea" rows="4" maxlength=""></textarea>
+      </li>
+      <li class="p-5">
+        <label for="dropdown" class="block">Dropdown List</label>
+        <select name="controls[dropdown]" id="dropdown" class="select">
+          <option value="" selected="selected">Select...</option>
+          <option value="">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </option>
+          <option value="option 1">Option 1</option>
+          <option value="option 2">Option 2</option>
+          <option value="option 3">Option 3</option>
+        </select>
+      </li>
+      <li class="p-5">
+        <label for="radio" class="block">Radio Buttons</label>
+        <fieldset id="radio">
+          <label>
+            <input name="controls[radio][]" id="controls-radio-1" type="radio" class="radio" value="option 1">
+            Option 1</label>
+          <label>
+            <input name="controls[radio][]" id="controls-radio-2" type="radio" class="radio" value="option 2">
+            Option 2</label>
+          <label>
+            <input name="controls[radio][]" id="controls-radio-3" type="radio" class="radio" value="option 3">
+            Option 3</label>
+        </fieldset>
+      </li>
+      <li class="p-5">
+        <label for="checkboxes" class="block">Check-boxes</label>
+        <fieldset id="checkboxes">
+          <label>
+            <input name="controls[checkboxes][]" id="" type="checkbox" class="checkbox" value="check 1">
+            Check 1</label>
+          <label>
+            <input name="controls[checkboxes][]" id="" type="checkbox" class="checkbox" value="check 2">
+            Check 2</label>
+          <label>
+            <input name="controls[checkboxes][]" id="" type="checkbox" class="checkbox" value="check 3">
+            Check 3</label>
+        </fieldset>
+      </li>
+      <li class="p-5">
+        <input name="Button" type="button" class="button centered" value="Submit">
+      </li>
+    </ul>
+  </form>
+  <h3 class="p-5">2、table</h3>
+  <table width="90%" border="0" cellspacing="0" cellpadding="2" id="table1">
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <table width="90%" border="0" cellspacing="0" cellpadding="2" id="table2">
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <table width="90%" border="0" cellspacing="0" cellpadding="2" id="table3">
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <h3 class="p-5">3、列表</h3>
+  <ol id="list1" class="order-list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+  </ol>
+  <ul id="list2">
+    <li>Item 1
+      <ul>
+        <li>Item 1
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 4</li>
+  </ul>
+</div>
+<script type="text/javascript">
+  $(document).ready(
+	function(){
+		// form demo
+			$('form').highlight()
+	// table demos
+			$('#table1').highlight()
+			$('#table2').highlight('td')
+			with($('#table3')){
+				highlight('tr')
+				highlight('tr', 'highlight-selected', 'mousedown')
+				}
+		// list demos
+			$('#list1').highlight('li', 'list-highlight')
+			$('#list2').highlight('ul', 'list-highlight')
+		}
+  );
+</script> 
+<script type="text/javascript">
+  SyntaxHighlighter.highlight();
+</script> 
+<script type="text/javascript" src="http://www.ztaom.com/js/ztaom.js"></script> 

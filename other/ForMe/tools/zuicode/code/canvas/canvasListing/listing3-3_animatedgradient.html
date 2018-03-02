@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Animating a gradient</title>
+<script type="text/javascript">
+
+var can ;
+var ctx ;
+var angle = 0;
+var delay = 50;
+
+function init() {
+	can = document.getElementById("can");
+	ctx = can.getContext("2d");
+	var t = setInterval("animate()", delay);
+}
+
+
+function animate() {
+
+		// create a variable that goes from -1 to 1 repeatedly in small steps
+	angle = angle + 0.03;
+	var scalar = Math.sin(angle);
+	
+		// create gradient that goes from bottom to top of canvas
+	var grad = ctx.createLinearGradient(0,can.height, 0,0);
+
+		// start gradient at blue
+	grad.addColorStop(0, 'blue');
+
+		// create rgb color value that goes from black to white
+	var r = parseInt(128 + 128 * scalar);
+	var g = parseInt(128 + 128 * scalar);
+	var b = parseInt(128 + 128 * scalar);
+	
+		// add color stop with new rgb color
+	grad.addColorStop(1, "rgb(" + r + "," + g + "," + b + ")");
+	
+		// clear canvas, fill canvas with gradient
+	ctx.clearRect(0,0, can.width,can.height);
+	ctx.save();
+	ctx.fillStyle=grad;
+	ctx.fillRect(0,0, can.width, can.height);
+	ctx.restore();
+}
+
+</script>
+</head>
+
+<body onload="init()" style="background-color:#d9d9d9">
+
+<canvas id="can" height=250 width=450>
+</canvas>
+
+</html>

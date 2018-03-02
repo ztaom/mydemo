@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+@import "compass";
+
+//bubble setting
+$b_white: rgba(255, 255, 255, 0.6);
+$b_blue: rgba(194, 227, 255, 1);
+$b_ease: cubic-bezier(0.470,0.000,0.745,0.715);
+$b_easeOut: cubic-bezier(0.250,0.460,0.450,0.940);
+
+
+
+	//move setting
+	@keyframes move {
+		0% { transform: translateY(0px); @include opacity(0);}
+		100% { transform: translateY(2000px); }
+	}
+	@-webkit-keyframes move {
+		0% { -webkit-transform: translateY(0px); @include opacity(0); }
+		100% { -webkit-transform: translateY(2000px); }
+	}
+
+	//glassMove setting
+	@keyframes glassMove {
+		0% { transform: translateY(0px); @include opacity(0); }
+		29% { transform: translateY(0px); @include opacity(0); }
+		30% { transform: translateY(0px); @include opacity(1); }
+		90% { transform: translateY(0px); @include opacity(1); }
+		100% { transform: translateY(10px); @include opacity(0); }
+	}
+	@-webkit-keyframes glassMove {
+		0% { -webkit-transform: translateY(0px); @include opacity(0); }
+		29% { -webkit-transform: translateY(0px); @include opacity(0); }
+		30% { -webkit-transform: translateY(0px); @include opacity(1); }
+		90% { -webkit-transform: translateY(0px); @include opacity(1); }
+		100% { -webkit-transform: translateY(10px); @include opacity(0); }
+	}
+
+// ----------------------------------------------------------------------------------------
+//
+// rain
+//
+// ----------------------------------------------------------------------------------------
+	
+	#contents {
+		background: url(../images/rain_bg.jpg) no-repeat;
+		background-size: cover; 
+
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		perspective: 1000px;
+		-webkit-perspective: 1000px;
+		margin-top: 0;
+		overflow: hidden;
+		.field {
+			margin: 0;
+			padding: 0;
+			position: relative;
+			overflow: hidden;
+			width: 800%;
+			margin-left: -400%;
+			z-index: 999;
+			transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+			perspective: 1000px;
+			-webkit-perspective: 1000px;
+			perspective-origin:top;
+			-webkit-perspective-origin:top;
+
+			//transform: translateZ(-100px);
+			filter: blur(1px);
+			-o-filter: blur(1px);
+			-moz-filter: blur(1px);
+			-webkit-filter: blur(1px);
+		}
+	}
+
+	// --------------------------------------------------------------------------------
+	// item
+	// --------------------------------------------------------------------------------
+	.rain {
+		position: absolute;
+		top: -300px;
+		left: 50%;
+		.item {
+			display: block;
+			width: 3px;
+			height: 70px;
+			background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,$b_white 50%,rgba(255,255,255,0) 100%);
+			background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,$b_white 50%,rgba(255,255,255,0) 100%);
+			&:after {
+				/*content: "";
+				display: block;*/
+			}
+		}
+	}
+	.glass {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include opacity(0);
+		.item {
+		    display: block;
+		    width: 40px;
+		    height: 40px;
+		    border-radius: 100%;
+		    box-shadow: -4px -4px 12px 0px rgba(255, 255, 255, 0.5) inset;
+		    -webkit-box-shadow: -4px -4px 12px 0px rgba(255, 255, 255, 0.5) inset;
+		    position: relative;
+			filter: blur(2px);
+			-o-filter: blur(2px);
+			-moz-filter: blur(2px);
+			-webkit-filter: blur(2px);
+			&:after {
+			    content: "";
+			    display: block;
+			    width: 20%;
+			    height: 20%;
+			    border-radius: 100%;
+			    background: rgba(255, 255, 255, 0.5);
+			    position: absolute;
+			    right: 15%;
+			    top: 15%;
+			    filter: blur(2px);
+				-o-filter: blur(2px);
+				-moz-filter: blur(2px);
+			    -webkit-filter: blur(2px);
+			    transform: rotateZ(45deg) scaleY(0.8);
+			    -webkit-transform: rotateZ(45deg) scaleY(0.8);
+			}
+		}
+	}
+	@for $i from 0 through 50 {
+		$time: $i*0.05;
+		$glassDelay: $i*0.5;
+		$delay: $i*0.05;
+		$translate: $i*80*(-1);
+		$scale: $i*0.01;
+		.move#{$i * 1}  {
+			animation: move $time+s $b_ease $delay+s infinite normal;
+			-webkit-animation: move $time+s $b_ease $delay+s infinite normal;
+		}
+		.glassMove#{$i * 1}  {
+			animation: glassMove 8s $b_ease $glassDelay+s infinite normal;
+			-webkit-animation: glassMove 8s $b_ease $glassDelay+s infinite normal;
+		}
+		.pos#{$i * 1}  {
+			left: percentage($i*2/100);
+		}
+		.posTop#{$i * 1}  {
+			top: percentage($i*2/100);
+		}
+		.translate#{$i * 1}  {
+			transform: translateZ($translate+px);
+			-webkit-transform: translateZ($translate+px);
+		}
+		.scale#{$i * 1}  {
+			transform: scale($scale);
+			-webkit-transform: scale($scale);
+		}
+	}
+	@for $n from -5 through 5 {
+		$rotate: $n*2;
+		.rotate#{$n * 1}  {
+			transform: rotateZ($rotate+deg);
+			-webkit-transform: rotateZ($rotate+deg);
+		}
+	}
+

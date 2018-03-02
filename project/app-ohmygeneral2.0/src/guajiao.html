@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-template-syntax="mustache">
+<head>
+    <meta charset="utf-8" />
+    <meta id="pageTitle" name="mt-page-title">
+    <title id="pageTitle" name="mt-page-title">挂角</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no, viewport-fit=cover"/>
+    <script data-mt-variable="pageData"></script>
+    <script data-mt-inline src="//g.alicdn.com/mtb/??lib-flexible/0.3.4/flexible.js,lib-env/1.9.9/env.js,lib-windvane/2.1.8/windvane.js"></script>
+    <script>
+    window.WindVane.call('WVPopLayer', 'display', {});
+    </script>
+</head>
+<body data-noaplus>
+    <script>with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","clog=o&aplus&sidx=aplusSidx&ckx=aplusCkx",id="beacon-aplus",src="//g.alicdn.com/alilog/mlog/aplus_o.js")</script>
+    <div class="wrap" style="display: block;">
+        <div class="guajiao">
+            <div class="txtpic">
+                <div class="picleft">
+                    <div class="pic" style="background-image:url(https://gw.alicdn.com/bao/uploaded/TB1EsXWhfNNTKJjSspfXXbXIFXa-304-110.png)"></div>
+                </div>
+                <div class="picright">
+                    <div class="pic" style="background-image:url(https://gw.alicdn.com/bao/uploaded/TB1EsXWhfNNTKJjSspfXXbXIFXa-304-110.png)"></div>
+                </div>
+            </div>
+            <div class="btn1"><img src="./img/gj_btn1.png" class="pic"></div>
+            <div class="btn2"><img src="./img/gj_btn2.png" class="pic"></div>
+            <div class="rotatebg"><img src="./img/gj_rotatebg.png" class="pic"></div>
+        </div>
+    </div>
+    <script>
+    window.WindVane.call('WVNativeDetector', 'getModelInfo', {}, function(e){
+      if (window.lib.env.os.isIOS && e.platform) {
+          if(e.platform.toLocaleLowerCase() == 'iphone10,3' && e.platformName.toLocaleLowerCase() == 'iphone x') {
+            document.querySelector('.guajiao').style.bottom = '2.10666667rem';
+          }
+      }
+    })
+    </script>
+</body>
+</html>
