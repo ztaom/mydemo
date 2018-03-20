@@ -31,17 +31,17 @@ sublime PlainTasks
  80path：/Library/WebServer/Documents
  编辑hosts：vim /etc/hosts
 
-4506571601@sohu.com 
+4506571601@sohu.com
 4506571602@sohu.com
 4506571603@sohu.com
 4506571604@sohu.com
-4506571605@sohu.com 
+4506571605@sohu.com
 4506571606@sohu.com
 4506571607@sohu.com
 4506571608@sohu.com
 4506571609@sohu.com
 4506571610@sohu.com
-4506571611@sohu.com  
+4506571611@sohu.com
 4506571612@sohu.com
 4506571613@sohu.com
 4506571614@sohu.com
@@ -77,14 +77,11 @@ sublime PlainTasks
  ☐ git log 查看版本提交记录
  ☐ git tag 为项目标记里程碑
  ☐ .gitignore 设置哪些内容不需要推送到服务器
- 
+
 .taskarea .item:nth-child(3){display:none}
 
 .weinre 手机端检测工具
 
-÷管理账号
- ☐ http://mcenter.youku.com/mcenter/ tangguiyao  4&tgy1245
- ✔ 10.10.72.94 h5.youku.com  username:h5,password:123456 @done (17-01-22 18:02)
 
 ÷Secure CRT 操作
  ☐ 打开  显示内容>Macos>secureCRT
@@ -104,65 +101,3 @@ sublime PlainTasks
    npm install babel-preset-es2015
    touch webpack.config.js
    touch *** 创建文件
-
-
-÷poplayer 问题
- ☐ android测试用本地ip
-   "uri":"com.youku.HomePageEntry"
- ☐  ios 
-   "uri": "HomeViewController"
- ☐ 终端控制台
-   输入MTopWVPlugin扫描查看console
-
-
-ios poplayer上线需要在地址后追加参数  _wvUseWKWebView=YES  poplayer切换uc内核：popUc=1  强制切到windvane：popWV=1
-
-÷专利
- ✘ 视频大小自动调节 @cancelled (16-11-15 10:51)
- ✘ icon图形样式化 @cancelled (16-11-15 10:51)
- ☐ 视频可以在任意页面下跳转
- ✘ 长按视频，出现交互按钮 上下集切换，调整声音大小，选集 @cancelled (16-12-05 16:47)
- ☐ 语音控制播放
-
-÷提交信息
- ☐ @done
-WIRELESS-59179 修改页面信息
-/svn/h5_frontend/trunk/extension/js/extension.js
-http://static.youku.com/h5/html/extension/extension.html?category=360pinzhuan1
-
-
-h5炫酷页面
-http://www.epub360.com/v2/manage/book/v1zvoi/#page/page_daf08533da5ef4c1
-光影 年终总结 http://game.qq.com/act/a20160917fbh/index.html
-小游戏 测测你的专属冠军DNA http://c.botuu.com/juhuasuan/201608champion/friend.aspx
-奥运 http://promo.moji.com/mojiaoyun/aoyunday01/index.html
-七夕约会  http://www.recachina.com/qixi/index.html
-vr地图 http://98786edfa71c.ih5.cn/idea/znKagak?vxparm=/vxid_1/senderid_27f3269955104f62&source=undefined&suid=A1E93C5D-2859-46E7-AF1D-ED60970A71E3&sl=0
-点球大赛http://bb5ecf9e126c.ih5.cn/idea/qMF0Jzh?vxparm=/vxid_1/senderid_27f650205a96129d&source=odVsFjzB12SgSp5NrbM5pv9mLdNw&suid=193656BA-2C2B-43BE-8486-782F8FADD8DC&sl=0
-吃豆豆 http://bb5ecf9e126c.ih5.cn/idea/N3EETq1?vxparm=/vxid_1/senderid_27f650205a96129d&source=odVsFjzB12SgSp5NrbM5pv9mLdNw&suid=193656BA-2C2B-43BE-8486-782F8FADD8DC&sl=0#p1
-
-
-
-
-花名
-阿虏 alu
-“阿虏”是《美食的俘虏》动画片美食四天王之一，他心地善良且尊重生命，热血并积极向上，为实现目标不断努力和磨练自己，终成为最强者
-
-÷ctrl+space or alt+/ 展开任务列表
- ☐ 新建任务:command+i or command+enter
- ☐ 任务完成:command+d or click bullet
- ☐ 任务取消:ctrl+c
- ☐ 任务归档(archive) command+shift+a @started(16-08-01 17:29)
-
-÷Completion rules (ctrl+space or alt+/ to see list of them):
- ☐ type t, press tab — it’ll become @today — this one is highlighted differently than other tags;
- ☐ c, tab — @critical;
- ☐ h, tab — @high;
- ☐ l, tab — @low;
- ☐ s, tab — @started — press tab again and current date will be inserted, when you’ll complete or cancel a task with such tag, you’ll know how many time has passed since start;
- ☐ tg, tab, tab work in the same manner as s, but inserts @toggle(current date) — so you can pause and resume to get more correct result when done/cancel; each toggle tag is either pause or resume depending on its place in sequence;
- ☐ cr, tab, tab — @created(current date) (⌘ + shift + enter creates a new task with this tag);
- ☐ d, tab — @due( ) 到期
-
-
-
